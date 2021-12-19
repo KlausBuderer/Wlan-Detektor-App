@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name_de">Wlan-Detektor</string>
+    <string name="title_home_de">Home</string>
+    <string name="title_echtzeitmessung_de">Echtzeitmessung</string>
+    <string name="title_messungen_de">Messungen</string>
+    <string name="title_visualisierung_de">Visualisierung</string>
+    <string name="button_netzwerkwahl_de">Netzwerkwahl</string>
+    <string name="txt_netzwerknamen_de">SSID:</string>
+    <string name="txt_macadresse_de">Mac Adresse:</string>
+    <string name="txt_Frequenz_de">Band:</string>
+    <string name="txt_Hersteller_de">Hersteller:</string>
+    <string name="txt_Sicherheittyp_de">Sicherheitstyp:</string>
+    <string name="txt_max_upload_de">Up/Download:</string>
+    <string name="txt_pegel_de">Aktueller Pegel</string>
+    <string name="txt_decibel_de">- dB</string>
+    <string name="txt_signalstaerke_titel_de">Signalstärke</string>
+    <string name="txt_tonhoehe_de">Tonhöhe</string>
+    <string name="btn_start_de">Start</string>
+</resources>

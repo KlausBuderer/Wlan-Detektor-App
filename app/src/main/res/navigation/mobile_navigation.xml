@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_home">
+
+    <fragment
+        android:id="@+id/navigation_home"
+        android:name="com.gruppe4.wlan_detektor.ui.Startseite.HomeFragment"
+        android:label="@string/title_home_de"
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/navigation_dashboard"
+        android:name="com.gruppe4.wlan_detektor.ui.Echtzeitmessung.EchtezeitmessungFragment"
+        android:label="@string/title_echtzeitmessung_de"
+        tools:layout="@layout/fragment_echtzeitmessung" />
+
+    <fragment
+        android:id="@+id/navigation_notifications"
+        android:name="com.gruppe4.wlan_detektor.ui.MessungVerwalten.MessungFragment"
+        android:label="@string/title_messungen_de"
+        tools:layout="@layout/fragment_notifications" />
+
+    <fragment
+        android:id="@+id/navigation_Visualisierung"
+        android:name="com.gruppe4.wlan_detektor.ui.Echtzeitmessung.VisualisierungFragment"
+        android:label="@string/title_visualisierung_de"
+        tools:layout="@layout/fragment_notifications" />
+</navigation>

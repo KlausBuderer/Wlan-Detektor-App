@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_home"
+        android:icon="@drawable/ic_home_black_24dp"
+        android:title="@string/title_home_de" />
+
+    <item
+        android:id="@+id/navigation_dashboard"
+        android:icon="@drawable/ic_echtzeitmessung"
+        android:title="@string/title_echtzeitmessung_de" />
+
+    <item
+        android:id="@+id/navigation_notifications"
+        android:icon="@drawable/ic_messung_verwalten"
+        android:title="@string/title_messungen_de" />
+
+    <item
+        android:id="@+id/navigation_Visualisierung"
+        android:icon="@drawable/ic_visualisierung"
+        android:title="@string/title_visualisierung_de" />
+
+</menu>

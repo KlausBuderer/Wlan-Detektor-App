@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:layout_margin="2dp">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/wlan_icon"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginEnd="8dp"
+            android:src="@drawable/ic_wlan_schwarz"></androidx.appcompat.widget.AppCompatImageView>
+
+        <TextView
+            android:id="@+id/tv_netzwerknamen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@id/wlan_icon"
+            android:text="Netzwernamen"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:textStyle="bold"></TextView>
+
+        <TextView
+            android:id="@+id/sicherheitsstatus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sicherheitsstatus"
+            android:layout_below="@id/tv_netzwerknamen"
+            android:layout_toEndOf="@id/wlan_icon">
+
+        </TextView>
+
+
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>
