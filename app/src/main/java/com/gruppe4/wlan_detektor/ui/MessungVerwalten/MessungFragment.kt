@@ -10,6 +10,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.gruppe4.wlan_detektor.databinding.FragmentNotificationsBinding
 
+
 class MessungFragment : Fragment() {
 
     private lateinit var messungViewModel: MessungViewModel

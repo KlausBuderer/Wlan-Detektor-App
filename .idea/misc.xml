@@ -12,9 +12,13 @@
         <entry key="..\:/Android/WlanDetektor/app/src/main/res/layout/activity_main.xml" value="0.48686594202898553" />
         <entry key="..\:/Android/WlanDetektor/app/src/main/res/layout/fragment_dashboard.xml" value="0.16847826086956522" />
         <entry key="..\:/Android/WlanDetektor/app/src/main/res/layout/fragment_echtzeitmessung.xml" value="0.4" />
+        <entry key="..\:/Android/WlanDetektor/app/src/main/res/layout/fragment_home.xml" value="0.55" />
+        <entry key="..\:/Android/WlanDetektor/app/src/main/res/layout/fragment_netzwerk.xml" value="0.3307291666666667" />
+        <entry key="..\:/Android/WlanDetektor/app/src/main/res/layout/fragment_netzwerk_list.xml" value="0.3307291666666667" />
         <entry key="..\:/Android/WlanDetektor/app/src/main/res/layout/fragment_netzwerkwahl.xml" value="0.33125" />
         <entry key="..\:/Android/WlanDetektor/app/src/main/res/layout/fragment_notifications.xml" value="0.48686594202898553" />
         <entry key="..\:/Android/WlanDetektor/app/src/main/res/layout/fragment_visualisierung.xml" value="0.48686594202898553" />
+        <entry key="..\:/Android/WlanDetektor/app/src/main/res/layout/netzwerkliste_fragment.xml" value="0.3307291666666667" />
         <entry key="..\:/Android/WlanDetektor/app/src/main/res/layout/netzwerkwahl_item.xml" value="0.33125" />
         <entry key="..\:/Android/WlanDetektor/app/src/main/res/menu/bottom_nav_menu.xml" value="0.55" />
         <entry key="..\:/Android/WlanDetektor/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.5661458333333333" />

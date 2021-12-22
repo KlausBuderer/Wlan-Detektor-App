@@ -8,7 +8,12 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.Navigation
+import com.gruppe4.wlan_detektor.R
+import com.gruppe4.wlan_detektor.R.*
 import com.gruppe4.wlan_detektor.databinding.FragmentEchtzeitmessungBinding
+import com.gruppe4.wlan_detektor.ui.Utility.NetzwerkFragment
+import android.content.Intent as Intent
 
 class EchtezeitmessungFragment : Fragment() {
 
@@ -17,6 +22,7 @@ class EchtezeitmessungFragment : Fragment() {
 
     // This property is only valid between onCreateView and
     // onDestroyView
+
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -35,6 +41,9 @@ class EchtezeitmessungFragment : Fragment() {
             textView.text = it
 
         binding.netzwerkwahl.setOnClickListener {
+        Navigation.findNavController(it).navigate(
+            R.id.action_navigation_echtzeitmessung_to_netzwerkliste
+        )
 
         }
 

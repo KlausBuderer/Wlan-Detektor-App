@@ -7,12 +7,12 @@
         android:title="@string/title_home_de" />
 
     <item
-        android:id="@+id/navigation_dashboard"
+        android:id="@+id/navigation_echtzeitmessung"
         android:icon="@drawable/ic_echtzeitmessung"
         android:title="@string/title_echtzeitmessung_de" />
 
     <item
-        android:id="@+id/navigation_notifications"
+        android:id="@+id/navigation_messung"
         android:icon="@drawable/ic_messung_verwalten"
         android:title="@string/title_messungen_de" />
 
