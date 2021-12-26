@@ -1,42 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <RelativeLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/relativeLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="8dp"
-        android:layout_margin="2dp">
+        android:layout_margin="2dp"
+        android:padding="8dp">
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/wlan_icon"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_marginEnd="8dp"
-            android:src="@drawable/ic_wlan_schwarz"></androidx.appcompat.widget.AppCompatImageView>
+            android:src="@drawable/ic_wlan_schwarz"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"></androidx.appcompat.widget.AppCompatImageView>
 
         <TextView
             android:id="@+id/tv_netzwerknamen"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toEndOf="@id/wlan_icon"
+            android:layout_marginStart="8dp"
             android:text="Netzwernamen"
             android:textColor="@color/black"
             android:textSize="18sp"
-            android:textStyle="bold"></TextView>
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@id/wlan_icon"
+            app:layout_constraintTop_toTopOf="parent"></TextView>
 
         <TextView
             android:id="@+id/tv_sicherheitsstatus"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
             android:text="Sicherheitsstatus"
-            android:layout_below="@id/tv_netzwerknamen"
-            android:layout_toEndOf="@id/wlan_icon">
+            app:layout_constraintStart_toEndOf="@id/wlan_icon"
+            app:layout_constraintTop_toBottomOf="@id/tv_netzwerknamen">
 
         </TextView>
 
+        <View
+            android:id="@+id/view"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:background="@color/purple_700"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_sicherheitsstatus" />
 
-    </RelativeLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.cardview.widget.CardView>

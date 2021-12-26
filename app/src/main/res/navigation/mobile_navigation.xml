@@ -39,7 +39,11 @@
         tools:layout="@layout/fragment_notifications" />
     <fragment
         android:id="@+id/netzwerkliste"
-        android:name="com.gruppe4.wlan_detektor.NetzwerklisteFragment"
+        android:name="com.gruppe4.wlan_detektor.ui.Utility.NetzwerklisteFragment"
         android:label="netzwerkliste_fragment"
-        tools:layout="@layout/netzwerkliste_fragment" />
+        tools:layout="@layout/netzwerkliste_fragment" >
+        <action
+            android:id="@+id/action_netzwerkliste_to_navigation_echtzeitmessung"
+            app:destination="@id/navigation_echtzeitmessung" />
+    </fragment>
 </navigation>

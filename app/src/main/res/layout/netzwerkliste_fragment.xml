@@ -3,17 +3,22 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".NetzwerklisteFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.Utility.NetzwerklisteFragment">
 
-
-    <ListView
-        android:id="@+id/lv_netzwerkwahl"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvnetzwerkliste"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:clipToPadding="false"
-        android:padding="4dp"
-        tools:layout_editor_absoluteX="-71dp"
-        tools:layout_editor_absoluteY="-313dp"
-        tools:listitem="@layout/netzwerkwahl_item" />
+        android:layout_marginBottom="62dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        tools:listitem="@layout/netzwerkwahl_item">
 
+    </androidx.recyclerview.widget.RecyclerView>
 </androidx.constraintlayout.widget.ConstraintLayout>

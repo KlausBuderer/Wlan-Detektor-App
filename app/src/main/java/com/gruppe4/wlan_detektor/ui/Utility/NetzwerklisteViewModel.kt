@@ -1,9 +1,7 @@
-package com.gruppe4.wlan_detektor
+package com.gruppe4.wlan_detektor.ui.Utility
 
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
-import com.gruppe4.wlan_detektor.ui.Utility.NetzwerkFragment
-import com.gruppe4.wlan_detektor.ui.Utility.NetzwerkwahlItem
+import com.gruppe4.wlan_detektor.R
 
 class NetzwerklisteViewModel : ViewModel() {
     // TODO: Implement the ViewModel
@@ -26,7 +24,7 @@ class NetzwerklisteViewModel : ViewModel() {
         netzwerkArrayList = ArrayList()
 
         for (i in ssid.indices){
-            val item = NetzwerkwahlItem(icon,ssid[i],sicherheitsstatus[i])
+            val item = NetzwerkwahlItem(ssid[i],sicherheitsstatus[i])
             netzwerkArrayList.add(item)
         }
 
