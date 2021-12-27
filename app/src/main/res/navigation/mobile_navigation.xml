@@ -30,13 +30,17 @@
         android:id="@+id/navigation_messung"
         android:name="com.gruppe4.wlan_detektor.ui.MessungVerwalten.MessungFragment"
         android:label="@string/title_messungen_de"
-        tools:layout="@layout/fragment_notifications" />
+        tools:layout="@layout/fragment_messungen" >
+        <action
+            android:id="@+id/action_navigation_messung_to_messungHinzufuegen"
+            app:destination="@id/messungHinzufuegen" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_Visualisierung"
         android:name="com.gruppe4.wlan_detektor.ui.Visualisierung.VisualisierungFragment"
         android:label="@string/title_visualisierung_de"
-        tools:layout="@layout/fragment_notifications" />
+        tools:layout="@layout/fragment_messungen" />
     <fragment
         android:id="@+id/netzwerkliste"
         android:name="com.gruppe4.wlan_detektor.ui.Utility.NetzwerklisteFragment"
@@ -46,4 +50,9 @@
             android:id="@+id/action_netzwerkliste_to_navigation_echtzeitmessung"
             app:destination="@id/navigation_echtzeitmessung" />
     </fragment>
+    <fragment
+        android:id="@+id/messungHinzufuegen"
+        android:name="com.gruppe4.wlan_detektor.ui.MessungVerwalten.MessungHinzufuegen"
+        android:label="messung_hinzufuegen_fragment"
+        tools:layout="@layout/fragment_messung_hinzufuegen" />
 </navigation>
