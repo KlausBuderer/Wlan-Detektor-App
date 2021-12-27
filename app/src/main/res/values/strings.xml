@@ -16,4 +16,9 @@
     <string name="txt_signalstaerke_titel_de">Signalstärke</string>
     <string name="txt_tonhoehe_de">Tonhöhe</string>
     <string name="btn_start_de">Start</string>
+    <string name="txt_messung_neu_namen_de">Name der Messung</string>
+    <string name="btn_netzwerk_anmelden_de">Netzwerk anmelden</string>
+    <string name="txt_raeumlichkeit_de">Art der Räumlichkeit</string>
+    <string name="btn_speichern_de">Speichern</string>
+
 </resources>

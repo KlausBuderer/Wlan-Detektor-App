@@ -1,5 +1,7 @@
 package com.gruppe4.wlan_detektor
 
+import android.content.Context
+import android.net.wifi.WifiManager
 import android.os.Bundle
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
@@ -12,6 +14,7 @@ import com.gruppe4.wlan_detektor.databinding.ActivityMainBinding
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
+    
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,7 +29,7 @@ class MainActivity : AppCompatActivity() {
         // menu should be considered as top level destinations.
         val appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_notifications, R.id.navigation_Visualisierung
+                R.id.navigation_home, R.id.navigation_echtzeitmessung, R.id.navigation_messung, R.id.navigation_Visualisierung
             )
         )
         setupActionBarWithNavController(navController, appBarConfiguration)

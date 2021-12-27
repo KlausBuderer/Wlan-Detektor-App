@@ -9,23 +9,50 @@
         android:id="@+id/navigation_home"
         android:name="com.gruppe4.wlan_detektor.ui.Startseite.HomeFragment"
         android:label="@string/title_home_de"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_navigation_home_to_navigation_echtzeitmessung"
+            app:destination="@id/navigation_echtzeitmessung" />
+    </fragment>
 
     <fragment
-        android:id="@+id/navigation_dashboard"
+        android:id="@+id/navigation_echtzeitmessung"
         android:name="com.gruppe4.wlan_detektor.ui.Echtzeitmessung.EchtezeitmessungFragment"
         android:label="@string/title_echtzeitmessung_de"
-        tools:layout="@layout/fragment_echtzeitmessung" />
+        tools:layout="@layout/fragment_echtzeitmessung" >
+        <action
+            android:id="@+id/action_navigation_echtzeitmessung_to_netzwerkliste"
+            app:destination="@id/netzwerkliste"
+            app:enterAnim="@android:anim/fade_in" />
+    </fragment>
 
     <fragment
-        android:id="@+id/navigation_notifications"
+        android:id="@+id/navigation_messung"
         android:name="com.gruppe4.wlan_detektor.ui.MessungVerwalten.MessungFragment"
         android:label="@string/title_messungen_de"
-        tools:layout="@layout/fragment_notifications" />
+        tools:layout="@layout/fragment_messungen" >
+        <action
+            android:id="@+id/action_navigation_messung_to_messungHinzufuegen"
+            app:destination="@id/messungHinzufuegen" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_Visualisierung"
         android:name="com.gruppe4.wlan_detektor.ui.Visualisierung.VisualisierungFragment"
         android:label="@string/title_visualisierung_de"
-        tools:layout="@layout/fragment_notifications" />
+        tools:layout="@layout/fragment_messungen" />
+    <fragment
+        android:id="@+id/netzwerkliste"
+        android:name="com.gruppe4.wlan_detektor.ui.Utility.NetzwerklisteFragment"
+        android:label="netzwerkliste_fragment"
+        tools:layout="@layout/netzwerkliste_fragment" >
+        <action
+            android:id="@+id/action_netzwerkliste_to_navigation_echtzeitmessung"
+            app:destination="@id/navigation_echtzeitmessung" />
+    </fragment>
+    <fragment
+        android:id="@+id/messungHinzufuegen"
+        android:name="com.gruppe4.wlan_detektor.ui.MessungVerwalten.MessungHinzufuegen"
+        android:label="messung_hinzufuegen_fragment"
+        tools:layout="@layout/fragment_messung_hinzufuegen" />
 </navigation>

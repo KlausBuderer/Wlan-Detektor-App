@@ -50,7 +50,6 @@
         android:id="@+id/tv_band"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="2dp"
         android:paddingLeft="20dp"
         android:text="@string/txt_Frequenz_de"
         app:layout_constraintStart_toStartOf="parent"
@@ -114,6 +113,10 @@
         android:layout_marginLeft="20dp"
         android:layout_marginTop="8dp"
         android:layout_marginRight="20dp"
+        android:min="-110"
+        android:max="-40"
+        android:progress="-40"
+        android:progressTint="@android:color/holo_red_dark"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txt_pegel" />
@@ -178,5 +181,54 @@
         app:layout_constraintHorizontal_bias="0.578"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/seekBar" />
+
+    <TextView
+        android:id="@+id/tv_ssid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="-200dp"
+        android:text="-"
+        app:layout_constraintBaseline_toBaselineOf="@+id/netzwerkInformationen"
+        app:layout_constraintStart_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_mac"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="-"
+        app:layout_constraintBaseline_toBaselineOf="@+id/netzwerkInformationen2"
+        app:layout_constraintStart_toStartOf="@+id/tv_ssid" />
+
+    <TextView
+        android:id="@+id/tv_frequenz"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="-"
+        app:layout_constraintBaseline_toBaselineOf="@+id/tv_band"
+        app:layout_constraintStart_toStartOf="@+id/tv_mac" />
+
+    <TextView
+        android:id="@+id/tv_hersteller"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="-"
+        app:layout_constraintBaseline_toBaselineOf="@+id/netzwerkInformationen3"
+        app:layout_constraintStart_toStartOf="@+id/tv_frequenz" />
+
+    <TextView
+        android:id="@+id/tv_sicherheittyp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="-"
+        app:layout_constraintBaseline_toBaselineOf="@+id/netzwerkInformationen4"
+        app:layout_constraintStart_toStartOf="@+id/tv_hersteller" />
+
+    <TextView
+        android:id="@+id/tv_updownspeed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="-"
+        app:layout_constraintBaseline_toBaselineOf="@+id/tv_updownload"
+        app:layout_constraintStart_toStartOf="@+id/tv_sicherheittyp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
