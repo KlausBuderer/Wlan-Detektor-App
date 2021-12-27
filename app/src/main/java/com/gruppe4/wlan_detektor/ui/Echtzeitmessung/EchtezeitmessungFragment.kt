@@ -15,9 +15,11 @@ import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.Navigation
 import com.gruppe4.wlan_detektor.R
 import com.gruppe4.wlan_detektor.databinding.FragmentEchtzeitmessungBinding
+import kotlinx.coroutines.launch
 import kotlin.math.absoluteValue
 
 class EchtezeitmessungFragment : Fragment() {
@@ -36,13 +38,14 @@ class EchtezeitmessungFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
         echtzeitmessungViewModel =
-            ViewModelProvider(this).get(EchtzeitmessungViewModel::class.java)
+            ViewModelProvider(this)[EchtzeitmessungViewModel::class.java]
 
         _binding = FragmentEchtzeitmessungBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        echtzeitmessungViewModel.startUpdates()
+
 
         val ssid: TextView = binding.tvSsid
         echtzeitmessungViewModel.netzwerkInfo.observe(viewLifecycleOwner, Observer {
@@ -77,9 +80,11 @@ class EchtezeitmessungFragment : Fragment() {
 
         val textView: TextView = binding.tvSignalstaerkeWert
 
-        echtzeitmessungViewModel.netzwerkInfo.observe(viewLifecycleOwner, Observer {
-            textView.text = it.rssi.toString() + " dB"
-            progressBar.progress = it.rssi
+
+        echtzeitmessungViewModel.signal.observe(viewLifecycleOwner, Observer {
+            textView.text = it.toString() + " dB"
+            progressBar.progress = it
+        })
 
 
 
@@ -89,12 +94,20 @@ class EchtezeitmessungFragment : Fragment() {
             startActivity(Intent(Settings.ACTION_WIFI_SETTINGS))
         }
 
-})
+            binding.btnStartEchtzeitmessung.setOnClickListener {
+                lifecycleScope.launch{
+                    echtzeitmessungViewModel.startUpdates()
+                }
+
+            }
+
+
 return root
 }
 
 override fun onDestroyView() {
 super.onDestroyView()
+    //echtzeitmessungViewModel.startUpdates()
 _binding = null
 }
 }
