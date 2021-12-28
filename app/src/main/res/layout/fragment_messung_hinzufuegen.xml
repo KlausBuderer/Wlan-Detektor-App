@@ -40,9 +40,9 @@
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:padding="8dp"
-        app:layout_constraintTop_toBottomOf="@+id/netzwerkwahl_messung">
+        app:layout_constraintTop_toBottomOf="@+id/txt_netzwerkTitel">
 
         <AutoCompleteTextView
             android:id="@+id/autoCompleteTextView"
@@ -55,6 +55,16 @@
 
     </com.google.android.material.textfield.TextInputLayout>
 
+    <TextView
+        android:id="@+id/txt_netzwerkTitel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:text="@string/txt_netzTitel_de"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/netzwerkwahl_messung"
+        app:layout_constraintTop_toBottomOf="@+id/netzwerkwahl_messung" />
+
     <Button
         android:id="@+id/messung_speichern"
         android:layout_width="match_parent"
@@ -63,6 +73,7 @@
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:text="@string/btn_speichern_de"
+        android:enabled="false"
         app:layout_constraintStart_toStartOf="@+id/netzwerkwahl_messung"
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout" />
 
