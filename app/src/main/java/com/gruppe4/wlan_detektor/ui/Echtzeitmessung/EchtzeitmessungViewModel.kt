@@ -7,13 +7,12 @@ import android.net.wifi.WifiInfo
 import android.net.wifi.WifiManager
 import android.util.Log
 import androidx.lifecycle.*
-import com.gruppe4.wlan_detektor.ui.Utility.NetzwerkwahlItem
+import com.gruppe4.wlan_detektor.ui.MessungVerwalten.MesspunktItem
 import kotlinx.coroutines.*
-import kotlinx.coroutines.NonCancellable.isActive
 
 class EchtzeitmessungViewModel(application: Application) : AndroidViewModel(application) {
 
-    private lateinit var netzwerkArrayList : ArrayList<NetzwerkwahlItem>
+    private lateinit var netzwerkArrayList : ArrayList<MesspunktItem>
 
     var wifiManager = getApplication<Application>().getSystemService(Context.WIFI_SERVICE) as WifiManager
     private var connectionInfo: WifiInfo = wifiManager.connectionInfo

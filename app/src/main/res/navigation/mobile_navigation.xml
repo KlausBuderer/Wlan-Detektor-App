@@ -54,5 +54,14 @@
         android:id="@+id/messungHinzufuegen"
         android:name="com.gruppe4.wlan_detektor.ui.MessungVerwalten.MessungHinzufuegen"
         android:label="messung_hinzufuegen_fragment"
-        tools:layout="@layout/fragment_messung_hinzufuegen" />
+        tools:layout="@layout/fragment_messung_hinzufuegen" >
+        <action
+            android:id="@+id/action_messungHinzufuegen_to_messungBearbeitenFragment"
+            app:destination="@id/messungBearbeitenFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/messungBearbeitenFragment"
+        android:name="com.gruppe4.wlan_detektor.ui.MessungVerwalten.MessungBearbeitenFragment"
+        android:label="messung_bearbeiten_fragment"
+        tools:layout="@layout/messung_bearbeiten_fragment" />
 </navigation>
