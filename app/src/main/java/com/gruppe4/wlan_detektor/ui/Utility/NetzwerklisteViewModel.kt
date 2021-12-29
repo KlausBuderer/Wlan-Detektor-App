@@ -2,11 +2,12 @@ package com.gruppe4.wlan_detektor.ui.Utility
 
 import androidx.lifecycle.ViewModel
 import com.gruppe4.wlan_detektor.R
+import com.gruppe4.wlan_detektor.ui.MessungVerwalten.MesspunktItem
 
 class NetzwerklisteViewModel : ViewModel() {
     // TODO: Implement the ViewModel
 
-    var netzwerkArrayList = ArrayList<NetzwerkwahlItem>()
+    var netzwerkArrayList = ArrayList<MesspunktItem>()
 
     val icon = R.drawable.ic_wlan_schwarz
     val ssid = arrayOf(
@@ -20,13 +21,13 @@ class NetzwerklisteViewModel : ViewModel() {
         "Verschlüsselt"
     )
 
-    fun getNetwork(): ArrayList<NetzwerkwahlItem>{
+    fun getNetwork(): ArrayList<MesspunktItem>{
         netzwerkArrayList = ArrayList()
 
-        for (i in ssid.indices){
-            val item = NetzwerkwahlItem(ssid[i],sicherheitsstatus[i])
+       /* for (i in ssid.indices){
+           val item = MesspunktItem(ssid[i],sicherheitsstatus[i])
             netzwerkArrayList.add(item)
-        }
+        }*/
 
         return  netzwerkArrayList
 

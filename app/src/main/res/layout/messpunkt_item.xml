@@ -13,8 +13,8 @@
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/wlan_icon"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
             android:layout_marginEnd="8dp"
             android:src="@drawable/ic_wlan_schwarz"
             app:layout_constraintStart_toStartOf="parent"
@@ -25,7 +25,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:text="Netzwernamen"
+            android:text="Messpunktnamen"
             android:textColor="@color/black"
             android:textSize="18sp"
             android:textStyle="bold"
@@ -37,11 +37,34 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:text="Sicherheitsstatus"
+            android:text="Gebaeude"
             app:layout_constraintStart_toEndOf="@id/wlan_icon"
             app:layout_constraintTop_toBottomOf="@id/tv_netzwerknamen">
 
         </TextView>
+
+        <TextView
+            android:id="@+id/tv_stockwerk"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="Stockwerk"
+            app:layout_constraintStart_toEndOf="@id/wlan_icon"
+            app:layout_constraintTop_toBottomOf="@id/tv_sicherheitsstatus">
+
+        </TextView>
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/wlan_barbeiten"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginEnd="16dp"
+            android:src="@drawable/ic_edit"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"></androidx.appcompat.widget.AppCompatImageView>
+
+
 
         <View
             android:id="@+id/view"
@@ -51,7 +74,7 @@
             android:layout_marginTop="8dp"
             android:background="@color/purple_700"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_sicherheitsstatus" />
+            app:layout_constraintTop_toBottomOf="@+id/tv_stockwerk" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

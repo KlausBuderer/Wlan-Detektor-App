@@ -1,12 +1,10 @@
+/*
 package com.gruppe4.wlan_detektor.ui.Utility
 
-import android.Manifest
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
 import android.content.IntentFilter
-import android.net.ConnectivityManager
-import android.net.wifi.ScanResult
 import android.net.wifi.WifiManager
 import android.os.Build
 import android.os.Bundle
@@ -16,14 +14,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.annotation.RequiresApi
-import androidx.core.content.ContextCompat
-import androidx.core.content.PermissionChecker.checkCallingOrSelfPermission
-import androidx.core.content.PermissionChecker.checkCallingPermission
 import androidx.navigation.Navigation
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.gruppe4.wlan_detektor.R
 import com.gruppe4.wlan_detektor.databinding.NetzwerklisteFragmentBinding
-import com.gruppe4.wlan_detektor.model.NetzwerkHandler
+import com.gruppe4.wlan_detektor.ui.MessungVerwalten.MesspunktItem
 
 class NetzwerklisteFragment() : Fragment(), NetzwerkwahlAdapter.OnItemClickListener {
 
@@ -74,7 +68,8 @@ class NetzwerklisteFragment() : Fragment(), NetzwerkwahlAdapter.OnItemClickListe
         getActivity()?.registerReceiver(wifiScanReceiver, intentFilter)
 
 
-        /*fun getResults() {
+        */
+/*fun getResults() {
             var result = wifiManager.scanResults
             val adapter = NetzwerkwahlAdapter(result, this)
             binding?.rvnetzwerkliste?.adapter = adapter
@@ -82,7 +77,8 @@ class NetzwerklisteFragment() : Fragment(), NetzwerkwahlAdapter.OnItemClickListe
                 requireActivity(),
                 Manifest.permission.ACCESS_FINE_LOCATION
             )
-        }*/
+        }*//*
+
 
         return root
     }
@@ -95,8 +91,8 @@ class NetzwerklisteFragment() : Fragment(), NetzwerkwahlAdapter.OnItemClickListe
 
     override fun onItemClick(position: Int) {
         Toast.makeText(getActivity(), "Item $position clicked", Toast.LENGTH_SHORT).show()
-        val clickedItem: NetzwerkwahlItem = NetzwerkListe.netzwerkListe[position]
-        clickedItem.verschluesselt = "Gedrückt"
+        val clickedItem: MesspunktItem = NetzwerkListe.netzwerkListe[position]
+       //clickedItem.verschluesselt = "Gedrückt"
 
         Navigation.findNavController(binding.root).navigate(
             R.id.action_netzwerkliste_to_navigation_echtzeitmessung
@@ -104,13 +100,15 @@ class NetzwerklisteFragment() : Fragment(), NetzwerkwahlAdapter.OnItemClickListe
     }
 
     private fun scanSuccess() {
-       /* var result = wifiManager.scanResults
+       */
+/* var result = wifiManager.scanResults
         val adapter = NetzwerkwahlAdapter(result, this)
         binding?.rvnetzwerkliste?.adapter = adapter
         checkCallingOrSelfPermission(
             requireActivity(),
             Manifest.permission.ACCESS_FINE_LOCATION
-        )*/
+        )*//*
+
 
         //Toast.makeText(getActivity(), checkCallingOrSelfPermission(requireActivity(),Manifest.permission.ACCESS_FINE_LOCATION), Toast.LENGTH_LONG).show()
     }
@@ -126,3 +124,4 @@ class NetzwerklisteFragment() : Fragment(), NetzwerkwahlAdapter.OnItemClickListe
 }
 
 
+*/

@@ -21,5 +21,6 @@
     <string name="txt_raeumlichkeit_de">Art der Räumlichkeit</string>
     <string name="btn_speichern_de">Speichern</string>
     <string name="txt_netzTitel_de">noch nicht im Wlan angemeldet</string>
+    <string name="txt_netzwerk_de">Netzwerk: </string>
 
 </resources>
