@@ -52,8 +52,8 @@ class MessungHinzufuegen : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-       /* viewModel =
-            ViewModelProvider(this)[MessungHinzufuegenViewModel::class.java]*/
+        /* viewModel =
+             ViewModelProvider(this)[MessungHinzufuegenViewModel::class.java]*/
 
         _binding = FragmentMessungHinzufuegenBinding.inflate(inflater, container, false)
 
@@ -81,7 +81,8 @@ class MessungHinzufuegen : Fragment() {
 
             //Validierung des Namens der Messung
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                viewModel.konditionNamenValide = viewModel.namenValidieren(eingabeNamen.text.toString())
+                viewModel.konditionNamenValide =
+                    viewModel.namenValidieren(eingabeNamen.text.toString())
             }
 
             //Signalisierung das Namen der Messung bereits vergeben ist
@@ -96,41 +97,45 @@ class MessungHinzufuegen : Fragment() {
 
         })
 
-        netzwahl.setOnClickListener{
+        netzwahl.setOnClickListener {
             startActivity(Intent(Settings.ACTION_WIFI_SETTINGS))
         }
 
         //Pruefen Netzwerknamen für Ausgabe
-                if (viewModel.pruefenNetzAnmeldung()){
-                    netzNamen.text = viewModel.netzwerkInfo()
-                }
+        if (viewModel.pruefenNetzAnmeldung()) {
+            netzNamen.text = viewModel.netzwerkInfo()
+        }
 
 
         //Pruefen ob Art der Raeumlichkeit gewählt wurde
-        raeumlichkeit.setOnItemClickListener{ parent, view, position, id ->
+        raeumlichkeit.setOnItemClickListener { parent, view, position, id ->
             viewModel.pruefenRaeumlichkeitWahl(position)
-            Toast.makeText(requireContext(),position.toString(), Toast.LENGTH_LONG).show()
+            Toast.makeText(requireContext(), position.toString(), Toast.LENGTH_LONG).show()
             speichernButton.isEnabled = viewModel.buttonFreigabe()
         }
 
-        Toast.makeText(requireContext(),viewModel.konditionRaum.toString() + viewModel.konditionNamenValide.toString() + viewModel.konditionNetzAngemeldet.toString(), Toast.LENGTH_LONG).show()
+        Toast.makeText(
+            requireContext(),
+            viewModel.konditionRaum.toString() + viewModel.konditionNamenValide.toString() + viewModel.konditionNetzAngemeldet.toString(),
+            Toast.LENGTH_LONG
+        ).show()
 
 
         //Speicherbutton Freigabe
         viewModel.speicherFreigabe.observe(viewLifecycleOwner, Observer {
-            speichernButton.isEnabled =  it})
+            speichernButton.isEnabled = it
+        })
 
-        speichernButton.setOnClickListener{
+        speichernButton.setOnClickListener {
             viewModel.messungSpeichern()
 
             //Navigation in Messung Bearbeiten Bild
             Navigation.findNavController(it).navigate(
-                R.id.action_navigation_messung_to_messungHinzufuegen)
+                R.id.action_messungHinzufuegen_to_messungBearbeitenFragment
+            )
         }
 
     }
-
-
 
 
 }
