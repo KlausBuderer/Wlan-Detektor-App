@@ -1,6 +1,9 @@
 package com.gruppe4.wlan_detektor.ui.Echtzeitmessung
 
+import android.Manifest.permission.ACCESS_FINE_LOCATION
+import android.app.Activity
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.content.res.ColorStateList
 import android.net.wifi.WifiManager
 import android.os.Build
@@ -11,7 +14,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ProgressBar
 import android.widget.TextView
+import android.widget.Toast
 import androidx.annotation.RequiresApi
+import androidx.appcompat.app.AlertDialog
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -39,6 +46,39 @@ class EchtezeitmessungFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
+        //Pruefen ob die Berechtigung vorhanden ist
+        if (isPermissionGranted(ACCESS_FINE_LOCATION)) {
+            //Berechtigung vorhanden
+        } else {
+            val builder = AlertDialog.Builder(requireContext())
+            //Dialog Titel
+            builder.setTitle("Beachte")
+            //Dialog Text
+            builder.setMessage("Um die Informationen des Wlan Routers auslesen zu können muss die Lokalisierung erlaubt werden.")
+            //Dialog Icon
+            builder.setIcon(android.R.drawable.ic_dialog_alert)
+
+            //Ja Button
+            builder.setPositiveButton("Ja") { dialogInterface, which ->
+                context?.startActivity(Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS))
+            }
+
+            //Nein Button
+            builder.setNegativeButton("No"){dialogInterface, which ->
+                Toast.makeText(requireContext(),"..Schade, leider können wir die SSID nicht ausgeben",Toast.LENGTH_LONG).show()
+            }
+
+            // Erstellen des Dialogs
+            val alertDialog: AlertDialog = builder.create()
+            // Set other dialog properties
+            alertDialog.setCancelable(false)
+            alertDialog.show()
+
+            }
+
+
+
+
         echtzeitmessungViewModel =
             ViewModelProvider(this)[EchtzeitmessungViewModel::class.java]
 
@@ -46,22 +86,21 @@ class EchtezeitmessungFragment : Fragment() {
         val root: View = binding.root
 
 
-
         val ssid: TextView = binding.tvSsid
         echtzeitmessungViewModel.netzwerkInfo.observe(viewLifecycleOwner, Observer {
             ssid.text =  it.ssid})
 
-        /*val mac: TextView = binding.tvMac
+        val mac: TextView = binding.tvMac
         echtzeitmessungViewModel.netzwerkInfo.observe(viewLifecycleOwner, Observer {
-            mac.text =  it.macAddress.toString()})*/
+            mac.text =  it.bssid.toString()})
 
         val band: TextView = binding.tvFrequenz
-        echtzeitmessungViewModel.netzwerkInfo.observe(viewLifecycleOwner, Observer {
-            band.text =  it.frequency.toString()})
+        echtzeitmessungViewModel.band.observe(viewLifecycleOwner, Observer {
+            band.text =  it.toString() + " GHz"})
 
         val supplier: TextView = binding.tvHersteller
         echtzeitmessungViewModel.netzwerkInfo.observe(viewLifecycleOwner, Observer {
-            supplier.text =  it.bssid})
+            supplier.text =  "noch nicht implementiert"})
 
         /*val sicherheitstyp: TextView = binding.tvSicherheittyp
         echtzeitmessungViewModel.netzwerkInfo.observe(viewLifecycleOwner, Observer {
@@ -81,9 +120,9 @@ class EchtezeitmessungFragment : Fragment() {
         val textView: TextView = binding.tvSignalstaerkeWert
 
 
-        echtzeitmessungViewModel.signal.observe(viewLifecycleOwner, Observer {
-            textView.text = it.toString() + " dB"
-            progressBar.progress = it
+        echtzeitmessungViewModel.netzwerkInfo.observe(viewLifecycleOwner, Observer {
+            textView.text = it.rssi.toString() + " dB"
+            progressBar.progress = it.rssi
         })
 
 
@@ -105,7 +144,13 @@ class EchtezeitmessungFragment : Fragment() {
 return root
 }
 
-override fun onDestroyView() {
+    fun isPermissionGranted(permission:String):Boolean =
+        ContextCompat.checkSelfPermission(
+            requireContext(),
+            permission
+        ) == PackageManager.PERMISSION_GRANTED
+
+    override fun onDestroyView() {
 super.onDestroyView()
     //echtzeitmessungViewModel.startUpdates()
 _binding = null

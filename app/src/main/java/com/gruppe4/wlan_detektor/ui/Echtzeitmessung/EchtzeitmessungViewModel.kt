@@ -3,9 +3,9 @@ package com.gruppe4.wlan_detektor.ui.Echtzeitmessung
 import android.app.Application
 import android.content.Context
 import android.graphics.Color
+import android.net.ConnectivityManager
 import android.net.wifi.WifiInfo
 import android.net.wifi.WifiManager
-import android.util.Log
 import androidx.lifecycle.*
 import com.gruppe4.wlan_detektor.ui.MessungVerwalten.MesspunktItem
 import kotlinx.coroutines.*
@@ -15,17 +15,17 @@ class EchtzeitmessungViewModel(application: Application) : AndroidViewModel(appl
     private lateinit var netzwerkArrayList : ArrayList<MesspunktItem>
 
     var wifiManager = getApplication<Application>().getSystemService(Context.WIFI_SERVICE) as WifiManager
+    val connectivityManager = getApplication<Application>().getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
     private var connectionInfo: WifiInfo = wifiManager.connectionInfo
     var progressFarbeZyklisch: Int = progressBarFarbeEinstellen()
-    var signalZyklisch: Int = wifiManager.connectionInfo.rssi
 
 
     val _netzwerkInfo = MutableLiveData<WifiInfo>().apply {
         value = connectionInfo
     }
 
-    var _signal = MutableLiveData <Int>().apply {
-        value = signalZyklisch
+    val _band = MutableLiveData<Double>().apply {
+        value = bandUmrechnung()
     }
 
     val _progressFarbe = MutableLiveData<Int>().apply {
@@ -33,36 +33,39 @@ class EchtzeitmessungViewModel(application: Application) : AndroidViewModel(appl
     }
 
     fun progressBarFarbeEinstellen(): Int{
-        if (wifiManager.connectionInfo.rssi > -60){
+        if (connectionInfo.rssi > -60){
             return Color.GREEN
-        }else if (wifiManager.connectionInfo.rssi > -70){
+        }else if (connectionInfo.rssi > -70){
             return Color.YELLOW
         }else{
             return Color.RED
         }
     }
 
+    fun bandUmrechnung(): Double{
+        if (connectionInfo.frequency > 5000){
+            return 5.0
+        }else if (connectionInfo.frequency in 2000 .. 3000){
+            return 2.4
+        }
+        return 0.0
+    }
+
     val netzwerkInfo: LiveData<WifiInfo> =  _netzwerkInfo
     val progressFarbe: LiveData<Int> =  _progressFarbe
-    var signal: LiveData<Int> = _signal
-
-
-
-
+    val band: LiveData<Double> = _band
 
     suspend fun startUpdates(){
         withContext(Dispatchers.IO){
             while (true) {
-                Log.e("Signal: ", signalZyklisch.toString())
 
-                _signal.postValue(signalZyklisch)
+                connectionInfo = wifiManager.connectionInfo
+
+                _netzwerkInfo.postValue(connectionInfo)
                 _progressFarbe.postValue(run { progressBarFarbeEinstellen() })
 
 
-
-                signalZyklisch = wifiManager.connectionInfo.rssi
-
-                delay(1000)
+                delay(500)
             }
         }
 

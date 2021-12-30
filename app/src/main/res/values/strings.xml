@@ -22,5 +22,6 @@
     <string name="btn_speichern_de">Speichern</string>
     <string name="txt_netzTitel_de">noch nicht im Wlan angemeldet</string>
     <string name="txt_netzwerk_de">Netzwerk: </string>
+    <string name="txt_titel_messung_hinzufuegen_de"></string>
 
 </resources>
