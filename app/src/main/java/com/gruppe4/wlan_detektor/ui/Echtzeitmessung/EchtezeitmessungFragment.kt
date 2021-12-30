@@ -2,9 +2,11 @@ package com.gruppe4.wlan_detektor.ui.Echtzeitmessung
 
 import android.Manifest.permission.ACCESS_FINE_LOCATION
 import android.app.Activity
+import android.content.ActivityNotFoundException
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.content.res.ColorStateList
+import android.net.Uri
 import android.net.wifi.WifiManager
 import android.os.Build
 import android.os.Bundle
@@ -59,12 +61,20 @@ class EchtezeitmessungFragment : Fragment() {
             builder.setIcon(android.R.drawable.ic_dialog_alert)
 
             //Ja Button
-            builder.setPositiveButton("Ja") { dialogInterface, which ->
-                context?.startActivity(Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS))
+            builder.setPositiveButton("Einstellungen") { dialogInterface, which ->
+                try {
+                    //context?.startActivity(Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS))
+                    val intent = Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS)
+                    val uri = Uri.fromParts("package", activity?.packageName, null)
+                    intent.data = uri
+                    startActivity(intent)
+                }catch (e: ActivityNotFoundException){
+                    context?.startActivity(Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS))
+                }
             }
 
             //Nein Button
-            builder.setNegativeButton("No"){dialogInterface, which ->
+            builder.setNegativeButton("Abbrechen"){dialogInterface, which ->
                 Toast.makeText(requireContext(),"..Schade, leider können wir die SSID nicht ausgeben",Toast.LENGTH_LONG).show()
             }
 
