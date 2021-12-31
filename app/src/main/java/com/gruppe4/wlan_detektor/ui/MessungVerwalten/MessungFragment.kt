@@ -33,9 +33,17 @@ class MessungFragment : Fragment() {
         _binding = FragmentMessungenBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        binding.btnAddMessung.setOnClickListener{
+        //Absprung in Maske um neue Messung hinzuzufügen
+        binding.btnAddMessung.setOnClickListener {
             Navigation.findNavController(it).navigate(
-                R.id.action_navigation_messung_to_messungHinzufuegen)
+                R.id.action_navigation_messung_to_messungHinzufuegen
+            )
+        }
+        //Absprung in eine Liste von Messungen
+        binding.btnEditMessung.setOnClickListener{
+            Navigation.findNavController(it).navigate(
+                R.id.action_navigation_messung_to_messungListeFragment
+            )
         }
 
 

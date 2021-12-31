@@ -16,17 +16,16 @@
             android:layout_width="75dp"
             android:layout_height="75dp"
             android:layout_marginEnd="8dp"
-            android:src="@drawable/ic_messpunkt"
+            android:src="@drawable/ic_wlan_schwarz"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-        </androidx.appcompat.widget.AppCompatImageView>
+            app:layout_constraintTop_toTopOf="parent"></androidx.appcompat.widget.AppCompatImageView>
 
         <TextView
-            android:id="@+id/tv_netzwerknamen"
+            android:id="@+id/tv_messung_namen"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:text="Messpunktnamen"
+            android:text="Messungnamen"
             android:textColor="@color/black"
             android:textSize="18sp"
             android:textStyle="bold"
@@ -34,38 +33,36 @@
             app:layout_constraintTop_toTopOf="parent"></TextView>
 
         <TextView
-            android:id="@+id/tv_sicherheitsstatus"
+            android:id="@+id/tv_raeumlickkeit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:text="Gebaeude"
             app:layout_constraintStart_toEndOf="@id/wlan_icon"
-            app:layout_constraintTop_toBottomOf="@id/tv_netzwerknamen">
+            app:layout_constraintTop_toBottomOf="@id/tv_messung_namen">
 
         </TextView>
 
         <TextView
-            android:id="@+id/tv_stockwerk"
+            android:id="@+id/tv_zeitstempel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:text="Stockwerk"
             app:layout_constraintStart_toEndOf="@id/wlan_icon"
-            app:layout_constraintTop_toBottomOf="@id/tv_sicherheitsstatus">
+            app:layout_constraintTop_toBottomOf="@id/tv_raeumlickkeit">
 
         </TextView>
 
         <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/wlan_barbeiten"
+            android:id="@+id/messung_barbeiten"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_marginEnd="16dp"
             android:src="@drawable/ic_edit"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-        </androidx.appcompat.widget.AppCompatImageView>
-
+            app:layout_constraintTop_toTopOf="parent"></androidx.appcompat.widget.AppCompatImageView>
 
 
         <View
@@ -76,7 +73,7 @@
             android:layout_marginTop="8dp"
             android:background="@color/purple_700"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_stockwerk" />
+            app:layout_constraintTop_toBottomOf="@+id/tv_zeitstempel" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

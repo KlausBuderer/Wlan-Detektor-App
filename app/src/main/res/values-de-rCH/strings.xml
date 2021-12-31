@@ -1,6 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name_de">Wlan-Detektor</string>
-    <string name="title_home_de">Home</string>
+    <string name="title_home_de">Startseite</string>
     <string name="title_echtzeitmessung_de">Echtzeitmessung</string>
     <string name="title_messungen_de">Messungen</string>
     <string name="title_visualisierung_de">Visualisierung</string>
@@ -21,7 +22,7 @@
     <string name="txt_raeumlichkeit_de">Art der Räumlichkeit</string>
     <string name="btn_speichern_de">Speichern</string>
     <string name="txt_netzTitel_de">noch nicht im Wlan angemeldet</string>
-    <string name="txt_netzwerk_de">Netzwerk: </string>
+    <string name="txt_netzwerk_de">"Netzwerk: "</string>
     <string name="txt_titel_messung_hinzufuegen_de">Messung hinzufügen</string>
     <string name="txt_ausgewaehlteMessung_de">Ausgewählte Messung:</string>
     <string name="txt_Gebaeude_de">Gebäude</string>
@@ -30,5 +31,4 @@
     <string name="txt_zusatzinformationen_de">Zusatzinformationen</string>
     <string name="txt_helper_max_zeichen_de">maximal 20 Zeichen</string>
     <string name="txt_abbrechen">Abbrechen</string>
-
 </resources>
