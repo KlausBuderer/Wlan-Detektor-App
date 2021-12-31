@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="stockwerk_array">
+        <item>3.UG</item>
+        <item>2.UG</item>
+        <item>1.UG</item>
+        <item>Erdgeschoss</item>
+        <item>1.OG</item>
+        <item>2.OG</item>
+        <item>3.OG</item>
+        <item>4.OG</item>
+        <item>5.OG</item>
+        <item>6.OG</item>
+        <item>7.OG</item>
+        <item>9.OG</item>
+        <item>10.OG</item>
+        <item>11.OG</item>
+        <item>12.OG</item>
+    </string-array>
+</resources>
