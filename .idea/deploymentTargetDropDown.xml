@@ -6,12 +6,12 @@
         <type value="QUICK_BOOT_TARGET" />
         <deviceKey>
           <Key>
-            <type value="VIRTUAL_DEVICE_PATH" />
-            <value value="C:\Users\buder\.android\avd\Pixel_2_API_27.avd" />
+            <type value="SERIAL_NUMBER" />
+            <value value="5200103bee1074db" />
           </Key>
         </deviceKey>
       </Target>
-    </targetSelectedWithDropDown>
-    <timeTargetWasSelectedWithDropDown value="2021-12-30T08:11:56.256688700Z" />
+    </runningDeviceTargetSelectedWithDropDown>
+    <timeTargetWasSelectedWithDropDown value="2021-12-30T19:25:26.676537700Z" />
   </component>
 </project>

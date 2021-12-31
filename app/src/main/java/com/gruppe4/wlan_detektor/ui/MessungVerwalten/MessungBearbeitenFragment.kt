@@ -6,6 +6,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import androidx.navigation.Navigation
 import com.gruppe4.wlan_detektor.R
 import com.gruppe4.wlan_detektor.databinding.MesspunktItemBinding
 import com.gruppe4.wlan_detektor.databinding.MessungBearbeitenFragmentBinding
@@ -16,6 +18,7 @@ class MessungBearbeitenFragment : Fragment(), MesspunktBearbeitenAdapter.OnItemC
 
     var _binding: MessungBearbeitenFragmentBinding? = null
     private val binding get() = _binding!!
+    lateinit var addButton: Button
 
     companion object {
         fun newInstance() = MessungBearbeitenFragment()
@@ -31,10 +34,17 @@ class MessungBearbeitenFragment : Fragment(), MesspunktBearbeitenAdapter.OnItemC
         _binding = MessungBearbeitenFragmentBinding.inflate(layoutInflater)
         val root: View = binding.root
 
+        var addButton = binding.btnMesspunktHinzufuegen
+
         var messpunkte = MesspunktListe.messpunktListe
         val adapter = MesspunktBearbeitenAdapter(messpunkte, this)
         binding?.rvnetzwerkliste?.adapter = adapter
 
+        addButton.setOnClickListener{
+            Navigation.findNavController(binding.root).navigate(
+                    R.id.action_messungBearbeitenFragment_to_messpunktErfassungsFragment
+            )
+        }
 
         return root
     }
@@ -46,6 +56,9 @@ class MessungBearbeitenFragment : Fragment(), MesspunktBearbeitenAdapter.OnItemC
     }
 
     override fun onItemClick(position: Int) {
+        Navigation.findNavController(binding.root).navigate(
+            R.id.action_messungBearbeitenFragment_to_messpunktErfassungsFragment
+        )
     }
 
 }

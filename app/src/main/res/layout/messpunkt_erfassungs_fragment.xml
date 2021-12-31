@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.MessungVerwalten.MesspunktErfassungsFragment">
+
+    <TextView
+        android:id="@+id/tv_gewaehlteMessung"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:text="@string/txt_ausgewaehlteMessung_de"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_messung_namen"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:text="Name der Messung"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_gewaehlteMessung" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/et_gebaeude_layout"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="32dp"
+        android:hint="@string/txt_Gebaeude_de"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_messung_namen"
+        app:startIconDrawable="@drawable/ic_home_black_24dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_gebaeude_edit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/dd_stockwerk_layout"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        app:startIconDrawable="@drawable/ic_stockwerke"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_gebaeude_layout">
+
+        <AutoCompleteTextView
+            android:id="@+id/autoCompleteTextView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:hint="@string/txt_stockwerk_de"
+            android:inputType="none"
+            />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/et_raumname_layout"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="32dp"
+        android:hint="@string/txt_raumname_de"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dd_stockwerk_layout"
+        app:startIconDrawable="@drawable/ic_room">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_raumname_edit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/et_zusatzinformation_layout"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="32dp"
+        android:hint="@string/txt_zusatzinformationen_de"
+        app:counterEnabled="true"
+        app:counterMaxLength="20"
+        app:errorEnabled="true"
+        app:helperText="@string/txt_helper_max_zeichen_de"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_raumname_layout"
+        app:startIconDrawable="@drawable/ic_info">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_zusatzinformation_edit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <ProgressBar
+        android:id="@+id/pg_progressBar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="32dp"
+        android:max="-40"
+        android:min="-110"
+        android:progress="-40"
+        android:progressTint="@android:color/holo_red_dark"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_zusatzinformation_layout" />
+
+    <TextView
+        android:id="@+id/tv_signalstaerke_titel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/txt_signalstaerke_titel_de"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/pg_progressBar"
+        app:layout_constraintTop_toBottomOf="@+id/pg_progressBar" />
+
+    <TextView
+        android:id="@+id/tv_signalstaerke_wert"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:text="-50 dB"
+        app:layout_constraintBaseline_toBaselineOf="@+id/tv_signalstaerke_titel"
+        app:layout_constraintStart_toEndOf="@+id/tv_signalstaerke_titel" />
+
+    <Button
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+        android:id="@+id/btn_start_messpunkt_messung"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/material_on_background_emphasis_medium"
+        android:text="@string/btn_start_de"
+        app:layout_constraintBaseline_toBaselineOf="@+id/tv_signalstaerke_wert"
+        app:layout_constraintEnd_toEndOf="@+id/pg_progressBar" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/btn_speichern_de"
+        app:layout_constraintEnd_toEndOf="@+id/btn_start_messpunkt_messung"
+        app:layout_constraintTop_toBottomOf="@+id/btn_start_messpunkt_messung" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="32dp"
+        android:text="@string/txt_abbrechen"
+        app:layout_constraintBaseline_toBaselineOf="@+id/button2"
+        app:layout_constraintEnd_toStartOf="@+id/button2" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

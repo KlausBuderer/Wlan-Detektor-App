@@ -34,6 +34,9 @@
         <action
             android:id="@+id/action_navigation_messung_to_messungHinzufuegen"
             app:destination="@id/messungHinzufuegen" />
+        <action
+            android:id="@+id/action_navigation_messung_to_messungListeFragment"
+            app:destination="@id/messungListeFragment" />
     </fragment>
 
     <fragment
@@ -63,5 +66,23 @@
         android:id="@+id/messungBearbeitenFragment"
         android:name="com.gruppe4.wlan_detektor.ui.MessungVerwalten.MessungBearbeitenFragment"
         android:label="messung_bearbeiten_fragment"
-        tools:layout="@layout/messung_bearbeiten_fragment" />
+        tools:layout="@layout/messung_bearbeiten_fragment" >
+        <action
+            android:id="@+id/action_messungBearbeitenFragment_to_messpunktErfassungsFragment"
+            app:destination="@id/messpunktErfassungsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/messungListeFragment"
+        android:name="com.gruppe4.wlan_detektor.ui.MessungVerwalten.MessungListeFragment"
+        android:label="messung_liste_fragment"
+        tools:layout="@layout/messung_liste_fragment" >
+        <action
+            android:id="@+id/action_messungListeFragment_to_messungBearbeitenFragment"
+            app:destination="@id/messungBearbeitenFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/messpunktErfassungsFragment"
+        android:name="com.gruppe4.wlan_detektor.ui.MessungVerwalten.MesspunktErfassungsFragment"
+        android:label="messpunkt_erfassungs_fragment"
+        tools:layout="@layout/messpunkt_erfassungs_fragment" />
 </navigation>
