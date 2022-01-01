@@ -43,7 +43,11 @@
         android:id="@+id/navigation_Visualisierung"
         android:name="com.gruppe4.wlan_detektor.ui.Visualisierung.VisualisierungFragment"
         android:label="@string/title_visualisierung_de"
-        tools:layout="@layout/fragment_messungen" />
+        tools:layout="@layout/fragment_visualisierung" >
+        <action
+            android:id="@+id/action_navigation_Visualisierung_to_visualisierung_Grid_Fragment"
+            app:destination="@id/visualisierung_Grid_Fragment" />
+    </fragment>
     <fragment
         android:id="@+id/netzwerkliste"
         android:name="com.gruppe4.wlan_detektor.ui.Utility.NetzwerklisteFragment"
@@ -85,4 +89,18 @@
         android:name="com.gruppe4.wlan_detektor.ui.MessungVerwalten.MesspunktErfassungsFragment"
         android:label="messpunkt_erfassungs_fragment"
         tools:layout="@layout/messpunkt_erfassungs_fragment" />
+    <fragment
+        android:id="@+id/visualisierung_Grid_Fragment"
+        android:name="com.gruppe4.wlan_detektor.ui.Visualisierung.Visualisierung_Grid_Fragment"
+        android:label="visualisierung__grid__fragment"
+        tools:layout="@layout/visualisierung__grid__fragment" >
+        <action
+            android:id="@+id/action_visualisierung_Grid_Fragment_to_visuDetailFragment"
+            app:destination="@id/visuDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/visuDetailFragment"
+        android:name="com.gruppe4.wlan_detektor.ui.Visualisierung.VisuDetailFragment"
+        android:label="visu_detail_fragment"
+        tools:layout="@layout/visu_detail_fragment" />
 </navigation>
