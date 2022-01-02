@@ -2,10 +2,7 @@ package com.gruppe4.wlan_detektor.model.Datenbank
 
 import android.app.Application
 import android.content.Context
-import com.gruppe4.wlan_detektor.model.Datenbank.Datenzugriffsobjekt.TblMesspunktDao
-import com.gruppe4.wlan_detektor.model.Datenbank.Datenzugriffsobjekt.TblMessungDao
 import com.gruppe4.wlan_detektor.model.Datenbank.Datenzugriffsobjekt.WlanDetektorDao
-import com.gruppe4.wlan_detektor.model.Datenbank.Entitaeten.TblMesspunkt
 import com.gruppe4.wlan_detektor.model.Datenbank.Entitaeten.TblMessung
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
