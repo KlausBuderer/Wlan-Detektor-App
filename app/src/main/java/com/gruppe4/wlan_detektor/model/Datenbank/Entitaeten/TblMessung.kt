@@ -7,7 +7,7 @@ import androidx.room.PrimaryKey
 
 @Entity
 data class TblMessung
- (@PrimaryKey(autoGenerate = true) @ColumnInfo(name = "id") val id : Long = 0,
+ (@PrimaryKey(autoGenerate = true) @ColumnInfo(name = "messungid") val idmessung : Long = 0,
   @NonNull
     @ColumnInfo(name = "name") val name:String,
     @ColumnInfo(name = "ssid") val  ssid:String,

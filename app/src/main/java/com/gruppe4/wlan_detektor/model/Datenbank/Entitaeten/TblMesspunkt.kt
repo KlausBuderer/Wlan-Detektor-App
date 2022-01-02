@@ -7,8 +7,9 @@ import androidx.room.PrimaryKey
 
 @Entity
 data class TblMesspunkt
- (@PrimaryKey(autoGenerate = true) @ColumnInfo(name = "id") val id : Long = 0,
+ (@PrimaryKey(autoGenerate = true) @ColumnInfo(name = "messpunktid") val idmesspunkt : Long = 0,
   @NonNull
+     @ColumnInfo(name = "fkmessungid") val fkmessungid:String,
      @ColumnInfo(name = "gebaeude") val gebaeude:String,
      @ColumnInfo(name = "stockwerkID") val stockwerkID:Int,
      @ColumnInfo(name = "raumname") val raumname:String,

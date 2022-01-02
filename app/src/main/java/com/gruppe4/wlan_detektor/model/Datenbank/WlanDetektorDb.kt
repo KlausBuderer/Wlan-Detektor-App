@@ -10,15 +10,8 @@ import com.gruppe4.wlan_detektor.model.Datenbank.Entitaeten.*
 
 @Database(
     entities = [
-
-        TblMasseinheit::class,
         TblMesspunkt::class,
-        TblMessung::class,
-        TblMessungRelation::class,
-        TblRaeumlichkeiten::class,
-        TblStockwerk::class
-
-    ], version = 1, exportSchema = false )
+        TblMessung::class], version = 1, exportSchema = false )
 
     abstract class WlanDetektorDb : RoomDatabase()
     {

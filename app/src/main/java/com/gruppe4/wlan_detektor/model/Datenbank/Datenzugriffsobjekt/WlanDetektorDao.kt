@@ -19,7 +19,7 @@ interface WlanDetektorDao {
     suspend fun deleteTblMesspunkt(tblMesspunkt: TblMesspunkt)
 
     // Abfrage von Tabellen
-    @Query("SELECT * FROM TblMesspunkt ORDER BY id DESC")
+    @Query("SELECT * FROM TblMesspunkt ORDER BY messpunktid DESC")
     fun getAllMesspunkt(): List<TblMesspunkt>?
 
     // Datensätze in entsprechenden Tabellen einfügen.
@@ -35,7 +35,7 @@ interface WlanDetektorDao {
     suspend fun deleteTblMessung(tblMessung: TblMessung)
 
     // Abfrage von Tabellen
-    @Query("SELECT * FROM TblMessung ORDER BY id DESC")
+    @Query("SELECT * FROM TblMessung ORDER BY messungid DESC")
     fun getAllMessung(): List<TblMessung>?
 
 }
