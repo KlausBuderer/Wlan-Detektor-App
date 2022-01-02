@@ -10,4 +10,4 @@ data class TblMasseinheit
     (@PrimaryKey(autoGenerate = true) @ColumnInfo(name = "id") val id : Long = 0,
      @NonNull
      @ColumnInfo(name = "sprache") val sprache:String,
-     @ColumnInfo(name = "sprache") val beschreibungStockwerk:String)
+     @ColumnInfo(name = "beschreibungStockwerk") val beschreibungStockwerk:String)
