@@ -9,6 +9,7 @@ import android.net.wifi.WifiManager
 import androidx.lifecycle.*
 import com.gruppe4.wlan_detektor.ui.MessungVerwalten.MesspunktItem
 import kotlinx.coroutines.*
+import java.lang.NullPointerException
 
 class EchtzeitmessungViewModel(application: Application) : AndroidViewModel(application) {
 
@@ -58,12 +59,14 @@ class EchtzeitmessungViewModel(application: Application) : AndroidViewModel(appl
     suspend fun startUpdates(){
         withContext(Dispatchers.IO){
             while (true) {
-
+            try {
                 connectionInfo = wifiManager.connectionInfo
 
                 _netzwerkInfo.postValue(connectionInfo)
                 _progressFarbe.postValue(run { progressBarFarbeEinstellen() })
+            }catch (e:NullPointerException){
 
+            }
 
                 delay(500)
             }

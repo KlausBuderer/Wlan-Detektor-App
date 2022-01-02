@@ -100,9 +100,10 @@ class EchtezeitmessungFragment : Fragment() {
         echtzeitmessungViewModel.netzwerkInfo.observe(viewLifecycleOwner, Observer {
             ssid.text =  it.ssid})
 
-        val mac: TextView = binding.tvMac
+        //TODO Applikation absturz
+        /*val mac: TextView = binding.tvMac
         echtzeitmessungViewModel.netzwerkInfo.observe(viewLifecycleOwner, Observer {
-            mac.text =  it.bssid.toString()})
+            mac.text =  it.bssid.toString()})*/
 
         val band: TextView = binding.tvFrequenz
         echtzeitmessungViewModel.band.observe(viewLifecycleOwner, Observer {

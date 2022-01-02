@@ -1,4 +1,4 @@
-package com.gruppe4.wlan_detektor.ui.Utility.Datenbank.Entitaeten
+package com.gruppe4.wlan_detektor.model.Datenbank.Entitaeten
 
 import androidx.annotation.NonNull
 import androidx.room.ColumnInfo

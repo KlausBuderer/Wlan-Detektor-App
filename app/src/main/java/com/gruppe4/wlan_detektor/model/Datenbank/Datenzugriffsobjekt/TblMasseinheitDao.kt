@@ -1,8 +1,8 @@
-package com.gruppe4.wlan_detektor.ui.Utility.Datenbank.Datenzugriffsobjekt
+package com.gruppe4.wlan_detektor.model.Datenbank.Datenzugriffsobjekt
 
 import androidx.room.*
 import androidx.room.OnConflictStrategy.*
-import com.gruppe4.wlan_detektor.ui.Utility.Datenbank.Entitaeten.TblMasseinheit
+import com.gruppe4.wlan_detektor.model.Datenbank.Entitaeten.TblMasseinheit
 
 @Dao
 interface TblMasseinheitDao
