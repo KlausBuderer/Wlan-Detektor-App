@@ -1,10 +1,8 @@
 package com.gruppe4.wlan_detektor.ui.Utility.Datenbank.Datenzugriffsobjekt
 
-import androidx.room.Dao
-import androidx.room.Delete
-import androidx.room.Insert
+import androidx.room.*
 import androidx.room.OnConflictStrategy.*
-import androidx.room.Update
+import com.gruppe4.wlan_detektor.ui.Utility.Datenbank.Entitaeten.TblMesspunkt
 import com.gruppe4.wlan_detektor.ui.Utility.Datenbank.Entitaeten.TblStockwerk
 
 
@@ -24,4 +22,7 @@ interface TblStockwerkDao
     suspend fun deleteTblStockwerk(tblStockwerk: TblStockwerk)
 
     // Abfrage von Tabellen
+    @Query("SELECT * FROM TblStockwerk ORDER BY id DESC")
+    fun getAllStockwerk(): List<TblStockwerk>?
+
 }
