@@ -1,8 +1,6 @@
 package com.gruppe4.wlan_detektor.ui.Utility.Datenbank
 
 import android.content.Context
-import android.os.Parcel
-import android.os.Parcelable
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
@@ -18,19 +16,19 @@ import com.gruppe4.wlan_detektor.ui.Utility.Datenbank.Entitaeten.*
         TblStockwerk::class
     ], version = 1, exportSchema = false )
 
-    abstract class DatenbankWlanDetektor : RoomDatabase()
+    abstract class WlanDetektorDb : RoomDatabase()
     {
         companion object
         {
-            private lateinit var datenbankWlanDetektor: DatenbankWlanDetektor
-            fun getDatabase(applicationContext: Context): DatenbankWlanDetektor {
-                if (!(::datenbankWlanDetektor.isInitialized)) {
-                    datenbankWlanDetektor =
+            private lateinit var wlanDetektorDb: WlanDetektorDb
+            fun getDatabase(applicationContext: Context): WlanDetektorDb {
+                if (!(::wlanDetektorDb.isInitialized)) {
+                    wlanDetektorDb =
                         Room.databaseBuilder(applicationContext,
-                            datenbankWlanDetektor::class.java, "wlandetektor-db")
+                            wlanDetektorDb::class.java, "wlandetektor-db")
                             .build()
                 }
-                return datenbankWlanDetektor
+                return wlanDetektorDb
             }
         }
         // *********** tbd **************
