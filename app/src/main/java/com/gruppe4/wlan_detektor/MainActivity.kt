@@ -37,4 +37,10 @@ class MainActivity : AppCompatActivity() {
         navView.setupWithNavController(navController)
     }
     // val db = DatenbankWlanDetektor.getDatabase(this.applicationContext)
+
+    override fun onSupportNavigateUp(): Boolean {
+        val navController = findNavController(R.id.nav_host_fragment_activity_main)
+
+        return navController.navigateUp() || super.onSupportNavigateUp()
+    }
 }

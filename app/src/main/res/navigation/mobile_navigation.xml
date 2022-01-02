@@ -102,5 +102,27 @@
         android:id="@+id/visuDetailFragment"
         android:name="com.gruppe4.wlan_detektor.ui.Visualisierung.VisuDetailFragment"
         android:label="visu_detail_fragment"
-        tools:layout="@layout/visu_detail_fragment" />
+        tools:layout="@layout/visu_detail_fragment" >
+        <argument
+            android:name="raumname"
+            app:argType="string" />
+        <argument
+            android:name="gebaeude"
+            app:argType="string" />
+        <argument
+            android:name="stockwerk"
+            app:argType="string" />
+        <argument
+            android:name="pegel"
+            app:argType="integer" />
+        <argument
+            android:name="zusatzinfo"
+            app:argType="string" />
+        <argument
+            android:name="datum"
+            app:argType="string" />
+        <argument
+            android:name="Zeit"
+            app:argType="string" />
+    </fragment>
 </navigation>

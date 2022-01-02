@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.GridLayoutManager
 import com.gruppe4.wlan_detektor.databinding.MessungListeFragmentBinding
 import com.gruppe4.wlan_detektor.ui.MesspunktListe.messpunktListe
@@ -46,6 +47,18 @@ class Visualisierung_Grid_Fragment : Fragment(), MesspunktVisuAdapter.OnItemClic
     }
 
     override fun onItemClick(position: Int) {
+
+        val action = Visualisierung_Grid_FragmentDirections.actionVisualisierungGridFragmentToVisuDetailFragment(
+            messpunktListe[position].raum,
+            messpunktListe[position].gebaeude,
+            messpunktListe[position].stockwerk,
+            messpunktListe[position].signalstaerke,
+            "Linke Ecke",
+            "20.12.20",
+            "20:20"
+        )
+
+        Navigation.findNavController(binding.root).navigate(action)
 
     }
 

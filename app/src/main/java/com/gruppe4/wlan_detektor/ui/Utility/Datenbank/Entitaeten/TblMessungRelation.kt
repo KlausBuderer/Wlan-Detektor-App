@@ -9,5 +9,7 @@ import androidx.room.PrimaryKey
 data class TblMessungRelation
     (@PrimaryKey(autoGenerate = true) @ColumnInfo(name = "id") val id : Long = 0,
      @NonNull
-     @ColumnInfo(name = "messungid") val messungID:Int,
-     @ColumnInfo(name = "messpunktid") val messpunktID:Int)
+
+     @ColumnInfo(name = "messungID") val messungID:Int,
+     @ColumnInfo(name = "messpunktID") val messpunktID:Int)
+
