@@ -1,10 +1,9 @@
-package com.gruppe4.wlan_detektor.ui.Utility.Datenbank.Datenzugriffsobjekt
+package com.gruppe4.wlan_detektor.model.Datenbank.Datenzugriffsobjekt
 
 
 import androidx.room.*
 import androidx.room.OnConflictStrategy.*
-import com.gruppe4.wlan_detektor.ui.Utility.Datenbank.Entitaeten.TblMesspunkt
-import com.gruppe4.wlan_detektor.ui.Utility.Datenbank.Entitaeten.TblMessungRelation
+import com.gruppe4.wlan_detektor.model.Datenbank.Entitaeten.TblMessungRelation
 
 
 @Dao
