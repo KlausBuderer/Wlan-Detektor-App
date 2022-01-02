@@ -1,11 +1,9 @@
 package com.gruppe4.wlan_detektor.ui.Utility.Datenbank.Datenzugriffsobjekt
 
 
-import androidx.room.Dao
-import androidx.room.Delete
-import androidx.room.Insert
+import androidx.room.*
 import androidx.room.OnConflictStrategy.*
-import androidx.room.Update
+import com.gruppe4.wlan_detektor.ui.Utility.Datenbank.Entitaeten.TblMesspunkt
 import com.gruppe4.wlan_detektor.ui.Utility.Datenbank.Entitaeten.TblMessung
 
 @Dao
@@ -24,6 +22,9 @@ interface TblMessungDao
     suspend fun deleteTblMesspunkt(tblMessung: TblMessung)
 
     // Abfrage von Tabellen
+    @Query("SELECT * FROM TblMessung ORDER BY id DESC")
+    fun getAllMesspunkt(): List<TblMessung>?
+
 
 
 }

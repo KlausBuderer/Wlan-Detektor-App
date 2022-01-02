@@ -33,7 +33,7 @@ import com.gruppe4.wlan_detektor.ui.Utility.Datenbank.Entitaeten.*
                 return datenbankWlanDetektor
             }
         }
-        // noch zu implementieren.
+        // *********** tbd **************
         // abstract fun userDao(): UserDao
         //abstract fun messageDao(): MessageDao
     }
