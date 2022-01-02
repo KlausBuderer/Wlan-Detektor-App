@@ -1,11 +1,9 @@
 package com.gruppe4.wlan_detektor.ui.Utility.Datenbank.Datenzugriffsobjekt
 
 
-import androidx.room.Dao
-import androidx.room.Delete
-import androidx.room.Insert
+import androidx.room.*
 import androidx.room.OnConflictStrategy.*
-import androidx.room.Update
+import com.gruppe4.wlan_detektor.ui.Utility.Datenbank.Entitaeten.TblMesspunkt
 import com.gruppe4.wlan_detektor.ui.Utility.Datenbank.Entitaeten.TblRaeumlichkeiten
 
 
@@ -25,6 +23,9 @@ interface TblRaeumlichkeitenDao
     suspend fun deleteTblRaeumlichkeiten(tblRaeumlichkeiten: TblRaeumlichkeiten)
 
     // Abfrage von Tabellen
+    @Query("SELECT * FROM TblRaeumlichkeiten ORDER BY id DESC")
+    fun getAllRaeumlichkeiten(): List<TblRaeumlichkeiten>?
+
 
 
 }

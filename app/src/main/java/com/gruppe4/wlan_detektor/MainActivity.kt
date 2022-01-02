@@ -10,6 +10,7 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.gruppe4.wlan_detektor.databinding.ActivityMainBinding
+import com.gruppe4.wlan_detektor.ui.Utility.Datenbank.DatenbankWlanDetektor
 
 class MainActivity : AppCompatActivity() {
 
@@ -35,4 +36,5 @@ class MainActivity : AppCompatActivity() {
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
     }
+    // val db = DatenbankWlanDetektor.getDatabase(this.applicationContext)
 }

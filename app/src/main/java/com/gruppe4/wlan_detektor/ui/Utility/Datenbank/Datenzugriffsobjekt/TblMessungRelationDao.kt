@@ -1,11 +1,9 @@
 package com.gruppe4.wlan_detektor.ui.Utility.Datenbank.Datenzugriffsobjekt
 
 
-import androidx.room.Dao
-import androidx.room.Delete
-import androidx.room.Insert
+import androidx.room.*
 import androidx.room.OnConflictStrategy.*
-import androidx.room.Update
+import com.gruppe4.wlan_detektor.ui.Utility.Datenbank.Entitaeten.TblMesspunkt
 import com.gruppe4.wlan_detektor.ui.Utility.Datenbank.Entitaeten.TblMessungRelation
 
 
@@ -25,5 +23,8 @@ interface TblMessungRelationDao
     suspend fun delete(tblMessungRelation: TblMessungRelation)
 
     // Abfrage von Tabellen
+    @Query("SELECT * FROM TblMessungRelation ORDER BY id DESC")
+    fun getMessungRelation(): List<TblMessungRelation>?
+
 
 }
