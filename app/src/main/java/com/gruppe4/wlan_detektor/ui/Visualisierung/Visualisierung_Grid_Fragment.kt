@@ -31,11 +31,11 @@ class Visualisierung_Grid_Fragment : Fragment(), MesspunktVisuAdapter.OnItemClic
 
         var messungen = MessungListe.messungListe
         val adapter = MesspunktVisuAdapter(messpunktListe, this)
-        binding.rvmessungsliste.apply {
+        binding.rvMessungsliste.apply {
             layoutManager = GridLayoutManager(requireContext(),2)
         }
 
-        binding?.rvmessungsliste?.adapter = adapter
+        binding?.rvMessungsliste?.adapter = adapter
 
         return root
     }

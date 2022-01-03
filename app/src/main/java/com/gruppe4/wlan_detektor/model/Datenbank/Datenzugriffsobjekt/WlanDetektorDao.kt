@@ -38,4 +38,7 @@ interface WlanDetektorDao {
     @Query("SELECT * FROM TblMessung ORDER BY messungid DESC")
     fun getAllMessung(): List<TblMessung>?
 
+    @Query("SELECT messungid FROM TblMessung WHERE name = :name")
+    fun nameExists(name: String): Int
+
 }

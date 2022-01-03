@@ -37,7 +37,7 @@ class VisualisierungFragment : Fragment(), MessungListeAdapter.OnItemClickListen
 
         var messungen = MessungListe.messungListe
         val adapter = MessungListeAdapter(messungen, this)
-        binding?.rvmessungsliste?.adapter = adapter
+        binding?.rvMessungsliste?.adapter = adapter
 
 
 

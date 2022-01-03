@@ -3,9 +3,15 @@ package com.gruppe4.wlan_detektor.model.Datenbank.Entitaeten
 import androidx.annotation.NonNull
 import androidx.room.ColumnInfo
 import androidx.room.Entity
+import androidx.room.ForeignKey
 import androidx.room.PrimaryKey
 
-@Entity
+@Entity(foreignKeys = [ForeignKey(entity = TblMessung::class,
+   parentColumns = arrayOf("messungid"),
+   childColumns = arrayOf("fkmessungid"),
+   onDelete = ForeignKey.CASCADE,
+   onUpdate = ForeignKey.RESTRICT)]
+)
 data class TblMesspunkt
  (@PrimaryKey(autoGenerate = true) @ColumnInfo(name = "messpunktid") val idmesspunkt : Long = 0,
   @NonNull
