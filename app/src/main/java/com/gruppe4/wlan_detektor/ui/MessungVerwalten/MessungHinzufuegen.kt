@@ -18,6 +18,7 @@ import androidx.lifecycle.Observer
 import androidx.navigation.Navigation
 import com.gruppe4.wlan_detektor.R
 import com.gruppe4.wlan_detektor.databinding.FragmentMessungHinzufuegenBinding
+import com.gruppe4.wlan_detektor.model.Datenbank.Entitaeten.TblMessung
 import com.gruppe4.wlan_detektor.ui.Echtzeitmessung.EchtzeitmessungViewModel
 
 class MessungHinzufuegen : Fragment() {
@@ -33,6 +34,7 @@ class MessungHinzufuegen : Fragment() {
     lateinit var netzNamen: TextView
     lateinit var raeumlichkeit: AutoCompleteTextView
     lateinit var netzwahl: Button
+    var raeumlichkeitPosition: Int = -1
 
 
     // This property is only valid between onCreateView and
@@ -75,6 +77,7 @@ class MessungHinzufuegen : Fragment() {
 
 
 
+
         eingabeNamen.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
             }
@@ -82,12 +85,13 @@ class MessungHinzufuegen : Fragment() {
             //Validierung des Namens der Messung
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                 viewModel.konditionNamenValide =
-                    viewModel.namenValidieren(eingabeNamen.text.toString())
+                    viewModel.namenValidieren(eingabeNamen.text.toString())!!
+
             }
 
             //Signalisierung das Namen der Messung bereits vergeben ist
             override fun afterTextChanged(s: Editable?) {
-                if (!viewModel.namenValidieren(eingabeNamen.text.toString())) {
+                if (!viewModel.namenValidieren(eingabeNamen.text.toString())!!) {
                     eingabeNamen.backgroundTintList = ColorStateList.valueOf(Color.RED)
                 } else {
                     eingabeNamen.backgroundTintList = ColorStateList.valueOf(Color.GRAY)
@@ -111,6 +115,7 @@ class MessungHinzufuegen : Fragment() {
         raeumlichkeit.setOnItemClickListener { parent, view, position, id ->
             viewModel.pruefenRaeumlichkeitWahl(position)
             Toast.makeText(requireContext(), position.toString(), Toast.LENGTH_LONG).show()
+            raeumlichkeitPosition = position
             speichernButton.isEnabled = viewModel.buttonFreigabe()
         }
 
@@ -127,7 +132,11 @@ class MessungHinzufuegen : Fragment() {
         })
 
         speichernButton.setOnClickListener {
-            viewModel.messungSpeichern()
+
+
+            var messung: TblMessung = TblMessung(eingabeNamen.text.toString(), netzNamen.text.toString(), raeumlichkeitPosition ,viewModel.getDatum(),viewModel.getZeit())
+
+            viewModel.messungSpeichern(messung)
 
             //Navigation in Messung Bearbeiten Bild
             Navigation.findNavController(it).navigate(

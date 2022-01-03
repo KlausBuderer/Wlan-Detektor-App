@@ -5,10 +5,13 @@ import android.content.Context
 import android.net.wifi.WifiInfo
 import android.net.wifi.WifiManager
 import android.util.Log
-import androidx.lifecycle.AndroidViewModel
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
+import androidx.lifecycle.*
+import com.gruppe4.wlan_detektor.model.Datenbank.Entitaeten.TblMessung
+import com.gruppe4.wlan_detektor.model.Datenbank.RepositoryDb
+import kotlinx.coroutines.*
+import java.text.SimpleDateFormat
+import java.util.*
+import kotlin.math.absoluteValue
 
 class MessungHinzufuegenViewModel(application: Application) : AndroidViewModel(application) {
 
@@ -17,11 +20,25 @@ class MessungHinzufuegenViewModel(application: Application) : AndroidViewModel(a
     var konditionNamenValide: Boolean = false
     var konditionNetzAngemeldet: Boolean = false
     var konditionRaum: Boolean = false
+    private val repositoryDb: RepositoryDb = RepositoryDb(application)
 
 
     //Funktion die den eingegebenen Namen in der Datenbank auf Redundanz prüft
-    fun namenValidieren(eingabe: String): Boolean{
-        return eingabe.equals("TestTrue")
+    //TODO Validierung ist noch zu implementieren
+    fun namenValidieren(eingabe: String): Boolean? {
+        var pruefung = repositoryDb.namenPruefen(eingabe)
+        if (pruefung.isCompleted) {
+            return pruefung.equals(-1)
+        }else{
+            return true
+        }
+    }
+
+
+
+    // Speichern der Messung in der Datenbank
+    fun messungSpeichern(messung: TblMessung){
+        repositoryDb.insertMessung(messung)
     }
 
     fun netzwerkInfo(): String{
@@ -56,9 +73,17 @@ class MessungHinzufuegenViewModel(application: Application) : AndroidViewModel(a
 
     val speicherFreigabe: LiveData<Boolean> = _speicherFreigabe
 
-    // Speichern der Messung in der Datenbank
-    fun messungSpeichern(){
+    fun Date.toString(format: String, locale: Locale = Locale.getDefault()): String {
+        val formatter = SimpleDateFormat(format, locale)
+        return formatter.format(this)
+    }
 
+    fun getDatum(): String {
+        return Calendar.getInstance().time.toString("yyyy/MM/dd")
+    }
+
+    fun getZeit(): String {
+        return Calendar.getInstance().time.toString("HH:mm:ss")
     }
 
 }
