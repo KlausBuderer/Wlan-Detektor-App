@@ -34,10 +34,11 @@
     <string name="txt_datum_de">Datum</string>
     <string name="txt_gemessener_pegel_de">Gemessener Pegel</string>
     <string name="txt_titel_hauptmenue_de">W-LAN Detektor</string>
-    <string name="txt_titel_untermenu_echzeitmessung_de">Echzeitmessung</string>
-    <string name="txt_titel_untermenu_messpunktverwaltung_de">Messpunkt Verwaltung</string>
-    <string name="txt_titel_untermenu_visualisierung_de">Visualisierung</string>
+    <string name="txt_titel_home_echzeitmessung">Echzeitmessung</string>
+    <string name="txt_titel_home_messpunktverwaltung">Messpunkt Verwaltung</string>
+    <string name="txt_titel_home_visualisierung">Visualisierung</string>
     <string name="txt_beschreibung_echzeitmessung">Beschreibung der Funktion Echzeitmessung</string>
     <string name="txt_beschreibung_messpunkt_verwaltung">Beschreibung der Funktion Echzeitmessung</string>
     <string name="txt_beschreibung_visualisierung">Beschreibung der Funktion Echzeitmessung</string>
+    <string name="txt_zeit_de">Zeit</string>
 </resources>
