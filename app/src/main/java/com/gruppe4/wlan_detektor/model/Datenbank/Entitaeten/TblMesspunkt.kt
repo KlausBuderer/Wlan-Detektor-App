@@ -12,17 +12,120 @@ import androidx.room.PrimaryKey
    onDelete = ForeignKey.CASCADE,
    onUpdate = ForeignKey.RESTRICT)]
 )
-data class TblMesspunkt
- (@PrimaryKey(autoGenerate = true) @ColumnInfo(name = "messpunktid") val idmesspunkt : Long = 0,
-  @NonNull
-     @ColumnInfo(name = "fkmessungid") val fkmessungid:String,
-     @ColumnInfo(name = "gebaeude") val gebaeude:String,
-     @ColumnInfo(name = "stockwerkID") val stockwerkID:Int,
-     @ColumnInfo(name = "raumname") val raumname:String,
-     @ColumnInfo(name = "zusatzinformation") val zusatzinformation:String,
-     @ColumnInfo(name = "pegelmessung") val pegelmessung:String,
-     @ColumnInfo(name = "masseinheit") val masseinheit:String,
-     @ColumnInfo(name = "erfassungsDatum") val erfassungsDatum:String,
-     @ColumnInfo(name = "erfassungsZeit") val erfassungsZeit:String,
-     @ColumnInfo(name = "aenderungsDatum") val aenderungsDatum:String,
-     @ColumnInfo(name = "aenderungsZeit") val aenderungsZeit:String)
+class TblMesspunkt {
+
+   constructor()
+
+   constructor(
+      messpunktId: Long,
+      fkmessungid: Long,
+      gebaeude: String,
+      stockwerkID: Int,
+      raumname: String,
+      zusatzinformation: String,
+      pegelmessung: Int,
+      masseinheit: String,
+      erfassungsDatum: String,
+      erfassungsZeit: String,
+      aenderungsDatum: String,
+      aenderungsZeit: String
+   ) {
+      this.idmesspunkt = messpunktId
+      this.fkmessungid = fkmessungid
+      this.gebaeude = gebaeude
+      this.stockwerkID = stockwerkID
+      this.raumname = raumname
+      this.zusatzinformation = zusatzinformation
+      this.pegelmessung = pegelmessung
+      this.masseinheit = masseinheit
+      this.erfassungsDatum = erfassungsDatum
+      this.erfassungsZeit = erfassungsZeit
+      this.aenderungsDatum = aenderungsDatum
+      this.aenderungsZeit = aenderungsZeit
+   }
+
+   constructor(
+      messpunktId: Long,
+      fkmessungid: Long,
+      gebaeude: String,
+      stockwerkID: Int,
+      raumname: String,
+      zusatzinformation: String,
+      pegelmessung: Int,
+      masseinheit: String,
+      aenderungsDatum: String,
+      aenderungsZeit: String
+   ) {
+      this.idmesspunkt = messpunktId
+      this.fkmessungid = fkmessungid
+      this.gebaeude = gebaeude
+      this.stockwerkID = stockwerkID
+      this.raumname = raumname
+      this.zusatzinformation = zusatzinformation
+      this.pegelmessung = pegelmessung
+      this.masseinheit = masseinheit
+      this.aenderungsDatum = aenderungsDatum
+      this.aenderungsZeit = aenderungsZeit
+   }
+
+   constructor(
+      fkmessungid: Long,
+      gebaeude: String,
+      stockwerkID: Int,
+      raumname: String,
+      zusatzinformation: String,
+      pegelmessung: Int,
+      masseinheit: String,
+      erfassungsDatum: String,
+      erfassungsZeit: String
+   ) {
+      this.fkmessungid = fkmessungid
+      this.gebaeude = gebaeude
+      this.stockwerkID = stockwerkID
+      this.raumname = raumname
+      this.zusatzinformation = zusatzinformation
+      this.pegelmessung = pegelmessung
+      this.masseinheit = masseinheit
+      this.erfassungsDatum = erfassungsDatum
+      this.erfassungsZeit = erfassungsZeit
+   }
+
+
+   @PrimaryKey(autoGenerate = true)
+   @ColumnInfo(name = "messpunktid")
+   var idmesspunkt: Long = -1
+
+   @NonNull
+   @ColumnInfo(name = "fkmessungid")
+    var fkmessungid: Long = -1
+
+   @ColumnInfo(name = "gebaeude")
+   lateinit var gebaeude: String
+
+   @ColumnInfo(name = "stockwerkID")
+   var stockwerkID: Int = -1
+
+   @ColumnInfo(name = "raumname")
+   lateinit var raumname: String
+
+   @ColumnInfo(name = "zusatzinformation")
+   lateinit var zusatzinformation: String
+
+   @ColumnInfo(name = "pegelmessung")
+   var pegelmessung: Int = 0
+
+   @ColumnInfo(name = "masseinheit")
+   lateinit var masseinheit: String
+
+   @ColumnInfo(name = "erfassungsDatum")
+   lateinit var erfassungsDatum: String
+
+   @ColumnInfo(name = "erfassungsZeit")
+   lateinit var erfassungsZeit: String
+
+   @ColumnInfo(name = "aenderungsDatum")
+   var aenderungsDatum: String = ""
+
+   @ColumnInfo(name = "aenderungsZeit")
+   var aenderungsZeit: String = ""
+}

@@ -20,6 +20,8 @@ import com.gruppe4.wlan_detektor.R
 import com.gruppe4.wlan_detektor.databinding.FragmentMessungHinzufuegenBinding
 import com.gruppe4.wlan_detektor.model.Datenbank.Entitaeten.TblMessung
 import com.gruppe4.wlan_detektor.ui.Echtzeitmessung.EchtzeitmessungViewModel
+import com.gruppe4.wlan_detektor.ui.MesspunktListe
+import com.gruppe4.wlan_detektor.ui.Visualisierung.Visualisierung_Grid_FragmentDirections
 
 class MessungHinzufuegen : Fragment() {
 
@@ -114,7 +116,6 @@ class MessungHinzufuegen : Fragment() {
         //Pruefen ob Art der Raeumlichkeit gewählt wurde
         raeumlichkeit.setOnItemClickListener { parent, view, position, id ->
             viewModel.pruefenRaeumlichkeitWahl(position)
-            Toast.makeText(requireContext(), position.toString(), Toast.LENGTH_LONG).show()
             raeumlichkeitPosition = position
             speichernButton.isEnabled = viewModel.buttonFreigabe()
         }
@@ -138,10 +139,12 @@ class MessungHinzufuegen : Fragment() {
 
             viewModel.messungSpeichern(messung)
 
-            //Navigation in Messung Bearbeiten Bild
-            Navigation.findNavController(it).navigate(
-                R.id.action_messungHinzufuegen_to_messungBearbeitenFragment
+            val action = MessungHinzufuegenDirections.actionMessungHinzufuegenToMessungBearbeitenFragment(
+                eingabeNamen.text.toString()
             )
+
+            Navigation.findNavController(binding.root).navigate(action)
+
         }
 
     }

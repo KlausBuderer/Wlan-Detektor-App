@@ -1,5 +1,6 @@
 package com.gruppe4.wlan_detektor.ui.Visualisierung
 
+import android.content.res.ColorStateList
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -10,6 +11,7 @@ import androidx.navigation.fragment.navArgs
 import com.gruppe4.wlan_detektor.R
 import com.gruppe4.wlan_detektor.databinding.FragmentVisualisierungBinding
 import com.gruppe4.wlan_detektor.databinding.VisuDetailFragmentBinding
+import com.gruppe4.wlan_detektor.model.Netzwerk.NetzwerkInfo
 
 
 class VisuDetailFragment : Fragment() {
@@ -22,6 +24,7 @@ class VisuDetailFragment : Fragment() {
     val args: VisuDetailFragmentArgs by navArgs()
     private var _binding: VisuDetailFragmentBinding? = null
 
+
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
@@ -33,6 +36,7 @@ class VisuDetailFragment : Fragment() {
 
         _binding = VisuDetailFragmentBinding.inflate(layoutInflater)
         val root: View = binding.root
+        val netzwerkInfo = NetzwerkInfo(requireActivity().application)
 
         binding.tvRaumName.text = args.raumname
         binding.tvGebaeude.text = args.gebaeude
@@ -42,6 +46,7 @@ class VisuDetailFragment : Fragment() {
         binding.tvZeit.text = args.zeit
         binding.tvPegel.text = args.pegel.toString()
         binding.pgProgressBar.progress = args.pegel
+        binding.pgProgressBar.progressTintList = ColorStateList.valueOf(netzwerkInfo.progressBarFarbeEinstellen(args.pegel))
 
 
 

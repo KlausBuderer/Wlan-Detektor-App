@@ -74,6 +74,9 @@
         <action
             android:id="@+id/action_messungBearbeitenFragment_to_messpunktErfassungsFragment"
             app:destination="@id/messpunktErfassungsFragment" />
+        <argument
+            android:name="messungsnamen"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/messungListeFragment"
@@ -88,7 +91,20 @@
         android:id="@+id/messpunktErfassungsFragment"
         android:name="com.gruppe4.wlan_detektor.ui.MessungVerwalten.MesspunktErfassungsFragment"
         android:label="messpunkt_erfassungs_fragment"
-        tools:layout="@layout/messpunkt_erfassungs_fragment" />
+        tools:layout="@layout/messpunkt_erfassungs_fragment" >
+        <argument
+            android:name="messungsname"
+            app:argType="string" />
+        <argument
+            android:name="messungsId"
+            app:argType="long" />
+        <action
+            android:id="@+id/action_messpunktErfassungsFragment_to_messungBearbeitenFragment"
+            app:destination="@id/messungBearbeitenFragment" />
+        <argument
+            android:name="messpunktId"
+            app:argType="long" />
+    </fragment>
     <fragment
         android:id="@+id/visualisierung_Grid_Fragment"
         android:name="com.gruppe4.wlan_detektor.ui.Visualisierung.Visualisierung_Grid_Fragment"
@@ -97,6 +113,9 @@
         <action
             android:id="@+id/action_visualisierung_Grid_Fragment_to_visuDetailFragment"
             app:destination="@id/visuDetailFragment" />
+        <argument
+            android:name="messungsId"
+            app:argType="long" />
     </fragment>
     <fragment
         android:id="@+id/visuDetailFragment"
