@@ -1,5 +1,6 @@
 package com.gruppe4.wlan_detektor.model.Datenbank.Datenzugriffsobjekt
 
+import androidx.lifecycle.LiveData
 import androidx.room.*
 import com.gruppe4.wlan_detektor.model.Datenbank.Entitaeten.TblMesspunkt
 import com.gruppe4.wlan_detektor.model.Datenbank.Entitaeten.TblMessung
@@ -19,8 +20,12 @@ interface WlanDetektorDao {
     suspend fun deleteTblMesspunkt(tblMesspunkt: TblMesspunkt)
 
     // Abfrage von Tabellen
-    @Query("SELECT * FROM TblMesspunkt ORDER BY messpunktid DESC")
-    fun getAllMesspunkt(): List<TblMesspunkt>?
+    @Query("SELECT * FROM TblMesspunkt Where fkmessungid = :messungsId")
+    fun getAllMesspunkte(messungsId: Long): List<TblMesspunkt>
+
+    // Abfrage von Tabellen
+    @Query("SELECT * FROM TblMesspunkt Where messpunktid = :messpunktId")
+    fun getMesspunkt(messpunktId: Long): TblMesspunkt
 
     // Datensätze in entsprechenden Tabellen einfügen.
     @Insert(onConflict = OnConflictStrategy.REPLACE)
@@ -36,9 +41,11 @@ interface WlanDetektorDao {
 
     // Abfrage von Tabellen
     @Query("SELECT * FROM TblMessung ORDER BY messungid DESC")
-    fun getAllMessung(): List<TblMessung>?
+    fun getAllMessung(): List<TblMessung>
 
     @Query("SELECT messungid FROM TblMessung WHERE name = :name")
     fun nameExists(name: String): Int
 
+    @Query("SELECT * From TblMessung WHERE name = :name")
+    fun getDieMessung(name: String): TblMessung
 }

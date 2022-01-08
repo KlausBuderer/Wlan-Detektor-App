@@ -21,8 +21,9 @@
             app:layout_constraintTop_toTopOf="parent">
         </androidx.appcompat.widget.AppCompatImageView>
 
+
         <TextView
-            android:id="@+id/tv_netzwerknamen"
+            android:id="@+id/tv_raum_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
@@ -34,13 +35,13 @@
             app:layout_constraintTop_toTopOf="parent"></TextView>
 
         <TextView
-            android:id="@+id/tv_sicherheitsstatus"
+            android:id="@+id/tv_gebaeude"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:text="Gebaeude"
             app:layout_constraintStart_toEndOf="@id/wlan_icon"
-            app:layout_constraintTop_toBottomOf="@id/tv_netzwerknamen">
+            app:layout_constraintTop_toBottomOf="@id/tv_raum_name">
 
         </TextView>
 
@@ -51,7 +52,39 @@
             android:layout_marginStart="8dp"
             android:text="Stockwerk"
             app:layout_constraintStart_toEndOf="@id/wlan_icon"
-            app:layout_constraintTop_toBottomOf="@id/tv_sicherheitsstatus">
+            app:layout_constraintTop_toBottomOf="@id/tv_gebaeude">
+
+        </TextView>
+
+        <ProgressBar
+            android:id="@+id/pg_progressBar"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:max="-40"
+            android:min="-110"
+            android:progress="-40"
+            android:progressTint="@android:color/holo_red_dark"
+            app:layout_constraintStart_toStartOf="@+id/tv_stockwerk"
+            app:layout_constraintTop_toBottomOf="@+id/tv_stockwerk" />
+
+        <TextView
+            android:id="@+id/tv_pegel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="@string/txt_pegel_de"
+            app:layout_constraintStart_toEndOf="@id/pg_progressBar"
+            app:layout_constraintTop_toBottomOf="@id/tv_stockwerk"></TextView>
+
+        <TextView
+            android:id="@+id/tv_pegel_masseinheit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:text="@string/txt_decibel_de"
+            app:layout_constraintStart_toEndOf="@id/tv_pegel"
+            app:layout_constraintTop_toBottomOf="@id/tv_stockwerk">
 
         </TextView>
 
@@ -76,7 +109,7 @@
             android:layout_marginTop="8dp"
             android:background="@color/purple_700"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_stockwerk" />
+            app:layout_constraintTop_toBottomOf="@+id/pg_progressBar" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

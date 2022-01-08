@@ -1,5 +1,6 @@
 package com.gruppe4.wlan_detektor.ui.Visualisierung
 
+import android.app.Application
 import android.content.res.ColorStateList
 import android.graphics.Color
 import android.view.LayoutInflater
@@ -7,31 +8,28 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.gruppe4.wlan_detektor.databinding.VisuItemBinding
+import com.gruppe4.wlan_detektor.model.Datenbank.Entitaeten.TblMesspunkt
+import com.gruppe4.wlan_detektor.model.Netzwerk.NetzwerkInfo
 import com.gruppe4.wlan_detektor.ui.MessungVerwalten.MesspunktItem
 
 
-class MesspunktVisuAdapter(private val messpunktListe: List<MesspunktItem>
-                           , private val listener: OnItemClickListener)
+class MesspunktVisuAdapter(private val messpunktListe: List<TblMesspunkt>
+                           , private val listener: OnItemClickListener
+                           ,application: Application)
         : RecyclerView.Adapter<MesspunktVisuAdapter.MesspunktVisuViewHolder>() {
 
+    private val netzwerkInfo = NetzwerkInfo(application)
 
         inner class MesspunktVisuViewHolder(val itemBinding: VisuItemBinding):
             RecyclerView.ViewHolder(itemBinding.root),
             View.OnClickListener {
-            fun bindItem(messpunkt: MesspunktItem){
-                itemBinding.tvRaumName.text = messpunkt.raum
+            fun bindItem(messpunkt: TblMesspunkt){
+                itemBinding.tvRaumName.text = messpunkt.raumname
                 itemBinding.tvGebaeude.text = messpunkt.gebaeude
-                itemBinding.tvStockwerk.text = messpunkt.stockwerk
-                itemBinding.tvSignal.text = messpunkt.signalstaerke.toString() + " db"
-                itemBinding.pgProgressBar.progress = messpunkt.signalstaerke
-
-                if (messpunkt.signalstaerke in -200..-70){
-                    itemBinding.pgProgressBar.progressTintList = ColorStateList.valueOf(Color.RED)
-                }else if (messpunkt.signalstaerke in -69..-50){
-                    itemBinding.pgProgressBar.progressTintList = ColorStateList.valueOf(Color.YELLOW)
-                }else if (messpunkt.signalstaerke >= -49){
-                    itemBinding.pgProgressBar.progressTintList = ColorStateList.valueOf(Color.GREEN)
-                }
+                itemBinding.tvStockwerk.text = messpunkt.stockwerkID.toString()
+                itemBinding.tvSignal.text = messpunkt.pegelmessung.toString() + " db"
+                itemBinding.pgProgressBar.progress = messpunkt.pegelmessung
+                itemBinding.pgProgressBar.progressTintList = ColorStateList.valueOf(netzwerkInfo.progressBarFarbeEinstellen(messpunkt.pegelmessung))
 
             }
             init{
