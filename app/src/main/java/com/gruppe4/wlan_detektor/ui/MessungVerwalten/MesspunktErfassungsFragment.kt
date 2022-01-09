@@ -24,6 +24,7 @@ import java.lang.Exception
 import java.lang.NullPointerException
 
 
+
 class MesspunktErfassungsFragment : Fragment() {
 
 
@@ -98,6 +99,7 @@ class MesspunktErfassungsFragment : Fragment() {
                     viewModel.konditionRaumname = true
                     viewModel.konditionGebaeude = true
 
+
                     speichern.isEnabled = true
                 }
 
@@ -121,6 +123,7 @@ class MesspunktErfassungsFragment : Fragment() {
             stockwerkPosition = messpunkt.stockwerkID
             }catch (e: Exception){
 
+                Log.e("Messpunkterfassung","Schreiben von Werten in die Editboxen nicht möglich")
             }
         })
 
@@ -214,7 +217,7 @@ class MesspunktErfassungsFragment : Fragment() {
                     messpunkt.idmesspunkt,
                     args.messungsId,
                     editGebaeude.text.toString(),
-                    messpunkt.stockwerkID,
+                    stockwerkPosition,
                     editRaumname.text.toString(),
                     editZusatzInfo.text.toString(),
                     messpunkt.pegelmessung,
