@@ -134,13 +134,20 @@ class MessungHinzufuegen : Fragment() {
         speichernButton.setOnClickListener {
 
 
-            var messung: TblMessung = TblMessung(eingabeNamen.text.toString(), netzNamen.text.toString(), raeumlichkeitPosition ,viewModel.getDatum(),viewModel.getZeit())
+            var messung: TblMessung = TblMessung(
+                eingabeNamen.text.toString(),
+                netzNamen.text.toString(),
+                raeumlichkeitPosition,
+                viewModel.getDatum(),
+                viewModel.getZeit()
+            )
 
             viewModel.messungSpeichern(messung)
 
-            val action = MessungHinzufuegenDirections.actionMessungHinzufuegenToMessungBearbeitenFragment(
-                eingabeNamen.text.toString()
-            )
+            val action =
+                MessungHinzufuegenDirections.actionMessungHinzufuegenToMessungBearbeitenFragment(
+                    eingabeNamen.text.toString()
+                )
 
             Navigation.findNavController(binding.root).navigate(action)
 
