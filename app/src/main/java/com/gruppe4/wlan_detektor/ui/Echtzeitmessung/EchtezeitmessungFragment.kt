@@ -11,6 +11,7 @@ import android.net.wifi.WifiManager
 import android.os.Build
 import android.os.Bundle
 import android.provider.Settings
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -28,6 +29,9 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.Navigation
 import com.gruppe4.wlan_detektor.R
 import com.gruppe4.wlan_detektor.databinding.FragmentEchtzeitmessungBinding
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.cancel
 import kotlinx.coroutines.launch
 import kotlin.math.absoluteValue
 
@@ -144,13 +148,17 @@ class EchtezeitmessungFragment : Fragment() {
             startActivity(Intent(Settings.ACTION_WIFI_SETTINGS))
         }
 
-            binding.btnStartEchtzeitmessung.setOnClickListener {
-                lifecycleScope.launch{
-                    echtzeitmessungViewModel.startUpdates()
+            binding.tbtnStartEchtzeitmessung.setOnClickListener {
+
+                if(!binding.tbtnStartEchtzeitmessung.isChecked) {
+                    lifecycleScope.launch {
+                        echtzeitmessungViewModel.startUpdates()
+                    }
                 }
-
+                if (binding.tbtnStartEchtzeitmessung.isChecked) {
+                    lifecycleScope.cancel()
+                }
             }
-
 
 return root
 }

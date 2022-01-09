@@ -50,7 +50,7 @@ class MessungListeFragment : Fragment(), MessungListeAdapter.OnItemClickListener
 
 
         viewModel.messungsliste.observe(viewLifecycleOwner, Observer {
-                messungsListe = it
+            messungsListe = it
             val adapter = MessungListeAdapter(messungsListe, this, requireActivity().application)
             binding?.rvMessungsliste?.adapter = adapter
         })
@@ -60,9 +60,10 @@ class MessungListeFragment : Fragment(), MessungListeAdapter.OnItemClickListener
 
     override fun onItemClick(position: Int) {
 
-        val action = MessungListeFragmentDirections.actionMessungListeFragmentToMessungBearbeitenFragment(
-            messungsListe?.get(position)?.name ?: "kein Name"
-        )
+        val action =
+            MessungListeFragmentDirections.actionMessungListeFragmentToMessungBearbeitenFragment(
+                messungsListe?.get(position)?.name ?: "kein Name"
+            )
 
         Navigation.findNavController(binding.root).navigate(action)
 
