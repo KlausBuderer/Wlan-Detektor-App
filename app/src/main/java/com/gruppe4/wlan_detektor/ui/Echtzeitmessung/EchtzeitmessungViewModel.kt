@@ -6,6 +6,7 @@ import android.graphics.Color
 import android.net.ConnectivityManager
 import android.net.wifi.WifiInfo
 import android.net.wifi.WifiManager
+import android.util.Log
 import androidx.lifecycle.*
 import com.gruppe4.wlan_detektor.ui.MessungVerwalten.MesspunktItem
 import kotlinx.coroutines.*
@@ -57,8 +58,9 @@ class EchtzeitmessungViewModel(application: Application) : AndroidViewModel(appl
     val band: LiveData<Double> = _band
 
     suspend fun startUpdates(){
-        withContext(Dispatchers.IO){
-            while (true) {
+      withContext(Dispatchers.IO){
+            while (isActive) {
+                Log.e("couritne: ","$isActive")
             try {
                 connectionInfo = wifiManager.connectionInfo
 
@@ -70,6 +72,7 @@ class EchtzeitmessungViewModel(application: Application) : AndroidViewModel(appl
 
                 delay(500)
             }
+
         }
 
     }

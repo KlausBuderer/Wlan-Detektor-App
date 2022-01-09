@@ -13,6 +13,12 @@
         <action
             android:id="@+id/action_navigation_home_to_navigation_echtzeitmessung"
             app:destination="@id/navigation_echtzeitmessung" />
+        <action
+            android:id="@+id/action_navigation_home_to_navigation_messung"
+            app:destination="@id/navigation_messung" />
+        <action
+            android:id="@+id/action_navigation_home_to_navigation_Visualisierung"
+            app:destination="@id/navigation_Visualisierung" />
     </fragment>
 
     <fragment

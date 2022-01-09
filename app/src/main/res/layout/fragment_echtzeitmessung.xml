@@ -169,14 +169,17 @@
         app:layout_constraintStart_toStartOf="@+id/tv_tonhoehe"
         app:layout_constraintTop_toBottomOf="@+id/tv_tonhoehe" />
 
-    <Button
-        android:id="@+id/btn_start_echtzeitmessung"
+    <ToggleButton
+        android:id="@+id/tbtn_start_echtzeitmessung"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="28dp"
         android:layout_marginRight="10dp"
-        android:text="@string/btn_start_de"
+        android:onClick="toogleButtonStatus"
+        android:textOn="Starten"
+        android:textOff="Stoppen"
+        android:checked="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.578"
         app:layout_constraintStart_toStartOf="parent"
