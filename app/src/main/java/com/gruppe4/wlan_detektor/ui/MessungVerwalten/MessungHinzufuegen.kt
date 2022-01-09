@@ -98,7 +98,6 @@ class MessungHinzufuegen : Fragment() {
                 } else {
                     eingabeNamen.backgroundTintList = ColorStateList.valueOf(Color.GRAY)
                 }
-
             }
 
         })

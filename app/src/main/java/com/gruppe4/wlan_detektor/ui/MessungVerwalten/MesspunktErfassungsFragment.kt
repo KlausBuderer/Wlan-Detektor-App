@@ -89,6 +89,7 @@ class MesspunktErfassungsFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProvider(this).get(MesspunktErfassungsViewModel::class.java)
+        viewModel.messungsId = args.messungsId
 
         //Falls dieses Bild aus einer besteheder Messung aufgerufen wird ist der Speicherbutton
                 //freigeschalten
@@ -233,15 +234,8 @@ class MesspunktErfassungsFragment : Fragment() {
             )
 
             Navigation.findNavController(binding.root).navigate(action)
-
         }
 
-
-
-
-
-
-        viewModel.messungsId = args.messungsId
     }
 
 }
