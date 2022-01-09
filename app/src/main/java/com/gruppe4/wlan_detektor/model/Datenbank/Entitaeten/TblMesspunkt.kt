@@ -93,7 +93,7 @@ class TblMesspunkt {
 
    @PrimaryKey(autoGenerate = true)
    @ColumnInfo(name = "messpunktid")
-   var idmesspunkt: Long = -1
+   var idmesspunkt: Long = 0
 
    @NonNull
    @ColumnInfo(name = "fkmessungid")

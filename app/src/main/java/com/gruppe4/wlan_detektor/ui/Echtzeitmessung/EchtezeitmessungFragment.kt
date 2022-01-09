@@ -72,14 +72,18 @@ class EchtezeitmessungFragment : Fragment() {
                     val uri = Uri.fromParts("package", activity?.packageName, null)
                     intent.data = uri
                     startActivity(intent)
-                }catch (e: ActivityNotFoundException){
+                } catch (e: ActivityNotFoundException) {
                     context?.startActivity(Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS))
                 }
             }
 
             //Nein Button
-            builder.setNegativeButton("Abbrechen"){dialogInterface, which ->
-                Toast.makeText(requireContext(),"..Schade, leider können wir die SSID nicht ausgeben",Toast.LENGTH_LONG).show()
+            builder.setNegativeButton("Abbrechen") { dialogInterface, which ->
+                Toast.makeText(
+                    requireContext(),
+                    "..Schade, leider können wir die SSID nicht ausgeben",
+                    Toast.LENGTH_LONG
+                ).show()
             }
 
             // Erstellen des Dialogs
@@ -88,7 +92,7 @@ class EchtezeitmessungFragment : Fragment() {
             alertDialog.setCancelable(false)
             alertDialog.show()
 
-            }
+        }
 
 
 
@@ -102,7 +106,8 @@ class EchtezeitmessungFragment : Fragment() {
 
         val ssid: TextView = binding.tvSsid
         echtzeitmessungViewModel.netzwerkInfo.observe(viewLifecycleOwner, Observer {
-            ssid.text =  it.ssid})
+            ssid.text = it.ssid
+        })
 
         //TODO Applikation absturz
         /*val mac: TextView = binding.tvMac
@@ -111,11 +116,13 @@ class EchtezeitmessungFragment : Fragment() {
 
         val band: TextView = binding.tvFrequenz
         echtzeitmessungViewModel.band.observe(viewLifecycleOwner, Observer {
-            band.text =  it.toString() + " GHz"})
+            band.text = it.toString() + " GHz"
+        })
 
         val supplier: TextView = binding.tvHersteller
         echtzeitmessungViewModel.netzwerkInfo.observe(viewLifecycleOwner, Observer {
-            supplier.text =  "noch nicht implementiert"})
+            supplier.text = "noch nicht implementiert"
+        })
 
         /*val sicherheitstyp: TextView = binding.tvSicherheittyp
         echtzeitmessungViewModel.netzwerkInfo.observe(viewLifecycleOwner, Observer {
@@ -123,7 +130,8 @@ class EchtezeitmessungFragment : Fragment() {
 
         val updownspeed: TextView = binding.tvUpdownspeed
         echtzeitmessungViewModel.netzwerkInfo.observe(viewLifecycleOwner, Observer {
-        updownspeed.text =  it.linkSpeed.toString() + " Mbps"})
+            updownspeed.text = it.linkSpeed.toString() + " Mbps"
+        })
 
         val progressBar: ProgressBar = binding.pgProgressBar
         echtzeitmessungViewModel.progressFarbe.observe(viewLifecycleOwner, Observer {
@@ -143,10 +151,11 @@ class EchtezeitmessungFragment : Fragment() {
 
 
         binding.netzwerkwahl.setOnClickListener {
-        /*Navigation.findNavController(it).navigate(
-            R.id.action_navigation_echtzeitmessung_to_netzwerkliste)*/
+            /*Navigation.findNavController(it).navigate(
+                R.id.action_navigation_echtzeitmessung_to_netzwerkliste)*/
             startActivity(Intent(Settings.ACTION_WIFI_SETTINGS))
         }
+
 
             binding.tbtnStartEchtzeitmessung.setOnClickListener {
 
@@ -163,17 +172,19 @@ class EchtezeitmessungFragment : Fragment() {
 return root
 }
 
-    fun isPermissionGranted(permission:String):Boolean =
+
+
+    fun isPermissionGranted(permission: String): Boolean =
         ContextCompat.checkSelfPermission(
             requireContext(),
             permission
         ) == PackageManager.PERMISSION_GRANTED
 
     override fun onDestroyView() {
-super.onDestroyView()
-    //echtzeitmessungViewModel.startUpdates()
-_binding = null
-}
+        super.onDestroyView()
+        //echtzeitmessungViewModel.startUpdates()
+        _binding = null
+    }
 }
 
 

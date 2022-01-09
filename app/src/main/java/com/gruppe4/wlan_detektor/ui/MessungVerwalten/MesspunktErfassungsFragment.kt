@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -88,6 +89,7 @@ class MesspunktErfassungsFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProvider(this).get(MesspunktErfassungsViewModel::class.java)
+        viewModel.messungsId = args.messungsId
 
         //Falls dieses Bild aus einer besteheder Messung aufgerufen wird ist der Speicherbutton
                 //freigeschalten
@@ -205,6 +207,7 @@ class MesspunktErfassungsFragment : Fragment() {
                     viewModel.zeit
                 )
                 viewModel.messpunktSpeichern(_messpunkt)
+                Log.e("Messpunkt erfassen viewmodel: ", "messpunkt id -1")
             }else{
                 var _messpunkt: TblMesspunkt = TblMesspunkt(
                     messpunkt.idmesspunkt,
@@ -221,6 +224,7 @@ class MesspunktErfassungsFragment : Fragment() {
                     viewModel.zeit
                 )
                 viewModel.messpunktUpdate(_messpunkt)
+                Log.e("Messpunkt erfassen viewmodel: ", "messpunkt nicht id -1")
             }
 
 
@@ -230,15 +234,8 @@ class MesspunktErfassungsFragment : Fragment() {
             )
 
             Navigation.findNavController(binding.root).navigate(action)
-
         }
 
-
-
-
-
-
-        viewModel.messungsId = args.messungsId
     }
 
 }
