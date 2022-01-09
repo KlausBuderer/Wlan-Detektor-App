@@ -7,7 +7,8 @@ jobs:
 
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
+      - name: Checke den Code aus
+        uses: actions/checkout@v2
 
       - name: Installiere JDK
         uses: actions/setup-java@v1
