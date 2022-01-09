@@ -118,6 +118,7 @@ class MesspunktErfassungsFragment : Fragment() {
             progressBar.progress = messpunkt.pegelmessung
             progressBar.progressTintList = ColorStateList.valueOf(netzwerkInfo.progressBarFarbeEinstellen(messpunkt.pegelmessung))
             signalText.text = messpunkt.pegelmessung.toString()
+            stockwerkPosition = messpunkt.stockwerkID
             }catch (e: Exception){
 
             }
@@ -213,10 +214,10 @@ class MesspunktErfassungsFragment : Fragment() {
                     messpunkt.idmesspunkt,
                     args.messungsId,
                     editGebaeude.text.toString(),
-                    stockwerkPosition,
+                    messpunkt.stockwerkID,
                     editRaumname.text.toString(),
                     editZusatzInfo.text.toString(),
-                    signalStaerke,
+                    messpunkt.pegelmessung,
                     "dB",
                     messpunkt.erfassungsDatum,
                     messpunkt.erfassungsZeit,
