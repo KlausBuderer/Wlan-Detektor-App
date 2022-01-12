@@ -1,20 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="stockwerk_array">
-        <item>3.UG</item>
-        <item>2.UG</item>
-        <item>1.UG</item>
-        <item>Erdgeschoss</item>
-        <item>1.OG</item>
-        <item>2.OG</item>
-        <item>3.OG</item>
-        <item>4.OG</item>
-        <item>5.OG</item>
-        <item>6.OG</item>
-        <item>7.OG</item>
-        <item>9.OG</item>
-        <item>10.OG</item>
-        <item>11.OG</item>
-        <item>12.OG</item>
+        <item>@string/txt_3.UG</item>
+        <item>@string/txt_2.UG</item>
+        <item>@string/txt_1.UG</item>
+        <item>@string/txt_erdgeschoss</item>
+        <item>@string/txt_1.OG</item>
+        <item>@string/txt_2.OG</item>
+        <item>@string/txt_3.OG</item>
+        <item>@string/txt_4.OG</item>
+        <item>@string/txt_5.OG</item>
+        <item>@string/txt_6.OG</item>
+        <item>@string/txt_7.OG</item>
+        <item>@string/txt_8.OG</item>
+        <item>@string/txt_9.OG</item>
+        <item>@string/txt_10.OG</item>
+        <item>@string/txt_11.OG</item>
+        <item>@string/txt_12.OG</item>
+        <item>@string/txt_13.OG</item>
+        <item>@string/txt_14.OG</item>
+        <item>@string/txt_15.OG</item>
+        <item>@string/txt_16.OG</item>
+        <item>@string/txt_17.OG</item>
+        <item>@string/txt_18.OG</item>
+        <item>@string/txt_19.OG</item>
+        <item>@string/txt_20.OG</item>
     </string-array>
 </resources>

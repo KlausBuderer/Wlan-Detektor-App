@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="raeumlichkeiten_array">
-        <item>Wohnung</item>
-        <item>Haus</item>
-        <item>Gewerbe</item>
+        <item>@string/txt_wohnung</item>
+        <item>@string/txt_haus</item>
+        <item>@string/txt_gewerbe</item>
     </string-array>
 </resources>
