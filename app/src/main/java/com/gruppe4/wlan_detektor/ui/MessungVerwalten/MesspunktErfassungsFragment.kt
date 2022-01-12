@@ -220,7 +220,7 @@ class MesspunktErfassungsFragment : Fragment() {
                     stockwerkPosition,
                     editRaumname.text.toString(),
                     editZusatzInfo.text.toString(),
-                    messpunkt.pegelmessung,
+                    signalStaerke,
                     "dB",
                     messpunkt.erfassungsDatum,
                     messpunkt.erfassungsZeit,
@@ -238,6 +238,17 @@ class MesspunktErfassungsFragment : Fragment() {
             )
 
             Navigation.findNavController(binding.root).navigate(action)
+        }
+
+
+        abbrechen.setOnClickListener{
+
+            val action = MesspunktErfassungsFragmentDirections.actionMesspunktErfassungsFragmentToMessungBearbeitenFragment(
+                args.messungsname
+            )
+
+            Navigation.findNavController(binding.root).navigate(action)
+
         }
 
     }

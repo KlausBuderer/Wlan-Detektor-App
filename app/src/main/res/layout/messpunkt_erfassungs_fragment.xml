@@ -170,19 +170,20 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="@string/btn_speichern_de"
         android:enabled="false"
+        android:text="@string/btn_speichern_de"
         app:layout_constraintEnd_toEndOf="@+id/btn_start_messpunkt_messung"
+        app:layout_constraintStart_toEndOf="@+id/abbrechen"
         app:layout_constraintTop_toBottomOf="@+id/btn_start_messpunkt_messung" />
 
     <Button
         android:id="@+id/abbrechen"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="32dp"
+        android:layout_marginStart="32dp"
         android:text="@string/txt_abbrechen"
         app:layout_constraintBaseline_toBaselineOf="@+id/messpunkt_speichern"
-        app:layout_constraintEnd_toStartOf="@+id/messpunkt_speichern" />
+        app:layout_constraintStart_toStartOf="@+id/pg_progressBar" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
