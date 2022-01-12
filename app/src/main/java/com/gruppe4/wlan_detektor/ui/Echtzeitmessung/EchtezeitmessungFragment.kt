@@ -6,6 +6,9 @@ import android.content.ActivityNotFoundException
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.content.res.ColorStateList
+import android.media.AudioManager.STREAM_MUSIC
+import android.media.ToneGenerator
+import android.media.ToneGenerator.*
 import android.net.Uri
 import android.net.wifi.WifiManager
 import android.os.Build
@@ -29,11 +32,9 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.Navigation
 import com.gruppe4.wlan_detektor.R
 import com.gruppe4.wlan_detektor.databinding.FragmentEchtzeitmessungBinding
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Job
-import kotlinx.coroutines.cancel
-import kotlinx.coroutines.launch
+import kotlinx.coroutines.*
 import kotlin.math.absoluteValue
+import kotlin.math.sin
 
 class EchtezeitmessungFragment : Fragment() {
 
@@ -160,14 +161,32 @@ class EchtezeitmessungFragment : Fragment() {
             binding.tbtnStartEchtzeitmessung.setOnClickListener {
 
                 if(!binding.tbtnStartEchtzeitmessung.isChecked) {
-                    lifecycleScope.launch {
-                        echtzeitmessungViewModel.startUpdates()
-                    }
+                    echtzeitmessungViewModel.startCoroutine()
                 }
                 if (binding.tbtnStartEchtzeitmessung.isChecked) {
-                    lifecycleScope.cancel()
+                    echtzeitmessungViewModel.stopCoroutine()
                 }
             }
+
+        binding.btnFloatingActionButton.setOnClickListener{
+            echtzeitmessungViewModel.tonEin = !echtzeitmessungViewModel.tonEin
+
+
+            Thread{
+                if (echtzeitmessungViewModel.tonEin) {
+                    echtzeitmessungViewModel.startSinus()
+                }else{
+                    echtzeitmessungViewModel.stopSinus()
+                }
+            }.start()
+
+
+
+
+
+        }
+
+       echtzeitmessungViewModel.frequenz = binding.seekBar.progress
 
 return root
 }

@@ -8,6 +8,7 @@ import android.net.wifi.WifiInfo
 import android.net.wifi.WifiManager
 import android.util.Log
 import androidx.lifecycle.*
+import com.gruppe4.wlan_detektor.model.SinusGenerator
 import com.gruppe4.wlan_detektor.ui.MessungVerwalten.MesspunktItem
 import kotlinx.coroutines.*
 import java.lang.NullPointerException
@@ -56,6 +57,29 @@ class EchtzeitmessungViewModel(application: Application) : AndroidViewModel(appl
     val netzwerkInfo: LiveData<WifiInfo> =  _netzwerkInfo
     val progressFarbe: LiveData<Int> =  _progressFarbe
     val band: LiveData<Double> = _band
+    var tonEin: Boolean = false
+    val sinusGenerator = SinusGenerator(application)
+    var routine = viewModelScope
+    var frequenz: Int = 0
+
+    fun startCoroutine() {
+        routine.launch {
+            startUpdates()
+        }
+
+    }
+
+    fun startSinus(){
+        netzwerkInfo.value?.let { sinusGenerator.start(it.rssi) }
+    }
+
+    fun stopSinus(){
+        sinusGenerator.stopPlaying()
+    }
+
+    fun stopCoroutine(){
+        routine.cancel()
+    }
 
     suspend fun startUpdates(){
       withContext(Dispatchers.IO){
@@ -66,6 +90,8 @@ class EchtzeitmessungViewModel(application: Application) : AndroidViewModel(appl
 
                 _netzwerkInfo.postValue(connectionInfo)
                 _progressFarbe.postValue(run { progressBarFarbeEinstellen() })
+
+
             }catch (e:NullPointerException){
 
             }
@@ -76,5 +102,6 @@ class EchtzeitmessungViewModel(application: Application) : AndroidViewModel(appl
         }
 
     }
+
 
 }
