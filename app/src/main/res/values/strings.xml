@@ -1,12 +1,12 @@
 <resources>
     <string name="app_name">Wlan-Detektor</string>
-    <string name="title_home">Home</string>
+    <string name="title_home">Startseite</string>
     <string name="title_echtzeitmessung_de">Echtzeitmessung</string>
     <string name="title_messungen_de">Messungen</string>
     <string name="title_visualisierung_de">Visualisierung</string>
     <string name="button_netzwerkwahl_de">Netzwerkwahl</string>
     <string name="txt_netzwerknamen_de">SSID:</string>
-    <string name="txt_macadresse_de">Mac Adresse:</string>
+    <string name="txt_macadresse_de">MAC Adresse</string>
     <string name="txt_Frequenz_de">Band:</string>
     <string name="txt_Hersteller_de">Hersteller:</string>
     <string name="txt_Sicherheittyp_de">Sicherheitstyp:</string>
@@ -33,11 +33,13 @@
     <string name="txt_datum_de">Datum</string>
     <string name="txt_zeit_de">Zeit</string>
     <string name="txt_gemessener_pegel_de">Gemessener Pegel</string>
-    <string name="txt_titel_hauptmenue_de">W-LAN Detektor</string>
+    <string name="txt_titel_hauptmenue_de">Wlan-Detektor</string>
     <string name="txt_titel_home_echzeitmessung">Echzeitmessung</string>
     <string name="txt_titel_home_messpunktverwaltung">Messpunkt Verwaltung</string>
     <string name="txt_titel_home_visualisierung">Visualisierung</string>
     <string name="txt_beschreibung_echzeitmessung">In der Echzeitmessung haben Sie die Möglichkeit bei dem bereits angemeldeten WLAN die Pegel wie auch weitere Informationen in Echzeit zu ermitteln. </string>
     <string name="txt_beschreibung_messpunkt_verwaltung">In der Messpunktverwaltung haben Sie die Möglichkeit eine Messung und beliebige Messpunkte dazu zu erfassen.</string>
     <string name="txt_beschreibung_visualisierung">In der Visualisierung können Sie zuvor erfasste Messungen transparent darzustellen.</string>
+    <string name="txt_stoppen">STOPPEN</string>
+    <string name="txt_starten">STARTEN</string>
 </resources>

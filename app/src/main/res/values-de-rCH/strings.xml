@@ -11,7 +11,7 @@
     <string name="txt_Frequenz_de">Band:</string>
     <string name="txt_Hersteller_de">Hersteller:</string>
     <string name="txt_Sicherheittyp_de">Sicherheitstyp:</string>
-    <string name="txt_max_upload_de">Up/Download:</string>
+    <string name="txt_max_upload_de">Up/Download</string>
     <string name="txt_pegel_de">Aktueller Pegel</string>
     <string name="txt_decibel_de">- dB</string>
     <string name="txt_signalstaerke_titel_de">Signalstärke</string>
@@ -37,8 +37,10 @@
     <string name="txt_titel_home_echzeitmessung">Echzeitmessung</string>
     <string name="txt_titel_home_messpunktverwaltung">Messpunkt Verwaltung</string>
     <string name="txt_titel_home_visualisierung">Visualisierung</string>
-    <string name="txt_beschreibung_echzeitmessung">Beschreibung der Funktion Echzeitmessung</string>
-    <string name="txt_beschreibung_messpunkt_verwaltung">Beschreibung der Funktion Echzeitmessung</string>
-    <string name="txt_beschreibung_visualisierung">Beschreibung der Funktion Echzeitmessung</string>
+    <string name="txt_beschreibung_echzeitmessung">"In der Echzeitmessung haben Sie die Möglichkeit bei dem bereits angemeldeten WLAN die Pegel wie auch weitere Informationen in Echzeit zu ermitteln. "</string>
+    <string name="txt_beschreibung_messpunkt_verwaltung">In der Messpunktverwaltung haben Sie die Möglichkeit eine Messung und beliebige Messpunkte dazu zu erfassen.</string>
+    <string name="txt_beschreibung_visualisierung">In der Visualisierung können Sie zuvor erfasste Messungen transparent darzustellen.</string>
     <string name="txt_zeit_de">Zeit</string>
+    <string name="txt_stoppen">STOPPEN</string>
+    <string name="txt_starten">STARTEN</string>
 </resources>

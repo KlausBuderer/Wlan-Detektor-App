@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Wlan-Detektor</string>
+    <string name="title_home">Home</string>
+    <string name="title_echtzeitmessung_de">Real time measurement</string>
+    <string name="title_messungen_de">Measurements</string>
+    <string name="button_netzwerkwahl_de">Network choice</string>
+    <string name="title_visualisierung_de">Visualization</string>
+    <string name="txt_netzwerknamen_de">SSID</string>
+    <string name="txt_macadresse_de">MAC Adress</string>
+    <string name="txt_Frequenz_de">Band</string>
+    <string name="txt_Hersteller_de">Manufacturer</string>
+    <string name="txt_Sicherheittyp_de">Security type:</string>
+    <string name="txt_max_upload_de">Up/Download:</string>
+    <string name="txt_pegel_de">Up/Download</string>
+    <string name="txt_decibel_de">- dB</string>
+    <string name="txt_signalstaerke_titel_de">signal strength</string>
+    <string name="txt_tonhoehe_de">pitch</string>
+    <string name="btn_start_de">Start</string>
+    <string name="txt_messung_neu_namen_de">Name of measurement</string>
+    <string name="btn_netzwerk_anmelden_de">network login</string>
+    <string name="txt_raeumlichkeit_de">Type of space</string>
+    <string name="btn_speichern_de">Save</string>
+    <string name="txt_netzTitel_de">Not yet logged into the Wlan</string>
+    <string name="txt_netzwerk_de">Network</string>
+    <string name="txt_titel_messung_hinzufuegen_de">Add measurement</string>
+    <string name="txt_ausgewaehlteMessung_de">Selected measurement</string>
+    <string name="txt_Gebaeude_de">Building</string>
+    <string name="txt_stockwerk_de">Floor</string>
+    <string name="txt_raumname_de">Room name</string>
+    <string name="txt_zusatzinformationen_de">Additional information</string>
+    <string name="txt_helper_max_zeichen_de">Maximum 20 characters</string>
+    <string name="txt_abbrechen">Cancel</string>
+    <string name="txt_datum_de">Date</string>
+    <string name="txt_zeit_de">Time</string>
+    <string name="txt_gemessener_pegel_de">Measured level</string>
+    <string name="txt_titel_hauptmenue_de">Wifi-detector</string>
+    <string name="txt_titel_home_echzeitmessung">Real time measurement</string>
+    <string name="txt_titel_home_messpunktverwaltung">Measuring point administration</string>
+    <string name="txt_titel_home_visualisierung">Visualization</string>
+    <string name="txt_beschreibung_messpunkt_verwaltung">In the measuring point management you have the possibility to enter a measurement and any measuring points to it.</string>
+    <string name="txt_beschreibung_echzeitmessung">"In the real time measurement you have the possibility to determine the levels as well as further information in real time for the already registered WLAN. "</string>
+    <string name="txt_beschreibung_visualisierung">In the visualization you can display previously acquired measurements transparently.</string>
+    <string name="txt_stoppen">STOP</string>
+    <string name="txt_starten">START</string>
+</resources>
