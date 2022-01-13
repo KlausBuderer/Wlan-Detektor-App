@@ -146,7 +146,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:clickable="true"
-        android:src="@android:drawable/ic_lock_silent_mode"
+        app:maxImageSize="36dp"
+        android:src="@drawable/ic_ton_aus"
         app:layout_constraintEnd_toEndOf="@+id/pg_progressBar"
         app:layout_constraintTop_toBottomOf="@+id/pg_progressBar" />
 
@@ -180,8 +181,8 @@
         android:layout_marginTop="28dp"
         android:layout_marginRight="10dp"
         android:onClick="toogleButtonStatus"
-        android:textOn="@string/txt_stoppen"
-        android:textOff="@string/txt_starten"
+        android:textOn="@string/txt_starten"
+        android:textOff="@string/txt_stoppen"
         android:checked="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.578"
