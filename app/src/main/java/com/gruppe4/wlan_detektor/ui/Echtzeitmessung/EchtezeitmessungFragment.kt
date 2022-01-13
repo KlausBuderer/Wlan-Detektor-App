@@ -1,40 +1,32 @@
 package com.gruppe4.wlan_detektor.ui.Echtzeitmessung
 
 import android.Manifest.permission.ACCESS_FINE_LOCATION
-import android.app.Activity
 import android.content.ActivityNotFoundException
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.content.res.ColorStateList
-import android.media.AudioManager.STREAM_MUSIC
-import android.media.ToneGenerator
 import android.media.ToneGenerator.*
 import android.net.Uri
 import android.net.wifi.WifiManager
 import android.os.Build
 import android.os.Bundle
 import android.provider.Settings
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ProgressBar
+import android.widget.SeekBar
 import android.widget.TextView
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AlertDialog
-import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.lifecycleScope
-import androidx.navigation.Navigation
 import com.gruppe4.wlan_detektor.R
 import com.gruppe4.wlan_detektor.databinding.FragmentEchtzeitmessungBinding
 import kotlinx.coroutines.*
-import kotlin.math.absoluteValue
-import kotlin.math.sin
 
 class EchtezeitmessungFragment : Fragment() {
 
@@ -152,42 +144,52 @@ class EchtezeitmessungFragment : Fragment() {
 
 
         binding.netzwerkwahl.setOnClickListener {
-            /*Navigation.findNavController(it).navigate(
-                R.id.action_navigation_echtzeitmessung_to_netzwerkliste)*/
             startActivity(Intent(Settings.ACTION_WIFI_SETTINGS))
         }
 
 
         binding.tbtnStartEchtzeitmessung.setOnClickListener {
 
+            //Starte zyklische Updates der Netzwerkdaten
             if (!binding.tbtnStartEchtzeitmessung.isChecked) {
-                echtzeitmessungViewModel.startCoroutine()
+                echtzeitmessungViewModel.startUpdateCoroutine()
             }
+            //Stoppe zyklische Updates
             if (binding.tbtnStartEchtzeitmessung.isChecked) {
-                echtzeitmessungViewModel.stopCoroutine()
+                echtzeitmessungViewModel.stopUpdateCoroutine()
             }
         }
 
         binding.btnFloatingActionButton.setOnClickListener {
             echtzeitmessungViewModel.tonEin = !echtzeitmessungViewModel.tonEin
 
-
-            Thread {
-                if (echtzeitmessungViewModel.tonEin) {
-                    echtzeitmessungViewModel.startSinus()
-                } else {
-                    echtzeitmessungViewModel.stopSinus()
-                }
-            }.start()
-
+            if (echtzeitmessungViewModel.tonEin) {
+                echtzeitmessungViewModel.startSinus()
+                binding.btnFloatingActionButton.setImageResource(R.drawable.ic_ton_an)
+            } else {
+                echtzeitmessungViewModel.stopSinus()
+                binding.btnFloatingActionButton.setImageResource(R.drawable.ic_ton_aus)
+            }
 
         }
 
-        echtzeitmessungViewModel.frequenz = binding.seekBar.progress
+        val seek = binding.seekBar
+        seek?.setOnSeekBarChangeListener(object :
+            SeekBar.OnSeekBarChangeListener {
+            override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
+                echtzeitmessungViewModel.frequenz = seek.progress
+            }
+
+            override fun onStartTrackingTouch(seekBar: SeekBar?) {
+            }
+
+            override fun onStopTrackingTouch(seekBar: SeekBar?) {
+                echtzeitmessungViewModel.frequenz = seek.progress
+            }
+        })
 
         return root
     }
-
 
     fun isPermissionGranted(permission: String): Boolean =
         ContextCompat.checkSelfPermission(
@@ -197,8 +199,17 @@ class EchtezeitmessungFragment : Fragment() {
 
     override fun onDestroyView() {
         super.onDestroyView()
-        //echtzeitmessungViewModel.startUpdates()
+
+        //Beendet den Sinusgenerator bei einem Bildwechsel
+        if (echtzeitmessungViewModel.getSinusJobStatus()) {
+            echtzeitmessungViewModel.stopSinus()
+        }
+        //Beendet das Updaten der Netzwerkinformationen bei einem Bildwechsel
+        if (echtzeitmessungViewModel.getUpdateJobStatus()) {
+            echtzeitmessungViewModel.stopUpdateCoroutine()
+        }
         _binding = null
+
     }
 }
 
