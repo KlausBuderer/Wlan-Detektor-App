@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Wlan-Detektor</string>
     <string name="title_home">Startseite WLAN Detektor</string>
@@ -73,5 +74,4 @@
     <string name="txt_messung_bearbeiten">Messung bearbeiten</string>
     <string name="txt_bitte_auswaehlen">Bitte auswählen</string>
     <string name="txt_messung_loeschen">Messung löschen</string>
-    <string name="txt_ausgewaehlteMessung_de">Ausgewählte Messung</string>
 </resources>
