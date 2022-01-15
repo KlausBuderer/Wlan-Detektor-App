@@ -128,14 +128,12 @@ class EchtezeitmessungFragment : Fragment() {
 
         val progressBar: ProgressBar = binding.pgProgressBar
         echtzeitmessungViewModel.progressFarbe.observe(viewLifecycleOwner, Observer {
-            progressBar.progressTintList = ColorStateList.valueOf(it)
+            //progressBar.progressTintList = ColorStateList.valueOf(it)
 
         })
 
 
         val textView: TextView = binding.tvSignalstaerkeWert
-
-
         echtzeitmessungViewModel.netzwerkInfo.observe(viewLifecycleOwner, Observer {
             textView.text = it.rssi.toString() + " dB"
             progressBar.progress = it.rssi
