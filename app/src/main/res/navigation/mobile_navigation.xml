@@ -25,12 +25,7 @@
         android:id="@+id/navigation_echtzeitmessung"
         android:name="com.gruppe4.wlan_detektor.ui.Echtzeitmessung.EchtezeitmessungFragment"
         android:label="@string/title_echtzeitmessung_de"
-        tools:layout="@layout/fragment_echtzeitmessung" >
-        <action
-            android:id="@+id/action_navigation_echtzeitmessung_to_netzwerkliste"
-            app:destination="@id/netzwerkliste"
-            app:enterAnim="@android:anim/fade_in" />
-    </fragment>
+        tools:layout="@layout/fragment_echtzeitmessung" />
 
     <fragment
         android:id="@+id/navigation_messung"
@@ -48,25 +43,16 @@
     <fragment
         android:id="@+id/navigation_Visualisierung"
         android:name="com.gruppe4.wlan_detektor.ui.Visualisierung.VisualisierungFragment"
-        android:label="@string/title_visualisierung_de"
+        android:label="Messungen"
         tools:layout="@layout/fragment_visualisierung" >
         <action
             android:id="@+id/action_navigation_Visualisierung_to_visualisierung_Grid_Fragment"
             app:destination="@id/visualisierung_Grid_Fragment" />
     </fragment>
     <fragment
-        android:id="@+id/netzwerkliste"
-        android:name="com.gruppe4.wlan_detektor.ui.Utility.NetzwerklisteFragment"
-        android:label="netzwerkliste_fragment"
-        tools:layout="@layout/netzwerkliste_fragment" >
-        <action
-            android:id="@+id/action_netzwerkliste_to_navigation_echtzeitmessung"
-            app:destination="@id/navigation_echtzeitmessung" />
-    </fragment>
-    <fragment
         android:id="@+id/messungHinzufuegen"
         android:name="com.gruppe4.wlan_detektor.ui.MessungVerwalten.MessungHinzufuegen"
-        android:label="@string/txt_titel_messung_hinzufuegen_de"
+        android:label="@string/txt_messung_hinzufuegen"
         tools:layout="@layout/fragment_messung_hinzufuegen" >
         <action
             android:id="@+id/action_messungHinzufuegen_to_messungBearbeitenFragment"
@@ -75,7 +61,7 @@
     <fragment
         android:id="@+id/messungBearbeitenFragment"
         android:name="com.gruppe4.wlan_detektor.ui.MessungVerwalten.MessungBearbeitenFragment"
-        android:label="messung_bearbeiten_fragment"
+        android:label="Messungen bearbeiten"
         tools:layout="@layout/messung_bearbeiten_fragment" >
         <action
             android:id="@+id/action_messungBearbeitenFragment_to_messpunktErfassungsFragment"
@@ -87,7 +73,7 @@
     <fragment
         android:id="@+id/messungListeFragment"
         android:name="com.gruppe4.wlan_detektor.ui.MessungVerwalten.MessungListeFragment"
-        android:label="messung_liste_fragment"
+        android:label="@string/title_messungen_de"
         tools:layout="@layout/messung_liste_fragment" >
         <action
             android:id="@+id/action_messungListeFragment_to_messungBearbeitenFragment"
@@ -96,7 +82,7 @@
     <fragment
         android:id="@+id/messpunktErfassungsFragment"
         android:name="com.gruppe4.wlan_detektor.ui.MessungVerwalten.MesspunktErfassungsFragment"
-        android:label="messpunkt_erfassungs_fragment"
+        android:label="Messpunkt hinzufügen"
         tools:layout="@layout/messpunkt_erfassungs_fragment" >
         <argument
             android:name="messungsname"
@@ -114,7 +100,7 @@
     <fragment
         android:id="@+id/visualisierung_Grid_Fragment"
         android:name="com.gruppe4.wlan_detektor.ui.Visualisierung.Visualisierung_Grid_Fragment"
-        android:label="visualisierung__grid__fragment"
+        android:label="@string/title_visualisierung_de"
         tools:layout="@layout/visualisierung__grid__fragment" >
         <action
             android:id="@+id/action_visualisierung_Grid_Fragment_to_visuDetailFragment"
@@ -126,7 +112,7 @@
     <fragment
         android:id="@+id/visuDetailFragment"
         android:name="com.gruppe4.wlan_detektor.ui.Visualisierung.VisuDetailFragment"
-        android:label="visu_detail_fragment"
+        android:label="Detailansicht"
         tools:layout="@layout/visu_detail_fragment" >
         <argument
             android:name="raumname"

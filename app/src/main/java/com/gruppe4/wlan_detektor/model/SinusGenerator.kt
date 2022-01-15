@@ -78,11 +78,9 @@ class SinusGenerator(application: Application) {
                     if (phase > twopi) {
                         phase -= twopi
                     }
-
                 }
             Log.e("Amplitude",frequency.toString())
                 track.write(frame_out, 0, buffLength)
-
         }
     }
 
