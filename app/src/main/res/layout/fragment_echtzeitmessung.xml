@@ -11,9 +11,9 @@
         android:id="@+id/netzwerkwahl"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
+        android:layout_marginLeft="32dp"
         android:layout_marginTop="8dp"
-        android:layout_marginRight="10dp"
+        android:layout_marginRight="32dp"
         android:text="@string/button_netzwerkwahl_de"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.473"
@@ -27,7 +27,7 @@
         android:layout_marginTop="30dp"
         android:ems="10"
         android:gravity="start|top"
-        android:paddingLeft="20dp"
+        android:layout_marginLeft="32dp"
         android:text="@string/txt_netzwerknamen_de"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -41,7 +41,6 @@
         android:layout_marginTop="2dp"
         android:ems="10"
         android:gravity="start|top"
-        android:paddingLeft="20dp"
         android:text="@string/txt_macadresse_de"
         app:layout_constraintStart_toStartOf="@+id/netzwerkInformationen"
         app:layout_constraintTop_toBottomOf="@+id/netzwerkInformationen" />
@@ -50,10 +49,9 @@
         android:id="@+id/tv_band"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingLeft="20dp"
         android:text="@string/txt_Frequenz_de"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/netzwerkInformationen2" />
+        app:layout_constraintTop_toBottomOf="@+id/netzwerkInformationen2"
+        app:layout_constraintLeft_toLeftOf="@id/netzwerkInformationen2"/>
 
     <TextView
         android:id="@+id/netzwerkInformationen3"
@@ -61,7 +59,6 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:gravity="start|top"
-        android:paddingLeft="20dp"
         android:text="@string/txt_Hersteller_de"
         app:layout_constraintStart_toStartOf="@+id/tv_band"
         app:layout_constraintTop_toBottomOf="@+id/tv_band" />
@@ -72,7 +69,6 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:gravity="start|top"
-        android:paddingLeft="20dp"
         android:text="@string/txt_Sicherheittyp_de"
         app:layout_constraintStart_toStartOf="@+id/netzwerkInformationen3"
         app:layout_constraintTop_toBottomOf="@+id/netzwerkInformationen3" />
@@ -81,7 +77,6 @@
         android:id="@+id/tv_updownload"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingLeft="20dp"
         android:text="@string/txt_max_upload_de"
         app:layout_constraintStart_toStartOf="@+id/netzwerkInformationen4"
         app:layout_constraintTop_toBottomOf="@+id/netzwerkInformationen4" />
@@ -108,15 +103,15 @@
     <ProgressBar
         android:id="@+id/pg_progressBar"
         style="?android:attr/progressBarStyleHorizontal"
+        android:progressDrawable="@drawable/progressbar_shape"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
+        android:layout_marginLeft="32dp"
         android:layout_marginTop="8dp"
-        android:layout_marginRight="20dp"
+        android:layout_marginRight="32dp"
         android:min="-110"
-        android:max="-40"
-        android:progress="-40"
-        android:progressTint="@android:color/holo_red_dark"
+        android:max="-30"
+        android:progress="-30"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txt_pegel" />
@@ -177,9 +172,9 @@
         android:id="@+id/tbtn_start_echtzeitmessung"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
+        android:layout_marginLeft="32dp"
         android:layout_marginTop="28dp"
-        android:layout_marginRight="10dp"
+        android:layout_marginRight="32dp"
         android:onClick="toogleButtonStatus"
         android:textOn="@string/txt_starten"
         android:textOff="@string/txt_stoppen"

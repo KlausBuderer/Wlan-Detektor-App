@@ -19,7 +19,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0"
-        tools:listitem="@layout/messpunkt_item">
+        tools:listitem="@layout/messpunkt_item"
+        android:backgroundTint="@android:color/transparent">
 
     </androidx.recyclerview.widget.RecyclerView>
 
@@ -31,7 +32,6 @@
         android:layout_marginTop="8dp"
         android:layout_marginRight="20dp"
         android:text="Messungsnamen"
-        android:textColor="@color/black"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"

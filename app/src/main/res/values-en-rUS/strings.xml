@@ -70,4 +70,7 @@
     <string name="txt_18.OG">Floor</string>
     <string name="txt_19.OG">Floor</string>
     <string name="txt_20.OG">Floor</string>
+    <string name="titel_messung_bearbeiten">Messung bearbeiten</string>
+    <string name="titel_messungsliste">Messungen</string>
+    <string name="titel_messpunkterfassung">Messpunkt erfassen</string>
 </resources>
