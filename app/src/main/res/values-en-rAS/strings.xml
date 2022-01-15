@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Wifi-detector</string>
-    <string name="title_home">Home</string>
+    <string name="title_home">Home Wifi-detector</string>
     <string name="title_echtzeitmessung_de">Real time measurement</string>
     <string name="title_messungen_de">Measurements</string>
     <string name="title_visualisierung_de">Visualization</string>
     <string name="button_netzwerkwahl_de">Network choice</string>
     <string name="txt_netzwerknamen_de">SSID</string>
-    <string name="txt_macadresse_de">MAC Adress</string>
+    <string name="txt_macadresse_de">MAC Address</string>
     <string name="txt_Frequenz_de">Band</string>
     <string name="txt_Hersteller_de">Manufacturer</string>
     <string name="txt_max_upload_de">Up/Download:</string>
@@ -46,8 +46,8 @@
     <string name="txt_wohnung">Flat</string>
     <string name="txt_haus">House</string>
     <string name="txt_gewerbe">Commerce</string>
-    <string name="txt_3.UG">Floor</string>
-    <string name="txt_2.UG">Floor</string>
+    <string name="txt_3.UG">3rd basement</string>
+    <string name="txt_2.UG">2nd basement</string>
     <string name="txt_1.UG">1st basement</string>
     <string name="txt_erdgeschoss">Ground Floor</string>
     <string name="txt_1.OG">1st Floor</string>

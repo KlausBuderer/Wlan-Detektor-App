@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Wlan-Detektor</string>
-    <string name="title_home">Home</string>
+    <string name="title_home">Home Wifi-detector</string>
     <string name="title_echtzeitmessung_de">Real time measurement</string>
     <string name="title_messungen_de">Measurements</string>
     <string name="button_netzwerkwahl_de">Network choice</string>
     <string name="title_visualisierung_de">Visualization</string>
     <string name="txt_netzwerknamen_de">SSID</string>
-    <string name="txt_macadresse_de">MAC Adress</string>
+    <string name="txt_macadresse_de">MAC Address</string>
     <string name="txt_Frequenz_de">Band</string>
     <string name="txt_Hersteller_de">Manufacturer</string>
     <string name="txt_Sicherheittyp_de">Security type:</string>
