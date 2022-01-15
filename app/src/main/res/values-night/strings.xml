@@ -1,6 +1,3 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="titel_messung_bearbeiten">Messung bearbeiten</string>
-    <string name="titel_messungsliste">Messungen</string>
-    <string name="titel_messpunkterfassung">Messpunkt erfassen</string>
 </resources>

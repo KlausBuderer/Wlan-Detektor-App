@@ -60,7 +60,7 @@
             android:layout_weight="1"
             android:hint="@string/txt_raeumlichkeit_de"
             android:inputType="none"
-            android:text="Räumlichkeiten" />
+            android:text="@string/txt_bitte_auswaehlen" />
 
     </com.google.android.material.textfield.TextInputLayout>
 

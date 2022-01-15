@@ -73,4 +73,9 @@
     <string name="titel_messung_bearbeiten">Messung bearbeiten</string>
     <string name="titel_messungsliste">Messungen</string>
     <string name="titel_messpunkterfassung">Messpunkt erfassen</string>
+    <string name="txt_messung_hinzufuegen">Add measurement</string>
+    <string name="txt_messung_bearbeiten">Edit measurement</string>
+    <string name="txt_bitte_auswaehlen">Please choose</string>
+    <string name="txt_messung_loeschen">Delete measurement</string>
+    <string name="txt_ausgewaehlteMessung">Selected measurement</string>
 </resources>

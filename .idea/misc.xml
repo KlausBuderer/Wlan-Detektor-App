@@ -4,9 +4,19 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Android Development/AndroidStudioProjects/Wlan-Detektor-App/app/src/main/res/layout/activity_main.xml" value="0.33695652173913043" />
+        <entry key="..\:/Android Development/AndroidStudioProjects/Wlan-Detektor-App/app/src/main/res/layout/dropdown_item.xml" value="0.5153985507246377" />
         <entry key="..\:/Android Development/AndroidStudioProjects/Wlan-Detektor-App/app/src/main/res/layout/fragment_echtzeitmessung.xml" value="0.2833333333333333" />
-        <entry key="..\:/Android Development/AndroidStudioProjects/Wlan-Detektor-App/app/src/main/res/layout/fragment_home.xml" value="0.33" />
+        <entry key="..\:/Android Development/AndroidStudioProjects/Wlan-Detektor-App/app/src/main/res/layout/fragment_home.xml" value="0.25" />
+        <entry key="..\:/Android Development/AndroidStudioProjects/Wlan-Detektor-App/app/src/main/res/layout/fragment_messung_hinzufuegen.xml" value="0.296875" />
         <entry key="..\:/Android Development/AndroidStudioProjects/Wlan-Detektor-App/app/src/main/res/layout/fragment_messungen.xml" value="0.43333333333333335" />
+        <entry key="..\:/Android Development/AndroidStudioProjects/Wlan-Detektor-App/app/src/main/res/layout/fragment_netzwerkwahl.xml" value="0.5153985507246377" />
+        <entry key="..\:/Android Development/AndroidStudioProjects/Wlan-Detektor-App/app/src/main/res/layout/fragment_visualisierung.xml" value="0.5153985507246377" />
+        <entry key="..\:/Android Development/AndroidStudioProjects/Wlan-Detektor-App/app/src/main/res/layout/messpunkt_erfassungs_fragment.xml" value="0.2695035460992908" />
+        <entry key="..\:/Android Development/AndroidStudioProjects/Wlan-Detektor-App/app/src/main/res/layout/messpunkt_item.xml" value="0.5153985507246377" />
+        <entry key="..\:/Android Development/AndroidStudioProjects/Wlan-Detektor-App/app/src/main/res/layout/messung_bearbeiten_fragment.xml" value="0.5153985507246377" />
+        <entry key="..\:/Android Development/AndroidStudioProjects/Wlan-Detektor-App/app/src/main/res/layout/messung_item.xml" value="0.5153985507246377" />
+        <entry key="..\:/Android Development/AndroidStudioProjects/Wlan-Detektor-App/app/src/main/res/layout/messung_liste_fragment.xml" value="0.5153985507246377" />
+        <entry key="..\:/Android Development/AndroidStudioProjects/Wlan-Detektor-App/app/src/main/res/layout/visu_detail_fragment.xml" value="0.5153985507246377" />
         <entry key="..\:/Android/WlanDetektor/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.5661458333333333" />
         <entry key="..\:/Android/WlanDetektor/app/src/main/res/drawable/background.xml" value="0.42552083333333335" />
         <entry key="..\:/Android/WlanDetektor/app/src/main/res/drawable/card_background_lite.xml" value="0.43385416666666665" />

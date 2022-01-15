@@ -12,7 +12,7 @@ import androidx.navigation.Navigation
 import com.gruppe4.wlan_detektor.R
 import com.gruppe4.wlan_detektor.databinding.FragmentHomeBinding
 
-class HomeFragment : Fragment(),View.OnClickListener {
+class HomeFragment : Fragment(), View.OnClickListener {
 
     private lateinit var homeViewModel: HomeViewModel
     private var _binding: FragmentHomeBinding? = null
@@ -32,16 +32,17 @@ class HomeFragment : Fragment(),View.OnClickListener {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-       binding.cvEchtzeitmessung.setOnClickListener{
-           Navigation.findNavController(it).navigate(
-               R.id.action_navigation_home_to_navigation_echtzeitmessung
-           )
-       }
-    binding.cvMessungVerwaltung.setOnClickListener{
-        Navigation.findNavController(it).navigate(R.id.action_navigation_home_to_navigation_messung)
-    }
+        binding.cvEchtzeitmessung.setOnClickListener {
+            Navigation.findNavController(it).navigate(
+                R.id.action_navigation_home_to_navigation_echtzeitmessung
+            )
+        }
+        binding.cvMessungVerwaltung.setOnClickListener {
+            Navigation.findNavController(it)
+                .navigate(R.id.action_navigation_home_to_navigation_messung)
+        }
 
-        binding.cvVisualisierung.setOnClickListener{
+        binding.cvVisualisierung.setOnClickListener {
             Navigation.findNavController(it).navigate(
                 R.id.action_navigation_home_to_navigation_Visualisierung
 
