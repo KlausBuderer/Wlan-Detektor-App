@@ -15,10 +15,12 @@ import java.lang.NullPointerException
 
 class EchtzeitmessungViewModel(application: Application) : AndroidViewModel(application) {
 
-    private lateinit var netzwerkArrayList : ArrayList<MesspunktItem>
+    private lateinit var netzwerkArrayList: ArrayList<MesspunktItem>
 
-    var wifiManager = getApplication<Application>().getSystemService(Context.WIFI_SERVICE) as WifiManager
-    val connectivityManager = getApplication<Application>().getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+    var wifiManager =
+        getApplication<Application>().getSystemService(Context.WIFI_SERVICE) as WifiManager
+    val connectivityManager =
+        getApplication<Application>().getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
     private var connectionInfo: WifiInfo = wifiManager.connectionInfo
     var progressFarbeZyklisch: Int = progressBarFarbeEinstellen()
 
@@ -35,27 +37,27 @@ class EchtzeitmessungViewModel(application: Application) : AndroidViewModel(appl
         value = progressFarbeZyklisch
     }
 
-    fun progressBarFarbeEinstellen(): Int{
-        if (connectionInfo.rssi > -60){
+    fun progressBarFarbeEinstellen(): Int {
+        if (connectionInfo.rssi > -60) {
             return Color.GREEN
-        }else if (connectionInfo.rssi > -70){
+        } else if (connectionInfo.rssi > -70) {
             return Color.YELLOW
-        }else{
+        } else {
             return Color.RED
         }
     }
 
-    fun bandUmrechnung(): Double{
-        if (connectionInfo.frequency > 5000){
+    fun bandUmrechnung(): Double {
+        if (connectionInfo.frequency > 5000) {
             return 5.0
-        }else if (connectionInfo.frequency in 2000 .. 3000){
+        } else if (connectionInfo.frequency in 2000..3000) {
             return 2.4
         }
         return 0.0
     }
 
-    val netzwerkInfo: LiveData<WifiInfo> =  _netzwerkInfo
-    val progressFarbe: LiveData<Int> =  _progressFarbe
+    val netzwerkInfo: LiveData<WifiInfo> = _netzwerkInfo
+    val progressFarbe: LiveData<Int> = _progressFarbe
     val band: LiveData<Double> = _band
     var tonEin: Boolean = false
     val sinusGenerator = SinusGenerator(application)
@@ -69,32 +71,32 @@ class EchtzeitmessungViewModel(application: Application) : AndroidViewModel(appl
 
     }
 
-    fun startSinus(){
+    fun startSinus() {
         netzwerkInfo.value?.let { sinusGenerator.start(it.rssi) }
     }
 
-    fun stopSinus(){
+    fun stopSinus() {
         sinusGenerator.stopPlaying()
     }
 
-    fun stopCoroutine(){
+    fun stopCoroutine() {
         routine.cancel()
     }
 
-    suspend fun startUpdates(){
-      withContext(Dispatchers.IO){
+    suspend fun startUpdates() {
+        withContext(Dispatchers.IO) {
             while (isActive) {
-                Log.e("couritne: ","$isActive")
-            try {
-                connectionInfo = wifiManager.connectionInfo
+                Log.e("couritne: ", "$isActive")
+                try {
+                    connectionInfo = wifiManager.connectionInfo
 
-                _netzwerkInfo.postValue(connectionInfo)
-                _progressFarbe.postValue(run { progressBarFarbeEinstellen() })
+                    _netzwerkInfo.postValue(connectionInfo)
+                    _progressFarbe.postValue(run { progressBarFarbeEinstellen() })
 
 
-            }catch (e:NullPointerException){
+                } catch (e: NullPointerException) {
 
-            }
+                }
 
                 delay(500)
             }

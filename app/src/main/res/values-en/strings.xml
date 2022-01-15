@@ -37,7 +37,7 @@
     <string name="txt_gemessener_pegel_de">Measured level</string>
     <string name="txt_titel_hauptmenue_de">Wifi-detector</string>
     <string name="txt_titel_home_echzeitmessung">Real time measurement</string>
-    <string name="txt_ausgewaehlteMessung_de">Selected measurement</string>
+    <string name="txt_ausgewaehlteMessung">Selected measurement</string>
     <string name="txt_titel_messung_hinzufuegen_de">Add measurement</string>
     <string name="txt_netzwerk_de">Network</string>
     <string name="txt_Sicherheittyp_de">Security type:</string>
@@ -70,4 +70,8 @@
     <string name="txt_18.OG">Floor</string>
     <string name="txt_19.OG">Floor</string>
     <string name="txt_20.OG">Floor</string>
+    <string name="txt_messung_hinzufuegen">Add measurement</string>
+    <string name="txt_messung_bearbeiten">Edit measurement</string>
+    <string name="txt_bitte_auswaehlen">Please choose</string>
+    <string name="txt_messung_loeschen">Delete measurement</string>
 </resources>

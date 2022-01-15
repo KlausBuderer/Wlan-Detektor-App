@@ -158,39 +158,35 @@ class EchtezeitmessungFragment : Fragment() {
         }
 
 
-            binding.tbtnStartEchtzeitmessung.setOnClickListener {
+        binding.tbtnStartEchtzeitmessung.setOnClickListener {
 
-                if(!binding.tbtnStartEchtzeitmessung.isChecked) {
-                    echtzeitmessungViewModel.startCoroutine()
-                }
-                if (binding.tbtnStartEchtzeitmessung.isChecked) {
-                    echtzeitmessungViewModel.stopCoroutine()
-                }
+            if (!binding.tbtnStartEchtzeitmessung.isChecked) {
+                echtzeitmessungViewModel.startCoroutine()
             }
+            if (binding.tbtnStartEchtzeitmessung.isChecked) {
+                echtzeitmessungViewModel.stopCoroutine()
+            }
+        }
 
-        binding.btnFloatingActionButton.setOnClickListener{
+        binding.btnFloatingActionButton.setOnClickListener {
             echtzeitmessungViewModel.tonEin = !echtzeitmessungViewModel.tonEin
 
 
-            Thread{
+            Thread {
                 if (echtzeitmessungViewModel.tonEin) {
                     echtzeitmessungViewModel.startSinus()
-                }else{
+                } else {
                     echtzeitmessungViewModel.stopSinus()
                 }
             }.start()
 
 
-
-
-
         }
 
-       echtzeitmessungViewModel.frequenz = binding.seekBar.progress
+        echtzeitmessungViewModel.frequenz = binding.seekBar.progress
 
-return root
-}
-
+        return root
+    }
 
 
     fun isPermissionGranted(permission: String): Boolean =
