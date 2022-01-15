@@ -43,7 +43,7 @@
     <fragment
         android:id="@+id/navigation_Visualisierung"
         android:name="com.gruppe4.wlan_detektor.ui.Visualisierung.VisualisierungFragment"
-        android:label="@string/titel_messungsliste"
+        android:label="Messungen"
         tools:layout="@layout/fragment_visualisierung" >
         <action
             android:id="@+id/action_navigation_Visualisierung_to_visualisierung_Grid_Fragment"
@@ -52,7 +52,7 @@
     <fragment
         android:id="@+id/messungHinzufuegen"
         android:name="com.gruppe4.wlan_detektor.ui.MessungVerwalten.MessungHinzufuegen"
-        android:label="@string/txt_titel_messung_hinzufuegen_de"
+        android:label="@string/txt_messung_hinzufuegen"
         tools:layout="@layout/fragment_messung_hinzufuegen" >
         <action
             android:id="@+id/action_messungHinzufuegen_to_messungBearbeitenFragment"
@@ -61,7 +61,7 @@
     <fragment
         android:id="@+id/messungBearbeitenFragment"
         android:name="com.gruppe4.wlan_detektor.ui.MessungVerwalten.MessungBearbeitenFragment"
-        android:label="@string/titel_messung_bearbeiten"
+        android:label="Messungen bearbeiten"
         tools:layout="@layout/messung_bearbeiten_fragment" >
         <action
             android:id="@+id/action_messungBearbeitenFragment_to_messpunktErfassungsFragment"
@@ -73,7 +73,7 @@
     <fragment
         android:id="@+id/messungListeFragment"
         android:name="com.gruppe4.wlan_detektor.ui.MessungVerwalten.MessungListeFragment"
-        android:label="@string/titel_messungsliste"
+        android:label="@string/title_messungen_de"
         tools:layout="@layout/messung_liste_fragment" >
         <action
             android:id="@+id/action_messungListeFragment_to_messungBearbeitenFragment"
@@ -82,7 +82,7 @@
     <fragment
         android:id="@+id/messpunktErfassungsFragment"
         android:name="com.gruppe4.wlan_detektor.ui.MessungVerwalten.MesspunktErfassungsFragment"
-        android:label="@string/titel_messpunkterfassung"
+        android:label="Messpunkt hinzufügen"
         tools:layout="@layout/messpunkt_erfassungs_fragment" >
         <argument
             android:name="messungsname"
