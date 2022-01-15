@@ -46,9 +46,9 @@
     <string name="txt_wohnung">Flat</string>
     <string name="txt_haus">House</string>
     <string name="txt_gewerbe">Commerce</string>
-    <string name="txt_3.UG">Floor</string>
-    <string name="txt_2.UG">Floor</string>
-    <string name="txt_1.UG">Floor</string>
+    <string name="txt_3.UG">3rd basement</string>
+    <string name="txt_2.UG">2nd basement</string>
+    <string name="txt_1.UG">1st basement</string>
     <string name="txt_erdgeschoss">Ground Floor</string>
     <string name="txt_1.OG">1st Floor</string>
     <string name="txt_2.OG">2nd Floor</string>
