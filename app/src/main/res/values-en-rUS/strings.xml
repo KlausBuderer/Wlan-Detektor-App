@@ -29,7 +29,7 @@
     <string name="txt_stockwerk_de">Floor</string>
     <string name="txt_raumname_de">Room name</string>
     <string name="txt_zusatzinformationen_de">Additional information</string>
-    <string name="txt_helper_max_zeichen_de">Maximum 20 characters</string>
+    <string name="txt_helper_max_zeichen_de">Maximum 80 characters</string>
     <string name="txt_abbrechen">Cancel</string>
     <string name="txt_datum_de">Date</string>
     <string name="txt_zeit_de">Time</string>
