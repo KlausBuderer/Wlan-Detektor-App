@@ -28,7 +28,8 @@ class TblMesspunkt {
       erfassungsDatum: String,
       erfassungsZeit: String,
       aenderungsDatum: String,
-      aenderungsZeit: String
+      aenderungsZeit: String,
+      bildPfad: String
    ) {
       this.idmesspunkt = messpunktId
       this.fkmessungid = fkmessungid
@@ -42,6 +43,7 @@ class TblMesspunkt {
       this.erfassungsZeit = erfassungsZeit
       this.aenderungsDatum = aenderungsDatum
       this.aenderungsZeit = aenderungsZeit
+      this.bildPfad = bildPfad
    }
 
    constructor(
@@ -54,7 +56,8 @@ class TblMesspunkt {
       pegelmessung: Int,
       masseinheit: String,
       aenderungsDatum: String,
-      aenderungsZeit: String
+      aenderungsZeit: String,
+      bildPfad: String
    ) {
       this.idmesspunkt = messpunktId
       this.fkmessungid = fkmessungid
@@ -66,6 +69,7 @@ class TblMesspunkt {
       this.masseinheit = masseinheit
       this.aenderungsDatum = aenderungsDatum
       this.aenderungsZeit = aenderungsZeit
+      this.bildPfad = bildPfad
    }
 
    constructor(
@@ -77,7 +81,8 @@ class TblMesspunkt {
       pegelmessung: Int,
       masseinheit: String,
       erfassungsDatum: String,
-      erfassungsZeit: String
+      erfassungsZeit: String,
+      bildPfad: String
    ) {
       this.fkmessungid = fkmessungid
       this.gebaeude = gebaeude
@@ -88,6 +93,7 @@ class TblMesspunkt {
       this.masseinheit = masseinheit
       this.erfassungsDatum = erfassungsDatum
       this.erfassungsZeit = erfassungsZeit
+      this.bildPfad = bildPfad
    }
 
 
@@ -128,4 +134,7 @@ class TblMesspunkt {
 
    @ColumnInfo(name = "aenderungsZeit")
    var aenderungsZeit: String = ""
+
+   @ColumnInfo(name = "bildPfad")
+   var bildPfad: String = ""
 }
