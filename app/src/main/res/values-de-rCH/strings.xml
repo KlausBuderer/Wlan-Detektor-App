@@ -29,7 +29,7 @@
     <string name="txt_stockwerk_de">Stockwerk</string>
     <string name="txt_raumname_de">Raumname</string>
     <string name="txt_zusatzinformationen_de">Zusatzinformationen</string>
-    <string name="txt_helper_max_zeichen_de">maximal 20 Zeichen</string>
+    <string name="txt_helper_max_zeichen_de">maximal 80 Zeichen</string>
     <string name="txt_abbrechen">Abbrechen</string>
     <string name="txt_datum_de">Datum</string>
     <string name="txt_gemessener_pegel_de">Gemessener Pegel</string>

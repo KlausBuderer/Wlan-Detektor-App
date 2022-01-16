@@ -99,8 +99,8 @@ class EchtezeitmessungFragment : Fragment() {
             ssid.text = it.ssid
         })
 
-        //TODO Applikation absturz
-        /*val mac: TextView = binding.tvMac
+/*        //TODO Applikation absturz
+        val mac: TextView = binding.tvMac
         echtzeitmessungViewModel.netzwerkInfo.observe(viewLifecycleOwner, Observer {
             mac.text =  it.bssid.toString()})*/
 
@@ -152,6 +152,7 @@ class EchtezeitmessungFragment : Fragment() {
             //Stoppe zyklische Updates
             if (binding.tbtnStartEchtzeitmessung.isChecked) {
                 echtzeitmessungViewModel.stopUpdateCoroutine()
+                echtzeitmessungViewModel.stopSinus()
             }
         }
 

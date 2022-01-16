@@ -6,15 +6,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.view.get
 import androidx.lifecycle.Observer
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.Navigation
-import com.gruppe4.wlan_detektor.R
 import com.gruppe4.wlan_detektor.databinding.MessungListeFragmentBinding
 import com.gruppe4.wlan_detektor.model.Datenbank.Entitaeten.TblMessung
-import com.gruppe4.wlan_detektor.ui.MessungListe
-import kotlinx.android.synthetic.main.messung_liste_fragment.*
 import kotlinx.coroutines.launch
 
 class MessungListeFragment : Fragment(), MessungListeAdapter.OnItemClickListener {
