@@ -87,9 +87,6 @@ class EchtezeitmessungFragment : Fragment() {
 
         }
 
-
-
-
         echtzeitmessungViewModel =
             ViewModelProvider(this)[EchtzeitmessungViewModel::class.java]
 
