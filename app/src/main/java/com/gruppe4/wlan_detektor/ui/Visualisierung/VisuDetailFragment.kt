@@ -1,6 +1,8 @@
 package com.gruppe4.wlan_detektor.ui.Visualisierung
 
 import android.content.res.ColorStateList
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -12,6 +14,7 @@ import com.gruppe4.wlan_detektor.R
 import com.gruppe4.wlan_detektor.databinding.FragmentVisualisierungBinding
 import com.gruppe4.wlan_detektor.databinding.VisuDetailFragmentBinding
 import com.gruppe4.wlan_detektor.model.Netzwerk.NetzwerkInfo
+import java.io.File
 
 
 class VisuDetailFragment : Fragment() {
@@ -37,6 +40,11 @@ class VisuDetailFragment : Fragment() {
         _binding = VisuDetailFragmentBinding.inflate(layoutInflater)
         val root: View = binding.root
         val netzwerkInfo = NetzwerkInfo(requireActivity().application)
+        var myBitmap: Bitmap? = null
+        if (args.bildPfad.isNotBlank()) {
+            val bildFile = File(args.bildPfad)
+             myBitmap = BitmapFactory.decodeFile(bildFile.absolutePath)
+        }
 
         binding.tvRaumName.text = args.raumname
         binding.tvGebaeude.text = args.gebaeude
@@ -47,6 +55,9 @@ class VisuDetailFragment : Fragment() {
         binding.tvPegel.text = args.pegel.toString()
         binding.pgProgressBar.progress = args.pegel
         binding.pgProgressBar.progressTintList = ColorStateList.valueOf(netzwerkInfo.progressBarFarbeEinstellen(args.pegel))
+        if (myBitmap != null) {
+            binding.musspunktBild.setImageBitmap(myBitmap)
+        }
 
 
 

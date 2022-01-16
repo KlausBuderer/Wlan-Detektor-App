@@ -135,5 +135,8 @@
         <argument
             android:name="Zeit"
             app:argType="string" />
+        <argument
+            android:name="BildPfad"
+            app:argType="string" />
     </fragment>
 </navigation>

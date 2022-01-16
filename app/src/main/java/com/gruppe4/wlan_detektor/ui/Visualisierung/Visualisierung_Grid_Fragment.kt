@@ -71,7 +71,9 @@ class Visualisierung_Grid_Fragment : Fragment(), MesspunktVisuAdapter.OnItemClic
             messungListe[position].pegelmessung,
             messungListe[position].zusatzinformation,
             messungListe[position].erfassungsDatum,
-            messungListe[position].erfassungsZeit
+            messungListe[position].erfassungsZeit,
+            messungListe[position].bildPfad
+
         )
 
         Navigation.findNavController(binding.root).navigate(action)

@@ -174,25 +174,40 @@
         app:layout_constraintBaseline_toBaselineOf="@+id/tv_signalstaerke_wert"
         app:layout_constraintEnd_toEndOf="@+id/pg_progressBar" />
 
-    <Button
-        android:id="@+id/messpunkt_speichern"
-        android:layout_width="wrap_content"
+
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:enabled="false"
-        android:text="@string/btn_speichern_de"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_signalstaerke_wert">
         app:layout_constraintEnd_toEndOf="@+id/btn_start_messpunkt_messung"
         app:layout_constraintStart_toEndOf="@+id/abbrechen"
-        app:layout_constraintTop_toBottomOf="@+id/btn_start_messpunkt_messung" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_start_messpunkt_messung"
 
-    <Button
-        android:id="@+id/abbrechen"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:text="@string/txt_abbrechen"
-        app:layout_constraintBaseline_toBaselineOf="@+id/messpunkt_speichern"
-        app:layout_constraintStart_toStartOf="@+id/pg_progressBar" />
+        <Button
+            android:id="@+id/btn_bild_hinzufuegen"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="60dp"
+            android:gravity="center"
+            android:textColor="@color/material_on_background_emphasis_medium"
+            app:icon="@drawable/ic_baseline_add_photo_alternate_24" />
+
+        <Button
+            android:id="@+id/messpunkt_speichern"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:enabled="false"
+            android:text="@string/btn_speichern_de" />
+
+
+    </LinearLayout>
+
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
