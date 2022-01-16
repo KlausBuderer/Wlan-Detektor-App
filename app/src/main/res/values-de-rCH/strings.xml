@@ -70,9 +70,6 @@
     <string name="txt_18.OG">18.OG</string>
     <string name="txt_19.OG">19.OG</string>
     <string name="txt_20.OG">20.OG</string>
-    <string name="titel_messung_bearbeiten">Messung bearbeiten</string>
-    <string name="titel_messungsliste">Messungen</string>
-    <string name="titel_messpunkterfassung">Messpunkt erfassen</string>
     <string name="txt_messung_hinzufuegen">Messung hinzufügen</string>
     <string name="txt_messung_bearbeiten">Messung bearbeiten</string>
     <string name="txt_bitte_auswaehlen">Bitte auswählen</string>

@@ -114,7 +114,7 @@ class EchtezeitmessungFragment : Fragment() {
             supplier.text = "noch nicht implementiert"
         })
 
-        /*val sicherheitstyp: TextView = binding.tvSicherheittyp
+        /*val sicherheitstyp: TextView = binding.tvSicherheittyp.
         echtzeitmessungViewModel.netzwerkInfo.observe(viewLifecycleOwner, Observer {
             sicherheitstyp.text =  it.currentSecurityType.toString()})*/
 
