@@ -10,7 +10,7 @@ android {
 
     defaultConfig {
         applicationId "com.gruppe4.wlan_detektor"
-        minSdk 24
+        minSdkVersion 24
         targetSdk 31
         versionCode 1
         versionName "1.0"
