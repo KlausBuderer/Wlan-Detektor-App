@@ -81,6 +81,9 @@
         <argument
             android:name="context"
             app:argType="string" />
+        <action
+            android:id="@+id/action_messungListeFragment_to_navigation_messung"
+            app:destination="@id/navigation_messung" />
     </fragment>
     <fragment
         android:id="@+id/messpunktErfassungsFragment"

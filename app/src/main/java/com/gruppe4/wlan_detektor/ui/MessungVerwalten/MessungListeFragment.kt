@@ -95,14 +95,19 @@ class MessungListeFragment : Fragment(), MessungListeAdapter.OnItemClickListener
             //Ja Button
             builder.setPositiveButton("Löschen") { dialogInterface, which ->
                 try {
-                    lifecycleScope.launch(Dispatchers.IO) {
+                  val job =  lifecycleScope.launch(Dispatchers.IO) {
                         messungsListe?.get(position)?.let { viewModel.deleteMessung(it.name) }
                     }
+                    Navigation.findNavController(binding.root).navigate(
+                        R.id.action_messungListeFragment_to_navigation_messung
 
+                    )
                 } catch (e: IOException) {
                     Log.e("Löschauftrag:", "Fehlgeschlagen")
                 }
             }
+
+
 
             //Nein Button
             builder.setNegativeButton("Abbrechen") { dialogInterface, which ->

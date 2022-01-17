@@ -37,8 +37,9 @@ class MessungListeViewModel(application: Application) : AndroidViewModel(applica
         try {
 
             repositoryDb.deleteMessung(repositoryDb.getMessung(name))
-            Log.e(LOG_TAG, "Query erfolgreich")
 
+
+            Log.e(LOG_TAG, "Query erfolgreich")
             getAlleMessungen()
         }catch (e: IOException){
             Log.e(LOG_TAG, "Query nicht erfolgreich")
