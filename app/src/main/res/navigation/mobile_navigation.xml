@@ -78,6 +78,9 @@
         <action
             android:id="@+id/action_messungListeFragment_to_messungBearbeitenFragment"
             app:destination="@id/messungBearbeitenFragment" />
+        <argument
+            android:name="context"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/messpunktErfassungsFragment"

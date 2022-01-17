@@ -11,7 +11,8 @@ import com.gruppe4.wlan_detektor.model.Datenbank.Entitaeten.TblMessung
 
 class MessungListeAdapter(private val messungsListe: List<TblMessung>?
                         , private val listener: OnItemClickListener
-                        , private val application: Application)
+                        , private val application: Application
+                        , private val kontext: String)
                         :RecyclerView.Adapter<MessungListeAdapter.MessungViewHolder>() {
 
     inner class MessungViewHolder(var itemBinding: MessungItemBinding):
@@ -21,6 +22,15 @@ class MessungListeAdapter(private val messungsListe: List<TblMessung>?
             itemBinding.tvMessungNamen.text = messung.name
             itemBinding.tvRaeumlickkeit.text = application.resources.getStringArray(R.array.raeumlichkeiten_array)[messung.raeumlichkeit]
             itemBinding.tvZeitstempel.text = messung.erfassungsDatum + " " + messung.erfassungsZeit
+
+            //Verändere Icon gemäss des Aufrufers
+            if (kontext == MESSUNGLISTE_KONTEXT.Loeschen.toString()){
+                itemBinding.messungBarbeiten.setImageResource(R.drawable.ic_baseline_delete_forever_24)
+            }else if (kontext == MESSUNGLISTE_KONTEXT.Visualisierung.toString()){
+                itemBinding.messungBarbeiten.setImageResource(R.drawable.ic_visualisierung)
+            }else{
+                itemBinding.messungBarbeiten.setImageResource(R.drawable.ic_edit)
+            }
 
         }
 

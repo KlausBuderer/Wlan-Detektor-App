@@ -12,6 +12,7 @@ import androidx.navigation.Navigation
 import com.gruppe4.wlan_detektor.R
 import com.gruppe4.wlan_detektor.databinding.FragmentMessungenBinding
 
+enum class MESSUNGLISTE_KONTEXT {Bearbeiten, Loeschen, Visualisierung}
 
 class MessungFragment : Fragment() {
 
@@ -39,16 +40,41 @@ class MessungFragment : Fragment() {
                 R.id.action_navigation_messung_to_messungHinzufuegen
             )
         }
+
+
+
+            return root
+
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+
         //Absprung in eine Liste von Messungen
         binding.btnEditMessung.setOnClickListener{
-            Navigation.findNavController(it).navigate(
-                R.id.action_navigation_messung_to_messungListeFragment
-            )
+            val action =
+                MessungFragmentDirections.actionNavigationMessungToMessungListeFragment(
+                    MESSUNGLISTE_KONTEXT.Bearbeiten.toString()
+                )
+
+            Navigation.findNavController(binding.root).navigate(action)
         }
 
 
-        return root
+        //Absprung in eine Liste von Messungen
+        binding.btnDeleteMessung.setOnClickListener{
+            val action =
+                MessungFragmentDirections.actionNavigationMessungToMessungListeFragment(
+                    MESSUNGLISTE_KONTEXT.Loeschen.toString()
+                )
+
+            Navigation.findNavController(binding.root).navigate(action)
+        }
     }
+
+
+
 
     override fun onDestroyView() {
         super.onDestroyView()

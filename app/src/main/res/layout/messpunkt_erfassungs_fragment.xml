@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<ScrollView  android:id="@+id/scroll_screen" xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.MessungVerwalten.MesspunktErfassungsFragment">
@@ -36,26 +43,26 @@
         app:layout_constraintTop_toBottomOf="@+id/tv_gewaehlteMessung" />
 
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/et_raumname_layout"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:maxWidth="100dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="32dp"
-        android:hint="@string/txt_raumname_de"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_messung_namen"
-        app:startIconDrawable="@drawable/ic_info">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/et_raumname_edit"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/et_raumname_layout"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-    </com.google.android.material.textfield.TextInputLayout>
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="32dp"
+            android:hint="@string/txt_raumname_de"
+            android:maxWidth="100dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_messung_namen"
+            app:startIconDrawable="@drawable/ic_info">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_raumname_edit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/dd_stockwerk_layout"
@@ -194,8 +201,9 @@
             android:layout_height="wrap_content"
             android:layout_marginRight="60dp"
             android:gravity="center"
+            android:text="@string/txt_bild_einfügen"
             android:textColor="@color/material_on_background_emphasis_medium"
-            app:icon="@drawable/ic_baseline_add_photo_alternate_24" />
+            tools:ignore="SpeakableTextPresentCheck" />
 
         <Button
             android:id="@+id/messpunkt_speichern"
@@ -207,7 +215,6 @@
 
     </LinearLayout>
 
-
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

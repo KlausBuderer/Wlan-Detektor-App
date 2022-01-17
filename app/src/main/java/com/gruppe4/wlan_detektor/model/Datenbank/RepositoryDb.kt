@@ -99,4 +99,10 @@ class RepositoryDb(application: Application) {
         }.await()
     }
 
+    suspend fun deleteMessung(messung: TblMessung){
+        coroutineScope.launch(Dispatchers.IO){
+            wlanDetektorDao.deleteTblMessung(messung)
+        }
+    }
+
 }
