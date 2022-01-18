@@ -16,11 +16,6 @@ import java.lang.NullPointerException
 class EchtzeitmessungViewModel(application: Application) : AndroidViewModel(application) {
 
 
-    var wifiManager =
-        getApplication<Application>().getSystemService(Context.WIFI_SERVICE) as WifiManager
-    val connectivityManager =
-        getApplication<Application>().getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
-    private var connectionInfo: WifiInfo = wifiManager.connectionInfo
     private var wifiKlasse: NetzwerkInfo
     private var wifiInfos: WifiInfo
 
@@ -36,27 +31,31 @@ class EchtzeitmessungViewModel(application: Application) : AndroidViewModel(appl
     }
 
     private val _band = MutableLiveData<Double>().apply {
-        value = bandUmrechnung()
+        value = bandUmrechnung(wifiInfos.frequency)
     }
 
     private val _progressFarbe = MutableLiveData<Int>().apply {
         value = progressFarbeZyklisch
     }
 
+   fun refreshWifiInfo(){
+        wifiInfos = wifiKlasse.getConnectionInfo()
+    }
+
     private fun progressBarFarbeEinstellen(): Int {
         if (wifiInfos.rssi > -60) {
             return Color.GREEN
-        } else if (wifiInfos.rssi > -70) {
+        } else if (wifiInfos.rssi > -80) {
             return Color.YELLOW
         } else {
             return Color.RED
         }
     }
 
-    private fun bandUmrechnung(): Double {
-        if (wifiInfos.frequency > 5000) {
+    fun bandUmrechnung(band: Int): Double {
+        if (band > 5000) {
             return 5.0
-        } else if (wifiInfos.frequency in 2000..3000) {
+        } else if (band in 2000..3000) {
             return 2.4
         }
         return 0.0
@@ -95,12 +94,13 @@ class EchtzeitmessungViewModel(application: Application) : AndroidViewModel(appl
             try {
                 _netzwerkInfo.postValue(wifiKlasse.getConnectionInfo())
                 _progressFarbe.postValue(run { wifiKlasse.progressBarFarbeEinstellen(wifiInfos.rssi) })
+                _band.postValue(bandUmrechnung(wifiInfos.frequency))
                 println(wifiKlasse.getConnectionInfo().rssi)
             } catch (e: NullPointerException) {
 
                 println("Update nicht erfolgreich")
             }
-            delay(500)
+            delay(200)
         }
     }
 

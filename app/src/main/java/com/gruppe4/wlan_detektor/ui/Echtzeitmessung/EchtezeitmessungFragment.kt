@@ -93,16 +93,20 @@ class EchtezeitmessungFragment : Fragment() {
         _binding = FragmentEchtzeitmessungBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-
         val ssid: TextView = binding.tvSsid
         echtzeitmessungViewModel.netzwerkInfo.observe(viewLifecycleOwner, Observer {
             ssid.text = it.ssid
         })
 
-/*        //TODO Applikation absturz
+
         val mac: TextView = binding.tvMac
         echtzeitmessungViewModel.netzwerkInfo.observe(viewLifecycleOwner, Observer {
-            mac.text =  it.bssid.toString()})*/
+            if (it.bssid != null){
+            mac.text =  it.bssid.toString()
+            }else{
+                mac.text = "unbekannt"
+            }
+            })
 
         val band: TextView = binding.tvFrequenz
         echtzeitmessungViewModel.band.observe(viewLifecycleOwner, Observer {
@@ -113,10 +117,6 @@ class EchtezeitmessungFragment : Fragment() {
         echtzeitmessungViewModel.netzwerkInfo.observe(viewLifecycleOwner, Observer {
             supplier.text = "noch nicht implementiert"
         })
-
-        /*val sicherheitstyp: TextView = binding.tvSicherheittyp.
-        echtzeitmessungViewModel.netzwerkInfo.observe(viewLifecycleOwner, Observer {
-            sicherheitstyp.text =  it.currentSecurityType.toString()})*/
 
         val updownspeed: TextView = binding.tvUpdownspeed
         echtzeitmessungViewModel.netzwerkInfo.observe(viewLifecycleOwner, Observer {
@@ -193,6 +193,14 @@ class EchtezeitmessungFragment : Fragment() {
             permission
         ) == PackageManager.PERMISSION_GRANTED
 
+    override fun onResume() {
+        super.onResume()
+
+        echtzeitmessungViewModel.startUpdateCoroutine()
+        binding.tbtnStartEchtzeitmessung.isChecked = false
+    }
+
+
     override fun onDestroyView() {
         super.onDestroyView()
 
@@ -207,6 +215,8 @@ class EchtezeitmessungFragment : Fragment() {
         _binding = null
 
     }
+
+
 }
 
 
