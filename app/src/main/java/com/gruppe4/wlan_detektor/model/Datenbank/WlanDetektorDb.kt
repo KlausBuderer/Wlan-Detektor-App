@@ -11,45 +11,30 @@ import com.gruppe4.wlan_detektor.model.Datenbank.Entitaeten.*
 @Database(
     entities = [
         TblMesspunkt::class,
-        TblMessung::class], version = 1, exportSchema = false )
+        TblMessung::class], version = 1, exportSchema = false
+)
 
-    abstract class WlanDetektorDb : RoomDatabase()
-    {
-        abstract val wlanDetektorDao: WlanDetektorDao
+abstract class WlanDetektorDb : RoomDatabase() {
+    abstract val wlanDetektorDao: WlanDetektorDao
 
-        companion object
-        {
-           /* private lateinit var wlanDetektorDb: WlanDetektorDb
-            fun getDatabase(applicationContext: Context): WlanDetektorDb {
-                if (!(::wlanDetektorDb.isInitialized)) {
-                    wlanDetektorDb =
-                        Room.databaseBuilder(applicationContext,
-                            wlanDetektorDb::class.java, "wlandetektor-db")
-                            .build()
+    companion object {
+        @Volatile
+        private var INSTANCE: WlanDetektorDb? = null
+
+        fun createInstance(application: Application): WlanDetektorDb {
+            synchronized(this)
+            {
+                var instance = INSTANCE
+                if (instance == null) {
+                    instance = Room.databaseBuilder(
+                        application.applicationContext,
+                        WlanDetektorDb::class.java,
+                        "wlan_detektor_db"
+                    ).createFromAsset("datenbank/wlan_detektor_db.db").build()
                 }
-                return wlanDetektorDb*/
-           @Volatile
-           private var INSTANCE:WlanDetektorDb? = null
-
-            fun createInstance(application: Application):WlanDetektorDb {
-                synchronized(this)
-                {
-                    var instance = INSTANCE
-                    if (instance == null) {
-                        instance = Room.databaseBuilder(
-                            application.applicationContext,
-                            WlanDetektorDb::class.java,
-                            "wlan_detektor_db"
-                        )
-                            .fallbackToDestructiveMigration()
-                            .build()
-                    }
-                    return instance
-                }
+                return instance
             }
         }
-        // *********** tbd **************
-        // abstract fun userDao(): UserDao
-        //abstract fun messageDao(): MessageDao
     }
+}
 

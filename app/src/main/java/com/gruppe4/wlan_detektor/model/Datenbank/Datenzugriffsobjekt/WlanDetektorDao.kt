@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.room.*
 import com.gruppe4.wlan_detektor.model.Datenbank.Entitaeten.TblMesspunkt
 import com.gruppe4.wlan_detektor.model.Datenbank.Entitaeten.TblMessung
+import com.gruppe4.wlan_detektor.model.Datenbank.Entitaeten.TblHersteller
 @Dao
 interface WlanDetektorDao {
 
@@ -48,4 +49,8 @@ interface WlanDetektorDao {
 
     @Query("SELECT * From TblMessung WHERE name = :name")
     fun getDieMessung(name: String): TblMessung
+
+    // Abfrage von Tabellen
+    // @Query("SELECT * FROM TblHersteller ORDER BY macadresse DESC")
+    // fun getHersteller(): List<TblMessung>
 }
