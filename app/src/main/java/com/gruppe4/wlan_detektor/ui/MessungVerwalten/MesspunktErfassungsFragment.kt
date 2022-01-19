@@ -137,7 +137,9 @@ class MesspunktErfassungsFragment : Fragment() {
             }
 
             viewModel.messpunkte.observe(viewLifecycleOwner, Observer {
-                editGebaeude.editableText.insert(0, it[it.lastIndex].gebaeude)
+                if (it.lastIndex >= 0) {
+                    editGebaeude.editableText.insert(0, it[it.lastIndex].gebaeude)
+                }
             })
 
             viewModel.konditionGebaeude = true
