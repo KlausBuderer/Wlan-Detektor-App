@@ -29,6 +29,7 @@ class MesspunktErfassungsViewModel(application: Application) : AndroidViewModel(
     var konditionGebaeude: Boolean = false
     var konditionStockwerk: Boolean = false
     var konditionRaumname: Boolean = false
+    var konditionMessung: Boolean = false
 
     private val _messpunkte = MutableLiveData<List<TblMesspunkt>>()
     val messpunkte: LiveData<List<TblMesspunkt>> = _messpunkte
@@ -52,7 +53,7 @@ class MesspunktErfassungsViewModel(application: Application) : AndroidViewModel(
 
 
     fun buttonFreigeben(): Boolean{
-        return konditionGebaeude && konditionRaumname && konditionStockwerk
+        return konditionGebaeude && konditionRaumname && konditionStockwerk && konditionMessung
     }
 
     suspend fun getMesspunkt(messpunktId: Long) {
