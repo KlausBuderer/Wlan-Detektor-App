@@ -34,6 +34,7 @@ import com.gruppe4.wlan_detektor.R
 import com.gruppe4.wlan_detektor.databinding.MesspunktErfassungsFragmentBinding
 import com.gruppe4.wlan_detektor.model.Datenbank.Entitaeten.TblMesspunkt
 import com.gruppe4.wlan_detektor.model.Netzwerk.NetzwerkInfo
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import java.io.File
 import java.io.IOException
@@ -45,9 +46,7 @@ import java.util.*
 lateinit var currentPhotoPath: String
 
 
-
 class MesspunktErfassungsFragment : Fragment() {
-
 
 
     private var _binding: MesspunktErfassungsFragmentBinding? = null
@@ -61,6 +60,7 @@ class MesspunktErfassungsFragment : Fragment() {
     lateinit var editRaumname: EditText
     lateinit var editZusatzInfo: EditText
     lateinit var messungStarten: Button
+
     //lateinit var abbrechen: Button
     lateinit var speichern: Button
     lateinit var fotoHinzufuegen: Button
@@ -91,7 +91,7 @@ class MesspunktErfassungsFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = MesspunktErfassungsFragmentBinding.inflate(inflater,container,false)
+        _binding = MesspunktErfassungsFragmentBinding.inflate(inflater, container, false)
 
         editGebaeude = binding.etGebaeudeEdit
         editRaumname = binding.etRaumnameEdit
@@ -117,48 +117,65 @@ class MesspunktErfassungsFragment : Fragment() {
         viewModel.messungsId = args.messungsId
 
         //Falls dieses Bild aus einer besteheder Messung aufgerufen wird ist der Speicherbutton
-                //freigeschalten
-                if (args.messpunktId != -1L){
-                    viewModel.konditionStockwerk = true
-                    viewModel.konditionRaumname = true
-                    viewModel.konditionGebaeude = true
-
-
-                    speichern.isEnabled = true
-                }
-
-        if (args.messpunktId != -1L){
-            lifecycleScope.launch { viewModel.getMesspunkt(args.messpunktId) }
+        //freigeschalten
+        if (args.messpunktId != -1L) {
+            viewModel.konditionStockwerk = true
+            viewModel.konditionRaumname = true
+            viewModel.konditionGebaeude = true
+            speichern.isEnabled = true
         }
+
+
+
+        if (args.messpunktId != -1L) {
+            lifecycleScope.launch { viewModel.getMesspunkt(args.messpunktId) }
+        }else{
+            //Vorgeben des zuletzt eingegebenen Gebäude um die Eingabe zu erleichtern
+
+            lifecycleScope.launch(Dispatchers.Main) {
+                viewModel.getMesspunkte(args.messungsId)
+            }
+
+            viewModel.messpunkte.observe(viewLifecycleOwner, Observer {
+                editGebaeude.editableText.insert(0, it[it.lastIndex].gebaeude)
+            })
+
+            viewModel.konditionGebaeude = true
+
+        }
+
+
         var netzwerkInfo = NetzwerkInfo(requireActivity().application)
 
         viewModel.messpunkt.observe(viewLifecycleOwner, Observer {
-            try{
+            try {
                 messpunkt = it
+                editGebaeude.editableText.insert(0, messpunkt.gebaeude)
+                editRaumname.editableText.insert(0, messpunkt.raumname)
+                editStockwerk.setText(
+                    editStockwerk.adapter.getItem(messpunkt.stockwerkID).toString(), false
+                )
+                editZusatzInfo.editableText.insert(0, messpunkt.zusatzinformation)
+                progressBar.progress = messpunkt.pegelmessung
+                progressBar.progressTintList =
+                    ColorStateList.valueOf(netzwerkInfo.progressBarFarbeEinstellen(messpunkt.pegelmessung))
+                signalText.text = messpunkt.pegelmessung.toString()
+                stockwerkPosition = messpunkt.stockwerkID
+            } catch (e: Exception) {
 
-
-            editGebaeude.editableText.insert(0,messpunkt.gebaeude)
-            editRaumname.editableText.insert(0,messpunkt.raumname)
-            editStockwerk.setText(editStockwerk.adapter.getItem(messpunkt.stockwerkID).toString(),false)
-            editZusatzInfo.editableText.insert(0, messpunkt.zusatzinformation)
-            progressBar.progress = messpunkt.pegelmessung
-            progressBar.progressTintList = ColorStateList.valueOf(netzwerkInfo.progressBarFarbeEinstellen(messpunkt.pegelmessung))
-            signalText.text = messpunkt.pegelmessung.toString()
-            stockwerkPosition = messpunkt.stockwerkID
-            }catch (e: Exception){
-
-                Log.e("Messpunkterfassung","Schreiben von Werten in die Editboxen nicht möglich")
+                Log.e("Messpunkterfassung", "Schreiben von Werten in die Editboxen nicht möglich")
             }
         })
 
 
         Toast.makeText(
             requireContext(),
-            args.messpunktId.toString() + args.messungsId.toString() + args.messungsname,Toast.LENGTH_LONG
+            args.messpunktId.toString() + args.messungsId.toString() + args.messungsname,
+            Toast.LENGTH_LONG
         ).show()
 
-        binding.btnStartMesspunktMessung.setOnClickListener{
-            lifecycleScope.launch { viewModel.startUpdates()}
+        binding.btnStartMesspunktMessung.setOnClickListener {
+            lifecycleScope.launch { viewModel.startUpdates() }
         }
 
         viewModel.progressBar.observe(viewLifecycleOwner, Observer {
@@ -166,24 +183,24 @@ class MesspunktErfassungsFragment : Fragment() {
         })
 
         viewModel.signalstaerke.observe(viewLifecycleOwner, Observer {
-           progressBar.progress = it
+            progressBar.progress = it
             signalText.text = it.toString()
             signalStaerke = it
         })
 
-        editGebaeude.addTextChangedListener(object: TextWatcher{
+        editGebaeude.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
 
             }
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                if (editGebaeude.text.isNotEmpty()){
+                if (editGebaeude.text.isNotEmpty()) {
                     viewModel.konditionGebaeude = true
                 }
             }
 
             override fun afterTextChanged(s: Editable?) {
-                if (editGebaeude.text.isNotEmpty()){
+                if (editGebaeude.text.isNotEmpty()) {
                     viewModel.konditionGebaeude = true
                 }
 
@@ -192,19 +209,19 @@ class MesspunktErfassungsFragment : Fragment() {
 
         })
 
-        editRaumname.addTextChangedListener(object : TextWatcher{
+        editRaumname.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
 
             }
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-               if (editRaumname.text.isNotEmpty()){
-                   viewModel.konditionRaumname = true
-               }
+                if (editRaumname.text.isNotEmpty()) {
+                    viewModel.konditionRaumname = true
+                }
             }
 
             override fun afterTextChanged(s: Editable?) {
-                if (editRaumname.text.isNotEmpty()){
+                if (editRaumname.text.isNotEmpty()) {
                     viewModel.konditionRaumname = true
                 }
 
@@ -213,14 +230,14 @@ class MesspunktErfassungsFragment : Fragment() {
 
         })
 
-        editStockwerk.setOnItemClickListener{parent, view, position, id ->
+        editStockwerk.setOnItemClickListener { parent, view, position, id ->
             stockwerkPosition = position
             viewModel.konditionStockwerk = true
             speichern.isEnabled = viewModel.buttonFreigeben()
         }
 
 
-        fotoHinzufuegen.setOnClickListener{
+        fotoHinzufuegen.setOnClickListener {
             //Pruefen ob die Berechtigung vorhanden ist
             if (isPermissionGranted(Manifest.permission.WRITE_EXTERNAL_STORAGE) || android.os.Build.VERSION.SDK_INT >= 18) {
                 //Berechtigung vorhanden
@@ -273,7 +290,7 @@ class MesspunktErfassungsFragment : Fragment() {
             }
         }
 
-        speichern.setOnClickListener{
+        speichern.setOnClickListener {
 
 
             if (args.messpunktId == -1L) {
@@ -291,7 +308,7 @@ class MesspunktErfassungsFragment : Fragment() {
                 )
                 viewModel.messpunktSpeichern(_messpunkt)
                 Log.e("Messpunkt erfassen viewmodel: ", "messpunkt id -1")
-            }else{
+            } else {
                 var _messpunkt: TblMesspunkt = TblMesspunkt(
                     messpunkt.idmesspunkt,
                     args.messungsId,
@@ -312,10 +329,10 @@ class MesspunktErfassungsFragment : Fragment() {
             }
 
 
-
-            val action = MesspunktErfassungsFragmentDirections.actionMesspunktErfassungsFragmentToMessungBearbeitenFragment(
-                args.messungsname
-            )
+            val action =
+                MesspunktErfassungsFragmentDirections.actionMesspunktErfassungsFragmentToMessungBearbeitenFragment(
+                    args.messungsname
+                )
 
             Navigation.findNavController(binding.root).navigate(action)
         }
@@ -354,14 +371,14 @@ class MesspunktErfassungsFragment : Fragment() {
         }
     }
 
-    private fun dispatchTakePictureIntent(): String{
+    private fun dispatchTakePictureIntent(): String {
 
-         var photoFile: File? = null
+        var photoFile: File? = null
         Intent(MediaStore.ACTION_IMAGE_CAPTURE).also { takePictureIntent ->
             // Ensure that there's a camera activity to handle the intent
             takePictureIntent.resolveActivity(requireContext().packageManager)?.also {
                 // Create the File where the photo should go
-                 photoFile = try {
+                photoFile = try {
                     createImageFile()
                 } catch (ex: IOException) {
                     // Error occurred while creating the File
