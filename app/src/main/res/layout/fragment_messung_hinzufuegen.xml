@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="match_parent">
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
     tools:context=".ui.MessungVerwalten.MessungHinzufuegen">
 
 
@@ -26,21 +30,21 @@
             android:id="@+id/editTextMessungName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:maxLines="1"
-            android:inputType="text"/>
+            android:inputType="text"
+            android:maxLines="1" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
         android:id="@+id/netzwerkwahl_messung"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="32dp"
         android:text="@string/btn_netzwerk_anmelden_de"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextMessungNameLayout" />
+        app:layout_constraintTop_toBottomOf="@+id/ll_netzwerknamen_layout" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayout"
@@ -48,12 +52,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="32dp"
         android:layout_marginEnd="32dp"
 
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_netzwerkTitel">
+        app:layout_constraintTop_toBottomOf="@+id/netzwerkwahl_messung">
 
         <AutoCompleteTextView
             android:id="@+id/autoCompleteTextView"
@@ -66,24 +70,13 @@
 
     </com.google.android.material.textfield.TextInputLayout>
 
-    <TextView
-        android:id="@+id/txt_netzwerkTitel"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-
-        android:layout_marginStart="32dp"
-        android:layout_marginEnd="32dp"
-        android:text="@string/txt_netzTitel_de"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/netzwerkwahl_messung" />
 
     <Button
         android:id="@+id/messung_speichern"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="32dp"
         android:layout_marginEnd="32dp"
         android:enabled="false"
         android:text="@string/btn_speichern_de"
@@ -91,4 +84,53 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout" />
 
+
+    <LinearLayout
+        android:id="@+id/ll_netzwerknamen_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="32dp"
+        android:gravity="center"
+
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/netzwerkwahl_messung"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextMessungNameLayout">
+
+        <TextView
+            android:id="@+id/tv_ssid_messung"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginEnd="16dp"
+            android:text="@string/wlan_netzwerk"
+            android:textStyle="bold"
+            android:textSize="@dimen/text_margin"/>
+
+        <TextView
+            android:id="@+id/txt_netzwerkTitel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginEnd="32dp"
+            android:gravity="center"
+            android:text="@string/txt_netzTitel_de"
+            android:textSize="@dimen/text_margin" />
+
+
+    </LinearLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/messung_speichern">
+
+    </FrameLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

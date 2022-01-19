@@ -70,8 +70,9 @@ class MessungListeFragment : Fragment(), MessungListeAdapter.OnItemClickListener
             binding?.rvMessungsliste?.adapter = adapter
         })
 
+        
+}
 
-    }
 
     override fun onItemClick(position: Int) {
             //Messung bearbeiten

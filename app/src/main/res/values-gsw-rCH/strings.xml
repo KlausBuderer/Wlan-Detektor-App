@@ -76,4 +76,8 @@
     <string name="txt_messung_loeschen">Messung löschen</string>
     <string name="txt_ausgewaehlteMessung_de">Ausgewählte Messung:</string>
     <string name="txt_bild_einfügen">Bild einfügen</string>
+    <string name="wlan_netzwerk">Wlan Netzwerk:</string>
+    <string name="txt_messpunkt_hinzufuegen">Messpunkt hinzufügen</string>
+    <string name="txt_hint_max_20_Zeichen">maximal 20 Zeichen</string>
+    <string name="txt_stockwerk_wählen">wähle das Stockwerk des Messpunktes</string>
 </resources>

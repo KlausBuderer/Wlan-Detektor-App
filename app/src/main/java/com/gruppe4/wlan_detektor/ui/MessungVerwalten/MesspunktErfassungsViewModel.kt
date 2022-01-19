@@ -30,15 +30,16 @@ class MesspunktErfassungsViewModel(application: Application) : AndroidViewModel(
     var konditionStockwerk: Boolean = false
     var konditionRaumname: Boolean = false
 
+    private val _messpunkte = MutableLiveData<List<TblMesspunkt>>()
+    val messpunkte: LiveData<List<TblMesspunkt>> = _messpunkte
+
     private val LOG_TAG = "Messpunkterfassung: "
 
     private val _signalstaerke = MutableLiveData<Int>().apply {
-        value = netzwerkInfo.getConnectionInfo().rssi
     }
     val signalstaerke: LiveData<Int> = _signalstaerke
 
     private val _progressFarbe = MutableLiveData<Int>().apply {
-        value = netzwerkInfo.progressBarFarbeEinstellen()
     }
 
     val progressBar: LiveData<Int> = _progressFarbe
@@ -65,6 +66,19 @@ class MesspunktErfassungsViewModel(application: Application) : AndroidViewModel(
         }
 
     }
+
+    suspend fun getMesspunkte(messungsId: Long){
+        try {
+            val aktuelleMesspunkte = repositoryDb.getMesspunkte(messungsId)
+            Log.e(LOG_TAG, "messpunkt query erfolgreich")
+
+            _messpunkte.postValue(aktuelleMesspunkte)
+        }catch (e: IOException){
+            Log.e(LOG_TAG, "Messpunkt query nicht erfolgreich")
+        }
+
+    }
+
         // Speichern des Messpunkts in der Datenbank
         fun messpunktSpeichern(messpunkt: TblMesspunkt) {
             repositoryDb.insertMesspunkt(messpunkt)

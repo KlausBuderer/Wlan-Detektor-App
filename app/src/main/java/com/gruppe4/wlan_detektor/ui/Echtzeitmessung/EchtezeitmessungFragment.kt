@@ -153,6 +153,7 @@ class EchtezeitmessungFragment : Fragment() {
             if (binding.tbtnStartEchtzeitmessung.isChecked) {
                 echtzeitmessungViewModel.stopUpdateCoroutine()
                 echtzeitmessungViewModel.stopSinus()
+                binding.btnFloatingActionButton.setImageResource(R.drawable.ic_ton_aus)
             }
         }
 
