@@ -6,11 +6,14 @@ import android.graphics.Color
 import android.net.ConnectivityManager
 import android.net.wifi.WifiInfo
 import android.net.wifi.WifiManager
+import android.util.Log
 import androidx.lifecycle.*
+import com.gruppe4.wlan_detektor.model.Datenbank.RepositoryDb
 import com.gruppe4.wlan_detektor.model.Netzwerk.NetzwerkInfo
 import com.gruppe4.wlan_detektor.model.SinusGenerator
 import kotlinx.coroutines.*
 import kotlinx.coroutines.Dispatchers.IO
+import java.io.IOException
 import java.lang.NullPointerException
 
 class EchtzeitmessungViewModel(application: Application) : AndroidViewModel(application) {
@@ -18,10 +21,12 @@ class EchtzeitmessungViewModel(application: Application) : AndroidViewModel(appl
 
     private var wifiKlasse: NetzwerkInfo
     private var wifiInfos: WifiInfo
+    private var repositoryDb: RepositoryDb
 
     init {
         wifiKlasse = NetzwerkInfo(application)
         wifiInfos = wifiKlasse.getConnectionInfo()
+        repositoryDb = RepositoryDb(application)
 
     }
 
@@ -34,12 +39,38 @@ class EchtzeitmessungViewModel(application: Application) : AndroidViewModel(appl
         value = bandUmrechnung(wifiInfos.frequency)
     }
 
+    private val _macadresse = MutableLiveData<String>().apply {
+    }
+    var macadresse: LiveData<String> = _macadresse
+
     private val _progressFarbe = MutableLiveData<Int>().apply {
         value = progressFarbeZyklisch
     }
 
-   fun refreshWifiInfo(){
+    fun refreshWifiInfo() {
         wifiInfos = wifiKlasse.getConnectionInfo()
+    }
+
+    suspend fun getHerstellerName(macadresse: String):String {
+        try {
+           return (repositoryDb.getHersteller(macadresse))
+            Log.e("Hersteller", "Hersteller hat funktioniert")
+        } catch (
+            e: IOException
+
+        ) {
+            Log.e("Hersteller", "Hersteller hat nicht funktioniert )-:")
+        }
+        return ""
+    }
+
+    suspend fun getFilterMac(macadresse: String): String {
+        var macgefilter = wifiInfos.bssid.replace(':', '-')
+        macgefilter = macgefilter.dropLast(9)
+
+        Log.i("Macadresse",macgefilter.uppercase())
+        return macgefilter.uppercase()
+
     }
 
     private fun progressBarFarbeEinstellen(): Int {
@@ -74,7 +105,9 @@ class EchtzeitmessungViewModel(application: Application) : AndroidViewModel(appl
     fun startUpdateCoroutine() {
         updateJobInit()
         val scope = CoroutineScope(IO + updateJob).launch {
+            _macadresse.postValue(getHerstellerName(getFilterMac(wifiKlasse.getConnectionInfo().bssid)))
             startUpdates()
+
         }
     }
 
@@ -95,6 +128,7 @@ class EchtzeitmessungViewModel(application: Application) : AndroidViewModel(appl
                 _netzwerkInfo.postValue(wifiKlasse.getConnectionInfo())
                 _progressFarbe.postValue(run { wifiKlasse.progressBarFarbeEinstellen(wifiInfos.rssi) })
                 _band.postValue(bandUmrechnung(wifiInfos.frequency))
+
                 println(wifiKlasse.getConnectionInfo().rssi)
             } catch (e: NullPointerException) {
 
@@ -136,7 +170,7 @@ class EchtzeitmessungViewModel(application: Application) : AndroidViewModel(appl
 
     fun startSinus() {
         sinusJobInit()
-        CoroutineScope(IO + sinusJob).launch{
+        CoroutineScope(IO + sinusJob).launch {
             netzwerkInfo.value?.let { sinusGenerator.start(it.rssi) }
         }
     }
@@ -152,13 +186,13 @@ class EchtzeitmessungViewModel(application: Application) : AndroidViewModel(appl
         }
     }
 
-    fun getSinusJobStatus():Boolean{
+    fun getSinusJobStatus(): Boolean {
         //Wenn der Job initialisiert wurde wird ein true zurückgegeben
         return ::sinusJob.isInitialized
 
     }
 
-    fun getUpdateJobStatus():Boolean{
+    fun getUpdateJobStatus(): Boolean {
         //Wenn der Job initialisiert wurde wird ein true zurückgegeben
         return ::updateJob.isInitialized
 

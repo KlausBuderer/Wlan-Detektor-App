@@ -11,6 +11,7 @@ import com.gruppe4.wlan_detektor.model.Datenbank.Entitaeten.*
 @Database(
     entities = [
         TblMesspunkt::class,
+        TblHersteller::class,
         TblMessung::class], version = 1, exportSchema = false
 )
 
