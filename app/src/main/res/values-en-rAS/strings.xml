@@ -75,4 +75,5 @@
     <string name="txt_bitte_auswaehlen">Please choose</string>
     <string name="txt_messung_loeschen">Delete measurement</string>
     <string name="txt_ausgewaehlteMessung_de">Selected measurement</string>
+    <string name="txt_bild_einfügen">Bild einfügen</string>
 </resources>

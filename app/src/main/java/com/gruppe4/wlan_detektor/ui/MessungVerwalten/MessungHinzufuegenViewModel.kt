@@ -8,15 +8,20 @@ import android.util.Log
 import androidx.lifecycle.*
 import com.gruppe4.wlan_detektor.model.Datenbank.Entitaeten.TblMessung
 import com.gruppe4.wlan_detektor.model.Datenbank.RepositoryDb
+import com.gruppe4.wlan_detektor.model.Netzwerk.NetzwerkInfo
+import com.gruppe4.wlan_detektor.ui.Utility.Datum
 import kotlinx.coroutines.*
+import java.lang.NullPointerException
 import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.math.absoluteValue
 
 class MessungHinzufuegenViewModel(application: Application) : AndroidViewModel(application) {
 
-    var wifiManager = getApplication<Application>().getSystemService(Context.WIFI_SERVICE) as WifiManager
-    private var connectionInfo: WifiInfo = wifiManager.connectionInfo
+
+    private val wifiKlasse: NetzwerkInfo = NetzwerkInfo(application)
+    private var connectionInfo: WifiInfo = wifiKlasse.getConnectionInfo()
+    val datum: Datum = Datum()
     var konditionNamenValide: Boolean = false
     var konditionNetzAngemeldet: Boolean = false
     var konditionRaum: Boolean = false
@@ -34,7 +39,11 @@ class MessungHinzufuegenViewModel(application: Application) : AndroidViewModel(a
         }
     }
 
+    private val _netzwerkInfo = MutableLiveData<WifiInfo>().apply {
+        value = connectionInfo
+    }
 
+    var netzwerkInfo: LiveData<WifiInfo> = _netzwerkInfo
 
     // Speichern der Messung in der Datenbank
     fun messungSpeichern(messung: TblMessung){
@@ -79,11 +88,59 @@ class MessungHinzufuegenViewModel(application: Application) : AndroidViewModel(a
     }
 
     fun getDatum(): String {
-        return Calendar.getInstance().time.toString("yyyy/MM/dd")
+        return datum.getDatum()
     }
 
     fun getZeit(): String {
-        return Calendar.getInstance().time.toString("HH:mm:ss")
+        return datum.getZeit()
     }
 
+    //Start Coroutine für die Abfrage der Netzwerkinformationen
+    fun startUpdateCoroutine() {
+        updateJobInit()
+        val scope = CoroutineScope(Dispatchers.IO + updateJob).launch {
+            startUpdates()
+        }
+    }
+
+    private lateinit var updateJob: Job
+    private lateinit var sinusJob: Job
+
+    //Stoppe Coroutine für die Abfrage der Netzwerkinformationen
+    fun stopUpdateCoroutine() {
+        if (::updateJob.isInitialized) {
+            if (updateJob.isActive || updateJob.isCompleted) {
+                updateJob.cancel("job beendet!!")
+            }
+        } else {
+            updateJobInit()
+        }
+    }
+
+    suspend fun startUpdates() {
+        while (updateJob.isActive) {
+            try {
+                _netzwerkInfo.postValue(wifiKlasse.getConnectionInfo())
+            } catch (e: NullPointerException) {
+
+                println("Update nicht erfolgreich")
+            }
+            delay(1000)
+        }
+    }
+
+    fun updateJobInit() {
+        updateJob = Job()
+        println("Neuer Job initialisiert")
+
+        updateJob.invokeOnCompletion {
+            it?.message.let {
+                var msg = it
+                if (msg.isNullOrBlank()) {
+                    msg = "Unbekannter Fehler aufgetreten"
+                }
+                println("$updateJob ist gecancelt. Grund: $msg")
+            }
+        }
+    }
 }

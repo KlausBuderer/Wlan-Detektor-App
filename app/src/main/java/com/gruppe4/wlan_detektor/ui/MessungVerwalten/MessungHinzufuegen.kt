@@ -49,15 +49,14 @@ class MessungHinzufuegen : Fragment() {
         val arrayAdapter = ArrayAdapter(requireActivity(), R.layout.dropdown_item, raeume)
         binding.autoCompleteTextView.setAdapter(arrayAdapter)
 
+        viewModel.startUpdateCoroutine()
+
     }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
-        /* viewModel =
-             ViewModelProvider(this)[MessungHinzufuegenViewModel::class.java]*/
 
         _binding = FragmentMessungHinzufuegenBinding.inflate(inflater, container, false)
 
@@ -110,7 +109,14 @@ class MessungHinzufuegen : Fragment() {
         if (viewModel.pruefenNetzAnmeldung()) {
             netzNamen.text = viewModel.netzwerkInfo()
         }
+        viewModel.netzwerkInfo.observe(viewLifecycleOwner, Observer {
 
+            if (it.ssid != "<unknown ssid>"){
+                netzNamen.text = it.ssid
+            }else{
+                netzNamen.text = "Bitte mit Wlan verbinden"
+            }
+        })
 
         //Pruefen ob Art der Raeumlichkeit gewählt wurde
         raeumlichkeit.setOnItemClickListener { parent, view, position, id ->
@@ -155,5 +161,9 @@ class MessungHinzufuegen : Fragment() {
 
     }
 
-
+    override fun onDestroy() {
+        super.onDestroy()
+        viewModel.stopUpdateCoroutine()
+    }
 }
+

@@ -14,6 +14,7 @@ import com.gruppe4.wlan_detektor.R
 import com.gruppe4.wlan_detektor.databinding.FragmentVisualisierungBinding
 import com.gruppe4.wlan_detektor.model.Datenbank.Entitaeten.TblMessung
 import com.gruppe4.wlan_detektor.ui.MessungListe
+import com.gruppe4.wlan_detektor.ui.MessungVerwalten.MESSUNGLISTE_KONTEXT
 import com.gruppe4.wlan_detektor.ui.MessungVerwalten.MessungListeAdapter
 import com.gruppe4.wlan_detektor.ui.MessungVerwalten.MessungListeFragmentDirections
 import com.gruppe4.wlan_detektor.ui.MessungVerwalten.MessungListeViewModel
@@ -47,7 +48,7 @@ class VisualisierungFragment : Fragment(), MessungListeAdapter.OnItemClickListen
         visualisierungViewModel.messungsliste.observe(viewLifecycleOwner, Observer {
             messungsListe = it
 
-            val adapter = MessungListeAdapter(it, this, requireActivity().application)
+            val adapter = MessungListeAdapter(it, this, requireActivity().application, MESSUNGLISTE_KONTEXT.Visualisierung.toString())
             binding?.rvMessungsliste?.adapter = adapter
         })
 
