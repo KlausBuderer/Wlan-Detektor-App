@@ -103,6 +103,7 @@ class EchtezeitmessungFragment : Fragment() {
         echtzeitmessungViewModel.netzwerkInfo.observe(viewLifecycleOwner, Observer {
             if (it.bssid != null){
             mac.text =  it.bssid.toString()
+
             }else{
                 mac.text = "unbekannt"
             }
@@ -128,6 +129,7 @@ class EchtezeitmessungFragment : Fragment() {
             //progressBar.progressTintList = ColorStateList.valueOf(it)
 
         })
+
 
 
         val textView: TextView = binding.tvSignalstaerkeWert

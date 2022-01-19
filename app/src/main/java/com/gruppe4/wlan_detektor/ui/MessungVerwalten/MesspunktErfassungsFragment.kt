@@ -176,6 +176,7 @@ class MesspunktErfassungsFragment : Fragment() {
 
         binding.btnStartMesspunktMessung.setOnClickListener {
             lifecycleScope.launch { viewModel.startUpdates() }
+            viewModel.konditionMessung = true
         }
 
         viewModel.progressBar.observe(viewLifecycleOwner, Observer {
@@ -196,7 +197,9 @@ class MesspunktErfassungsFragment : Fragment() {
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                 if (editGebaeude.text.isNotEmpty()) {
                     viewModel.konditionGebaeude = true
+
                 }
+
             }
 
             override fun afterTextChanged(s: Editable?) {
