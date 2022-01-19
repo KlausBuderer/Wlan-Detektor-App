@@ -24,6 +24,7 @@ import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.lifecycleScope
 import com.gruppe4.wlan_detektor.R
 import com.gruppe4.wlan_detektor.databinding.FragmentEchtzeitmessungBinding
 import kotlinx.coroutines.*
@@ -101,23 +102,28 @@ class EchtezeitmessungFragment : Fragment() {
 
         val mac: TextView = binding.tvMac
         echtzeitmessungViewModel.netzwerkInfo.observe(viewLifecycleOwner, Observer {
-            if (it.bssid != null){
-            mac.text =  it.bssid.toString()
 
-            }else{
+            if (it.bssid != null) {
+                mac.text = it.bssid
+            } else {
                 mac.text = "unbekannt"
             }
-            })
+        })
+
+        val hersteller: TextView = binding.tvHersteller
+        echtzeitmessungViewModel.macadresse.observe(viewLifecycleOwner, Observer {
+            if (it != null) {
+                hersteller.text = it
+            } else {
+                hersteller.text = "unbekannter Hersteller"
+            }
+        })
 
         val band: TextView = binding.tvFrequenz
         echtzeitmessungViewModel.band.observe(viewLifecycleOwner, Observer {
             band.text = it.toString() + " GHz"
         })
 
-        val supplier: TextView = binding.tvHersteller
-        echtzeitmessungViewModel.netzwerkInfo.observe(viewLifecycleOwner, Observer {
-            supplier.text = "noch nicht implementiert"
-        })
 
         val updownspeed: TextView = binding.tvUpdownspeed
         echtzeitmessungViewModel.netzwerkInfo.observe(viewLifecycleOwner, Observer {

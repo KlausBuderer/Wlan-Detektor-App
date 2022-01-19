@@ -2,10 +2,12 @@ package com.gruppe4.wlan_detektor.model.Datenbank
 
 import android.app.Application
 import android.content.Context
+import android.net.MacAddress
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.gruppe4.wlan_detektor.model.Datenbank.Datenzugriffsobjekt.WlanDetektorDao
+import com.gruppe4.wlan_detektor.model.Datenbank.Entitaeten.TblHersteller
 import com.gruppe4.wlan_detektor.model.Datenbank.Entitaeten.TblMesspunkt
 import com.gruppe4.wlan_detektor.model.Datenbank.Entitaeten.TblMessung
 import kotlinx.coroutines.*
@@ -75,15 +77,22 @@ class RepositoryDb(application: Application) {
         }
     }
 
-
- /*   suspend fun namenPruefen(namen: String): Boolean {
-        var resultat: Int? = -1
-
-        coroutineScope.launch (Dispatchers.Main) {
-           resultat = asyncNamenPruefen(namen).await()
+    suspend fun getHersteller(macadresse: String): String{
+        return  withContext(Dispatchers.IO){
+            wlanDetektorDao.getHersteller(macadresse)
         }
-        return resultat == -1
-    }*/
+    }
+
+
+
+    /*   suspend fun namenPruefen(namen: String): Boolean {
+           var resultat: Int? = -1
+
+           coroutineScope.launch (Dispatchers.Main) {
+              resultat = asyncNamenPruefen(namen).await()
+           }
+           return resultat == -1
+       }*/
 
     fun namenPruefen(namen: String): Deferred<Int?> =
         coroutineScope.async(Dispatchers.IO) {
