@@ -103,10 +103,12 @@ class EchtezeitmessungFragment : Fragment() {
         val mac: TextView = binding.tvMac
         echtzeitmessungViewModel.netzwerkInfo.observe(viewLifecycleOwner, Observer {
 
-            if (it.bssid != null) {
-                mac.text = it.bssid
-            } else {
-                mac.text = "unbekannt"
+            if(it != null) {
+                if (it.bssid != null) {
+                    mac.text = it.bssid
+                } else {
+                    mac.text = "unbekannt"
+                }
             }
         })
 

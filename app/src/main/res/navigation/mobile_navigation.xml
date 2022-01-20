@@ -102,6 +102,7 @@
         <argument
             android:name="messpunktId"
             app:argType="long" />
+
     </fragment>
     <fragment
         android:id="@+id/visualisierung_Grid_Fragment"
