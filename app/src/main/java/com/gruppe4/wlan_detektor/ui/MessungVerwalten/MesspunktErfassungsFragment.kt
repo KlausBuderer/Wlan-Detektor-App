@@ -71,6 +71,7 @@ class MesspunktErfassungsFragment : Fragment() {
     private var signalStaerke: Int = 0
     private var fotoPfad: String = ""
     private var messpunkt: TblMesspunkt = TblMesspunkt()
+    private var wiederholteMessung: Boolean = false
     val REQUEST_IMAGE_CAPTURE = 1
 
     companion object {
@@ -122,6 +123,7 @@ class MesspunktErfassungsFragment : Fragment() {
             viewModel.konditionStockwerk = true
             viewModel.konditionRaumname = true
             viewModel.konditionGebaeude = true
+            viewModel.konditionMessung = true
             speichern.isEnabled = true
         }
 
@@ -143,6 +145,7 @@ class MesspunktErfassungsFragment : Fragment() {
             })
 
             viewModel.konditionGebaeude = true
+            statusAusgeben()
 
         }
 
@@ -170,15 +173,16 @@ class MesspunktErfassungsFragment : Fragment() {
         })
 
 
-        Toast.makeText(
-            requireContext(),
-            args.messpunktId.toString() + args.messungsId.toString() + args.messungsname,
-            Toast.LENGTH_LONG
-        ).show()
+
 
         binding.btnStartMesspunktMessung.setOnClickListener {
-            lifecycleScope.launch { viewModel.startUpdates() }
             viewModel.konditionMessung = true
+            speichern.isEnabled = viewModel.buttonFreigeben()
+            statusAusgeben()
+            if (args.messpunktId != -1L){
+                wiederholteMessung = true
+            }
+            lifecycleScope.launch { viewModel.startUpdates() }
         }
 
         viewModel.progressBar.observe(viewLifecycleOwner, Observer {
@@ -199,6 +203,7 @@ class MesspunktErfassungsFragment : Fragment() {
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                 if (editGebaeude.text.isNotEmpty()) {
                     viewModel.konditionGebaeude = true
+                    statusAusgeben()
 
                 }
 
@@ -207,6 +212,7 @@ class MesspunktErfassungsFragment : Fragment() {
             override fun afterTextChanged(s: Editable?) {
                 if (editGebaeude.text.isNotEmpty()) {
                     viewModel.konditionGebaeude = true
+                    statusAusgeben()
                 }
 
                 speichern.isEnabled = viewModel.buttonFreigeben()
@@ -297,7 +303,6 @@ class MesspunktErfassungsFragment : Fragment() {
 
         speichern.setOnClickListener {
 
-
             if (args.messpunktId == -1L) {
                 var _messpunkt: TblMesspunkt = TblMesspunkt(
                     args.messungsId,
@@ -314,6 +319,16 @@ class MesspunktErfassungsFragment : Fragment() {
                 viewModel.messpunktSpeichern(_messpunkt)
                 Log.e("Messpunkt erfassen viewmodel: ", "messpunkt id -1")
             } else {
+
+                    var erneuteMessung: Int
+
+                        if (wiederholteMessung) {
+                            erneuteMessung = signalStaerke
+                        } else {
+                            erneuteMessung = messpunkt.pegelmessung
+                        }
+
+
                 var _messpunkt: TblMesspunkt = TblMesspunkt(
                     messpunkt.idmesspunkt,
                     args.messungsId,
@@ -321,7 +336,7 @@ class MesspunktErfassungsFragment : Fragment() {
                     stockwerkPosition,
                     editRaumname.text.toString(),
                     editZusatzInfo.text.toString(),
-                    signalStaerke,
+                    erneuteMessung,
                     "dB",
                     messpunkt.erfassungsDatum,
                     messpunkt.erfassungsZeit,
@@ -403,6 +418,14 @@ class MesspunktErfassungsFragment : Fragment() {
             }
         }
         return photoFile!!.absolutePath
+    }
+
+    fun statusAusgeben(){
+        Toast.makeText(
+            requireContext(),
+            viewModel.konditionMessung.toString() + viewModel.konditionGebaeude.toString() + viewModel.konditionRaumname.toString() + viewModel.konditionStockwerk.toString(),
+            Toast.LENGTH_LONG
+        ).show()
     }
 
 }

@@ -105,9 +105,13 @@ class EchtzeitmessungViewModel(application: Application) : AndroidViewModel(appl
     fun startUpdateCoroutine() {
         updateJobInit()
         val scope = CoroutineScope(IO + updateJob).launch {
-            _macadresse.postValue(getHerstellerName(getFilterMac(wifiKlasse.getConnectionInfo().bssid)))
-            startUpdates()
+            try {
+                _macadresse.postValue(getHerstellerName(getFilterMac(wifiKlasse.getConnectionInfo().bssid)))
 
+            }catch (e: NullPointerException){
+                Log.e("Updateroutine","Fehlgeschlagen")
+            }
+            startUpdates()
         }
     }
 
