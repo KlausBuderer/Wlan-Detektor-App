@@ -21,6 +21,8 @@
         android:layout_marginEnd="32dp"
         android:ems="10"
         android:hint="@string/txt_messung_neu_namen_de"
+        app:errorIconDrawable="@drawable/ic_invalid_input"
+        app:errorEnabled="true"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
