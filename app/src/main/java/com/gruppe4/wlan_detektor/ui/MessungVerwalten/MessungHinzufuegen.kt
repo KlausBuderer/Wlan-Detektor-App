@@ -1,14 +1,12 @@
 package com.gruppe4.wlan_detektor.ui.MessungVerwalten
 
-import android.app.Activity
 import android.content.Intent
-import android.content.res.ColorStateList
-import android.graphics.Color
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import android.provider.Settings
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -19,9 +17,7 @@ import androidx.navigation.Navigation
 import com.gruppe4.wlan_detektor.R
 import com.gruppe4.wlan_detektor.databinding.FragmentMessungHinzufuegenBinding
 import com.gruppe4.wlan_detektor.model.Datenbank.Entitaeten.TblMessung
-import com.gruppe4.wlan_detektor.ui.Echtzeitmessung.EchtzeitmessungViewModel
-import com.gruppe4.wlan_detektor.ui.MesspunktListe
-import com.gruppe4.wlan_detektor.ui.Visualisierung.Visualisierung_Grid_FragmentDirections
+
 
 class MessungHinzufuegen : Fragment() {
 
@@ -85,20 +81,32 @@ class MessungHinzufuegen : Fragment() {
 
             //Validierung des Namens der Messung
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                viewModel.konditionNamenValide =
-                    viewModel.namenValidieren(eingabeNamen.text.toString())!!
+                viewModel.namenValidierenRoutine(eingabeNamen.text.toString())
+                Log.e("OnChange","${eingabeNamen.text.toString()}")
+
 
             }
 
             //Signalisierung das Namen der Messung bereits vergeben ist
             override fun afterTextChanged(s: Editable?) {
-                if (!viewModel.namenValidieren(eingabeNamen.text.toString())!!) {
-                    eingabeNamen.backgroundTintList = ColorStateList.valueOf(Color.RED)
+                var validierung: Boolean = true
+
+                viewModel.nameValide.observe(viewLifecycleOwner, Observer {
+                    validierung = it
+                })
+
+                Log.e("validierung","${validierung}")
+
+                if (viewModel.result > 0) {
+                    eingabeNamen.error = resources.getString(R.string.txt_namen_bereits_vergeben)
+                    viewModel.konditionNamenValide = false
+                    speichernButton.isEnabled = viewModel.buttonFreigabe()
                 } else {
-                    eingabeNamen.backgroundTintList = ColorStateList.valueOf(Color.GRAY)
+                    eingabeNamen.error = null
+                    viewModel.konditionNamenValide = true
+                    speichernButton.isEnabled = viewModel.buttonFreigabe()
                 }
             }
-
         })
 
         netzwahl.setOnClickListener {

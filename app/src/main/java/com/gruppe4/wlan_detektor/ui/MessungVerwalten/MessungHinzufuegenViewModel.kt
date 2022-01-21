@@ -15,6 +15,7 @@ import java.lang.NullPointerException
 import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.math.absoluteValue
+import kotlin.properties.Delegates
 
 class MessungHinzufuegenViewModel(application: Application) : AndroidViewModel(application) {
 
@@ -26,18 +27,28 @@ class MessungHinzufuegenViewModel(application: Application) : AndroidViewModel(a
     var konditionNetzAngemeldet: Boolean = false
     var konditionRaum: Boolean = false
     private val repositoryDb: RepositoryDb = RepositoryDb(application)
+    var result = 0
 
+
+
+    private val _nameValide = MutableLiveData<Boolean>().apply {
+        konditionNamenValide = value == true
+    }
+    var nameValide: LiveData<Boolean> = _nameValide
 
     //Funktion die den eingegebenen Namen in der Datenbank auf Redundanz prüft
-    //TODO Validierung ist noch zu implementieren
-    fun namenValidieren(eingabe: String): Boolean? {
-        var pruefung = repositoryDb.namenPruefen(eingabe)
-        if (pruefung.isCompleted) {
-            return pruefung.equals(-1)
-        }else{
-            return true
+    suspend fun namenValidieren(eingabe: String){
+         result = repositoryDb.namenPruefen(eingabe)
+        _nameValide.postValue( result > 0)
+        Log.e("Routine","MessungsId: $result")
+    }
+
+    fun namenValidierenRoutine(eingabe: String){
+        val scope = CoroutineScope(Dispatchers.IO).launch {
+           namenValidieren(eingabe)
         }
     }
+
 
     private val _netzwerkInfo = MutableLiveData<WifiInfo>().apply {
         value = connectionInfo
@@ -77,15 +88,10 @@ class MessungHinzufuegenViewModel(application: Application) : AndroidViewModel(a
     }
 
     val _speicherFreigabe = MutableLiveData<Boolean>().apply {
-        value = konditionNamenValide && konditionNetzAngemeldet && konditionRaum
+        value = result > 0 && konditionNetzAngemeldet && konditionRaum
     }
 
     val speicherFreigabe: LiveData<Boolean> = _speicherFreigabe
-
-    fun Date.toString(format: String, locale: Locale = Locale.getDefault()): String {
-        val formatter = SimpleDateFormat(format, locale)
-        return formatter.format(this)
-    }
 
     fun getDatum(): String {
         return datum.getDatum()

@@ -94,10 +94,10 @@ class RepositoryDb(application: Application) {
            return resultat == -1
        }*/
 
-    fun namenPruefen(namen: String): Deferred<Int?> =
-        coroutineScope.async(Dispatchers.IO) {
-            return@async wlanDetektorDao?.nameExists(namen)
-        }
+
+    suspend fun namenPruefen(namen:String):Int{
+      return  wlanDetektorDao?.nameExists(namen)
+    }
 
     suspend fun getMessung(namen: String): TblMessung{
         return coroutineScope.async(Dispatchers.IO) {
