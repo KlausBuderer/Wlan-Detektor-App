@@ -81,4 +81,16 @@
     <string name="txt_hint_max_20_Zeichen">maximal 20 Zeichen</string>
     <string name="txt_stockwerk_wählen">wähle das Stockwerk des Messpunktes</string>
     <string name="txt_namen_bereits_vergeben">Namen bereits vergeben</string>
+    <string name="title_messungen_verwalten">Messungen verwalten</string>
+    <string name="txt_beschreibung_der_echzeitmessung">Beschreibung der Echzeitmessung</string>
+    <string name="txt_wlan_anmeldung">1. Wlan Anmeldung</string>
+    <string name="txt_ueber_uns">Über uns</string>
+    <string name="txt_loeschen">Löschen</string>
+    <string name="txt_aktueller_name">Aktueller name:</string>
+    <string name="txt_neuer_messungsname">neuer Messungsname</string>
+    <string name="messungsname_aendern">Messungsname ändern</string>
+    <string name="datenschutzerklaerung">Datenschutzerklärung</string>
+    <string name="disclaimer">Disclaimer</string>
+    <string name="txt_datenschutzerklaerung">Datenschutzerklärung</string>
+    <string name="txt_beschreibung_bruno">Students of the ABB Technical School Post-graduate studies Software Engineer</string>
 </resources>

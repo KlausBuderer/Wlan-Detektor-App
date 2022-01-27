@@ -6,58 +6,83 @@
     android:layout_height="match_parent"
     tools:context=".ui.MessungVerwalten.MessungBearbeitenFragment">
 
+    <FrameLayout
+        android:id="@+id/title_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        >
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/tv_namen_messung"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:text="Messungsnamen"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"></TextView>
+
+            <TextView
+                android:id="@+id/tv_netzwerk"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/txt_netzwerk_de"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="@id/tv_namen_messung"
+                app:layout_constraintTop_toBottomOf="@id/tv_namen_messung" />
+
+        <TextView
+            android:id="@+id/tv_ssid"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="SSID"
+            android:textSize="16sp"
+            app:layout_constraintTop_toTopOf="@id/tv_netzwerk"
+            app:layout_constraintStart_toEndOf="@id/tv_netzwerk"/>
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:foregroundGravity="center"
+                android:src="@drawable/ic_edit"
+                app:layout_constraintBottom_toBottomOf="@id/tv_namen_messung"
+                app:layout_constraintStart_toEndOf="@+id/tv_namen_messung"
+                app:layout_constraintTop_toTopOf="@id/tv_namen_messung" />
+
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </FrameLayout>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_messpunktliste"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="90dp"
-        android:layout_marginBottom="60dp"
+        android:layout_marginTop="110dp"
         android:backgroundTint="@android:color/transparent"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintTop_toBottomOf="@id/title_layout"
         tools:listitem="@layout/messpunkt_item">
 
+
     </androidx.recyclerview.widget.RecyclerView>
-
-    <TextView
-        android:id="@+id/tv_namen_messung"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="46dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginRight="20dp"
-        android:text="Messungsnamen"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.21"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/tv_netzwerk"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:textSize="16sp"
-        android:text="@string/txt_netzwerk_de"
-        app:layout_constraintStart_toStartOf="@+id/tv_namen_messung"
-        app:layout_constraintTop_toBottomOf="@+id/tv_namen_messung" />
-
-    <TextView
-        android:id="@+id/tv_ssid"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:textSize="16sp"
-        android:text="SSID"
-        app:layout_constraintBaseline_toBaselineOf="@+id/tv_netzwerk"
-        app:layout_constraintStart_toEndOf="@+id/tv_netzwerk" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/btn_messpunkt_hinzufuegen"
@@ -71,6 +96,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:maxImageSize="40dp" />
+
+
 
     <TextView
         android:id="@+id/textView3"

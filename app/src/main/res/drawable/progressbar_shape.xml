@@ -3,9 +3,7 @@
     <item android:id="@android:id/background">
         <shape android:shape="rectangle">
             <gradient
-                android:startColor="#48FF1744"
-                android:centerColor="#47FFEA00"
-                android:endColor="#4776FF03"
+                android:startColor="@android:color/darker_gray"
                 android:gradientRadius="@integer/material_motion_duration_short_2"
                 />
             <corners

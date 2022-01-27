@@ -1,27 +1,21 @@
 package com.gruppe4.wlan_detektor.ui.MessungVerwalten
 
-import android.app.Application
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.Toast
+import android.widget.ImageView
 import androidx.lifecycle.Observer
 import androidx.lifecycle.lifecycleScope
-import androidx.navigation.NavArgs
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.navArgs
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.gruppe4.wlan_detektor.R
-import com.gruppe4.wlan_detektor.databinding.MesspunktItemBinding
 import com.gruppe4.wlan_detektor.databinding.MessungBearbeitenFragmentBinding
-import com.gruppe4.wlan_detektor.databinding.NetzwerklisteFragmentBinding
 import com.gruppe4.wlan_detektor.model.Datenbank.Entitaeten.TblMesspunkt
 import com.gruppe4.wlan_detektor.ui.MesspunktListe
-import com.gruppe4.wlan_detektor.ui.Visualisierung.VisuDetailFragmentArgs
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
@@ -34,6 +28,7 @@ class MessungBearbeitenFragment : Fragment(), MesspunktBearbeitenAdapter.OnItemC
     var messungsId: Long = -1
     val args: MessungBearbeitenFragmentArgs by navArgs()
     var messpunktsListe: List<TblMesspunkt>? = null
+    lateinit var namenAendernButton: ImageView
 
     companion object {
         fun newInstance() = MessungBearbeitenFragment()
@@ -50,6 +45,7 @@ class MessungBearbeitenFragment : Fragment(), MesspunktBearbeitenAdapter.OnItemC
         val root: View = binding.root
 
         addButton = binding.btnMesspunktHinzufuegen
+        namenAendernButton = binding.imageView
 
         messungsnamen = args.messungsnamen
 
@@ -91,11 +87,23 @@ class MessungBearbeitenFragment : Fragment(), MesspunktBearbeitenAdapter.OnItemC
         viewModel.messpunkte.observe(viewLifecycleOwner, Observer {
             messpunktsListe = it
             val adapter = MesspunktBearbeitenAdapter(messpunktsListe, this, requireActivity().application)
+
             binding?.rvMesspunktliste?.adapter = adapter
+
 
         })
 
 
+        namenAendernButton.setOnClickListener{
+            val action =
+                MessungBearbeitenFragmentDirections.actionMessungBearbeitenFragmentToMessungsnamenAendern(
+                    messungsnamen
+                )
+
+            if (action != null) {
+                Navigation.findNavController(binding.root).navigate(action)
+            }
+              }
 
 
         viewModel.messung.observe(viewLifecycleOwner, Observer {
@@ -103,7 +111,7 @@ class MessungBearbeitenFragment : Fragment(), MesspunktBearbeitenAdapter.OnItemC
                 binding.tvNamenMessung.text = it.name
                 binding.tvSsid.text = it.ssid
             }else{
-                binding.tvNamenMessung.text = "Kein Treffer"
+                binding.tvNamenMessung.text = "Etwas schief gelaufen!"
             }
         })
     }
@@ -123,4 +131,12 @@ class MessungBearbeitenFragment : Fragment(), MesspunktBearbeitenAdapter.OnItemC
 
     }
 
+    override fun onResume() {
+        super.onResume()
+
+            lifecycleScope.launch(Dispatchers.Main) {
+                viewModel.messung.value?.let { viewModel.getMessungById(it.idmessung) }
+            }
+
+    }
 }

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MessungsnamenAendern">
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/messungsname_aendern"
+        android:textSize="18dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/aktueller_name_titel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/txt_aktueller_name"
+        app:layout_constraintEnd_toEndOf="@+id/title"
+        app:layout_constraintStart_toStartOf="@+id/title"
+        app:layout_constraintTop_toBottomOf="@+id/title" />
+
+    <TextView
+        android:id="@+id/tv_aktueller_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Messungsname"
+        android:textSize="@dimen/text_margin"
+        app:layout_constraintEnd_toEndOf="@+id/aktueller_name_titel"
+        app:layout_constraintStart_toStartOf="@+id/aktueller_name_titel"
+        app:layout_constraintTop_toBottomOf="@+id/aktueller_name_titel" />
+
+    <TextView
+        android:id="@+id/tv_neuer_name_titel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="Neuer Messungsname:"
+        app:layout_constraintEnd_toEndOf="@+id/tv_aktueller_name"
+        app:layout_constraintStart_toStartOf="@+id/tv_aktueller_name"
+        app:layout_constraintTop_toBottomOf="@+id/tv_aktueller_name" />
+
+    <EditText
+        android:id="@+id/et_neuer_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="@string/txt_neuer_messungsname"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="@+id/tv_neuer_name_titel"
+        app:layout_constraintStart_toStartOf="@+id/tv_neuer_name_titel"
+        app:layout_constraintTop_toBottomOf="@+id/tv_neuer_name_titel" />
+
+    <Button
+        android:id="@+id/speicher"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/btn_speichern_de"
+        android:enabled="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_neuer_name" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -60,6 +60,7 @@ class MesspunktErfassungsFragment : Fragment() {
     lateinit var editRaumname: EditText
     lateinit var editZusatzInfo: EditText
     lateinit var messungStarten: Button
+    lateinit var loeschButton: Button
 
     //lateinit var abbrechen: Button
     lateinit var speichern: Button
@@ -99,13 +100,17 @@ class MesspunktErfassungsFragment : Fragment() {
         editStockwerk = binding.autoCompleteTextView
         editZusatzInfo = binding.etZusatzinformationEdit
         speichern = binding.messpunktSpeichern
-        //abbrechen = binding.abbrechen
         messungStarten = binding.btnStartMesspunktMessung
         progressBar = binding.pgProgressBar
         signalText = binding.tvSignalstaerkeWert
         messungsName = binding.tvMessungNamen
         fotoHinzufuegen = binding.btnBildHinzufuegen
         messungsName.text = args.messungsname
+        loeschButton = binding.messpunktLoeschen
+
+        if (args.messpunktId == -1L){
+            loeschButton.visibility = Button.INVISIBLE
+        }
 
 
 
@@ -358,15 +363,50 @@ class MesspunktErfassungsFragment : Fragment() {
         }
 
 
-        /*abbrechen.setOnClickListener{
+        loeschButton.setOnClickListener{
+            //Messpunkt löschen
+            val builder = AlertDialog.Builder(requireContext())
+            //Dialog Titel
+            builder.setTitle("Messpunkt löschen")
+            //Dialog Text
+            builder.setMessage("Soll die Messung entgültig gelöscht werden?")
+            //Dialog Icon
+            builder.setIcon(android.R.drawable.ic_dialog_alert)
 
-            val action = MesspunktErfassungsFragmentDirections.actionMesspunktErfassungsFragmentToMessungBearbeitenFragment(
-                args.messungsname
-            )
+            //Ja Button
+            builder.setPositiveButton("Löschen") { dialogInterface, which ->
+                try {
+                    lifecycleScope.launch(Dispatchers.IO) {
+                       viewModel.deleteMesspunkt(messpunkt.idmesspunkt)
+                    }
+                    val action =
+                        MesspunktErfassungsFragmentDirections.actionMesspunktErfassungsFragmentToMessungBearbeitenFragment(
+                            args.messungsname
+                        )
 
-            Navigation.findNavController(binding.root).navigate(action)
+                    Navigation.findNavController(binding.root).navigate(action)
+                } catch (e: IOException) {
+                    Log.e("Löschauftrag:", "Fehlgeschlagen")
+                }
+            }
 
-        }*/
+
+
+            //Nein Button
+            builder.setNegativeButton("Abbrechen") { dialogInterface, which ->
+                Toast.makeText(
+                    requireContext(),
+                    "Messung nicht gelöscht",
+                    Toast.LENGTH_LONG
+                ).show()
+            }
+
+            // Erstellen des Dialogs
+            val alertDialog: AlertDialog = builder.create()
+            // Set other dialog properties
+            alertDialog.setCancelable(false)
+            alertDialog.show()
+        }
 
     }
 

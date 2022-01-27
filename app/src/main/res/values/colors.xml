@@ -11,4 +11,13 @@
     <color name="green">#00E409</color>
     <color name="yellow">#FBE204</color>
 
+        <color name="primaryColor">#546e7a</color>
+        <color name="primaryLightColor">#819ca9</color>
+        <color name="primaryDarkColor">#29434e</color>
+        <color name="secondaryColor">#ff9800</color>
+        <color name="secondaryLightColor">#ffc947</color>
+        <color name="secondaryDarkColor">#c66900</color>
+        <color name="primaryTextColor">#ffffff</color>
+        <color name="secondaryTextColor">#000000</color>
+
 </resources>
