@@ -54,6 +54,18 @@ class RepositoryDb(application: Application) {
         }
     }
 
+    fun updateMessungsNamen(messung: String, neuerNamen: String){
+        coroutineScope.launch(Dispatchers.IO){
+            asyncUpdateMessung(wlanDetektorDao.getDieMessung(messung), neuerNamen)
+        }
+    }
+
+    private suspend fun asyncUpdateMessung(messung: TblMessung, neuerNamen: String){
+        messung.name = neuerNamen
+        wlanDetektorDao.updateTblMessung(messung)
+
+    }
+
     private suspend fun asyncUpdateMesspunkt(messpunkt: TblMesspunkt){
         wlanDetektorDao.updateTblMesspunkt(messpunkt)
     }
@@ -84,17 +96,6 @@ class RepositoryDb(application: Application) {
     }
 
 
-
-    /*   suspend fun namenPruefen(namen: String): Boolean {
-           var resultat: Int? = -1
-
-           coroutineScope.launch (Dispatchers.Main) {
-              resultat = asyncNamenPruefen(namen).await()
-           }
-           return resultat == -1
-       }*/
-
-
     suspend fun namenPruefen(namen:String):Int{
       return  wlanDetektorDao?.nameExists(namen)
     }
@@ -108,9 +109,24 @@ class RepositoryDb(application: Application) {
         }.await()
     }
 
+    suspend fun getMessung(id: Long): TblMessung{
+        return coroutineScope.async(Dispatchers.IO) {
+            val messung = wlanDetektorDao?.getDieMessung(id)
+            return@async messung
+
+
+        }.await()
+    }
+
     suspend fun deleteMessung(messung: TblMessung){
         coroutineScope.launch(Dispatchers.IO){
             wlanDetektorDao.deleteTblMessung(messung)
+        }
+    }
+
+    suspend fun deleteMesspunkt(id: Long){
+        coroutineScope.launch(Dispatchers.IO){
+            wlanDetektorDao.deleteTblMesspunkt(getMesspunkt(id))
         }
     }
 

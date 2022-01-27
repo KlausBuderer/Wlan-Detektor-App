@@ -80,6 +80,16 @@ class MesspunktErfassungsViewModel(application: Application) : AndroidViewModel(
 
     }
 
+    suspend fun deleteMesspunkt(id: Long){
+        try {
+            repositoryDb.deleteMesspunkt(id)
+            Log.d(LOG_TAG, "Query erfolgreich")
+
+        }catch (e: IOException){
+            Log.d(LOG_TAG, "Query nicht erfolgreich")
+        }
+    }
+
         // Speichern des Messpunkts in der Datenbank
         fun messpunktSpeichern(messpunkt: TblMesspunkt) {
             repositoryDb.insertMesspunkt(messpunkt)

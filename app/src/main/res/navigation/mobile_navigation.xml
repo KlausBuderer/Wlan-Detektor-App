@@ -25,7 +25,11 @@
         android:id="@+id/navigation_echtzeitmessung"
         android:name="com.gruppe4.wlan_detektor.ui.Echtzeitmessung.EchtezeitmessungFragment"
         android:label="@string/title_echtzeitmessung_de"
-        tools:layout="@layout/fragment_echtzeitmessung" />
+        tools:layout="@layout/fragment_echtzeitmessung" >
+        <action
+            android:id="@+id/action_navigation_echtzeitmessung_to_echtzeitDialogFragment"
+            app:destination="@id/echtzeitDialogFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_messung"
@@ -43,7 +47,7 @@
     <fragment
         android:id="@+id/navigation_Visualisierung"
         android:name="com.gruppe4.wlan_detektor.ui.Visualisierung.VisualisierungFragment"
-        android:label="Messungen"
+        android:label="@string/title_messungen_verwalten"
         tools:layout="@layout/fragment_visualisierung" >
         <action
             android:id="@+id/action_navigation_Visualisierung_to_visualisierung_Grid_Fragment"
@@ -69,6 +73,9 @@
         <argument
             android:name="messungsnamen"
             app:argType="string" />
+        <action
+            android:id="@+id/action_messungBearbeitenFragment_to_messungsnamenAendern"
+            app:destination="@id/messungsnamenAendern" />
     </fragment>
     <fragment
         android:id="@+id/messungListeFragment"
@@ -146,4 +153,45 @@
             android:name="BildPfad"
             app:argType="string" />
     </fragment>
+
+    <dialog
+        android:id="@+id/echtzeitDialogFragment"
+        android:name="com.gruppe4.wlan_detektor.EchtzeitDialogFragment"
+        android:label="fragment_echtzeit_dialog"
+        tools:layout="@layout/fragment_echtzeit_dialog" >
+        <action
+            android:id="@+id/action_echtzeitDialogFragment_to_navigation_echtzeitmessung"
+            app:destination="@id/navigation_echtzeitmessung" />
+    </dialog>
+
+    <dialog
+        android:id="@+id/ueberUns2"
+        android:name="com.gruppe4.wlan_detektor.UeberUns"
+        android:label="fragment_ueber_uns"
+        tools:layout="@layout/fragment_ueber_uns" />
+
+    <dialog
+        android:id="@+id/terms_conditions"
+        android:name="com.gruppe4.wlan_detektor.Terms_conditions"
+        android:label="fragment_terms_conditions"
+        tools:layout="@layout/fragment_terms_conditions" />
+
+    <dialog
+        android:id="@+id/messungsnamenAendern"
+        android:name="com.gruppe4.wlan_detektor.MessungsnamenAendern"
+        android:label="messungsnamen_aendern_fragment"
+        tools:layout="@layout/messungsnamen_aendern_fragment" >
+        <action
+            android:id="@+id/action_messungsnamenAendern_to_messungBearbeitenFragment"
+            app:destination="@id/messungBearbeitenFragment" />
+        <argument
+            android:name="messungsname"
+            app:argType="string" />
+    </dialog>
+    <dialog
+        android:id="@+id/datenschutzFragment"
+        android:name="com.gruppe4.wlan_detektor.DatenschutzFragment"
+        android:label="fragment_datenschutz"
+        tools:layout="@layout/fragment_datenschutz" />
+
 </navigation>

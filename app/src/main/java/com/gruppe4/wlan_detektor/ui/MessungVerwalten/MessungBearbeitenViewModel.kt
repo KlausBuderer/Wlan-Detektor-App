@@ -39,6 +39,17 @@ class MessungBearbeitenViewModel(application: Application) : AndroidViewModel(ap
         }
     }
 
+    suspend fun getMessungById(id: Long){
+        try {
+            val aktuelleMessung = repositoryDb.getMessung(id)
+            Log.e(LOG_TAG, "Query erfolgreich")
+
+            _messung.postValue(aktuelleMessung)
+        }catch (e: IOException){
+            Log.e(LOG_TAG, "Query nicht erfolgreich")
+        }
+    }
+
     suspend fun getMesspunkte(messungsId: Long){
         try {
             val aktuelleMesspunkte = repositoryDb.getMesspunkte(messungsId)

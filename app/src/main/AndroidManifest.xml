@@ -10,10 +10,9 @@
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" android:maxSdkVersion="18"/>
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-feature android:name="android.hardware.camera" android:required="false"
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" android:maxSdkVersion="18"/>
 
-        />
+    <uses-feature android:name="android.hardware.camera" android:required="false" />
 
     <application
         android:allowBackup="true"
@@ -23,7 +22,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.WlanDetektor"
         android:versionCode="1"
-        android:versionName="WLAN Detektor">
+        android:versionName="WLAN Detektor"
+        >
 
         <meta-data
             android:name="com.google.ar.core"

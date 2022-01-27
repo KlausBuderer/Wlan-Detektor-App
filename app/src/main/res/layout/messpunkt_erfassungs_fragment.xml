@@ -13,7 +13,38 @@
         android:layout_height="match_parent"
         tools:context=".ui.MessungVerwalten.MesspunktErfassungsFragment">
 
+        <androidx.cardview.widget.CardView
+            android:id="@+id/title_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="24dp"
+            android:layout_margin="24dp"
+            android:elevation="@dimen/cardview_default_elevation"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:cardCornerRadius="16dp">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="16dp"
+                android:background="@color/primaryDarkColor">
+
+                <TextView
+                    android:id="@+id/tv_messung_namen"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="32dp"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginRight="32dp"
+                    android:maxWidth="200dp"
+                    android:textColor="@color/white"
+                    android:text="Name der Messung"/>
+
         <TextView
+            style="@style/TextAppearance.AppCompat.Display3"
             android:id="@+id/tv_gewaehlteMessung"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -23,26 +54,13 @@
             android:maxWidth="200dp"
             android:text="@string/txt_ausgewaehlteMessung_de"
             android:textSize="@dimen/text_margin"
+            android:textColor="@color/white"
             android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/tv_messung_namen"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="32dp"
-            android:layout_marginTop="4dp"
-            android:layout_marginRight="32dp"
-            android:maxWidth="200dp"
-            android:text="Name der Messung"
-            android:textSize="@dimen/text_margin"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_gewaehlteMessung" />
+            />
 
 
+        </FrameLayout>
+    </androidx.cardview.widget.CardView>
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/et_raumname_layout"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -60,7 +78,7 @@
             app:helperText="@string/txt_hint_max_20_Zeichen"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_messung_namen"
+            app:layout_constraintTop_toBottomOf="@+id/title_layout"
             app:startIconDrawable="@drawable/ic_info">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -206,29 +224,43 @@
 
         </FrameLayout>
 
+        <Button
+            android:id="@+id/btn_bild_hinzufuegen"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:gravity="start|center_vertical"
+            android:text="@string/txt_bild_einfügen"
+            android:hint="Bild hinzugefügt"
+            android:textColor="@color/material_on_background_emphasis_medium"
+            app:icon="@drawable/ic__add_a_photo"
+            app:layout_constraintStart_toStartOf="@+id/tv_signalstaerke_titel"
+            app:layout_constraintTop_toBottomOf="@+id/tv_signalstaerke_titel"
+            tools:ignore="SpeakableTextPresentCheck">
+
+
+        </Button>
+
         <LinearLayout
             android:id="@+id/linearLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="16dp"
             android:gravity="center"
             android:orientation="horizontal"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_signalstaerke_wert">
+            app:layout_constraintTop_toBottomOf="@+id/btn_bild_hinzufuegen">
             app:layout_constraintEnd_toEndOf="@+id/btn_start_messpunkt_messung"
             app:layout_constraintStart_toEndOf="@+id/abbrechen"
             app:layout_constraintTop_toBottomOf="@+id/btn_start_messpunkt_messung"
 
             <Button
-                android:id="@+id/btn_bild_hinzufuegen"
-                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:id="@+id/messpunkt_loeschen"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="60dp"
-                android:gravity="center"
-                android:text="@string/txt_bild_einfügen"
-                android:textColor="@color/material_on_background_emphasis_medium"
-                tools:ignore="SpeakableTextPresentCheck" />
+                android:text="@string/txt_loeschen"
+                android:layout_marginEnd="32dp"/>
 
             <Button
                 android:id="@+id/messpunkt_speichern"
@@ -236,8 +268,6 @@
                 android:layout_height="wrap_content"
                 android:enabled="false"
                 android:text="@string/btn_speichern_de" />
-
-
         </LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
