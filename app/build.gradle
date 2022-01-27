@@ -12,7 +12,7 @@ android {
         applicationId "com.gruppe4.wlan_detektor"
         minSdkVersion 24
         targetSdk 31
-        versionCode 1
+        versionCode 6
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
