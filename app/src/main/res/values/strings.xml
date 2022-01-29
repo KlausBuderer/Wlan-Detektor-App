@@ -88,15 +88,11 @@
     <string name="txt_aktueller_name">Aktueller name:</string>
     <string name="txt_neuer_messungsname">neuer Messungsname</string>
     <string name="messungsname_aendern">Messungsname ändern</string>
-    <string name="datenschutzerklaerung">Datenschutzerklärung</string>
-    <string name="disclaimer">Haftungsausschluss</string>
     <string name="txt_datenschutzerklaerung">Datenschutzerklärung</string>
+    <string name="disclaimer">Haftungsausschluss</string>
     <string name="txt_beschreibung_bruno">Students of the ABB Technical School Post-graduate studies Software Engineer</string>
     <string name="large_text_haftungsausschluss">
-
     </string>
-
-    <string name="large_text_datenschutz">Platzhalter</string>
     <string name="txt_gebaeude_prefix">Gebäude:</string>
     <string name="txt_stockwerk_prefix">Stockwerk:</string>
     <string name="txt_zusatzinfo_prefix">Zusatzinfo:</string>
@@ -152,5 +148,6 @@
 "<li><b>Verarbeitung:</b> "Verarbeitung" ist jeder mit oder ohne Hilfe automatisierter Verfahren ausgeführte Vorgang oder jede solche Vorgangsreihe im Zusammenhang mit personenbezogenen Daten. Der Begriff reicht weit und umfasst praktisch jeden Umgang mit Daten, sei es das Erheben, das Auswerten, das Speichern, das Übermitteln oder das Löschen.</li>\n"
 "Erstellt mit kostenlosem Datenschutz-Generator.de von Dr. Thomas Schwenke"
     </string>
+    <string name="datenschutzerklaerung">Datenschutzerklärung</string>
 
 </resources>
