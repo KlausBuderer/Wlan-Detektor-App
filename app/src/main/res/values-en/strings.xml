@@ -139,4 +139,7 @@
     <string name="txt_erstellung_prefix">Erstellung:</string>
     <string name="txt_pegelmessung_titel">Pegelmessung</string>
     <string name="txt_aenderung">Änderung:</string>
+    <string name="dummy_button">TODO</string>
+    <string name="dummy_content">TODO</string>
+    <string name="hello_blank_fragment">TODO</string>
 </resources>
