@@ -15,6 +15,7 @@ import kotlinx.coroutines.*
 import kotlinx.coroutines.Dispatchers.IO
 import java.io.IOException
 import java.lang.NullPointerException
+import kotlin.math.sin
 
 class EchtzeitmessungViewModel(application: Application) : AndroidViewModel(application) {
 
@@ -132,7 +133,7 @@ class EchtzeitmessungViewModel(application: Application) : AndroidViewModel(appl
                 _netzwerkInfo.postValue(wifiKlasse.getConnectionInfo())
                 _progressFarbe.postValue(run { wifiKlasse.progressBarFarbeEinstellen(wifiInfos.rssi) })
                 _band.postValue(bandUmrechnung(wifiInfos.frequency))
-
+                sinusGenerator.frequenz = frequenz
                 println(wifiKlasse.getConnectionInfo().rssi)
             } catch (e: NullPointerException) {
 
@@ -175,7 +176,8 @@ class EchtzeitmessungViewModel(application: Application) : AndroidViewModel(appl
     fun startSinus() {
         sinusJobInit()
         CoroutineScope(IO + sinusJob).launch {
-            netzwerkInfo.value?.let { sinusGenerator.start(it.rssi) }
+            netzwerkInfo.value?.let {
+                sinusGenerator.start() }
         }
     }
 
