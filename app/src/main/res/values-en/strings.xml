@@ -92,4 +92,8 @@
     <string name="disclaimer">Disclaimer</string>
     <string name="txt_datenschutzerklaerung">Datenschutzerklärung</string>
     <string name="txt_beschreibung_bruno">Students of the ABB Technical School Post-graduate studies Software Engineer</string>
+    <string name="large_text_haftungsausschluss">
+
+    </string>
+    <string name="large_text_datenschutz">Platzhalter</string>
 </resources>
