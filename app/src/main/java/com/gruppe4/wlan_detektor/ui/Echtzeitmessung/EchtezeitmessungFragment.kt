@@ -33,10 +33,6 @@ class EchtezeitmessungFragment : Fragment() {
 
     private lateinit var echtzeitmessungViewModel: EchtzeitmessungViewModel
     private var _binding: FragmentEchtzeitmessungBinding? = null
-    lateinit var wifiManager: WifiManager
-    // This property is only valid between onCreateView and
-    // onDestroyView
-
     private val binding get() = _binding!!
 
     @RequiresApi(Build.VERSION_CODES.S)

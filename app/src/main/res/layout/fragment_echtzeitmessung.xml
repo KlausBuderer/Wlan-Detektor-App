@@ -254,7 +254,7 @@
             <ToggleButton
                 android:id="@+id/tbtn_start_echtzeitmessung"
                 style="@style/Widget.AppCompat.ActionButton.Overflow"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="32dp"
                 android:layout_marginTop="8dp"

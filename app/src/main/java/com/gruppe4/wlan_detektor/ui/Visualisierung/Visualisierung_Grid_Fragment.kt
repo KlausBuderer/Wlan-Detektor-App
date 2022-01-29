@@ -72,7 +72,9 @@ class Visualisierung_Grid_Fragment : Fragment(), MesspunktVisuAdapter.OnItemClic
             messungListe[position].zusatzinformation,
             messungListe[position].erfassungsDatum,
             messungListe[position].erfassungsZeit,
-            messungListe[position].bildPfad
+            messungListe[position].bildPfad,
+            messungListe[position].aenderungsDatum,
+            messungListe[position].aenderungsZeit
 
         )
 
