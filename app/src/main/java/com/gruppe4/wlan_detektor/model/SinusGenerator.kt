@@ -7,13 +7,17 @@ import android.media.AudioManager
 import android.media.AudioTrack
 import android.util.Log
 import com.gruppe4.wlan_detektor.model.Netzwerk.NetzwerkInfo
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
 
 class SinusGenerator(application: Application) {
 
     lateinit var track: AudioTrack
 
+    var frequenz: Int = 0
     var isPlaying: Boolean = false
     val netzwerkInfo: NetzwerkInfo = NetzwerkInfo(application)
 
@@ -25,10 +29,10 @@ class SinusGenerator(application: Application) {
         AudioFormat.ENCODING_PCM_16BIT
     )
 
-    fun start(frequenz: Int){
+    fun start(){
         initTrack()
         startPlaying()
-        playback(frequenz)
+        playback()
     }
 
 
@@ -57,7 +61,7 @@ class SinusGenerator(application: Application) {
         )*/
     }
 
-    private fun playback(frequenz: Int) {
+    private fun playback() {
         // simple sine wave generator
         val frame_out: ShortArray = ShortArray(buffLength)
         var amplitude = 20000
@@ -68,8 +72,8 @@ class SinusGenerator(application: Application) {
 
 
         while (isPlaying) {
-            frequency = 100
-             frequency -= (((netzwerkInfo.getConnectionInfo().rssi *-1) - 30) * 20)
+            frequency = 600 + frequenz
+            // frequency -= (((-60 * -1) + 30) * 20)
                 for (i in 0 until buffLength) {
 
                     //frequency += 10
@@ -79,7 +83,7 @@ class SinusGenerator(application: Application) {
                         phase -= twopi
                     }
                 }
-            Log.e("Amplitude",frequency.toString())
+            Log.d("Amplitude",frequency.toString())
                 track.write(frame_out, 0, buffLength)
         }
     }
@@ -87,14 +91,33 @@ class SinusGenerator(application: Application) {
     private fun startPlaying() {
         track.play()
         isPlaying = true
+        intervallRoutine()
+    }
+
+
+    private fun intervallRoutine(){
+        CoroutineScope(Dispatchers.IO).launch {
+            while (isPlaying == true){
+                val rssi = netzwerkInfo.getConnectionInfo().rssi
+                track.setVolume(0.0F)
+                delay(rssi * -1 * rssi * -1 / 8L)
+                track.setVolume(1.0F)
+                delay(rssi * -1 * rssi * -1 / 8L)
+            }
+        }
     }
 
      fun stopPlaying() {
-        if (isPlaying) {
-            isPlaying = false
-            // Stop playing the audio data and release the resources
-            track.stop()
-            track.release()
-        }
+         try {
+             if (isPlaying) {
+                 isPlaying = false
+                 // Stop playing the audio data and release the resources
+                 track.stop()
+                 track.release()
+             }
+         }catch (e: IllegalStateException){
+             Log.e("AudioTrack","Stop not successfull")
+         }
+
     }
 }

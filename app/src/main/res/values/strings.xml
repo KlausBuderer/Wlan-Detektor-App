@@ -93,6 +93,7 @@
     <string name="txt_beschreibung_bruno">Students of the ABB Technical School Post-graduate studies Software Engineer</string>
     <string name="large_text_haftungsausschluss">
     </string>
+
     <string name="txt_gebaeude_prefix">Gebäude:</string>
     <string name="txt_stockwerk_prefix">Stockwerk:</string>
     <string name="txt_zusatzinfo_prefix">Zusatzinfo:</string>
@@ -100,10 +101,7 @@
     <string name="txt_erstellung_prefix">Erstellung:</string>
     <string name="txt_pegelmessung_titel">Pegelmessung</string>
     <string name="txt_aenderung">Änderung:</string>
-    <string name="dummy_button">Dummy Button</string>
-    <string name="dummy_content">DUMMY\nCONTENT</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+
 
     <string name="large_text_datenschutz">
 "<b>Einleitung</b>

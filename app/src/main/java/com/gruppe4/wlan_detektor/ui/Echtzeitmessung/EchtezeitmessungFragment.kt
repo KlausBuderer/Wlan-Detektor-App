@@ -11,6 +11,7 @@ import android.net.wifi.WifiManager
 import android.os.Build
 import android.os.Bundle
 import android.provider.Settings
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -28,6 +29,7 @@ import androidx.lifecycle.lifecycleScope
 import com.gruppe4.wlan_detektor.R
 import com.gruppe4.wlan_detektor.databinding.FragmentEchtzeitmessungBinding
 import kotlinx.coroutines.*
+import kotlin.IllegalStateException
 
 class EchtezeitmessungFragment : Fragment() {
 
@@ -159,6 +161,7 @@ class EchtezeitmessungFragment : Fragment() {
             if (binding.tbtnStartEchtzeitmessung.isChecked) {
                 echtzeitmessungViewModel.stopUpdateCoroutine()
                 echtzeitmessungViewModel.stopSinus()
+
                 binding.btnFloatingActionButton.setImageResource(R.drawable.ic_ton_aus)
             }
         }
@@ -181,13 +184,13 @@ class EchtezeitmessungFragment : Fragment() {
             SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
                 echtzeitmessungViewModel.frequenz = seek.progress
+                Log.d("Seekbar", "${seek.progress}")
             }
 
             override fun onStartTrackingTouch(seekBar: SeekBar?) {
             }
 
             override fun onStopTrackingTouch(seekBar: SeekBar?) {
-                echtzeitmessungViewModel.frequenz = seek.progress
             }
         })
 
@@ -213,7 +216,7 @@ class EchtezeitmessungFragment : Fragment() {
 
         //Beendet den Sinusgenerator bei einem Bildwechsel
         if (echtzeitmessungViewModel.getSinusJobStatus()) {
-            echtzeitmessungViewModel.stopSinus()
+                echtzeitmessungViewModel.stopSinus()
         }
         //Beendet das Updaten der Netzwerkinformationen bei einem Bildwechsel
         if (echtzeitmessungViewModel.getUpdateJobStatus()) {
@@ -222,8 +225,6 @@ class EchtezeitmessungFragment : Fragment() {
         _binding = null
 
     }
-
-
 }
 
 
