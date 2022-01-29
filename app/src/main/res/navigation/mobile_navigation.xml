@@ -60,7 +60,8 @@
         tools:layout="@layout/fragment_messung_hinzufuegen" >
         <action
             android:id="@+id/action_messungHinzufuegen_to_messungBearbeitenFragment"
-            app:destination="@id/messungBearbeitenFragment" />
+            app:destination="@id/messungBearbeitenFragment"
+            app:enterAnim="@anim/von_rechts" />
     </fragment>
     <fragment
         android:id="@+id/messungBearbeitenFragment"
@@ -69,7 +70,8 @@
         tools:layout="@layout/messung_bearbeiten_fragment" >
         <action
             android:id="@+id/action_messungBearbeitenFragment_to_messpunktErfassungsFragment"
-            app:destination="@id/messpunktErfassungsFragment" />
+            app:destination="@id/messpunktErfassungsFragment"
+            app:enterAnim="@anim/von_rechts" />
         <argument
             android:name="messungsnamen"
             app:argType="string" />
@@ -84,7 +86,8 @@
         tools:layout="@layout/messung_liste_fragment" >
         <action
             android:id="@+id/action_messungListeFragment_to_messungBearbeitenFragment"
-            app:destination="@id/messungBearbeitenFragment" />
+            app:destination="@id/messungBearbeitenFragment"
+            app:enterAnim="@anim/von_rechts" />
         <argument
             android:name="context"
             app:argType="string" />
@@ -118,7 +121,8 @@
         tools:layout="@layout/visualisierung__grid__fragment" >
         <action
             android:id="@+id/action_visualisierung_Grid_Fragment_to_visuDetailFragment"
-            app:destination="@id/visuDetailFragment" />
+            app:destination="@id/visuDetailFragment"
+            app:enterAnim="@anim/von_rechts" />
         <argument
             android:name="messungsId"
             app:argType="long" />
@@ -152,6 +156,18 @@
         <argument
             android:name="BildPfad"
             app:argType="string" />
+        <argument
+            android:name="Aenderungsdatum"
+            app:argType="string"
+            app:nullable="true" />
+        <argument
+            android:name="Aenderungszeit"
+            app:argType="string"
+            app:nullable="true" />
+        <action
+            android:id="@+id/action_visuDetailFragment_to_visuFullScreenBild"
+            app:destination="@id/visuFullScreenBild"
+            app:enterAnim="@anim/von_unten" />
     </fragment>
 
     <dialog
@@ -193,5 +209,14 @@
         android:name="com.gruppe4.wlan_detektor.DatenschutzFragment"
         android:label="fragment_datenschutz"
         tools:layout="@layout/fragment_datenschutz" />
+    <fragment
+        android:id="@+id/visuFullScreenBild"
+        android:name="com.gruppe4.wlan_detektor.VisuFullScreenBild"
+        android:label=""
+        tools:layout="@layout/fragment_visu_full_screen_bild" >
+        <argument
+            android:name="bildpfad"
+            app:argType="string" />
+    </fragment>
 
 </navigation>

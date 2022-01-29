@@ -4,129 +4,332 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.Visualisierung.VisuDetailFragment">
+    tools:context=".ui.Visualisierung.VisuDetailFragment"
+    android:background="@color/primaryDarkColor">
 
 
-    <TextView
-        android:id="@+id/tv_raum_name"
-        style="@style/TextAppearance.AppCompat.Display1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="8dp"
-        android:gravity="center"
-        android:text="@string/txt_raumname_de"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/tv_gebaeude"
-        style="@style/TextAppearance.AppCompat.Body1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="16dp"
-        android:gravity="center"
-        android:text="@string/txt_Gebaeude_de"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_raum_name" />
-
-    <TextView
-        android:id="@+id/tv_stockwerk"
-        style="@style/TextAppearance.AppCompat.Body1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="4dp"
-        android:gravity="center"
-        android:text="@string/txt_stockwerk_de"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_gebaeude" />
-
-    <TextView
-        android:id="@+id/tv_zusatzinfo"
-        style="@style/TextAppearance.AppCompat.Body1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="4dp"
-        android:gravity="center"
-        android:text="@string/txt_zusatzinformationen_de"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_stockwerk" />
-
-    <TextView
-        android:id="@+id/tv_datum"
-        style="@style/TextAppearance.AppCompat.Body1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="4dp"
-        android:gravity="center"
-        android:text="@string/txt_datum_de"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_zusatzinfo" />
-
-    <TextView
-        android:id="@+id/tv_zeit"
-        style="@style/TextAppearance.AppCompat.Body1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="4dp"
-        android:gravity="center"
-        android:text="@string/txt_zeit_de"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_datum" />
-
-    <TextView
-        android:id="@+id/tv_pegel"
-        style="@style/TextAppearance.AppCompat.Widget.ActionMode.Subtitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="24dp"
-        android:gravity="center"
-        android:text="@string/txt_gemessener_pegel_de"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_zeit" />
-
-    <ProgressBar
-        android:id="@+id/pg_progressBar"
-        style="?android:attr/progressBarStyleHorizontal"
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:layout_marginLeft="32dp"
-        android:layout_marginRight="32dp"
-        android:max="-40"
-        android:min="-110"
-        android:progress="-40"
-        android:progressTint="@android:color/holo_red_dark"
+        android:fillViewport="true"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_pegel" />
+        app:layout_constraintTop_toTopOf="parent">
 
 
-    <FrameLayout
-        android:layout_width="409dp"
-        android:layout_height="201dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="24dp"
-        android:layout_marginBottom="40dp"
-        android:padding="4dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/pg_progressBar">
-
-        <ImageView
-            android:id="@+id/musspunkt_bild"
+        <androidx.cardview.widget.CardView
+            android:id="@+id/name_bild_layout"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:rotation="90"
-            android:src="@android:drawable/ic_menu_gallery" />
-    </FrameLayout>
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:elevation="16dp"
+            android:padding="16dp"
 
+            app:cardBackgroundColor="@color/semiTransparentWhiteColor"
+            app:cardCornerRadius="16dp">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/tv_raum_name"
+                    style="@style/TextAppearance.AppCompat.Display1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="32dp"
+                    android:layout_marginTop="16dp"
+                    android:gravity="center"
+                    android:text="@string/txt_raumname_de"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <FrameLayout
+                    android:id="@+id/bild_layout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="200dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="16dp"
+                    android:padding="4dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_raum_name">
+
+                    <ImageView
+                        android:id="@+id/musspunkt_bild"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:rotation="90"
+                        android:scaleType="center"
+                        android:src="@android:drawable/ic_menu_gallery" />
+                </FrameLayout>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cv_info_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="16dp"
+                    android:elevation="0dp"
+                    android:padding="16dp"
+                    app:cardBackgroundColor="@color/semiTransparentprimaryDarkColor"
+                    app:cardCornerRadius="16dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/bild_layout">
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:padding="8dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="left"
+                            android:orientation="horizontal"
+                            android:paddingLeft="24dp">
+
+
+                            <TextView
+                                android:id="@+id/tv_gebaeude_prefix"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginRight="24dp"
+                                android:ems="5"
+                                android:text="@string/txt_gebaeude_prefix"
+                                android:textColor="@color/white" />
+
+                            <TextView
+                                android:id="@+id/tv_gebaeude"
+                                style="@style/TextAppearance.AppCompat.Body1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:text="@string/txt_Gebaeude_de"
+                                android:textColor="@color/white" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="left"
+                            android:orientation="horizontal"
+                            android:paddingLeft="24dp">
+
+                            <TextView
+                                android:id="@+id/tv_stockwerk_prefix"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginRight="24dp"
+                                android:ems="5"
+                                android:text="@string/txt_stockwerk_prefix"
+                                android:textColor="@color/white" />
+
+                            <TextView
+                                android:id="@+id/tv_stockwerk"
+                                style="@style/TextAppearance.AppCompat.Body1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:text="@string/txt_stockwerk_de"
+                                android:textColor="@color/white" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="left"
+                            android:orientation="horizontal"
+                            android:paddingLeft="24dp">
+
+                            <TextView
+                                android:id="@+id/tv_zusatzinfo_prefix"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginRight="24dp"
+                                android:ems="5"
+                                android:text="@string/txt_zusatzinfo_prefix"
+                                android:textColor="@color/white" />
+
+                            <TextView
+                                android:id="@+id/tv_zusatzinfo"
+                                style="@style/TextAppearance.AppCompat.Body1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:maxEms="12"
+                                android:text="@string/txt_zusatzinformationen_de"
+                                android:textColor="@color/white" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="left"
+                            android:orientation="horizontal"
+                            android:paddingLeft="24dp">
+
+                            <TextView
+                                android:id="@+id/tv_Erstellzeit_prefix"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginRight="24dp"
+                                android:ems="5"
+                                android:text="@string/txt_erstellung_prefix"
+                                android:textColor="@color/white" />
+
+                            <TextView
+                                android:id="@+id/tv_datum"
+                                style="@style/TextAppearance.AppCompat.Body1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:text="@string/txt_datum_de"
+                                android:textColor="@color/white" />
+
+                            <TextView
+                                android:id="@+id/tv_zeit"
+                                style="@style/TextAppearance.AppCompat.Body1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="4dp"
+                                android:gravity="center"
+                                android:text="@string/txt_zeit_de"
+                                android:textColor="@color/white" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="left"
+                            android:orientation="horizontal"
+                            android:paddingLeft="24dp">
+
+                            <TextView
+                                android:id="@+id/tv_Aenderzeit_prefix"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginRight="24dp"
+                                android:ems="5"
+                                android:text="@string/txt_aenderung"
+                                android:textColor="@color/white" />
+
+                            <TextView
+                                android:id="@+id/tv_datum_aendern"
+                                style="@style/TextAppearance.AppCompat.Body1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:text="-"
+                                android:textColor="@color/white" />
+
+                            <TextView
+                                android:id="@+id/tv_zeit_aendern"
+                                style="@style/TextAppearance.AppCompat.Body1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="4dp"
+                                android:gravity="center"
+                                android:text=""
+                                android:textColor="@color/white" />
+                        </LinearLayout>
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginHorizontal="8dp"
+                            android:layout_marginTop="16dp"
+                            app:cardBackgroundColor="@color/semiTransparentWhiteColor"
+                            app:cardCornerRadius="32dp">
+
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent">
+
+
+                                <TextView
+                                    android:id="@+id/titel_pegelmessung"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="24dp"
+                                    android:layout_marginTop="8dp"
+                                    android:text="@string/txt_pegelmessung_titel"
+                                    android:textSize="20dp"
+                                    android:textStyle="bold"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent" />
+
+                                <TextView
+                                    android:id="@+id/tv_db_prefix"
+                                    style="@style/TextAppearance.AppCompat.Widget.ActionMode.Subtitle"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginRight="16dp"
+                                    android:gravity="right"
+                                    android:text="@string/txt_decibel_de"
+                                    app:layout_constraintBottom_toBottomOf="@+id/titel_pegelmessung"
+                                    app:layout_constraintEnd_toEndOf="@id/pg_progressBar"
+                                    app:layout_constraintTop_toTopOf="@+id/titel_pegelmessung" />
+
+                                <TextView
+                                    android:id="@+id/tv_pegel"
+                                    style="@style/TextAppearance.AppCompat.Widget.ActionMode.Subtitle"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center"
+                                    android:text="@string/txt_gemessener_pegel_de"
+                                    app:layout_constraintBottom_toBottomOf="@+id/titel_pegelmessung"
+                                    app:layout_constraintEnd_toStartOf="@id/tv_db_prefix"
+                                    app:layout_constraintTop_toTopOf="@+id/titel_pegelmessung" />
+
+                                <ProgressBar
+                                    android:id="@+id/pg_progressBar"
+                                    style="?android:attr/progressBarStyleHorizontal"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="24dp"
+                                    android:layout_marginTop="8dp"
+                                    android:layout_marginEnd="24dp"
+                                    android:layout_marginBottom="16dp"
+                                    android:max="-40"
+                                    android:min="-110"
+                                    android:progress="-40"
+                                    android:progressDrawable="@drawable/progressbar_shape"
+                                    android:progressTint="@android:color/holo_red_dark"
+                                    android:textColor="@color/white"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toBottomOf="@+id/titel_pegelmessung" />
+
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+                        </androidx.cardview.widget.CardView>
+
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/cv_info_layout"
+                    app:layout_constraintVertical_bias="0.0">
+
+                </FrameLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+
+
+    </androidx.core.widget.NestedScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

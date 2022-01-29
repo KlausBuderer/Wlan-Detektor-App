@@ -133,4 +133,11 @@
 "<li>By email: wlandetektor@it-wissen.ch</li>"
     </string>
     <string name="large_text_datenschutz">Platzhalter</string>
+    <string name="txt_gebaeude_prefix">Gebäude:</string>
+    <string name="txt_stockwerk_prefix">Stockwerk:</string>
+    <string name="txt_zusatzinfo_prefix">Zusatzinfo:</string>
+    <string name="txt_erstellungszeit_prefix">Erstellungszeit:</string>
+    <string name="txt_erstellung_prefix">Erstellung:</string>
+    <string name="txt_pegelmessung_titel">Pegelmessung</string>
+    <string name="txt_aenderung">Änderung:</string>
 </resources>
