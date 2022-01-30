@@ -27,7 +27,7 @@
             android:elevation="16dp"
             android:padding="16dp"
 
-            app:cardBackgroundColor="@color/semiTransparentWhiteColor"
+            app:cardBackgroundColor="@color/primaryLightColor"
             app:cardCornerRadius="16dp">
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -246,7 +246,7 @@
                             android:layout_height="match_parent"
                             android:layout_marginHorizontal="8dp"
                             android:layout_marginTop="16dp"
-                            app:cardBackgroundColor="@color/semiTransparentWhiteColor"
+                            app:cardBackgroundColor="@color/primaryTextColor"
                             app:cardCornerRadius="32dp">
 
                             <androidx.constraintlayout.widget.ConstraintLayout
@@ -302,7 +302,6 @@
                                     android:min="-110"
                                     android:progress="-40"
                                     android:progressDrawable="@drawable/progressbar_shape"
-                                    android:progressTint="@android:color/holo_red_dark"
                                     android:textColor="@color/white"
                                     app:layout_constraintBottom_toBottomOf="parent"
                                     app:layout_constraintEnd_toEndOf="parent"
