@@ -83,7 +83,6 @@
     <string name="title_messungen_verwalten">Messungen verwalten</string>
     <string name="txt_beschreibung_der_echzeitmessung">Beschreibung der Echzeitmessung</string>
     <string name="txt_wlan_anmeldung">1. Wlan Anmeldung</string>
-    <string name="txt_ueber_uns">Über uns</string>
     <string name="txt_loeschen">Löschen</string>
     <string name="txt_aktueller_name">Aktueller name:</string>
     <string name="txt_neuer_messungsname">neuer Messungsname</string>
@@ -224,4 +223,5 @@
     <string name="dummy_button">TODO</string>
     <string name="dummy_content">TODO</string>
     <string name="hello_blank_fragment">TODO</string>
+    <string name="txt_ueber_uns">About us</string>
 </resources>
