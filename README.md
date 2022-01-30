@@ -1,2 +1,2 @@
-# Wlan-Detektor-App
-# <img src="./modularbeit/www/public/images/Logo.png" height=150 alt="Mediengutschein" />
+# Wlan-Detektor-App <img src=".app/src/main/res/mipmap-xxhdpi/ic_launcher.png" />
+
