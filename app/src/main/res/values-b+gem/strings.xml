@@ -1,0 +1,184 @@
+<resources>
+    <string name="app_name">Wlan-Detektor</string>
+    <string name="title_home">Startseite WLAN Detektor</string>
+    <string name="title_echtzeitmessung_de">Echtzeitmessung</string>
+    <string name="title_messungen_de">Messungen</string>
+    <string name="title_visualisierung_de">Visualisierung</string>
+    <string name="button_netzwerkwahl_de">Netzwerkwahl</string>
+    <string name="txt_netzwerknamen_de">SSID:</string>
+    <string name="txt_macadresse_de">MAC Adresse</string>
+    <string name="txt_Frequenz_de">Band:</string>
+    <string name="txt_Hersteller_de">Hersteller:</string>
+    <string name="txt_Sicherheittyp_de">Sicherheitstyp:</string>
+    <string name="txt_max_upload_de">Up/Download:</string>
+    <string name="txt_pegel_de">Aktueller Pegel</string>
+    <string name="txt_decibel_de">- dB</string>
+    <string name="txt_signalstaerke_titel_de">Signalstärke</string>
+    <string name="txt_tonhoehe_de">Tonhöhe</string>
+    <string name="btn_start_de">Start</string>
+    <string name="txt_messung_neu_namen_de">Name der Messung</string>
+    <string name="btn_netzwerk_anmelden_de">Netzwerk anmelden</string>
+    <string name="txt_raeumlichkeit_de">Art der Räumlichkeit</string>
+    <string name="btn_speichern_de">Speichern</string>
+    <string name="txt_netzTitel_de">noch nicht im Wlan angemeldet</string>
+    <string name="txt_netzwerk_de">Netzwerk: </string>
+    <string name="txt_titel_messung_hinzufuegen_de">Messung hinzufügen</string>
+    <string name="txt_ausgewaehlteMessung">Ausgewählte Messung:</string>
+    <string name="txt_Gebaeude_de">Gebäude</string>
+    <string name="txt_stockwerk_de">Stockwerk</string>
+    <string name="txt_raumname_de">Raumname</string>
+    <string name="txt_zusatzinformationen_de">Zusatzinformationen</string>
+    <string name="txt_helper_max_zeichen_de">maximal 80 Zeichen</string>
+    <string name="txt_abbrechen">Abbrechen</string>
+    <string name="txt_datum_de">Datum</string>
+    <string name="txt_zeit_de">Zeit</string>
+    <string name="txt_gemessener_pegel_de">Gemessener Pegel</string>
+    <string name="txt_titel_hauptmenue_de">Wlan-Detektor</string>
+    <string name="txt_titel_home_echzeitmessung">Echzeitmessung</string>
+    <string name="txt_titel_home_messpunktverwaltung">Messpunkt Verwaltung</string>
+    <string name="txt_titel_home_visualisierung">Visualisierung</string>
+    <string name="txt_beschreibung_echzeitmessung">In der Echzeitmessung haben Sie die Möglichkeit bei dem bereits angemeldeten WLAN die Pegel wie auch weitere Informationen in Echzeit zu ermitteln. </string>
+    <string name="txt_beschreibung_messpunkt_verwaltung">In der Messpunktverwaltung haben Sie die Möglichkeit eine Messung und beliebige Messpunkte dazu zu erfassen.</string>
+    <string name="txt_beschreibung_visualisierung">In der Visualisierung können Sie zuvor erfasste Messungen transparent darzustellen.</string>
+    <string name="txt_stoppen">STOPPEN</string>
+    <string name="txt_starten">STARTEN</string>
+    <string name="txt_wohnung">Wohnung</string>
+    <string name="txt_haus">Haus</string>
+    <string name="txt_gewerbe">Gewerbe</string>
+    <string name="txt_3.UG">3.UG</string>
+    <string name="txt_2.UG">2.UG</string>
+    <string name="txt_1.UG">1.UG</string>
+    <string name="txt_erdgeschoss">Erdgeschoss</string>
+    <string name="txt_1.OG">1.OG</string>
+    <string name="txt_2.OG">2.OG</string>
+    <string name="txt_3.OG">3.OG</string>
+    <string name="txt_4.OG">4.OG</string>
+    <string name="txt_5.OG">5.OG</string>
+    <string name="txt_6.OG">6.OG</string>
+    <string name="txt_7.OG">7.OG</string>
+    <string name="txt_8.OG">8.OG</string>
+    <string name="txt_9.OG">9.OG</string>
+    <string name="txt_10.OG">10.OG</string>
+    <string name="txt_11.OG">11.OG</string>
+    <string name="txt_12.OG">12.OG</string>
+    <string name="txt_13.OG">13.OG</string>
+    <string name="txt_14.OG">14.OG</string>
+    <string name="txt_15.OG">15.OG</string>
+    <string name="txt_16.OG">16.OG</string>
+    <string name="txt_17.OG">17.OG</string>
+    <string name="txt_18.OG">18.OG</string>
+    <string name="txt_19.OG">19.OG</string>
+    <string name="txt_20.OG">20.OG</string>
+    <string name="txt_messung_hinzufuegen">Messung hinzufügen</string>
+    <string name="txt_messung_bearbeiten">Messung bearbeiten</string>
+    <string name="txt_bitte_auswaehlen">Bitte auswählen</string>
+    <string name="txt_messung_loeschen">Messung löschen</string>
+    <string name="txt_ausgewaehlteMessung_de">Ausgewählte Messung</string>
+    <string name="txt_bild_einfügen">Bild einfügen</string>
+    <string name="wlan_netzwerk">Wlan:</string>
+    <string name="txt_messpunkt_hinzufuegen">Messpunkt hinzufügen</string>
+    <string name="txt_hint_max_20_Zeichen">maximal 20 Zeichen</string>
+    <string name="txt_stockwerk_wählen">wähle das Stockwerk des Messpunktes</string>
+    <string name="txt_namen_bereits_vergeben">Name bereits vergeben</string>
+    <string name="title_messungen_verwalten">Messungen verwalten</string>
+    <string name="txt_beschreibung_der_echzeitmessung">Beschreibung der Echzeitmessung</string>
+    <string name="txt_wlan_anmeldung">1. Wlan Anmeldung</string>
+    <string name="txt_ueber_uns">Über uns</string>
+    <string name="txt_loeschen">Löschen</string>
+    <string name="txt_aktueller_name">Aktueller name:</string>
+    <string name="txt_neuer_messungsname">neuer Messungsname</string>
+    <string name="messungsname_aendern">Messungsname ändern</string>
+    <string name="txt_datenschutzerklaerung">Datenschutzerklärung</string>
+    <string name="disclaimer">Haftungsausschluss</string>
+    <string name="txt_beschreibung_bruno">Students of the ABB Technical School Post-graduate studies Software Engineer</string>
+    <string name="large_text_haftungsausschluss">
+        "Haftungsausschluss"
+"Zuletzt aktualisiert: Januar 30, 2022\n"
+"<b>Auslegung und Definitionen</b>"
+"<b>Auslegung</b>"
+"Die Wörter, deren Anfangsbuchstaben groß geschrieben sind, haben die unter den folgenden Bedingungen definierte Bedeutung. Die folgenden Definitionen haben dieselbe Bedeutung, unabhängig davon, ob sie im Singular oder im Plural stehen."
+"<b>Begriffsbestimmungen</b>"
+"Für die Zwecke dieses Haftungsausschlusses:"
+"Unternehmen (in diesem Haftungsausschluss entweder als "das Unternehmen", "wir", "uns" oder "unser" bezeichnet) bezieht sich auf WLAN Detektor PRO."
+"Dienst bezieht sich auf die Anwendung."
+"Sie bezeichnet die Person, die auf den Dienst zugreift, bzw. das Unternehmen oder eine andere juristische Person, in deren Namen eine solche Person auf den Dienst zugreift oder ihn nutzt."
+"Anwendung bezeichnet das vom Unternehmen bereitgestellte Softwareprogramm, das Sie auf ein elektronisches Gerät namens WLAN Detektor PRO herunterladen."
+"<b>Haftungsausschluss</b>"
+"Die in dem Dienst enthaltenen Informationen dienen nur zu allgemeinen Informationszwecken."
+"Das Unternehmen übernimmt keine Verantwortung für Fehler oder Auslassungen in den Inhalten des Dienstes."
+"In keinem Fall haftet das Unternehmen für besondere, direkte, indirekte oder zufällige Schäden oder Schäden jeglicher Art, sei es durch Vertrag, Fahrlässigkeit oder andere unerlaubte Handlungen, die aus oder in Verbindung mit der Nutzung des Dienstes oder der Inhalte des Dienstes entstehen. Das Unternehmen behält sich das Recht vor, den Inhalt des Dienstes jederzeit und ohne vorherige Ankündigung zu ergänzen, zu löschen oder zu ändern. Dieser Disclaimer wurde mit Hilfe des Disclaimer-Generators erstellt."
+"Das Unternehmen übernimmt keine Garantie dafür, dass der Dienst frei von Viren oder anderen schädlichen Komponenten ist."
+"Bitte beachten Sie, dass das Unternehmen keine Garantie für die Richtigkeit, Relevanz, Aktualität oder Vollständigkeit der Informationen auf diesen externen Websites übernimmt."
+"<b>Haftungsausschluss für Fehler und Auslassungen</b>"
+"Die im Rahmen des Dienstes bereitgestellten Informationen dienen lediglich der allgemeinen Orientierung über Themen von Interesse. Auch wenn das Unternehmen alle Vorsichtsmaßnahmen ergreift, um sicherzustellen, dass der Inhalt des Dienstes sowohl aktuell als auch korrekt ist, können Fehler auftreten. Außerdem kann es angesichts der sich ändernden Gesetze, Vorschriften und Regelungen zu Verzögerungen, Auslassungen oder Ungenauigkeiten bei den im Dienst enthaltenen Informationen kommen."
+"Das Unternehmen ist nicht verantwortlich für Fehler oder Auslassungen oder für die Ergebnisse, die durch die Nutzung dieser Informationen erzielt werden."
+"<b>Fair Use Disclaimer</b>"
+"Das Unternehmen kann urheberrechtlich geschütztes Material verwenden, das nicht immer ausdrücklich vom Urheberrechtsinhaber genehmigt wurde. Das Unternehmen stellt dieses Material zu Zwecken der Kritik, Kommentierung, Berichterstattung, Lehre, Wissenschaft oder Forschung zur Verfügung."
+"Das Unternehmen ist der Ansicht, dass dies eine "faire Nutzung" von urheberrechtlich geschütztem Material im Sinne von Abschnitt 107 des Urheberrechtsgesetzes der Vereinigten Staaten darstellt."
+"Wenn Sie urheberrechtlich geschütztes Material aus dem Dienst für Ihre eigenen Zwecke verwenden möchten, die über die faire Nutzung hinausgehen, müssen Sie die Genehmigung des Urheberrechtsinhabers einholen."
+"Haftungsausschluss für geäußerte Ansichten
+"Der Dienst kann Ansichten und Meinungen enthalten, die die der Autoren sind und nicht notwendigerweise die offizielle Politik oder Position eines anderen Autors, einer Behörde, Organisation, eines Arbeitgebers oder Unternehmens, einschließlich des Unternehmens, widerspiegeln."
+"<b>Keine Verantwortung Haftungsausschluss</b>"
+"Die Informationen des Dienstes werden unter der Voraussetzung zur Verfügung gestellt, dass das Unternehmen hier keine rechtlichen, buchhalterischen, steuerlichen oder sonstigen professionellen Beratungen und Dienstleistungen anbietet. Sie sollten daher nicht als Ersatz für eine Beratung durch professionelle Buchhaltungs-, Steuer-, Rechts- oder andere kompetente Berater verwendet werden."
+"In keinem Fall haften das Unternehmen oder seine Lieferanten für besondere, zufällige, indirekte oder Folgeschäden, die sich aus oder in Verbindung mit Ihrem Zugang oder Ihrer Nutzung oder der Unmöglichkeit des Zugangs oder der Nutzung des Dienstes ergeben."
+"<b>Haftungsausschluss "Nutzung auf eigene Gefahr</b>"
+"Alle Informationen des Dienstes werden im Ist-Zustand zur Verfügung gestellt, ohne Garantie auf Vollständigkeit, Genauigkeit, Aktualität oder auf die Ergebnisse, die durch die Nutzung dieser Informationen erzielt werden, und ohne jegliche ausdrückliche oder stillschweigende Garantie, einschließlich, aber nicht beschränkt auf Garantien für Leistung, Marktgängigkeit und Eignung für einen bestimmten Zweck."
+"Das Unternehmen haftet weder Ihnen noch anderen gegenüber für Entscheidungen oder Handlungen, die im Vertrauen auf die durch den Dienst bereitgestellten Informationen getroffen wurden, noch für Folgeschäden, besondere oder ähnliche Schäden, selbst wenn auf die Möglichkeit solcher Schäden hingewiesen wurde."
+"Kontaktieren Sie uns\n"
+"Wenn Sie Fragen zu diesem Haftungsausschluss haben, können Sie uns kontaktieren:
+"<li>Per E-Mail: wlandetektor@it-wissen.ch</li>"
+    </string>
+    <string name="txt_gebaeude_prefix">Gebäude:</string>
+    <string name="txt_stockwerk_prefix">Stockwerk:</string>
+    <string name="txt_zusatzinfo_prefix">Zusatzinfo:</string>
+    <string name="txt_erstellungszeit_prefix">Erstellungszeit:</string>
+    <string name="txt_erstellung_prefix">Erstellung:</string>
+    <string name="txt_pegelmessung_titel">Pegelmessung</string>
+    <string name="txt_aenderung">Änderung:</string>
+    <string name="large_text_datenschutz">
+"<b>Einleitung</b>
+"Mit der folgenden Datenschutzerklärung möchten wir Sie darüber aufklären, welche Arten Ihrer personenbezogenen Daten (nachfolgend auch kurz als "Daten“ bezeichnet) wir zu welchen Zwecken und in welchem Umfang im Rahmen der Bereitstellung unserer Applikation verarbeiten.\n"
+"Die verwendeten Begriffe sind nicht geschlechtsspezifisch.\n"
+"Stand: 29. Januar 2022\n"
+"<b>Kontaktdaten</b>"
+"<li>Verantwortlicher: Bruno Thurnherr</li>"
+"<li>E-Mail: wlandetektor@it-wissen.ch</li>\n"
+"<b>Übersicht der Verarbeitungen</b>"
+"Die nachfolgende Übersicht fasst die Arten der verarbeiteten Daten und die Zwecke ihrer Verarbeitung zusammen und verweist auf die betroffenen Personen.\n"
+"<b>Maßgebliche Rechtsgrundlagen</b>"
+"Im Folgenden erhalten Sie eine Übersicht der Rechtsgrundlagen der DSGVO, auf deren Basis wir personenbezogene Daten verarbeiten. Bitte nehmen Sie zur Kenntnis, dass neben den Regelungen der DSGVO nationale Datenschutzvorgaben in Ihrem bzw. unserem Wohn- oder Sitzland gelten können. Sollten ferner im Einzelfall speziellere Rechtsgrundlagen maßgeblich sein, teilen wir Ihnen diese in der Datenschutzerklärung mit.\n"
+"<b>Sicherheitsmaßnahmen</b>"
+"Wir treffen nach Maßgabe der gesetzlichen Vorgaben unter Berücksichtigung des Stands der Technik, der Implementierungskosten und der Art, des Umfangs, der Umstände und der Zwecke der Verarbeitung sowie der unterschiedlichen Eintrittswahrscheinlichkeiten und des Ausmaßes der Bedrohung der Rechte und Freiheiten natürlicher Personen geeignete technische und organisatorische Maßnahmen, um ein dem Risiko angemessenes Schutzniveau zu gewährleisten."
+"Zu den Maßnahmen gehören insbesondere die Sicherung der Vertraulichkeit, Integrität und Verfügbarkeit von Daten durch Kontrolle des physischen und elektronischen Zugangs zu den Daten als auch des sie betreffenden Zugriffs, der Eingabe, der Weitergabe, der Sicherung der Verfügbarkeit und ihrer Trennung. Des Weiteren haben wir Verfahren eingerichtet, die eine Wahrnehmung von Betroffenenrechten, die Löschung von Daten und Reaktionen auf die Gefährdung der Daten gewährleisten. Ferner berücksichtigen wir den Schutz personenbezogener Daten bereits bei der Entwicklung bzw. Auswahl von Hardware, Software sowie Verfahren entsprechend dem Prinzip des Datenschutzes, durch Technikgestaltung und durch datenschutzfreundliche Voreinstellungen.\n"
+"<b>Übermittlung von personenbezogenen Daten</b>"
+"Im Rahmen unserer Verarbeitung von personenbezogenen Daten kommt es vor, dass die Daten an andere Stellen, Unternehmen, rechtlich selbstständige Organisationseinheiten oder Personen übermittelt oder sie ihnen gegenüber offengelegt werden. Zu den Empfängern dieser Daten können z.B. mit IT-Aufgaben beauftragte Dienstleister oder Anbieter von Diensten und Inhalten, die in eine Webseite eingebunden werden, gehören. In solchen Fall beachten wir die gesetzlichen Vorgaben und schließen insbesondere entsprechende Verträge bzw. Vereinbarungen, die dem Schutz Ihrer Daten dienen, mit den Empfängern Ihrer Daten ab.\n"
+"<b>Datenverarbeitung in Drittländern</b>"
+"Sofern wir Daten in einem Drittland (d.h., außerhalb der Europäischen Union (EU), des Europäischen Wirtschaftsraums (EWR)) verarbeiten oder die Verarbeitung im Rahmen der Inanspruchnahme von Diensten Dritter oder der Offenlegung bzw. Übermittlung von Daten an andere Personen, Stellen oder Unternehmen stattfindet, erfolgt dies nur im Einklang mit den gesetzlichen Vorgaben.\n"
+"Vorbehaltlich ausdrücklicher Einwilligung oder vertraglich oder gesetzlich erforderlicher Übermittlung verarbeiten oder lassen wir die Daten nur in Drittländern mit einem anerkannten Datenschutzniveau, vertraglichen Verpflichtung durch sogenannte Standardschutzklauseln der EU-Kommission, beim Vorliegen von Zertifizierungen oder verbindlicher internen Datenschutzvorschriften verarbeiten (Art. 44 bis 49 DSGVO, Informationsseite der EU-Kommission: https://ec.europa.eu/info/law/law-topic/data-protection/international-dimension-data-protection_de).\n"
+"<b>Löschung von Daten</b>"
+"Die von uns verarbeiteten Daten werden nach Maßgabe der gesetzlichen Vorgaben gelöscht, sobald deren zur Verarbeitung erlaubten Einwilligungen widerrufen werden oder sonstige Erlaubnisse entfallen (z.B. wenn der Zweck der Verarbeitung dieser Daten entfallen ist oder sie für den Zweck nicht erforderlich sind)."
+"Sofern die Daten nicht gelöscht werden, weil sie für andere und gesetzlich zulässige Zwecke erforderlich sind, wird deren Verarbeitung auf diese Zwecke beschränkt. D.h., die Daten werden gesperrt und nicht für andere Zwecke verarbeitet. Das gilt z.B. für Daten, die aus handels- oder steuerrechtlichen Gründen aufbewahrt werden müssen oder deren Speicherung zur Geltendmachung, Ausübung oder Verteidigung von Rechtsansprüchen oder zum Schutz der Rechte einer anderen natürlichen oder juristischen Person erforderlich ist.\n"
+"Unsere Datenschutzhinweise können ferner weitere Angaben zu der Aufbewahrung und Löschung von Daten beinhalten, die für die jeweiligen Verarbeitungen vorrangig gelten.\n"
+"<b>Änderung und Aktualisierung der Datenschutzerklärung</b>"
+"Wir bitten Sie, sich regelmäßig über den Inhalt unserer Datenschutzerklärung zu informieren. Wir passen die Datenschutzerklärung an, sobald die Änderungen der von uns durchgeführten Datenverarbeitungen dies erforderlich machen. Wir informieren Sie, sobald durch die Änderungen eine Mitwirkungshandlung Ihrerseits (z.B. Einwilligung) oder eine sonstige individuelle Benachrichtigung erforderlich wird."
+"Sofern wir in dieser Datenschutzerklärung Adressen und Kontaktinformationen von Unternehmen und Organisationen angeben, bitten wir zu beachten, dass die Adressen sich über die Zeit ändern können und bitten die Angaben vor Kontaktaufnahme zu prüfen.\n"
+"<b>Rechte der betroffenen Personen</b>"
+"Ihnen stehen als Betroffene nach der DSGVO verschiedene Rechte zu, die sich insbesondere aus Art. 15 bis 21 DSGVO ergeben:\n"
+"<li>Widerspruchsrecht: Sie haben das Recht, aus Gründen, die sich aus Ihrer besonderen Situation ergeben, jederzeit gegen die Verarbeitung der Sie betreffenden personenbezogenen Daten, die aufgrund von Art. 6 Abs. 1 lit. e oder f DSGVO erfolgt, Widerspruch einzulegen; dies gilt auch für ein auf diese Bestimmungen gestütztes Profiling. Werden die Sie betreffenden personenbezogenen Daten verarbeitet, um Direktwerbung zu betreiben, haben Sie das Recht, jederzeit Widerspruch gegen die Verarbeitung der Sie betreffenden personenbezogenen Daten zum Zwecke derartiger Werbung einzulegen; dies gilt auch für das Profiling, soweit es mit solcher Direktwerbung in Verbindung steht.</li>\n"
+"<li>Widerrufsrecht bei Einwilligungen: Sie haben das Recht, erteilte Einwilligungen jederzeit zu widerrufen.</li>\n"
+"<li>Auskunftsrecht: Sie haben das Recht, eine Bestätigung darüber zu verlangen, ob betreffende Daten verarbeitet werden und auf Auskunft über diese Daten sowie auf weitere Informationen und Kopie der Daten entsprechend den gesetzlichen Vorgaben.</li>\n"
+"<li>Recht auf Berichtigung: Sie haben entsprechend den gesetzlichen Vorgaben das Recht, die Vervollständigung der Sie betreffenden Daten oder die Berichtigung der Sie betreffenden unrichtigen Daten zu verlangen.</li>\n"
+"<li>Recht auf Löschung und Einschränkung der Verarbeitung: Sie haben nach Maßgabe der gesetzlichen Vorgaben das Recht, zu verlangen, dass Sie betreffende Daten unverzüglich gelöscht werden, bzw. alternativ nach Maßgabe der gesetzlichen Vorgaben eine Einschränkung der Verarbeitung der Daten zu verlangen.</li>\n"
+"<li>Recht auf Datenübertragbarkeit: Sie haben das Recht, Sie betreffende Daten, die Sie uns bereitgestellt haben, nach Maßgabe der gesetzlichen Vorgaben in einem strukturierten, gängigen und maschinenlesbaren Format zu erhalten oder deren Übermittlung an einen anderen Verantwortlichen zu fordern.</li>\n"
+"<li>Beschwerde bei Aufsichtsbehörde: Sie haben unbeschadet eines anderweitigen verwaltungsrechtlichen oder gerichtlichen Rechtsbehelfs das Recht auf Beschwerde bei einer Aufsichtsbehörde, insbesondere in dem Mitgliedstaat ihres gewöhnlichen Aufenthaltsorts, ihres Arbeitsplatzes oder des Orts des mutmaßlichen Verstoßes, wenn Sie der Ansicht sind, dass die Verarbeitung der Sie betreffenden personenbezogenen Daten gegen die Vorgaben der DSGVO verstößt.</li>\n"
+<b>Begriffsdefinitionen</b>
+"In diesem Abschnitt erhalten Sie eine Übersicht über die in dieser Datenschutzerklärung verwendeten Begrifflichkeiten. Viele der Begriffe sind dem Gesetz entnommen und vor allem im Art. 4 DSGVO definiert. Die gesetzlichen Definitionen sind verbindlich. Die nachfolgenden Erläuterungen sollen dagegen vor allem dem Verständnis dienen. Die Begriffe sind alphabetisch sortiert.\n"
+"<li><b>Personenbezogene Daten:</b> Personenbezogene Daten“ sind alle Informationen, die sich auf eine identifizierte oder identifizierbare natürliche Person (im Folgenden "betroffene Person“) beziehen; als identifizierbar wird eine natürliche Person angesehen, die direkt oder indirekt, insbesondere mittels Zuordnung zu einer Kennung wie einem Namen, zu einer Kennnummer, zu Standortdaten, zu einer Online-Kennung (z.B. Cookie) oder zu einem oder mehreren besonderen Merkmalen identifiziert werden kann, die Ausdruck der physischen, physiologischen, genetischen, psychischen, wirtschaftlichen, kulturellen oder sozialen Identität dieser natürlichen Person sind.</li>\n"
+"<li><b>Verantwortlicher:</b> Als "Verantwortlicher“ wird die natürliche oder juristische Person, Behörde, Einrichtung oder andere Stelle, die allein oder gemeinsam mit anderen über die Zwecke und Mittel der Verarbeitung von personenbezogenen Daten entscheidet, bezeichnet.</li>\n"
+"<li><b>Verarbeitung:</b> "Verarbeitung" ist jeder mit oder ohne Hilfe automatisierter Verfahren ausgeführte Vorgang oder jede solche Vorgangsreihe im Zusammenhang mit personenbezogenen Daten. Der Begriff reicht weit und umfasst praktisch jeden Umgang mit Daten, sei es das Erheben, das Auswerten, das Speichern, das Übermitteln oder das Löschen.</li>\n"
+"Erstellt mit kostenlosem Datenschutz-Generator.de von Dr. Thomas Schwenke"
+    </string>
+    <string name="dummy_button">TODO</string>
+    <string name="dummy_content">TODO</string>
+    <string name="hello_blank_fragment">TODO</string>
+</resources>
