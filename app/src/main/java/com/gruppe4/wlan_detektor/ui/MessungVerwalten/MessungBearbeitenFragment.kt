@@ -2,6 +2,7 @@ package com.gruppe4.wlan_detektor.ui.MessungVerwalten
 
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -10,6 +11,7 @@ import android.widget.ImageView
 import androidx.lifecycle.Observer
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.Navigation
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.gruppe4.wlan_detektor.R
@@ -94,16 +96,22 @@ class MessungBearbeitenFragment : Fragment(), MesspunktBearbeitenAdapter.OnItemC
         })
 
 
-        namenAendernButton.setOnClickListener{
-            val action =
-                MessungBearbeitenFragmentDirections.actionMessungBearbeitenFragmentToMessungsnamenAendern(
-                    messungsnamen
-                )
+        namenAendernButton.setOnClickListener {
 
-            if (action != null) {
-                Navigation.findNavController(binding.root).navigate(action)
+            try {
+                val action =
+                    MessungBearbeitenFragmentDirections.actionMessungBearbeitenFragmentToMessungsnamenAendern(
+                        messungsnamen
+                    )
+
+                if (action != null && findNavController().currentDestination?.id?.equals(R.id.messungBearbeitenFragment) == true){
+                    Navigation.findNavController(binding.root).navigate(action)
+                }
+            }catch (namenAendernException: IllegalStateException){
+                Log.e("Messungsnamen aendern", "Navigition Namenaendern nicht gefunden")
+
             }
-              }
+        }
 
 
         viewModel.messung.observe(viewLifecycleOwner, Observer {
@@ -134,9 +142,9 @@ class MessungBearbeitenFragment : Fragment(), MesspunktBearbeitenAdapter.OnItemC
     override fun onResume() {
         super.onResume()
 
-            lifecycleScope.launch(Dispatchers.Main) {
+           /* lifecycleScope.launch(Dispatchers.Main) {
                 viewModel.messung.value?.let { viewModel.getMessungById(it.idmessung) }
-            }
+            }*/
 
     }
 }

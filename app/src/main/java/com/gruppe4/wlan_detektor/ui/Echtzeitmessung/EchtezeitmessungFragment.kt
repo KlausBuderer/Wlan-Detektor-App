@@ -103,7 +103,7 @@ class EchtezeitmessungFragment : Fragment() {
 
             if(it != null) {
                 if (it.bssid != null) {
-                    mac.text = it.bssid
+                    mac.text = it.bssid.uppercase()
                 } else {
                     mac.text = "unbekannt"
                 }

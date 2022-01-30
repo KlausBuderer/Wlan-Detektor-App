@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.lifecycle.Observer
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.NavArgs
@@ -13,6 +14,7 @@ import androidx.navigation.Navigation
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.GridLayoutManager
 import com.gruppe4.wlan_detektor.databinding.MessungListeFragmentBinding
+import com.gruppe4.wlan_detektor.databinding.VisualisierungGridFragmentBinding
 import com.gruppe4.wlan_detektor.model.Datenbank.Entitaeten.TblMesspunkt
 import com.gruppe4.wlan_detektor.ui.MesspunktListe.messpunktListe
 import com.gruppe4.wlan_detektor.ui.MessungListe
@@ -25,7 +27,7 @@ class Visualisierung_Grid_Fragment : Fragment(), MesspunktVisuAdapter.OnItemClic
         fun newInstance() = Visualisierung_Grid_Fragment()
     }
 
-    var _binding: MessungListeFragmentBinding? = null
+    var _binding: VisualisierungGridFragmentBinding? = null
     private val binding get() = _binding!!
     private lateinit var viewModel: VisualisierungGridViewModel
     private var messungsId: Long = -1
@@ -36,11 +38,11 @@ class Visualisierung_Grid_Fragment : Fragment(), MesspunktVisuAdapter.OnItemClic
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = MessungListeFragmentBinding.inflate(layoutInflater)
+        _binding = VisualisierungGridFragmentBinding.inflate(layoutInflater)
         val root: View = binding.root
 
 
-        binding.rvMessungsliste.apply {
+        binding.rvMesspunktVisu.apply {
             layoutManager = GridLayoutManager(requireContext(),2)
         }
 
@@ -57,7 +59,10 @@ class Visualisierung_Grid_Fragment : Fragment(), MesspunktVisuAdapter.OnItemClic
         viewModel.messpunkte.observe(viewLifecycleOwner, Observer {
             val adapter = MesspunktVisuAdapter(it, this, requireActivity().application)
             messungListe = it
-            binding?.rvMessungsliste?.adapter = adapter
+            binding?.rvMesspunktVisu?.adapter = adapter
+            if (it.isEmpty()){
+                binding.tvKeineMesspunkte.visibility = TextView.VISIBLE
+            }
         })
 
     }

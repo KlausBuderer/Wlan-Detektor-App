@@ -92,6 +92,7 @@
     <string name="disclaimer">Haftungsausschluss</string>
     <string name="txt_beschreibung_bruno">Students of the ABB Technical School Post-graduate studies Software Engineer</string>
     <string name="large_text_haftungsausschluss">
+
         "Haftungsausschluss"
 "Zuletzt aktualisiert: Januar 30, 2022\n"
 "<b>Auslegung und Definitionen</b>"
@@ -127,6 +128,7 @@
 "Kontaktieren Sie uns\n"
 "Wenn Sie Fragen zu diesem Haftungsausschluss haben, können Sie uns kontaktieren:
 "<li>Per E-Mail: wlandetektor@it-wissen.ch</li>"
+
     </string>
     <string name="txt_gebaeude_prefix">Gebäude:</string>
     <string name="txt_stockwerk_prefix">Stockwerk:</string>
@@ -135,6 +137,7 @@
     <string name="txt_erstellung_prefix">Erstellung:</string>
     <string name="txt_pegelmessung_titel">Pegelmessung</string>
     <string name="txt_aenderung">Änderung:</string>
+
     <string name="large_text_datenschutz">
 "<b>Einleitung</b>
 "Mit der folgenden Datenschutzerklärung möchten wir Sie darüber aufklären, welche Arten Ihrer personenbezogenen Daten (nachfolgend auch kurz als "Daten“ bezeichnet) wir zu welchen Zwecken und in welchem Umfang im Rahmen der Bereitstellung unserer Applikation verarbeiten.\n"
@@ -178,4 +181,8 @@
 "<li><b>Verarbeitung:</b> "Verarbeitung" ist jeder mit oder ohne Hilfe automatisierter Verfahren ausgeführte Vorgang oder jede solche Vorgangsreihe im Zusammenhang mit personenbezogenen Daten. Der Begriff reicht weit und umfasst praktisch jeden Umgang mit Daten, sei es das Erheben, das Auswerten, das Speichern, das Übermitteln oder das Löschen.</li>\n"
 "Erstellt mit kostenlosem Datenschutz-Generator.de von Dr. Thomas Schwenke"
     </string>
+
+    <string name="txt_keine_messpunkte_angelegt">Es wurden noch keine Messpunkte angelegt</string>
+    <string name="keine_messungen_angelegt">Es wurden noch keine Messungen angelegt</string>
+
 </resources>

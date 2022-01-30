@@ -50,6 +50,10 @@ class VisualisierungFragment : Fragment(), MessungListeAdapter.OnItemClickListen
 
             val adapter = MessungListeAdapter(it, this, requireActivity().application, MESSUNGLISTE_KONTEXT.Visualisierung.toString())
             binding?.rvMessungsliste?.adapter = adapter
+
+            if (it.isNullOrEmpty()){
+                binding.tvKeineMessungen.visibility = TextView.VISIBLE
+            }
         })
 
 
