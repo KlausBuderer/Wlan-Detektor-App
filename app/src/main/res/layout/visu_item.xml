@@ -4,7 +4,7 @@
 
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    android:layout_width="match_parent"
+    android:layout_width="wrap_content"
     android:layout_height="wrap_content">
 
 
@@ -20,7 +20,7 @@
     app:cardCornerRadius="12dp"
     app:cardElevation="8dp"
     app:contentPadding="4dp"
-    android:backgroundTint="@color/cardview_light_background">
+    android:backgroundTint="@color/primaryLightColor">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -75,7 +75,7 @@
             android:max="-40"
             android:min="-110"
             android:progress="-40"
-            android:progressTint="@android:color/holo_red_dark"
+            android:progressDrawable="@drawable/progressbar_shape"
             app:layout_constraintStart_toStartOf="@+id/tv_stockwerk"
             app:layout_constraintTop_toBottomOf="@+id/tv_signal" />
     </androidx.constraintlayout.widget.ConstraintLayout>

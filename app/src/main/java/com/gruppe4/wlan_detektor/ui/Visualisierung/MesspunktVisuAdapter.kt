@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.gruppe4.wlan_detektor.R
 import com.gruppe4.wlan_detektor.databinding.VisuItemBinding
 import com.gruppe4.wlan_detektor.model.Datenbank.Entitaeten.TblMesspunkt
 import com.gruppe4.wlan_detektor.model.Netzwerk.NetzwerkInfo
@@ -15,7 +16,7 @@ import com.gruppe4.wlan_detektor.ui.MessungVerwalten.MesspunktItem
 
 class MesspunktVisuAdapter(private val messpunktListe: List<TblMesspunkt>
                            , private val listener: OnItemClickListener
-                           ,application: Application)
+                           ,private val application: Application)
         : RecyclerView.Adapter<MesspunktVisuAdapter.MesspunktVisuViewHolder>() {
 
     private val netzwerkInfo = NetzwerkInfo(application)
@@ -23,13 +24,13 @@ class MesspunktVisuAdapter(private val messpunktListe: List<TblMesspunkt>
         inner class MesspunktVisuViewHolder(val itemBinding: VisuItemBinding):
             RecyclerView.ViewHolder(itemBinding.root),
             View.OnClickListener {
-            fun bindItem(messpunkt: TblMesspunkt){
+            fun bindItem(messpunkt: TblMesspunkt, application: Application){
                 itemBinding.tvRaumName.text = messpunkt.raumname
                 itemBinding.tvGebaeude.text = messpunkt.gebaeude
-                itemBinding.tvStockwerk.text = messpunkt.stockwerkID.toString()
+                itemBinding.tvStockwerk.text = application.resources.getStringArray(R.array.stockwerk_array)[messpunkt.stockwerkID]
                 itemBinding.tvSignal.text = messpunkt.pegelmessung.toString() + " db"
                 itemBinding.pgProgressBar.progress = messpunkt.pegelmessung
-                itemBinding.pgProgressBar.progressTintList = ColorStateList.valueOf(netzwerkInfo.progressBarFarbeEinstellen(messpunkt.pegelmessung))
+                //itemBinding.pgProgressBar.progressTintList = ColorStateList.valueOf(netzwerkInfo.progressBarFarbeEinstellen(messpunkt.pegelmessung))
 
             }
             init{
@@ -37,9 +38,9 @@ class MesspunktVisuAdapter(private val messpunktListe: List<TblMesspunkt>
             }
 
             override fun onClick(v: View?) {
-                val position: Int = adapterPosition
+                val position: Int = bindingAdapterPosition
                 if (position != RecyclerView.NO_POSITION) {
-                    listener.onItemClick(position)
+                    listener.onItemClick(messpunktListe[position].idmesspunkt)
                 }
             }
         }
@@ -50,7 +51,7 @@ class MesspunktVisuAdapter(private val messpunktListe: List<TblMesspunkt>
 
         override fun onBindViewHolder(holder: MesspunktVisuViewHolder, position: Int) {
             val messpunkt = messpunktListe[position]
-            holder.bindItem(messpunkt)
+            holder.bindItem(messpunkt, application)
         }
 
         //Uebergeben der Groesse der Liste fuer die Erstellung des Views
@@ -59,7 +60,7 @@ class MesspunktVisuAdapter(private val messpunktListe: List<TblMesspunkt>
         }
 
         interface OnItemClickListener{
-            fun onItemClick(position: Int)
+            fun onItemClick(messpunktId: Long)
         }
     }
 

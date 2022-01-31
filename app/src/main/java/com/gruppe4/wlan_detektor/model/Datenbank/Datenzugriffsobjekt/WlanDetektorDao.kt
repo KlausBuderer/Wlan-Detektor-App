@@ -51,7 +51,7 @@ interface WlanDetektorDao {
     @Query("SELECT * From TblMessung WHERE name = :name")
     fun getDieMessung(name: String): TblMessung
 
-    @Query("SELECT * From TblMessung WHERE name = :id")
+    @Query("SELECT * From TblMessung WHERE messungid = :id")
     fun getDieMessung(id: Long): TblMessung
 
     // Abfrage von Tabellen
