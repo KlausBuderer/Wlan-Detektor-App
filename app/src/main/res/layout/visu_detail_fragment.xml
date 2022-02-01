@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.Visualisierung.VisuDetailFragment"
-    android:background="@color/primaryDarkColor">
+    android:background="@color/primaryLightColor">
 
 
     <androidx.core.widget.NestedScrollView
@@ -26,8 +26,6 @@
             android:layout_margin="8dp"
             android:elevation="16dp"
             android:padding="16dp"
-
-            app:cardBackgroundColor="@color/primaryLightColor"
             app:cardCornerRadius="16dp">
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -246,7 +244,6 @@
                             android:layout_height="match_parent"
                             android:layout_marginHorizontal="8dp"
                             android:layout_marginTop="16dp"
-                            app:cardBackgroundColor="@color/primaryTextColor"
                             app:cardCornerRadius="32dp">
 
                             <androidx.constraintlayout.widget.ConstraintLayout
