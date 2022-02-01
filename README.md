@@ -9,6 +9,6 @@
   <tr>
     <td align=center><a href="https://wlandetektor.it-wissen.ch"><img src="app/src/main/assets/github/github_flag_gb-eng.svg" width="90"/></a></td>
     <td align=center><a href="https://wlandetektor.it-wissen.ch"><img src="app/src/main/assets/github/github_flag_germany.svg" width="90"/></a></td>
-    <td align=center><a README_GERMAN.md"><img src="/app/src/main/assets/github/github_flag_switzerland.svg" width="90"/></a></td>
+    <td align=center><a href="README_GERMAN.md"><img src="/app/src/main/assets/github/github_flag_switzerland.svg" width="90"/></a></td>
   </tr>
 </table>
