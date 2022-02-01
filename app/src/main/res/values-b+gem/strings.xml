@@ -178,4 +178,6 @@
 "<li><b>Verarbeitung:</b> "Verarbeitung" ist jeder mit oder ohne Hilfe automatisierter Verfahren ausgeführte Vorgang oder jede solche Vorgangsreihe im Zusammenhang mit personenbezogenen Daten. Der Begriff reicht weit und umfasst praktisch jeden Umgang mit Daten, sei es das Erheben, das Auswerten, das Speichern, das Übermitteln oder das Löschen.</li>\n"
 "Erstellt mit kostenlosem Datenschutz-Generator.de von Dr. Thomas Schwenke"
     </string>
+    <string name="txt_keine_messpunkte_angelegt">Es wurden noch keine Messpunkte angelegt</string>
+    <string name="keine_messungen_angelegt">Es wurden noch keine Messungen angelegt</string>
 </resources>
