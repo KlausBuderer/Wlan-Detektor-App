@@ -89,11 +89,9 @@
     <string name="txt_aktueller_name">Aktueller name:</string>
     <string name="txt_neuer_messungsname">neuer Messungsname</string>
     <string name="messungsname_aendern">Messungsname ändern</string>
-
     <string name="disclaimer">Haftungsausschluss</string>
     <string name="txt_datenschutzerklaerung">Datenschutzerklärung</string>
     <string name="txt_beschreibung_bruno">Students of the ABB Technical School Post-graduate studies Software Engineer</string>
-
     <string name="large_text_haftungsausschluss">
 "Last updated: January 29, 2022\n\n"
 "<b>Interpretation and Definitions</b>"
@@ -189,6 +187,4 @@
     </string>
     <string name="txt_keine_messpunkte_angelegt">Es wurden noch keine Messpunkte angelegt</string>
     <string name="keine_messungen_angelegt">Es wurden noch keine Messungen angelegt</string>
-
-
 </resources>
