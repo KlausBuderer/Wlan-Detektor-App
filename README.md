@@ -3,8 +3,8 @@
 <table border="0">
   <tr>
     <td align=center><b>English</b></td>
-    <td><b>Deutsch</b></td>
-    <td><b>Swiss-German</b></td>
+    <td align=center><b>Deutsch</b></td>
+    <td align=center><b>Swiss-German</b></td>
     </tr>
   <tr>
     <td align=center><a href="https://wlandetektor.it-wissen.ch"><img src="app/src/main/assets/github/github_flag_gb-eng.svg" width="90"/></a></td>
