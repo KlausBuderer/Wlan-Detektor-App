@@ -1,5 +1,6 @@
 # Wlan Detektor Pro<img src="./app/src/main/res/mipmap-xxhdpi/ic_launcher.png" height=70 alt="WLAN Detektor Pro" />
 <p>Bitte wählen Sie die gewünschte Sprache</p>
+<p>Please choose your language</p>
 <table border="0">
   <tr>
     <td align=center><b>English</b></td>
