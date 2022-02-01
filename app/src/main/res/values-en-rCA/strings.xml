@@ -225,4 +225,7 @@
     <string name="txt_erstellung_prefix">Erstellung:</string>
     <string name="txt_pegelmessung_titel">Pegelmessung</string>
     <string name="txt_aenderung">Änderung:</string>
+   <string name="txt_keine_messpunkte_angelegt">Es wurden noch keine Messpunkte angelegt</string>
+    <string name="keine_messungen_angelegt">Es wurden noch keine Messungen angelegt</string>
+
 </resources>
