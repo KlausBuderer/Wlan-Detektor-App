@@ -12,5 +12,3 @@
       <td align=center><a README_GERMAN.md"><img src="/app/src/main/assets/github/github_flag_switzerland.svg" width="90"/></a></td>
       </tr>
  </table>
- 
- 
