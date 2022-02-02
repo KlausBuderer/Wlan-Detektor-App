@@ -6,7 +6,7 @@ Bitte wählen Sie für weitergehende Informationen die von Ihnen gewünschte Spr
   <tr>
     <td align=center><b>English</b></td>
     <td align=center><b>Deutsch</b></td>
-    <td align=center><b>Swiss-German</b></td>
+    <td align=center><b>Schweizer-Deutsch</b></td>
     </tr>
   <tr>
     <td align=center><a href="README_ENGLISH.md"><img src="app/src/main/assets/github/github_flag_gb-eng.svg" width="90"/></a></td>
