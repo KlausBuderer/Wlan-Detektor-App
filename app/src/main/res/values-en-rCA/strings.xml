@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Wifi-detector</string>
-    <string name="title_home">Home Wifi-detector</string>
+    <string name="title_home">Home</string>
     <string name="title_echtzeitmessung_de">Real time measurement</string>
     <string name="title_messungen_de">Measurements</string>
     <string name="title_visualisierung_de">Visualization</string>
