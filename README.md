@@ -1,6 +1,6 @@
-# Wlan Detektor Pro<img src="./app/src/main/res/mipmap-xxhdpi/ic_launcher.png" height=70 alt="WLAN Detektor Pro" />
-<p>Please choose your language<br>
-Bitte wählen Sie die gewünschte Sprache</p>
+# Repository Wlan Detektor Pro<img src="./app/src/main/res/mipmap-xxhdpi/ic_launcher.png" height=70 alt="WLAN Detektor Pro" />
+<p>For further information please choose your preferred language<br>
+Bitte wählen Sie für weitergehende Information die von Ihnen gewünschte Sprache</p>
 
 <table border="0">
   <tr>
