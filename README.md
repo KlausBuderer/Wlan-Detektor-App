@@ -14,3 +14,6 @@ Bitte wählen Sie die gewünschte Sprache</p>
     <td align=center><a href="README_SWISS_GERMAN.md"><img src="/app/src/main/assets/github/github_flag_switzerland.svg" width="90"/></a></td>
   </tr>
 </table>
+
+<p>Besucher / Visitor</p>
+![Visitor Count](https://profile-counter.glitch.me/wlandetektorpro/count.svg)
