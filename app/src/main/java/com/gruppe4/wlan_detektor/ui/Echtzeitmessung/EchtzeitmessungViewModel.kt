@@ -9,6 +9,7 @@ import android.net.wifi.WifiManager
 import android.util.Log
 import androidx.lifecycle.*
 import com.gruppe4.wlan_detektor.model.Datenbank.RepositoryDb
+import com.gruppe4.wlan_detektor.model.Netzwerk.ConnectionInfo
 import com.gruppe4.wlan_detektor.model.Netzwerk.NetzwerkInfo
 import com.gruppe4.wlan_detektor.model.SinusGenerator
 import kotlinx.coroutines.*
@@ -23,11 +24,13 @@ class EchtzeitmessungViewModel(application: Application) : AndroidViewModel(appl
     private var wifiKlasse: NetzwerkInfo
     private var wifiInfos: WifiInfo
     private var repositoryDb: RepositoryDb
+    private var connectionInfoInit: ConnectionInfo
 
     init {
         wifiKlasse = NetzwerkInfo(application)
         wifiInfos = wifiKlasse.getConnectionInfo()
         repositoryDb = RepositoryDb(application)
+        connectionInfoInit = wifiKlasse.getConnectionInfo31()
 
     }
 
@@ -35,6 +38,12 @@ class EchtzeitmessungViewModel(application: Application) : AndroidViewModel(appl
     private val _netzwerkInfo = MutableLiveData<WifiInfo>().apply {
         value = wifiInfos
     }
+    val netzwerkInfo: LiveData<WifiInfo> = _netzwerkInfo
+
+    private val _connectionInfo = MutableLiveData<ConnectionInfo>().apply {
+       value = wifiKlasse.getConnectionInfo31()
+    }
+    val connectionInfo: LiveData<ConnectionInfo> = _connectionInfo
 
     private val _band = MutableLiveData<Double>().apply {
         value = bandUmrechnung(wifiInfos.frequency)
@@ -48,9 +57,6 @@ class EchtzeitmessungViewModel(application: Application) : AndroidViewModel(appl
         value = progressFarbeZyklisch
     }
 
-    fun refreshWifiInfo() {
-        wifiInfos = wifiKlasse.getConnectionInfo()
-    }
 
     suspend fun getHerstellerName(macadresse: String):String {
         try {
@@ -93,7 +99,7 @@ class EchtzeitmessungViewModel(application: Application) : AndroidViewModel(appl
         return 0.0
     }
 
-    val netzwerkInfo: LiveData<WifiInfo> = _netzwerkInfo
+
     val progressFarbe: LiveData<Int> = _progressFarbe
     val band: LiveData<Double> = _band
     var tonEin: Boolean = false
@@ -131,10 +137,11 @@ class EchtzeitmessungViewModel(application: Application) : AndroidViewModel(appl
         while (updateJob.isActive) {
             try {
                 _netzwerkInfo.postValue(wifiKlasse.getConnectionInfo())
+                _connectionInfo.postValue(wifiKlasse.getConnectionInfo31())
                 _progressFarbe.postValue(run { wifiKlasse.progressBarFarbeEinstellen(wifiInfos.rssi) })
                 _band.postValue(bandUmrechnung(wifiInfos.frequency))
                 sinusGenerator.frequenz = frequenz
-                println(wifiKlasse.getConnectionInfo().rssi)
+
             } catch (e: NullPointerException) {
 
                 println("Update nicht erfolgreich")

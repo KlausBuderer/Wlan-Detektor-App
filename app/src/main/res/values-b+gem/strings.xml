@@ -180,4 +180,8 @@
     </string>
     <string name="txt_keine_messpunkte_angelegt">Es wurden noch keine Messpunkte angelegt</string>
     <string name="keine_messungen_angelegt">Es wurden noch keine Messungen angelegt</string>
+    <string name="txt_link_speed">Link Speed</string>
+    <string name="txt_upload">Upload</string>
+    <string name="tv_download">Download</string>
+    <string name="txt_eue_messung_erstellen">Neue Messung Erstellen</string>
 </resources>

@@ -2,9 +2,13 @@ package com.gruppe4.wlan_detektor.ui.MessungVerwalten
 
 import android.app.Application
 import android.content.Context
+import android.net.ConnectivityManager
 import android.net.wifi.WifiInfo
 import android.net.wifi.WifiManager
+import android.os.Build
 import android.util.Log
+import androidx.annotation.RequiresApi
+import androidx.core.content.ContextCompat.getSystemService
 import androidx.lifecycle.*
 import com.gruppe4.wlan_detektor.model.Datenbank.Entitaeten.TblMessung
 import com.gruppe4.wlan_detektor.model.Datenbank.RepositoryDb
@@ -30,7 +34,6 @@ class MessungHinzufuegenViewModel(application: Application) : AndroidViewModel(a
     var result = 0
 
 
-
     private val _nameValide = MutableLiveData<Boolean>().apply {
         konditionNamenValide = value == true
     }
@@ -43,6 +46,7 @@ class MessungHinzufuegenViewModel(application: Application) : AndroidViewModel(a
         Log.e("Routine","MessungsId: $result")
     }
 
+    //Pruefung ob der eingegebene Name bereits in der Datenbank vorhanden ist
     fun namenValidierenRoutine(eingabe: String){
         val scope = CoroutineScope(Dispatchers.IO).launch {
            namenValidieren(eingabe)
@@ -52,6 +56,7 @@ class MessungHinzufuegenViewModel(application: Application) : AndroidViewModel(a
 
     private val _netzwerkInfo = MutableLiveData<WifiInfo>().apply {
         value = connectionInfo
+
     }
 
     var netzwerkInfo: LiveData<WifiInfo> = _netzwerkInfo
@@ -105,7 +110,7 @@ class MessungHinzufuegenViewModel(application: Application) : AndroidViewModel(a
     fun startUpdateCoroutine() {
         updateJobInit()
         val scope = CoroutineScope(Dispatchers.IO + updateJob).launch {
-            startUpdates()
+                startUpdates()
         }
     }
 
@@ -123,10 +128,14 @@ class MessungHinzufuegenViewModel(application: Application) : AndroidViewModel(a
         }
     }
 
+
     suspend fun startUpdates() {
         while (updateJob.isActive) {
             try {
                 _netzwerkInfo.postValue(wifiKlasse.getConnectionInfo())
+                Log.d("Netzwerkinfo","${_netzwerkInfo.value}")
+
+
             } catch (e: NullPointerException) {
 
                 println("Update nicht erfolgreich")

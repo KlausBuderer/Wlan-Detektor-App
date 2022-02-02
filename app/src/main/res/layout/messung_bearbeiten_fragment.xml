@@ -13,11 +13,13 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        android:background="@drawable/box_detail_info_background"
         >
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:paddingBottom="16dp">
 
             <TextView
                 android:id="@+id/tv_namen_messung"
@@ -28,6 +30,7 @@
                 android:text="Messungsnamen"
                 android:textSize="24sp"
                 android:textStyle="bold"
+                android:textColor="?colorOnPrimary"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"></TextView>
 
@@ -38,6 +41,7 @@
                 android:layout_marginTop="8dp"
                 android:text="@string/txt_netzwerk_de"
                 android:textSize="16sp"
+                android:textColor="?colorOnPrimary"
                 app:layout_constraintStart_toStartOf="@id/tv_namen_messung"
                 app:layout_constraintTop_toBottomOf="@id/tv_namen_messung" />
 
@@ -48,6 +52,7 @@
             android:layout_marginStart="16dp"
             android:text="SSID"
             android:textSize="16sp"
+            android:textColor="?colorOnPrimary"
             app:layout_constraintTop_toTopOf="@id/tv_netzwerk"
             app:layout_constraintStart_toEndOf="@id/tv_netzwerk"/>
 
@@ -72,6 +77,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="110dp"
+        android:layout_marginBottom="70dp"
         android:backgroundTint="@android:color/transparent"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -100,7 +106,7 @@
 
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/tv_messpunkt_hinzu"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"

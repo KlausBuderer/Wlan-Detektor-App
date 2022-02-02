@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.MessungVerwalten.MessungListeFragment">
+    tools:context=".ui.MessungVerwalten.MessungListeFragment"
+    android:background="@drawable/dark_background">
 
     <TextView
         android:id="@+id/tv_keine_messungen"

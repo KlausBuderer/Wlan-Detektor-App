@@ -130,6 +130,16 @@ class EchtezeitmessungFragment : Fragment() {
             updownspeed.text = it.linkSpeed.toString() + " Mbps"
         })
 
+        val upload: TextView = binding.tvUploadValue
+        echtzeitmessungViewModel.connectionInfo.observe(viewLifecycleOwner, Observer {
+            upload.text = it.upLoad.toString()
+        })
+
+        val download: TextView = binding.tvDownloadValue
+        echtzeitmessungViewModel.connectionInfo.observe(viewLifecycleOwner, Observer {
+            download.text = it.downLoad.toString()
+        })
+
         val progressBar: ProgressBar = binding.pgProgressBar
         echtzeitmessungViewModel.progressFarbe.observe(viewLifecycleOwner, Observer {
             //progressBar.progressTintList = ColorStateList.valueOf(it)
@@ -139,7 +149,7 @@ class EchtezeitmessungFragment : Fragment() {
 
 
         val textView: TextView = binding.tvSignalstaerkeWert
-        echtzeitmessungViewModel.netzwerkInfo.observe(viewLifecycleOwner, Observer {
+        echtzeitmessungViewModel.connectionInfo.observe(viewLifecycleOwner, Observer {
             textView.text = it.rssi.toString() + " dB"
             progressBar.progress = it.rssi
         })

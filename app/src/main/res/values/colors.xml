@@ -11,12 +11,12 @@
     <color name="green">#00E409</color>
     <color name="yellow">#FBE204</color>
 
-    <color name="primaryColor">#546e7a</color>
-    <color name="primaryLightColor">#819ca9</color>
-    <color name="primaryDarkColor">#29434e</color>
-    <color name="secondaryColor">#ff9800</color>
-    <color name="secondaryLightColor">#ffc947</color>
-    <color name="secondaryDarkColor">#c66900</color>
+    <color name="primaryColor">#455a64</color>
+    <color name="primaryLightColor">#718792</color>
+    <color name="primaryDarkColor">#1c313a</color>
+    <color name="secondaryColor">#ffc400</color>
+    <color name="secondaryLightColor">#fff64f</color>
+    <color name="secondaryDarkColor">#c79400</color>
     <color name="primaryTextColor">#ffffff</color>
     <color name="secondaryTextColor">#000000</color>
 
@@ -27,5 +27,14 @@
     <color name="light_blue_A200">#FF40C4FF</color>
     <color name="light_blue_A400">#FF00B0FF</color>
     <color name="black_overlay">#66000000</color>
+
+    <color name="nightprimaryColor">#29434e</color>
+    <color name="nightprimaryLightColor">#718792</color>
+    <color name="nightprimaryDarkColor">#000000</color>
+    <color name="nightsecondaryColor">#ff9100</color>
+    <color name="nightsecondaryLightColor">#ffc246</color>
+    <color name="nightsecondaryDarkColor">#c56200</color>
+    <color name="nightprimaryTextColor">#ffffff</color>
+    <color name="nightsecondaryTextColor">#000000</color>
 
 </resources>

@@ -1,6 +1,13 @@
 package com.gruppe4.wlan_detektor.ui.MessungVerwalten
 
+import android.Manifest
+import android.content.ActivityNotFoundException
 import android.content.Intent
+import android.content.pm.PackageManager
+import android.net.Uri
+import android.net.wifi.SupplicantState
+import android.net.wifi.WifiInfo
+import android.os.Build
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import android.provider.Settings
@@ -9,14 +16,19 @@ import android.text.TextWatcher
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
+import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
+import androidx.annotation.RequiresApi
+import androidx.appcompat.app.AlertDialog
+import androidx.core.content.ContextCompat
 import androidx.lifecycle.Observer
 import androidx.navigation.Navigation
 import com.gruppe4.wlan_detektor.R
 import com.gruppe4.wlan_detektor.databinding.FragmentMessungHinzufuegenBinding
 import com.gruppe4.wlan_detektor.model.Datenbank.Entitaeten.TblMessung
+import com.gruppe4.wlan_detektor.model.Netzwerk.NetzwerkInfo
 
 
 class MessungHinzufuegen : Fragment() {
@@ -29,9 +41,7 @@ class MessungHinzufuegen : Fragment() {
     private var _binding: FragmentMessungHinzufuegenBinding? = null
     lateinit var speichernButton: Button
     lateinit var eingabeNamen: EditText
-    lateinit var netzNamen: TextView
     lateinit var raeumlichkeit: AutoCompleteTextView
-    lateinit var netzwahl: Button
     var raeumlichkeitPosition: Int = -1
 
 
@@ -44,9 +54,54 @@ class MessungHinzufuegen : Fragment() {
         val raeume = resources.getStringArray(R.array.raeumlichkeiten_array)
         val arrayAdapter = ArrayAdapter(requireActivity(), R.layout.dropdown_item, raeume)
         binding.autoCompleteTextView.setAdapter(arrayAdapter)
-
         viewModel.startUpdateCoroutine()
 
+        //Pruefen ob die Berechtigung vorhanden ist
+        if (isPermissionGranted(Manifest.permission.ACCESS_FINE_LOCATION)) {
+            //Berechtigung vorhanden
+        } else {
+            val builder = AlertDialog.Builder(requireContext())
+            //Dialog Titel
+            builder.setTitle("Beachte")
+            //Dialog Text
+            builder.setMessage("Um die Informationen des Wlan Routers auslesen zu können muss die Lokalisierung erlaubt werden.")
+            //Dialog Icon
+            builder.setIcon(android.R.drawable.ic_dialog_alert)
+
+            //Ja Button
+            builder.setPositiveButton("Einstellungen") { dialogInterface, which ->
+                try {
+                    //context?.startActivity(Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS))
+                    val intent = Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS)
+                    val uri = Uri.fromParts("package", activity?.packageName, null)
+                    intent.data = uri
+                    startActivity(intent)
+                } catch (e: ActivityNotFoundException) {
+                    context?.startActivity(Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS))
+                }
+            }
+
+            //Nein Button
+            builder.setNegativeButton("Abbrechen") { dialogInterface, which ->
+                Toast.makeText(
+                    requireContext(),
+                    "..Schade, leider können wir die SSID nicht ausgeben",
+                    Toast.LENGTH_LONG
+                ).show()
+            }
+
+            // Erstellen des Dialogs
+            val alertDialog: AlertDialog = builder.create()
+            // Set other dialog properties
+            alertDialog.setCancelable(false)
+            alertDialog.show()
+
+        }
+
+        //Pruefung ob mit Netzwerk verbunden und reinitialisierung der Buttonfreigabe
+        viewModel.konditionNetzAngemeldet = viewModel.netzwerkInfo.value?.supplicantState == SupplicantState.COMPLETED
+        binding.messungSpeichern.isEnabled = viewModel.buttonFreigabe()
+        binding.etNetzwerk.startIconDrawable?.setVisible(viewModel.konditionNetzAngemeldet,true)
     }
 
     override fun onCreateView(
@@ -55,6 +110,7 @@ class MessungHinzufuegen : Fragment() {
     ): View? {
 
         _binding = FragmentMessungHinzufuegenBinding.inflate(inflater, container, false)
+
 
 
 
@@ -68,9 +124,7 @@ class MessungHinzufuegen : Fragment() {
 
         speichernButton = binding.messungSpeichern
         eingabeNamen = binding.editTextMessungName
-        netzNamen = binding.txtNetzwerkTitel
         raeumlichkeit = binding.autoCompleteTextView
-        netzwahl = binding.netzwerkwahlMessung
 
 
 
@@ -95,10 +149,13 @@ class MessungHinzufuegen : Fragment() {
                     validierung = it
                 })
 
-                Log.e("validierung","${validierung}")
+                Log.d("validierung","${validierung}")
 
                 if (viewModel.result > 0) {
                     eingabeNamen.error = resources.getString(R.string.txt_namen_bereits_vergeben)
+                    viewModel.konditionNamenValide = false
+                    speichernButton.isEnabled = viewModel.buttonFreigabe()
+                }else if (s.isNullOrBlank()){
                     viewModel.konditionNamenValide = false
                     speichernButton.isEnabled = viewModel.buttonFreigabe()
                 } else {
@@ -109,20 +166,19 @@ class MessungHinzufuegen : Fragment() {
             }
         })
 
-        netzwahl.setOnClickListener {
+        binding.etNetzwerk.setEndIconOnClickListener{
             startActivity(Intent(Settings.ACTION_WIFI_SETTINGS))
         }
 
-        //Pruefen Netzwerknamen für Ausgabe
-        if (viewModel.pruefenNetzAnmeldung()) {
-            netzNamen.text = viewModel.netzwerkInfo()
-        }
         viewModel.netzwerkInfo.observe(viewLifecycleOwner, Observer {
 
-            if (it.ssid != "<unknown ssid>"){
-                netzNamen.text = it.ssid
+            //Pruefung ob mit Wlan verbunden
+            if (it.supplicantState == SupplicantState.COMPLETED){
+                binding.netzwerk.editableText.clear()
+                binding.netzwerk.editableText.insert(0, it.ssid)
             }else{
-                netzNamen.text = "Bitte mit Wlan verbinden"
+                binding.netzwerk.editableText.clear()
+                binding.netzwerk.editableText.insert(0, "Bitte mit Wlan verbinden")
             }
         })
 
@@ -132,12 +188,6 @@ class MessungHinzufuegen : Fragment() {
             raeumlichkeitPosition = position
             speichernButton.isEnabled = viewModel.buttonFreigabe()
         }
-
-        Toast.makeText(
-            requireContext(),
-            viewModel.konditionRaum.toString() + viewModel.konditionNamenValide.toString() + viewModel.konditionNetzAngemeldet.toString(),
-            Toast.LENGTH_LONG
-        ).show()
 
 
         //Speicherbutton Freigabe
@@ -150,7 +200,7 @@ class MessungHinzufuegen : Fragment() {
 
             var messung: TblMessung = TblMessung(
                 eingabeNamen.text.toString(),
-                netzNamen.text.toString(),
+                binding.netzwerk.editableText.toString(),
                 raeumlichkeitPosition,
                 viewModel.getDatum(),
                 viewModel.getZeit()
@@ -168,6 +218,12 @@ class MessungHinzufuegen : Fragment() {
         }
 
     }
+    fun isPermissionGranted(permission: String): Boolean =
+        ContextCompat.checkSelfPermission(
+            requireContext(),
+            permission
+        ) == PackageManager.PERMISSION_GRANTED
+
 
     override fun onDestroy() {
         super.onDestroy()

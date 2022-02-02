@@ -59,11 +59,11 @@ class MesspunktErfassungsViewModel(application: Application) : AndroidViewModel(
     suspend fun getMesspunkt(messpunktId: Long) {
         try {
             val messpunkt = repositoryDb.getMesspunkt(messpunktId)
-            Log.e(LOG_TAG, "Messpunkt query erfolgreich $messpunktId")
+            Log.d(LOG_TAG, "Messpunkt query erfolgreich $messpunktId")
 
             _messpunkt.postValue(messpunkt)
         } catch (e: IOException) {
-            Log.e(LOG_TAG, "Messpunkt query nicht erfolgreich")
+            Log.d(LOG_TAG, "Messpunkt query nicht erfolgreich")
         }
 
     }
@@ -71,11 +71,11 @@ class MesspunktErfassungsViewModel(application: Application) : AndroidViewModel(
     suspend fun getMesspunkte(messungsId: Long){
         try {
             val aktuelleMesspunkte = repositoryDb.getMesspunkte(messungsId)
-            Log.e(LOG_TAG, "messpunkt query erfolgreich")
+            Log.d(LOG_TAG, "messpunkt query erfolgreich")
 
             _messpunkte.postValue(aktuelleMesspunkte)
         }catch (e: IOException){
-            Log.e(LOG_TAG, "Messpunkt query nicht erfolgreich")
+            Log.d(LOG_TAG, "Messpunkt query nicht erfolgreich")
         }
 
     }
