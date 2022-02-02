@@ -1,6 +1,6 @@
-# Repository Wlan Detektor Pro<img src="./app/src/main/res/mipmap-xxhdpi/ic_launcher.png" height=70 alt="WLAN Detektor Pro" />
+# Repository Wlan Detektor Pro<img src="./app/src/main/res/mipmap-xxhdpi/ic_launcher.png" height=80 alt="WLAN Detektor Pro" />
 <p>For further information please choose your preferred language<br>
-Bitte wählen Sie für weitergehende Information die von Ihnen gewünschte Sprache</p>
+Bitte wählen Sie für weitergehende Informationen die von Ihnen gewünschte Sprache aus</p>
 
 <table border="0">
   <tr>
@@ -15,6 +15,4 @@ Bitte wählen Sie für weitergehende Information die von Ihnen gewünschte Sprac
   </tr>
 </table>
 
-
 ![Visitor Count](https://profile-counter.glitch.me/wlandetektorpro/count.svg)
-
