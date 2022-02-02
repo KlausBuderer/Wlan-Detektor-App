@@ -15,5 +15,4 @@ Bitte wählen Sie die gewünschte Sprache</p>
   </tr>
 </table>
 
-<p>Besucher / Visitor</p>
 ![Visitor Count](https://profile-counter.glitch.me/wlandetektorpro/count.svg)
