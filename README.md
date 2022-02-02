@@ -15,4 +15,6 @@ Bitte wählen Sie die gewünschte Sprache</p>
   </tr>
 </table>
 
-<img alt='analytics' src='https://profile-counter.glitch.me/wlandetektorpro/count.svg' width='0px'>
+
+![Visitor Count](https://profile-counter.glitch.me/wlandetektorpro/count.svg)
+
