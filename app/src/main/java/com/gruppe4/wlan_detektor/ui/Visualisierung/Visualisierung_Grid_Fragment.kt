@@ -13,6 +13,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.GridLayoutManager
+import com.gruppe4.wlan_detektor.R
 import com.gruppe4.wlan_detektor.databinding.VisualisierungGridFragmentBinding
 import com.gruppe4.wlan_detektor.model.Datenbank.Entitaeten.TblMesspunkt
 import kotlinx.coroutines.Dispatchers
@@ -87,7 +88,7 @@ class Visualisierung_Grid_Fragment : Fragment(), MesspunktVisuAdapter.OnItemClic
             Visualisierung_Grid_FragmentDirections.actionVisualisierungGridFragmentToVisuDetailFragment(
                 messpunkt!!.raumname,
                 messpunkt!!.gebaeude,
-                messpunkt!!.stockwerkID.toString(),
+                activity?.resources!!.getStringArray(R.array.stockwerk_array)[messpunkt!!.stockwerkID],
                 it,
                 messpunkt!!.zusatzinformation,
                 messpunkt!!.erfassungsDatum,

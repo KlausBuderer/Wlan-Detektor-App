@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/cardview_shadow_start_color"
+    android:background="@drawable/dark_background"
     android:tag="Echtzeitmessung"
     tools:context=".ui.Echtzeitmessung.EchtezeitmessungFragment">
 
@@ -25,7 +25,7 @@
                 android:layout_height="wrap_content"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                android:padding="10dp">
+                android:padding="16dp">
 
 
                 <Button
@@ -90,9 +90,27 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="@dimen/text_margin"
-                    android:text="@string/txt_max_upload_de"
+                    android:text="@string/txt_link_speed"
                     app:layout_constraintStart_toStartOf="@+id/netzwerkInformationen3"
                     app:layout_constraintTop_toBottomOf="@+id/netzwerkInformationen3" />
+
+                <TextView
+                    android:id="@+id/tv_upLoad"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/text_margin"
+                    android:text="@string/txt_upload"
+                    app:layout_constraintStart_toStartOf="@+id/tv_updownload"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_updownload" />
+
+                <TextView
+                    android:id="@+id/tv_downLoad"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/text_margin"
+                    android:text="@string/tv_download"
+                    app:layout_constraintStart_toStartOf="@+id/tv_upLoad"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_upLoad" />
 
                 <TextView
                     android:id="@+id/tv_ssid"
@@ -141,6 +159,24 @@
                     app:layout_constraintBaseline_toBaselineOf="@+id/tv_updownload"
                     app:layout_constraintStart_toStartOf="@+id/tv_hersteller" />
 
+                <TextView
+                    android:id="@+id/tv_upload_value"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="-"
+                    android:textSize="@dimen/text_margin"
+                    app:layout_constraintBaseline_toBaselineOf="@+id/tv_upLoad"
+                    app:layout_constraintStart_toStartOf="@+id/tv_updownspeed" />
+
+
+                <TextView
+                    android:id="@+id/tv_download_value"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="-"
+                    android:textSize="@dimen/text_margin"
+                    app:layout_constraintBaseline_toBaselineOf="@+id/tv_downLoad"
+                    app:layout_constraintStart_toStartOf="@+id/tv_upload_value" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -175,13 +211,6 @@
                 app:layout_constraintStart_toStartOf="@+id/pg_progressBar"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
-                android:id="@+id/tv_pegel_einheit"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/txt_decibel_de"
-                app:layout_constraintBaseline_toBaselineOf="@+id/txt_pegel"
-                app:layout_constraintEnd_toEndOf="@+id/pg_progressBar" />
 
             <ProgressBar
                 android:id="@+id/pg_progressBar"

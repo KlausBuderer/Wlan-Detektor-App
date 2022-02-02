@@ -42,6 +42,9 @@ class MainActivity : AppCompatActivity() {
             dbInit.queryMessung()
         }
 
+        supportActionBar!!.elevation = 0f
+        supportActionBar!!.setBackgroundDrawable(getDrawable(R.drawable.dark_background))
+
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 

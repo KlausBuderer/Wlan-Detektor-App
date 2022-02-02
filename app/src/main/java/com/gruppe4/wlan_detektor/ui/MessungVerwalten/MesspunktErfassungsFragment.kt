@@ -150,8 +150,6 @@ class MesspunktErfassungsFragment : Fragment() {
             })
 
             viewModel.konditionGebaeude = true
-            statusAusgeben()
-
         }
 
 
@@ -183,7 +181,6 @@ class MesspunktErfassungsFragment : Fragment() {
         binding.btnStartMesspunktMessung.setOnClickListener {
             viewModel.konditionMessung = true
             speichern.isEnabled = viewModel.buttonFreigeben()
-            statusAusgeben()
             if (args.messpunktId != -1L){
                 wiederholteMessung = true
             }
@@ -208,7 +205,6 @@ class MesspunktErfassungsFragment : Fragment() {
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                 if (editGebaeude.text.isNotEmpty()) {
                     viewModel.konditionGebaeude = true
-                    statusAusgeben()
 
                 }
 
@@ -217,7 +213,6 @@ class MesspunktErfassungsFragment : Fragment() {
             override fun afterTextChanged(s: Editable?) {
                 if (editGebaeude.text.isNotEmpty()) {
                     viewModel.konditionGebaeude = true
-                    statusAusgeben()
                 }
 
                 speichern.isEnabled = viewModel.buttonFreigeben()
@@ -460,12 +455,5 @@ class MesspunktErfassungsFragment : Fragment() {
         return photoFile!!.absolutePath
     }
 
-    fun statusAusgeben(){
-        Toast.makeText(
-            requireContext(),
-            viewModel.konditionMessung.toString() + viewModel.konditionGebaeude.toString() + viewModel.konditionRaumname.toString() + viewModel.konditionStockwerk.toString(),
-            Toast.LENGTH_LONG
-        ).show()
-    }
 
 }

@@ -4,4 +4,9 @@
         <item name="android:background">@color/black_overlay</item>
         <item name="android:buttonBarStyle">?android:attr/buttonBarStyle</item>
     </style>
+
+    <style name="bodyLight" parent="">
+        <item name="android:background">@drawable/dark_background</item>
+    </style>
+
 </resources>

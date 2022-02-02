@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.TextView
 import androidx.lifecycle.Observer
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.Navigation
@@ -92,8 +93,15 @@ class MessungBearbeitenFragment : Fragment(), MesspunktBearbeitenAdapter.OnItemC
 
             binding?.rvMesspunktliste?.adapter = adapter
 
+            var count = it.size
 
+                if (count > 3) {
+                    binding.tvMesspunktHinzu.visibility = TextView.INVISIBLE
+                } else {
+                    binding.tvMesspunktHinzu.visibility = TextView.VISIBLE
+                }
         })
+
 
 
         namenAendernButton.setOnClickListener {
@@ -142,9 +150,7 @@ class MessungBearbeitenFragment : Fragment(), MesspunktBearbeitenAdapter.OnItemC
     override fun onResume() {
         super.onResume()
 
-           /* lifecycleScope.launch(Dispatchers.Main) {
-                viewModel.messung.value?.let { viewModel.getMessungById(it.idmessung) }
-            }*/
+
 
     }
 }
