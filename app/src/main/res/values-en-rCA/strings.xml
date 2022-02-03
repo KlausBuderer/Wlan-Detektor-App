@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Wifi-detector</string>
+    <string name="app_name">Wlan-Detektor</string>
     <string name="title_home">Home</string>
-    <string name="title_echtzeitmessung_de">Real time measurement</string>
+    <string name="title_echtzeitmessung_de">Realtime measurement</string>
     <string name="title_messungen_de">Measurements</string>
-    <string name="title_visualisierung_de">Visualization</string>
     <string name="button_netzwerkwahl_de">Network choice</string>
+    <string name="title_visualisierung_de">Visualization</string>
     <string name="txt_netzwerknamen_de">SSID</string>
     <string name="txt_macadresse_de">MAC Address</string>
     <string name="txt_Frequenz_de">Band</string>
     <string name="txt_Hersteller_de">Manufacturer</string>
+    <string name="txt_Sicherheittyp_de">Security type:</string>
     <string name="txt_max_upload_de">Up/Download:</string>
     <string name="txt_pegel_de">Up/Download</string>
     <string name="txt_decibel_de">- dB</string>
@@ -20,12 +21,10 @@
     <string name="btn_netzwerk_anmelden_de">network login</string>
     <string name="txt_raeumlichkeit_de">Type of space</string>
     <string name="btn_speichern_de">Save</string>
-    <string name="txt_netzTitel_de">Not yet logged into the Wifi</string>
-    <string name="txt_beschreibung_visualisierung">In the visualization you can display previously acquired measurements transparently.</string>
-    <string name="txt_beschreibung_messpunkt_verwaltung">In the measuring point management you have the possibility to enter a measurement and any measuring points to it.</string>
-    <string name="txt_beschreibung_echzeitmessung">"In the real time measurement you have the possibility to determine the levels as well as further information in real time for the already registered WLAN. "</string>
-    <string name="txt_titel_home_visualisierung">Visualization</string>
-    <string name="txt_titel_home_messpunktverwaltung">Measuring point administration</string>
+    <string name="txt_netzTitel_de">Not yet logged into the Wlan</string>
+    <string name="txt_netzwerk_de">Network</string>
+    <string name="txt_titel_messung_hinzufuegen_de">Add measurement</string>
+    <string name="txt_ausgewaehlteMessung_de">Selected measurement</string>
     <string name="txt_Gebaeude_de">Building</string>
     <string name="txt_stockwerk_de">Floor</string>
     <string name="txt_raumname_de">Room name</string>
@@ -36,11 +35,12 @@
     <string name="txt_zeit_de">Time</string>
     <string name="txt_gemessener_pegel_de">Measured level</string>
     <string name="txt_titel_hauptmenue_de">Wifi-detector</string>
-    <string name="txt_titel_home_echzeitmessung">Real time measurement</string>
-    <string name="txt_ausgewaehlteMessung">Selected measurement</string>
-    <string name="txt_titel_messung_hinzufuegen_de">Add measurement</string>
-    <string name="txt_netzwerk_de">Network</string>
-    <string name="txt_Sicherheittyp_de">Security type:</string>
+    <string name="txt_titel_home_echzeitmessung">Realtime measurement</string>
+    <string name="txt_titel_home_messpunktverwaltung">Measuring point administration</string>
+    <string name="txt_titel_home_visualisierung">Visualization</string>
+    <string name="txt_beschreibung_messpunkt_verwaltung">In the measuring point management you have the possibility to enter a measurement and any measuring points to it.</string>
+    <string name="txt_beschreibung_echzeitmessung">"In the realtime measurement you have the possibility to determine the levels as well as further information in realtime for the already registered WLAN. "</string>
+    <string name="txt_beschreibung_visualisierung">In the visualization you can display previously acquired measurements transparently.</string>
     <string name="txt_stoppen">STOP</string>
     <string name="txt_starten">START</string>
     <string name="txt_wohnung">Flat</string>
@@ -53,13 +53,13 @@
     <string name="txt_1.OG">1st Floor</string>
     <string name="txt_2.OG">2nd Floor</string>
     <string name="txt_3.OG">3rd Floor</string>
-    <string name="txt_4.OG">4th Floor</string>
-    <string name="txt_5.OG">5th Floor</string>
-    <string name="txt_6.OG">6th Floor</string>
-    <string name="txt_7.OG">7th Floor</string>
-    <string name="txt_8.OG">8th Floor</string>
-    <string name="txt_9.OG">9th Floor</string>
-    <string name="txt_10.OG">10th Floor</string>
+    <string name="txt_4.OG">4st Floor</string>
+    <string name="txt_6.OG">6st Floor</string>
+    <string name="txt_5.OG">5st Floor</string>
+    <string name="txt_7.OG">7st Floor</string>
+    <string name="txt_8.OG">8st Floor</string>
+    <string name="txt_9.OG">9st Floor</string>
+    <string name="txt_10.OG">10st Floor</string>
     <string name="txt_11.OG">11th Floor</string>
     <string name="txt_12.OG">12th Floor</string>
     <string name="txt_13.OG">13th Floor</string>
@@ -74,7 +74,7 @@
     <string name="txt_messung_bearbeiten">Edit measurement</string>
     <string name="txt_bitte_auswaehlen">Please choose</string>
     <string name="txt_messung_loeschen">Delete measurement</string>
-    <string name="txt_ausgewaehlteMessung_de">Selected measurement</string>
+    <string name="txt_ausgewaehlteMessung">Selected measurement</string>
     <string name="txt_bild_einfügen">Bild einfügen</string>
     <string name="wlan_netzwerk">Wlan Netzwerk:</string>
     <string name="txt_messpunkt_hinzufuegen">Messpunkt hinzufügen</string>
@@ -130,94 +130,89 @@
 "<b>Contact Us</b>"
 "If you have any questions about this Disclaimer, You can contact Us:\n"
 "<li>By email: wlandetektor@it-wissen.ch</li>"
-</string>
+    </string>
     <string name="large_text_datenschutz">
-"<b>Privacy Policy</b>\n"
-"Last updated: January 29, 2022\n"
-"This Privacy Policy describes Our policies and procedures on the collection, use and disclosure of Your information when You use the Service and tells You about Your privacy rights and how the law protects You.\n"
-"We use Your Personal data to provide and improve the Service. By using the Service, You agree to the collection and use of information in accordance with this Privacy Policy. This Privacy Policy has been created with the help of the https://www.termsfeed.com/blog/sample-privacy-policy-template/ (Privacy Policy Template)"
+"Last updated: January 29, 2022\n\n"
+"This Privacy Policy describes Our policies and procedures on the collection, use and disclosure of Your information when You use the Service and tells You about Your privacy rights and how the law protects You.\n\n"
+"We use Your Personal data to provide and improve the Service. By using the Service, You agree to the collection and use of information in accordance with this Privacy Policy. This Privacy Policy has been created with the help of the https://www.termsfeed.com/blog/sample-privacy-policy-template/ (Privacy Policy Template) \n"
 "<b>Interpretation and Definitions</b>"
 "<b>Interpretation</b>"
 "The words of which the initial letter is capitalized have meanings defined under the following conditions. The following definitions shall have the same meaning regardless of whether they appear in singular or in plural.\n"
-"<b>Definitions</b>\n"
+"<b>Definitions</b>"
 "For the purposes of this Privacy Policy:\n"
-"<li><b>Account</b> means a unique account created for You to access our Service or parts of our Service.</li>"
-"<li>Affiliate means an entity that controls, is controlled by or is under common control with a party, where "control" means ownership of 50% or more of the shares, equity interest or other securities entitled to vote for election of directors or other managing authority.</li>"
-"<li>Application means the software program provided by the Company downloaded by You on any electronic device, named WLAN DETEKTOR PRO</li>"
-"<li>Company (referred to as either "the Company", "We", "Us" or "Our" in this Agreement) refers to WLAN DETEKTOR PRO.</li>"
-"<li>Country refers to:  Switzerland</li>"
-"<li><b>Device</b> means any device that can access the Service such as a computer, a cellphone or a digital tablet.</li>"
-"<li><b>Personal Data</b> is any information that relates to an identified or identifiable individual.</li>"
-"<li><b>Service</b> refers to the Application.</li>"
-"<li><b>Service Provider</b> means any natural or legal person who processes the data on behalf of the Company. It refers to third-party companies or individuals employed by the Company to facilitate the Service, to provide the Service on behalf of the Company, to perform services related to the Service or to assist the Company in analyzing how the Service is used.</li>"
-"<li><b>Usage Data</b> refers to data collected automatically, either generated by the use of the Service or from the Service infrastructure itself (for example, the duration of a page visit).</li>"
-"<li><b>You</b> means the individual accessing or using the Service, or the company, or other legal entity on behalf of which such individual is accessing or using the Service, as applicable.</li>"
-"Collecting and Using Your Personal Data"
+"<li><b>Account</b> means a unique account created for You to access our Service or parts of our Service.</li>\n"
+"<li><b>Affiliate</b> means an entity that controls, is controlled by or is under common control with a party, where "control" means ownership of 50% or more of the shares, equity interest or other securities entitled to vote for election of directors or other managing authority.</li>\n"
+"<li><b>Application</b> means the software program provided by the Company downloaded by You on any electronic device, named WLAN DETEKTOR PRO</li>\n"
+"<li><b>Company</b> (referred to as either "the Company", "We", "Us" or "Our" in this Agreement) refers to WLAN DETEKTOR PRO.</li>\n"
+"<li><b>Country</b> refers to:  Switzerland</li>\n"
+"<li><b>Device</b> means any device that can access the Service such as a computer, a cellphone or a digital tablet.</li>\n"
+"<li><b>Personal Data</b> is any information that relates to an identified or identifiable individual.</li>\n"
+"<li><b>Service</b> refers to the Application.</li>\n"
+"<li><b>Service Provider</b> means any natural or legal person who processes the data on behalf of the Company. It refers to third-party companies or individuals employed by the Company to facilitate the Service, to provide the Service on behalf of the Company, to perform services related to the Service or to assist the Company in analyzing how the Service is used.</li>\n"
+"<li><b>Usage Data</b> refers to data collected automatically, either generated by the use of the Service or from the Service infrastructure itself (for example, the duration of a page visit).</li>\n"
+"<li><b>You</b> means the individual accessing or using the Service, or the company, or other legal entity on behalf of which such individual is accessing or using the Service, as applicable.</li>\n"
+"<b>Collecting and Using Your Personal Data</b>"
 "Types of Data Collected"
 "Personal Data"
 "While using Our Service, We may ask You to provide Us with certain personally identifiable information that can be used to contact or identify You. Personally identifiable information may include, but is not limited to:"
 "Email address"
 "Usage Data"
-"Usage Data"
 "Usage Data is collected automatically when using the Service."
-"Usage Data may include information such as Your Devices Internet Protocol address (e.g. IP address), browser type, browser version, the pages of our Service that You visit, the time and date of Your visit, the time spent on those pages, unique device identifiers and other diagnostic data."
-"When You access the Service by or through a mobile device, We may collect certain information automatically, including, but not limited to, the type of mobile device You use, Your mobile device unique ID, the IP address of Your mobile device, Your mobile operating system, the type of mobile Internet browser You use, unique device identifiers and other diagnostic data."
+"Usage Data may include information such as Your Devices Internet Protocol address (e.g. IP address), browser type, browser version, the pages of our Service that You visit, the time and date of Your visit, the time spent on those pages, unique device identifiers and other diagnostic data.\n"
+"When You access the Service by or through a mobile device, We may collect certain information automatically, including, but not limited to, the type of mobile device You use, Your mobile device unique ID, the IP address of Your mobile device, Your mobile operating system, the type of mobile Internet browser You use, unique device identifiers and other diagnostic data.\n"
 "We may also collect information that Your browser sends whenever You visit our Service or when You access the Service by or through a mobile device."
-"Use of Your Personal Data"
-"The Company may use Personal Data for the following purposes:"
-"<b>To provide and maintain our Service</b>, including to monitor the usage of our Service."
-"<b>To manage Your Account:</b> to manage Your registration as a user of the Service. The Personal Data You provide can give You access to different functionalities of the Service that are available to You as a registered user."
-"<b>For the performance of a contract:</b> the development, compliance and undertaking of the purchase contract for the products, items or services You have purchased or of any other contract with Us through the Service."
-"<b>To contact You:</b> To contact You by email, telephone calls, SMS, or other equivalent forms of electronic communication, such as a mobile applications push notifications regarding updates or informative communications related to the functionalities, products or contracted services, including the security updates, when necessary or reasonable for their implementation."
-"<b>To provide You</b> with news, special offers and general information about other goods, services and events which we offer that are similar to those that you have already purchased or enquired about unless You have opted not to receive such information."
-"<b>To manage Your requests:</b> To attend and manage Your requests to Us."
-"<b>For business transfers:</b> We may use Your information to evaluate or conduct a merger, divestiture, restructuring, reorganization, dissolution, or other sale or transfer of some or all of Our assets, whether as a going concern or as part of bankruptcy, liquidation, or similar proceeding, in which Personal Data held by Us about our Service users is among the assets transferred."
-"<b>For other purposes</b>: We may use Your information for other purposes, such as data analysis, identifying usage trends, determining the effectiveness of our promotional campaigns and to evaluate and improve our Service, products, services, marketing and your experience."
-"We may share Your personal information in the following situations:"
-"<li><b>With Service Providers:</b> We may share Your personal information with Service Providers to monitor and analyze the use of our Service,  to contact You.</li>
-"<li><b>For business transfers:</b> We may share or transfer Your personal information in connection with, or during negotiations of, any merger, sale of Company assets, financing, or acquisition of all or a portion of Our business to another company.</li>
-"<li><b>With Affiliates:</b> We may share Your information with Our affiliates, in which case we will require those affiliates to honor this Privacy Policy. Affiliates include Our parent company and any other subsidiaries, joint venture partners or other companies that We control or that are under common control with Us.</li>
-"<li><b>With business partners:</b> We may share Your information with Our business partners to offer You certain products, services or promotions.</li>
-"<li><b>With other users:</b> when You share personal information or otherwise interact in the public areas with other users, such information may be viewed by all users and may be publicly distributed outside.</li>
-"<li><b>With Your consent</b>: We may disclose Your personal information for any other purpose with Your consent.</li>
+"Use of Your Personal Data\n"
+"The Company may use Personal Data for the following purposes:\n"
+"<b>To provide and maintain our Service</b>, including to monitor the usage of our Service.\n"
+"<b>To manage Your Account:</b> to manage Your registration as a user of the Service. The Personal Data You provide can give You access to different functionalities of the Service that are available to You as a registered user.\n"
+"<b>For the performance of a contract:</b> the development, compliance and undertaking of the purchase contract for the products, items or services You have purchased or of any other contract with Us through the Service.\n"
+"<b>To contact You:</b> To contact You by email, telephone calls, SMS, or other equivalent forms of electronic communication, such as a mobile applications push notifications regarding updates or informative communications related to the functionalities, products or contracted services, including the security updates, when necessary or reasonable for their implementation.\n"
+"<b>To provide You</b> with news, special offers and general information about other goods, services and events which we offer that are similar to those that you have already purchased or enquired about unless You have opted not to receive such information.\n"
+"<b>To manage Your requests:</b> To attend and manage Your requests to Us.\n"
+"<b>For business transfers:</b> We may use Your information to evaluate or conduct a merger, divestiture, restructuring, reorganization, dissolution, or other sale or transfer of some or all of Our assets, whether as a going concern or as part of bankruptcy, liquidation, or similar proceeding, in which Personal Data held by Us about our Service users is among the assets transferred.\n"
+"<b>For other purposes</b>: We may use Your information for other purposes, such as data analysis, identifying usage trends, determining the effectiveness of our promotional campaigns and to evaluate and improve our Service, products, services, marketing and your experience.\n"
+"We may share Your personal information in the following situations:\n"
+"<li><b>With Service Providers:</b> We may share Your personal information with Service Providers to monitor and analyze the use of our Service,  to contact You.</li>\n"
+"<li><b>For business transfers:</b> We may share or transfer Your personal information in connection with, or during negotiations of, any merger, sale of Company assets, financing, or acquisition of all or a portion of Our business to another company.</li>\n"
+"<li><b>With Affiliates:</b> We may share Your information with Our affiliates, in which case we will require those affiliates to honor this Privacy Policy. Affiliates include Our parent company and any other subsidiaries, joint venture partners or other companies that We control or that are under common control with Us.</li>\n"
+"<li><b>With business partners:</b> We may share Your information with Our business partners to offer You certain products, services or promotions.</li>\n"
+"<li><b>With other users:</b> when You share personal information or otherwise interact in the public areas with other users, such information may be viewed by all users and may be publicly distributed outside.</li>\n"
+"<li><b>With Your consent</b>: We may disclose Your personal information for any other purpose with Your consent.</li>\n"
 "<b>Retention of Your Personal Data</b>"
-"The Company will retain Your Personal Data only for as long as is necessary for the purposes set out in this Privacy Policy. We will retain and use Your Personal Data to the extent necessary to comply with our legal obligations (for example, if we are required to retain your data to comply with applicable laws), resolve disputes, and enforce our legal agreements and policies."
-"The Company will also retain Usage Data for internal analysis purposes. Usage Data is generally retained for a shorter period of time, except when this data is used to strengthen the security or to improve the functionality of Our Service, or We are legally obligated to retain this data for longer time periods."
-"Transfer of Your Personal Data"
+"The Company will retain Your Personal Data only for as long as is necessary for the purposes set out in this Privacy Policy. We will retain and use Your Personal Data to the extent necessary to comply with our legal obligations (for example, if we are required to retain your data to comply with applicable laws), resolve disputes, and enforce our legal agreements and policies.\n"
+"The Company will also retain Usage Data for internal analysis purposes. Usage Data is generally retained for a shorter period of time, except when this data is used to strengthen the security or to improve the functionality of Our Service, or We are legally obligated to retain this data for longer time periods.\n"
+"<b>Transfer of Your Personal Data</b>"
 "Your information, including Personal Data, is processed at the Companys operating offices and in any other places where the parties involved in the processing are located. It means that this information may be transferred to — and maintained on — computers located outside of Your state, province, country or other governmental jurisdiction where the data protection laws may differ than those from Your jurisdiction."
-"Your consent to this Privacy Policy followed by Your submission of such information represents Your agreement to that transfer."
-"The Company will take all steps reasonably necessary to ensure that Your data is treated securely and in accordance with this Privacy Policy and no transfer of Your Personal Data will take place to an organization or a country unless there are adequate controls in place including the security of Your data and other personal information."
-"Disclosure of Your Personal Data"
-"<b>Business Transactions</b>"
-"If the Company is involved in a merger, acquisition or asset sale, Your Personal Data may be transferred. We will provide notice before Your Personal Data is transferred and becomes subject to a different Privacy Policy."
+"Your consent to this Privacy Policy followed by Your submission of such information represents Your agreement to that transfer.\n"
+"The Company will take all steps reasonably necessary to ensure that Your data is treated securely and in accordance with this Privacy Policy and no transfer of Your Personal Data will take place to an organization or a country unless there are adequate controls in place including the security of Your data and other personal information.\n"
+"<b>Disclosure of Your Personal Data</b>"
+"Business Transactions"
+"If the Company is involved in a merger, acquisition or asset sale, Your Personal Data may be transferred. We will provide notice before Your Personal Data is transferred and becomes subject to a different Privacy Policy.\n"
 "<b>Law enforcement</b>"
-"Under certain circumstances, the Company may be required to disclose Your Personal Data if required to do so by law or in response to valid requests by public authorities (e.g. a court or a government agency)."
+"Under certain circumstances, the Company may be required to disclose Your Personal Data if required to do so by law or in response to valid requests by public authorities (e.g. a court or a government agency).\n"
 "<b>Other legal requirements</b>"
-"The Company may disclose Your Personal Data in the good faith belief that such action is necessary to:"
-"<li>Comply with a legal obligation</li>"
-"<li>Protect and defend the rights or property of the Company</li>"
-"<li>Prevent or investigate possible wrongdoing in connection with the Service</li>"
-"<li>Protect the personal safety of Users of the Service or the public</li>"
-"<li>Protect against legal liability</li>"
+"The Company may disclose Your Personal Data in the good faith belief that such action is necessary to:\n"
+"<li><b>Comply</b> with a legal obligation</li>\n"
+"<li><b>Protect and defend</b> the rights or property of the Company</li>\n"
+"<li><b>Prevent or investigate</b> possible wrongdoing in connection with the Service</li>\n"
+"<li><b>Protect the personal safety</b> of Users of the Service or the public</li>\n"
+"<li><b>Protect</b> against legal liability</li>\n"
 "Security of Your Personal Data"
-"The security of Your Personal Data is important to Us, but remember that no method of transmission over the Internet, or method of electronic storage is 100% secure. While We strive to use commercially acceptable means to protect Your Personal Data, We cannot guarantee its absolute security."
-"Childrens Privacy"
-"Our Service does not address anyone under the age of 13. We do not knowingly collect personally identifiable information from anyone under the age of 13. If You are a parent or guardian and You are aware that Your child has provided Us with Personal Data, please contact Us. If We become aware that We have collected Personal Data from anyone under the age of 13 without verification of parental consent, We take steps to remove that information from Our servers."
-"If We need to rely on consent as a legal basis for processing Your information and Your country requires consent from a parent, We may require Your parents consent before We collect and use that information."
-"Links to Other Websites"
+"The security of Your Personal Data is important to Us, but remember that no method of transmission over the Internet, or method of electronic storage is 100% secure. While We strive to use commercially acceptable means to protect Your Personal Data, We cannot guarantee its absolute security.\n"
+"<b>Childrens Privacy</b>"
+"Our Service does not address anyone under the age of 13. We do not knowingly collect personally identifiable information from anyone under the age of 13. If You are a parent or guardian and You are aware that Your child has provided Us with Personal Data, please contact Us. If We become aware that We have collected Personal Data from anyone under the age of 13 without verification of parental consent, We take steps to remove that information from Our servers.\n"
+"If We need to rely on consent as a legal basis for processing Your information and Your country requires consent from a parent, We may require Your parents consent before We collect and use that information.\n"
+"<b>Links to Other Websites</b>"
 "Our Service may contain links to other websites that are not operated by Us. If You click on a third party link, You will be directed to that third partys site. We strongly advise You to review the Privacy Policy of every site You visit."
-"We have no control over and assume no responsibility for the content, privacy policies or practices of any third party sites or services."
+"We have no control over and assume no responsibility for the content, privacy policies or practices of any third party sites or services.\n"
 "<b>Changes to this Privacy Policy</b>"
 "We may update Our Privacy Policy from time to time. We will notify You of any changes by posting the new Privacy Policy on this page."
 "We will let You know via email and/or a prominent notice on Our Service, prior to the change becoming effective and update the "Last updated" date at the top of this Privacy Policy."
 "You are advised to review this Privacy Policy periodically for any changes. Changes to this Privacy Policy are effective when they are posted on this page."
-"Contact Us"
-"If you have any questions about this Privacy Policy, You can contact us:"
-"<li>By email: wlandetektor@it-wissen.ch</li>"
+"Contact Us\n"
+"If you have any questions about this Privacy Policy, You can contact us:\n"
+"<li><b>By email:</b> wlandetektor@it-wissen.ch</li>"
     </string>
-
-
-
     <string name="txt_gebaeude_prefix">Gebäude:</string>
     <string name="txt_stockwerk_prefix">Stockwerk:</string>
     <string name="txt_zusatzinfo_prefix">Zusatzinfo:</string>
@@ -225,11 +220,10 @@
     <string name="txt_erstellung_prefix">Erstellung:</string>
     <string name="txt_pegelmessung_titel">Pegelmessung</string>
     <string name="txt_aenderung">Änderung:</string>
-   <string name="txt_keine_messpunkte_angelegt">Es wurden noch keine Messpunkte angelegt</string>
+    <string name="txt_keine_messpunkte_angelegt">Es wurden noch keine Messpunkte angelegt</string>
     <string name="keine_messungen_angelegt">Es wurden noch keine Messungen angelegt</string>
     <string name="txt_link_speed">Link Speed</string>
     <string name="txt_upload">Upload</string>
     <string name="tv_download">Download</string>
     <string name="txt_eue_messung_erstellen">Neue Messung Erstellen</string>
-
 </resources>
