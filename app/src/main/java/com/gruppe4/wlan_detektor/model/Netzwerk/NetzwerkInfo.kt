@@ -4,6 +4,7 @@ import android.app.Application
 import android.content.Context
 import android.graphics.Color
 import android.net.ConnectivityManager
+import android.net.NetworkRequest
 import android.net.TransportInfo
 import android.net.wifi.WifiInfo
 import android.net.wifi.WifiManager
@@ -16,8 +17,9 @@ class NetzwerkInfo(application: Application) {
 
     var wifiManager = application.getSystemService(Context.WIFI_SERVICE) as WifiManager
     private var connectionInfo: WifiInfo = wifiManager.connectionInfo
+
     val connectivityManager = application.getSystemService(ConnectivityManager::class.java)
-    val currentNetwork = connectivityManager.getActiveNetwork()
+    val currentNetwork = connectivityManager.activeNetwork
     val caps = connectivityManager.getNetworkCapabilities(currentNetwork)
     val linkProperties = connectivityManager.getLinkProperties(currentNetwork)
 

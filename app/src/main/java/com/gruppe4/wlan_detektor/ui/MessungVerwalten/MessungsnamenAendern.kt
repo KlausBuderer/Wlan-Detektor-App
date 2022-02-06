@@ -1,23 +1,17 @@
-package com.gruppe4.wlan_detektor
+package com.gruppe4.wlan_detektor.ui.MessungVerwalten
 
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.lifecycle.LifecycleOwner
-import androidx.navigation.NavArgs
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.navArgs
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
+import com.gruppe4.wlan_detektor.R
 import com.gruppe4.wlan_detektor.databinding.MessungsnamenAendernFragmentBinding
-import com.gruppe4.wlan_detektor.ui.MessungVerwalten.MessungBearbeitenFragmentArgs
-import com.gruppe4.wlan_detektor.ui.MessungVerwalten.MessungBearbeitenFragmentDirections
-import com.gruppe4.wlan_detektor.ui.MessungVerwalten.MessungHinzufuegenDirections
-import java.util.*
 
 class MessungsnamenAendern : BottomSheetDialogFragment() {
 

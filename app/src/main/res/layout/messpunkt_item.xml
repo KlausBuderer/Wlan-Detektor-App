@@ -8,18 +8,18 @@
     android:layout_marginRight="8dp"
     android:layout_marginTop="2dp"
     android:layout_marginBottom="5dp"
-    app:cardCornerRadius="16dp"
+    app:cardCornerRadius="12dp"
     app:cardElevation="4dp"
-    android:background="@drawable/rv_background">
+    android:background="@drawable/dark_background">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         xmlns:app="http://schemas.android.com/apk/res-auto"
-        app:cardCornerRadius="16dp"
+        app:cardCornerRadius="12dp"
         app:cardElevation="8dp"
         app:contentPadding="8dp"
-        android:backgroundTint="@android:color/transparent">
+        android:background="@drawable/card_background_dark_blue">
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/wlan_icon"
@@ -70,10 +70,10 @@
             style="?android:attr/progressBarStyleHorizontal"
             android:layout_width="120dp"
             android:layout_height="wrap_content"
-            android:max="-40"
-            android:min="-110"
+            android:max="-30"
+            android:min="-90"
+            android:progressDrawable="@drawable/progressbar_shape"
             android:progress="-40"
-            android:progressTint="@android:color/holo_red_dark"
             app:layout_constraintStart_toStartOf="@+id/tv_stockwerk"
             app:layout_constraintTop_toBottomOf="@+id/tv_stockwerk" />
 

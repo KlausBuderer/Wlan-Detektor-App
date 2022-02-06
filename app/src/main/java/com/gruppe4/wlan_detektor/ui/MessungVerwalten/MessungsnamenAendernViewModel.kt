@@ -1,11 +1,10 @@
-package com.gruppe4.wlan_detektor
+package com.gruppe4.wlan_detektor.ui.MessungVerwalten
 
 import android.app.Application
 import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
 import com.gruppe4.wlan_detektor.model.Datenbank.RepositoryDb
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers

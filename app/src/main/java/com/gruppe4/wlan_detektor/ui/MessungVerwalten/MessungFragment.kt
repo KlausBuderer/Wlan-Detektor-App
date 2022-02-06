@@ -35,7 +35,7 @@ class MessungFragment : Fragment() {
         val root: View = binding.root
 
         //Absprung in Maske um neue Messung hinzuzufügen
-        binding.btnAddMessung.setOnClickListener {
+        binding.cvMessungHinzu.setOnClickListener {
             Navigation.findNavController(it).navigate(
                 R.id.action_navigation_messung_to_messungHinzufuegen
             )
@@ -52,7 +52,7 @@ class MessungFragment : Fragment() {
 
 
         //Absprung in eine Liste von Messungen
-        binding.btnEditMessung.setOnClickListener{
+        binding.cvMessungBearbeiten.setOnClickListener{
             val action =
                 MessungFragmentDirections.actionNavigationMessungToMessungListeFragment(
                     MESSUNGLISTE_KONTEXT.Bearbeiten.toString()
@@ -63,7 +63,7 @@ class MessungFragment : Fragment() {
 
 
         //Absprung in eine Liste von Messungen
-        binding.btnDeleteMessung.setOnClickListener{
+        binding.cvMessungLoeschen.setOnClickListener{
             val action =
                 MessungFragmentDirections.actionNavigationMessungToMessungListeFragment(
                     MESSUNGLISTE_KONTEXT.Loeschen.toString()

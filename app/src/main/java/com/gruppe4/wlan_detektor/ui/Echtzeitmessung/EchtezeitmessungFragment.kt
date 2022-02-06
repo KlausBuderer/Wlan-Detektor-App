@@ -19,7 +19,6 @@ import android.widget.ProgressBar
 import android.widget.SeekBar
 import android.widget.TextView
 import android.widget.Toast
-import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AlertDialog
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
@@ -28,6 +27,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import com.gruppe4.wlan_detektor.R
 import com.gruppe4.wlan_detektor.databinding.FragmentEchtzeitmessungBinding
+import com.gruppe4.wlan_detektor.model.Netzwerk.NetzwerkHelper
 import kotlinx.coroutines.*
 import kotlin.IllegalStateException
 
@@ -37,7 +37,7 @@ class EchtezeitmessungFragment : Fragment() {
     private var _binding: FragmentEchtzeitmessungBinding? = null
     private val binding get() = _binding!!
 
-    @RequiresApi(Build.VERSION_CODES.S)
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -94,7 +94,7 @@ class EchtezeitmessungFragment : Fragment() {
 
         val ssid: TextView = binding.tvSsid
         echtzeitmessungViewModel.netzwerkInfo.observe(viewLifecycleOwner, Observer {
-            ssid.text = it.ssid
+            ssid.text = it.ssid.trim('"','\"')
         })
 
 
@@ -130,15 +130,6 @@ class EchtezeitmessungFragment : Fragment() {
             updownspeed.text = it.linkSpeed.toString() + " Mbps"
         })
 
-        val upload: TextView = binding.tvUploadValue
-        echtzeitmessungViewModel.connectionInfo.observe(viewLifecycleOwner, Observer {
-            upload.text = it.upLoad.toString()
-        })
-
-        val download: TextView = binding.tvDownloadValue
-        echtzeitmessungViewModel.connectionInfo.observe(viewLifecycleOwner, Observer {
-            download.text = it.downLoad.toString()
-        })
 
         val progressBar: ProgressBar = binding.pgProgressBar
         echtzeitmessungViewModel.progressFarbe.observe(viewLifecycleOwner, Observer {

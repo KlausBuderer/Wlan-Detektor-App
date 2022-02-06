@@ -35,7 +35,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:background="@drawable/body_form_background">
+        android:background="@drawable/card_radius_oben_schwarz">
 
 
         <com.google.android.material.textfield.TextInputLayout

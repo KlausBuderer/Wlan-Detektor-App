@@ -4,49 +4,155 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/home_background"
+    android:foregroundTint="@color/black"
     tools:context=".ui.MessungVerwalten.MessungFragment">
 
 
-    <Button
-        android:id="@+id/btn_add_messung"
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:padding="4dp"
-        android:text="@string/txt_messung_hinzufuegen"
-        android:textAlignment="viewStart"
-        app:icon="@drawable/ic_add"
+    <TextView
+        android:id="@+id/tv_messung_verwalten"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="32dp"
+        android:text="@string/txt_verwalte_deine_messungen"
+        android:textColor="@color/white"
+        android:textSize="@dimen/titel_margin"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/btn_edit_messung"
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:padding="4dp"
-        android:text="@string/txt_messung_bearbeiten"
-        android:textAlignment="viewStart"
-        app:icon="@drawable/ic_edit"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_add_messung" />
 
-    <Button
-        android:id="@+id/btn_delete_messung"
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:padding="4dp"
-        android:text="@string/txt_messung_loeschen"
-        android:textAlignment="viewStart"
-        app:icon="@drawable/ic_baseline_delete_forever_24"
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvMessungHinzu"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:layout_marginTop="32dp"
+        android:backgroundTint="@color/semiTransparentprimaryDarkColor"
+        android:clickable="true"
+        android:elevation="8dp"
+        android:maxWidth="400dp"
+        app:cardCornerRadius="12dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_edit_messung" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_messung_verwalten">
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:src="@drawable/add_messung"
+                app:tint="@color/semiTransparentWhiteColor"></ImageView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="9"
+                android:gravity="center"
+                android:lines="2"
+                android:text="@string/txt_messung_hinzufuegen"
+                android:textColor="@color/primaryTextColor"
+                android:textSize="@dimen/untertitel_margin"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/imageView3"
+                app:layout_constraintTop_toTopOf="parent"></TextView>
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvMessungLoeschen"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:layout_marginTop="8dp"
+        android:backgroundTint="@color/semiTransparentprimaryDarkColor"
+        app:cardCornerRadius="12dp"
+        app:cardElevation="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cvMessungBearbeiten">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:foregroundTint="#131212"
+                android:src="@drawable/delete_messung"></ImageView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="9"
+                android:gravity="center"
+                android:lines="2"
+                android:text="@string/txt_messung_loeschen"
+                android:textColor="@color/primaryTextColor"
+                android:textSize="@dimen/untertitel_margin"
+                android:textStyle="bold"></TextView>
+
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvMessungBearbeiten"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:layout_marginTop="8dp"
+        android:backgroundTint="@color/semiTransparentprimaryDarkColor"
+        app:cardCornerRadius="12dp"
+        app:cardElevation="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cvMessungHinzu">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:ems="9"
+                android:gravity="center"
+                android:src="@drawable/edit_messung"
+                app:tint="@color/semiTransparentWhiteColor"></ImageView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:lines="2"
+                android:text="@string/txt_messung_bearbeiten"
+                android:textColor="@color/primaryTextColor"
+                android:textSize="@dimen/untertitel_margin"
+                android:textStyle="bold"></TextView>
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

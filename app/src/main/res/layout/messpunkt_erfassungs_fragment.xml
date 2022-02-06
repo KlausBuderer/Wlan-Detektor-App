@@ -187,11 +187,11 @@
             android:layout_marginStart="32dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="32dp"
-            android:max="-40"
+            android:max="-30"
             android:maxWidth="100dp"
-            android:min="-110"
-            android:progress="-110"
-            android:progressTint="@android:color/holo_red_dark"
+            android:min="-90"
+            android:progress="-90"
+            android:progressDrawable="@drawable/progressbar_shape"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/et_zusatzinformation_layout" />
@@ -222,8 +222,8 @@
             style="@style/Widget.MaterialComponents.Button.OutlinedButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="?android:textColorPrimary"
             android:text="@string/btn_start_de"
-            android:textColor="@color/material_on_background_emphasis_medium"
             app:layout_constraintBaseline_toBaselineOf="@+id/tv_signalstaerke_wert"
             app:layout_constraintEnd_toEndOf="@+id/pg_progressBar" />
 
@@ -244,8 +244,8 @@
             android:layout_marginTop="8dp"
             android:gravity="start|center_vertical"
             android:text="@string/txt_bild_einfügen"
+            android:textColor="?android:textColorPrimary"
             android:hint="Bild hinzugefügt"
-            android:textColor="@color/material_on_background_emphasis_medium"
             app:icon="@drawable/ic__add_a_photo"
             app:layout_constraintStart_toStartOf="@+id/tv_signalstaerke_titel"
             app:layout_constraintTop_toBottomOf="@+id/tv_signalstaerke_titel"
@@ -254,15 +254,39 @@
 
         </Button>
 
+        <TextView
+            android:id="@+id/tv_bild_eingefuegt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:layout_weight="1"
+            android:text="Bild eingefügt"
+            android:visibility="invisible"
+            android:textColor="#69F0AE"
+            app:layout_constraintStart_toStartOf="@+id/btn_bild_hinzufuegen"
+            app:layout_constraintTop_toBottomOf="@+id/btn_bild_hinzufuegen" />
+
+        <ImageView
+            android:id="@+id/iv_bild_eingefuegt_check"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="@id/tv_bild_eingefuegt"
+            app:layout_constraintStart_toEndOf="@id/tv_bild_eingefuegt"
+            app:layout_constraintTop_toTopOf="@+id/tv_bild_eingefuegt"
+            app:srcCompat="@drawable/ic_baseline_check_circle_outline_24"
+            app:tint="#69F0AE" />
+
         <LinearLayout
             android:id="@+id/linearLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="8dp"
             android:gravity="center"
             android:orientation="horizontal"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btn_bild_hinzufuegen">
+            app:layout_constraintTop_toBottomOf="@+id/tv_bild_eingefuegt">
             app:layout_constraintEnd_toEndOf="@+id/btn_start_messpunkt_messung"
             app:layout_constraintStart_toEndOf="@+id/abbrechen"
             app:layout_constraintTop_toBottomOf="@+id/btn_start_messpunkt_messung"
@@ -271,8 +295,8 @@
                 android:id="@+id/messpunkt_loeschen"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/txt_loeschen"
-                android:layout_marginEnd="32dp"/>
+                android:layout_marginEnd="32dp"
+                android:text="@string/txt_loeschen" />
 
             <Button
                 android:id="@+id/messpunkt_speichern"

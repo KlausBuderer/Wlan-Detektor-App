@@ -1,6 +1,7 @@
 package com.gruppe4.wlan_detektor
 
 import android.content.Context
+import android.content.res.Configuration
 import android.database.sqlite.SQLiteOpenHelper
 import android.net.wifi.WifiManager
 import android.os.Build
@@ -10,6 +11,7 @@ import android.view.*
 import android.widget.Toast
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.commit
 import androidx.lifecycle.lifecycleScope
@@ -36,6 +38,8 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
 
         val dbInit = RepositoryDb(application)
         MainScope().launch {
@@ -124,5 +128,9 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    override fun onConfigurationChanged(newConfig: Configuration) {
+        super.onConfigurationChanged(newConfig)
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+    }
 }
 

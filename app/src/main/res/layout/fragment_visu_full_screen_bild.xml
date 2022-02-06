@@ -4,13 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".VisuFullScreenBild">
+    tools:context=".ui.Visualisierung.VisuFullScreenBild"
+    android:background="@color/black">
 
     <ImageView
         android:id="@+id/iv_bild"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:scaleType="centerCrop"
+        android:scaleType="center"
         android:rotation="90"
         android:src="@drawable/ic__add_a_photo" />
 </FrameLayout>

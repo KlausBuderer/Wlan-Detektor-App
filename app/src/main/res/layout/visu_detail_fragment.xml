@@ -33,14 +33,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
-            android:background="@drawable/card_background_lite"
             android:elevation="16dp"
             android:padding="16dp"
             app:cardCornerRadius="16dp">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:background="@color/black">
 
                 <TextView
                     android:id="@+id/tv_raum_name"
@@ -50,6 +50,7 @@
                     android:layout_marginTop="16dp"
                     android:gravity="center"
                     android:text="@string/txt_raumname_de"
+                    android:textColor="@color/primaryTextColor"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -256,7 +257,8 @@
                             android:layout_height="match_parent"
                             android:layout_marginHorizontal="8dp"
                             android:layout_marginTop="16dp"
-                            app:cardCornerRadius="32dp">
+                            app:cardCornerRadius="32dp"
+                            android:backgroundTint="@color/primaryDarkColor">
 
                             <androidx.constraintlayout.widget.ConstraintLayout
                                 android:layout_width="match_parent"
@@ -281,6 +283,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_marginRight="16dp"
+                                    android:textColor="@color/primaryTextColor"
                                     android:gravity="right"
                                     android:text="@string/txt_decibel_de"
                                     app:layout_constraintBottom_toBottomOf="@+id/titel_pegelmessung"
@@ -293,6 +296,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:gravity="center"
+                                    android:textColor="@color/primaryTextColor"
                                     android:text="@string/txt_gemessener_pegel_de"
                                     app:layout_constraintBottom_toBottomOf="@+id/titel_pegelmessung"
                                     app:layout_constraintEnd_toStartOf="@id/tv_db_prefix"

@@ -11,30 +11,21 @@
     <color name="green">#00E409</color>
     <color name="yellow">#FBE204</color>
 
-    <color name="primaryColor">#455a64</color>
-    <color name="primaryLightColor">#718792</color>
-    <color name="primaryDarkColor">#1c313a</color>
-    <color name="secondaryColor">#ffc400</color>
-    <color name="secondaryLightColor">#fff64f</color>
-    <color name="secondaryDarkColor">#c79400</color>
-    <color name="primaryTextColor">#ffffff</color>
-    <color name="secondaryTextColor">#000000</color>
-
     <color name="semiTransparentWhiteColor">#E6FFFFFF</color>
-    <color name="semiTransparentprimaryDarkColor">#8029434e</color>
+    <color name="semiTransparentprimaryDarkColor">#D945758A</color>
     <color name="light_blue_600">#FF039BE5</color>
     <color name="light_blue_900">#FF01579B</color>
     <color name="light_blue_A200">#FF40C4FF</color>
     <color name="light_blue_A400">#FF00B0FF</color>
     <color name="black_overlay">#66000000</color>
 
-    <color name="nightprimaryColor">#29434e</color>
-    <color name="nightprimaryLightColor">#718792</color>
-    <color name="nightprimaryDarkColor">#000000</color>
-    <color name="nightsecondaryColor">#ff9100</color>
-    <color name="nightsecondaryLightColor">#ffc246</color>
-    <color name="nightsecondaryDarkColor">#c56200</color>
-    <color name="nightprimaryTextColor">#ffffff</color>
-    <color name="nightsecondaryTextColor">#000000</color>
+    <color name="primaryColor">#29434e</color>
+    <color name="primaryLightColor">#718792</color>
+    <color name="primaryDarkColor">#000000</color>
+    <color name="secondaryColor">#ff9100</color>
+    <color name="secondaryLightColor">#ffc246</color>
+    <color name="secondaryDarkColor">#c56200</color>
+    <color name="primaryTextColor">#ffffff</color>
+    <color name="secondaryTextColor">#000000</color>
 
 </resources>
