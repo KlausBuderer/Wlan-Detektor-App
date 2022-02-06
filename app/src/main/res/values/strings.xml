@@ -2,7 +2,7 @@
 <resources>
     <string name="app_name">Wlan-Detektor</string>
     <string name="title_home">Home</string>
-    <string name="title_echtzeitmessung_de">Real time measurement</string>
+    <string name="title_echtzeitmessung_de">Realtime measurement</string>
     <string name="title_messungen_de">Measurements</string>
     <string name="button_netzwerkwahl_de">Network choice</string>
     <string name="title_visualisierung_de">Visualization</string>
@@ -35,11 +35,11 @@
     <string name="txt_zeit_de">Time</string>
     <string name="txt_gemessener_pegel_de">Measured level</string>
     <string name="txt_titel_hauptmenue_de">Wifi-detector</string>
-    <string name="txt_titel_home_echzeitmessung">Real time measurement</string>
+    <string name="txt_titel_home_echzeitmessung">Realtime measurement</string>
     <string name="txt_titel_home_messpunktverwaltung">Measuring point administration</string>
     <string name="txt_titel_home_visualisierung">Visualization</string>
     <string name="txt_beschreibung_messpunkt_verwaltung">In the measuring point management you have the possibility to enter a measurement and any measuring points to it.</string>
-    <string name="txt_beschreibung_echzeitmessung">"In the real time measurement you have the possibility to determine the levels as well as further information in real time for the already registered WLAN. "</string>
+    <string name="txt_beschreibung_echzeitmessung">"In the realtime measurement you have the possibility to determine the levels as well as further information in realtime for the already registered WLAN. "</string>
     <string name="txt_beschreibung_visualisierung">In the visualization you can display previously acquired measurements transparently.</string>
     <string name="txt_stoppen">STOP</string>
     <string name="txt_starten">START</string>
@@ -89,8 +89,8 @@
     <string name="txt_aktueller_name">Aktueller name:</string>
     <string name="txt_neuer_messungsname">neuer Messungsname</string>
     <string name="messungsname_aendern">Messungsname ändern</string>
-    <string name="disclaimer">Haftungsausschluss</string>
-    <string name="txt_datenschutzerklaerung">Datenschutzerklärung</string>
+    <string name="disclaimer">Disclaimer</string>
+    <string name="txt_datenschutzerklaerung">Privacy policy</string>
     <string name="txt_beschreibung_bruno">Students of the ABB Technical School Post-graduate studies Software Engineer</string>
     <string name="large_text_haftungsausschluss">
 "Last updated: January 29, 2022\n\n"
@@ -131,6 +131,88 @@
 "If you have any questions about this Disclaimer, You can contact Us:\n"
 "<li>By email: wlandetektor@it-wissen.ch</li>"
     </string>
+    <string name="large_text_datenschutz">
+"Last updated: January 29, 2022\n\n"
+"This Privacy Policy describes Our policies and procedures on the collection, use and disclosure of Your information when You use the Service and tells You about Your privacy rights and how the law protects You.\n\n"
+"We use Your Personal data to provide and improve the Service. By using the Service, You agree to the collection and use of information in accordance with this Privacy Policy. This Privacy Policy has been created with the help of the https://www.termsfeed.com/blog/sample-privacy-policy-template/ (Privacy Policy Template) \n"
+"<b>Interpretation and Definitions</b>"
+"<b>Interpretation</b>"
+"The words of which the initial letter is capitalized have meanings defined under the following conditions. The following definitions shall have the same meaning regardless of whether they appear in singular or in plural.\n"
+"<b>Definitions</b>"
+"For the purposes of this Privacy Policy:\n"
+"<li><b>Account</b> means a unique account created for You to access our Service or parts of our Service.</li>\n"
+"<li><b>Affiliate</b> means an entity that controls, is controlled by or is under common control with a party, where "control" means ownership of 50% or more of the shares, equity interest or other securities entitled to vote for election of directors or other managing authority.</li>\n"
+"<li><b>Application</b> means the software program provided by the Company downloaded by You on any electronic device, named WLAN DETEKTOR PRO</li>\n"
+"<li><b>Company</b> (referred to as either "the Company", "We", "Us" or "Our" in this Agreement) refers to WLAN DETEKTOR PRO.</li>\n"
+"<li><b>Country</b> refers to:  Switzerland</li>\n"
+"<li><b>Device</b> means any device that can access the Service such as a computer, a cellphone or a digital tablet.</li>\n"
+"<li><b>Personal Data</b> is any information that relates to an identified or identifiable individual.</li>\n"
+"<li><b>Service</b> refers to the Application.</li>\n"
+"<li><b>Service Provider</b> means any natural or legal person who processes the data on behalf of the Company. It refers to third-party companies or individuals employed by the Company to facilitate the Service, to provide the Service on behalf of the Company, to perform services related to the Service or to assist the Company in analyzing how the Service is used.</li>\n"
+"<li><b>Usage Data</b> refers to data collected automatically, either generated by the use of the Service or from the Service infrastructure itself (for example, the duration of a page visit).</li>\n"
+"<li><b>You</b> means the individual accessing or using the Service, or the company, or other legal entity on behalf of which such individual is accessing or using the Service, as applicable.</li>\n"
+"<b>Collecting and Using Your Personal Data</b>"
+"Types of Data Collected"
+"Personal Data"
+"While using Our Service, We may ask You to provide Us with certain personally identifiable information that can be used to contact or identify You. Personally identifiable information may include, but is not limited to:"
+"Email address"
+"Usage Data"
+"Usage Data is collected automatically when using the Service."
+"Usage Data may include information such as Your Devices Internet Protocol address (e.g. IP address), browser type, browser version, the pages of our Service that You visit, the time and date of Your visit, the time spent on those pages, unique device identifiers and other diagnostic data.\n"
+"When You access the Service by or through a mobile device, We may collect certain information automatically, including, but not limited to, the type of mobile device You use, Your mobile device unique ID, the IP address of Your mobile device, Your mobile operating system, the type of mobile Internet browser You use, unique device identifiers and other diagnostic data.\n"
+"We may also collect information that Your browser sends whenever You visit our Service or when You access the Service by or through a mobile device."
+"Use of Your Personal Data\n"
+"The Company may use Personal Data for the following purposes:\n"
+"<b>To provide and maintain our Service</b>, including to monitor the usage of our Service.\n"
+"<b>To manage Your Account:</b> to manage Your registration as a user of the Service. The Personal Data You provide can give You access to different functionalities of the Service that are available to You as a registered user.\n"
+"<b>For the performance of a contract:</b> the development, compliance and undertaking of the purchase contract for the products, items or services You have purchased or of any other contract with Us through the Service.\n"
+"<b>To contact You:</b> To contact You by email, telephone calls, SMS, or other equivalent forms of electronic communication, such as a mobile applications push notifications regarding updates or informative communications related to the functionalities, products or contracted services, including the security updates, when necessary or reasonable for their implementation.\n"
+"<b>To provide You</b> with news, special offers and general information about other goods, services and events which we offer that are similar to those that you have already purchased or enquired about unless You have opted not to receive such information.\n"
+"<b>To manage Your requests:</b> To attend and manage Your requests to Us.\n"
+"<b>For business transfers:</b> We may use Your information to evaluate or conduct a merger, divestiture, restructuring, reorganization, dissolution, or other sale or transfer of some or all of Our assets, whether as a going concern or as part of bankruptcy, liquidation, or similar proceeding, in which Personal Data held by Us about our Service users is among the assets transferred.\n"
+"<b>For other purposes</b>: We may use Your information for other purposes, such as data analysis, identifying usage trends, determining the effectiveness of our promotional campaigns and to evaluate and improve our Service, products, services, marketing and your experience.\n"
+"We may share Your personal information in the following situations:\n"
+"<li><b>With Service Providers:</b> We may share Your personal information with Service Providers to monitor and analyze the use of our Service,  to contact You.</li>\n"
+"<li><b>For business transfers:</b> We may share or transfer Your personal information in connection with, or during negotiations of, any merger, sale of Company assets, financing, or acquisition of all or a portion of Our business to another company.</li>\n"
+"<li><b>With Affiliates:</b> We may share Your information with Our affiliates, in which case we will require those affiliates to honor this Privacy Policy. Affiliates include Our parent company and any other subsidiaries, joint venture partners or other companies that We control or that are under common control with Us.</li>\n"
+"<li><b>With business partners:</b> We may share Your information with Our business partners to offer You certain products, services or promotions.</li>\n"
+"<li><b>With other users:</b> when You share personal information or otherwise interact in the public areas with other users, such information may be viewed by all users and may be publicly distributed outside.</li>\n"
+"<li><b>With Your consent</b>: We may disclose Your personal information for any other purpose with Your consent.</li>\n"
+"<b>Retention of Your Personal Data</b>"
+"The Company will retain Your Personal Data only for as long as is necessary for the purposes set out in this Privacy Policy. We will retain and use Your Personal Data to the extent necessary to comply with our legal obligations (for example, if we are required to retain your data to comply with applicable laws), resolve disputes, and enforce our legal agreements and policies.\n"
+"The Company will also retain Usage Data for internal analysis purposes. Usage Data is generally retained for a shorter period of time, except when this data is used to strengthen the security or to improve the functionality of Our Service, or We are legally obligated to retain this data for longer time periods.\n"
+"<b>Transfer of Your Personal Data</b>"
+"Your information, including Personal Data, is processed at the Companys operating offices and in any other places where the parties involved in the processing are located. It means that this information may be transferred to — and maintained on — computers located outside of Your state, province, country or other governmental jurisdiction where the data protection laws may differ than those from Your jurisdiction."
+"Your consent to this Privacy Policy followed by Your submission of such information represents Your agreement to that transfer.\n"
+"The Company will take all steps reasonably necessary to ensure that Your data is treated securely and in accordance with this Privacy Policy and no transfer of Your Personal Data will take place to an organization or a country unless there are adequate controls in place including the security of Your data and other personal information.\n"
+"<b>Disclosure of Your Personal Data</b>"
+"Business Transactions"
+"If the Company is involved in a merger, acquisition or asset sale, Your Personal Data may be transferred. We will provide notice before Your Personal Data is transferred and becomes subject to a different Privacy Policy.\n"
+"<b>Law enforcement</b>"
+"Under certain circumstances, the Company may be required to disclose Your Personal Data if required to do so by law or in response to valid requests by public authorities (e.g. a court or a government agency).\n"
+"<b>Other legal requirements</b>"
+"The Company may disclose Your Personal Data in the good faith belief that such action is necessary to:\n"
+"<li><b>Comply</b> with a legal obligation</li>\n"
+"<li><b>Protect and defend</b> the rights or property of the Company</li>\n"
+"<li><b>Prevent or investigate</b> possible wrongdoing in connection with the Service</li>\n"
+"<li><b>Protect the personal safety</b> of Users of the Service or the public</li>\n"
+"<li><b>Protect</b> against legal liability</li>\n"
+"Security of Your Personal Data"
+"The security of Your Personal Data is important to Us, but remember that no method of transmission over the Internet, or method of electronic storage is 100% secure. While We strive to use commercially acceptable means to protect Your Personal Data, We cannot guarantee its absolute security.\n"
+"<b>Childrens Privacy</b>"
+"Our Service does not address anyone under the age of 13. We do not knowingly collect personally identifiable information from anyone under the age of 13. If You are a parent or guardian and You are aware that Your child has provided Us with Personal Data, please contact Us. If We become aware that We have collected Personal Data from anyone under the age of 13 without verification of parental consent, We take steps to remove that information from Our servers.\n"
+"If We need to rely on consent as a legal basis for processing Your information and Your country requires consent from a parent, We may require Your parents consent before We collect and use that information.\n"
+"<b>Links to Other Websites</b>"
+"Our Service may contain links to other websites that are not operated by Us. If You click on a third party link, You will be directed to that third partys site. We strongly advise You to review the Privacy Policy of every site You visit."
+"We have no control over and assume no responsibility for the content, privacy policies or practices of any third party sites or services.\n"
+"<b>Changes to this Privacy Policy</b>"
+"We may update Our Privacy Policy from time to time. We will notify You of any changes by posting the new Privacy Policy on this page."
+"We will let You know via email and/or a prominent notice on Our Service, prior to the change becoming effective and update the "Last updated" date at the top of this Privacy Policy."
+"You are advised to review this Privacy Policy periodically for any changes. Changes to this Privacy Policy are effective when they are posted on this page."
+"Contact Us\n"
+"If you have any questions about this Privacy Policy, You can contact us:\n"
+"<li><b>By email:</b> wlandetektor@it-wissen.ch</li>"
+    </string>
     <string name="txt_gebaeude_prefix">Gebäude:</string>
     <string name="txt_stockwerk_prefix">Stockwerk:</string>
     <string name="txt_zusatzinfo_prefix">Zusatzinfo:</string>
@@ -138,56 +220,13 @@
     <string name="txt_erstellung_prefix">Erstellung:</string>
     <string name="txt_pegelmessung_titel">Pegelmessung</string>
     <string name="txt_aenderung">Änderung:</string>
-    <string name="large_text_datenschutz">
-"<b>Einleitung</b>
-"Mit der folgenden Datenschutzerklärung möchten wir Sie darüber aufklären, welche Arten Ihrer personenbezogenen Daten (nachfolgend auch kurz als "Daten“ bezeichnet) wir zu welchen Zwecken und in welchem Umfang im Rahmen der Bereitstellung unserer Applikation verarbeiten.\n"
-"Die verwendeten Begriffe sind nicht geschlechtsspezifisch.\n"
-"Stand: 29. Januar 2022\n"
-"<b>Kontaktdaten</b>"
-"<li>Verantwortlicher: Bruno Thurnherr</li>"
-"<li>E-Mail: wlandetektor@it-wissen.ch</li>\n"
-"<b>Übersicht der Verarbeitungen</b>"
-"Die nachfolgende Übersicht fasst die Arten der verarbeiteten Daten und die Zwecke ihrer Verarbeitung zusammen und verweist auf die betroffenen Personen.\n"
-"<b>Maßgebliche Rechtsgrundlagen</b>"
-"Im Folgenden erhalten Sie eine Übersicht der Rechtsgrundlagen der DSGVO, auf deren Basis wir personenbezogene Daten verarbeiten. Bitte nehmen Sie zur Kenntnis, dass neben den Regelungen der DSGVO nationale Datenschutzvorgaben in Ihrem bzw. unserem Wohn- oder Sitzland gelten können. Sollten ferner im Einzelfall speziellere Rechtsgrundlagen maßgeblich sein, teilen wir Ihnen diese in der Datenschutzerklärung mit.\n"
-"<b>Sicherheitsmaßnahmen</b>"
-"Wir treffen nach Maßgabe der gesetzlichen Vorgaben unter Berücksichtigung des Stands der Technik, der Implementierungskosten und der Art, des Umfangs, der Umstände und der Zwecke der Verarbeitung sowie der unterschiedlichen Eintrittswahrscheinlichkeiten und des Ausmaßes der Bedrohung der Rechte und Freiheiten natürlicher Personen geeignete technische und organisatorische Maßnahmen, um ein dem Risiko angemessenes Schutzniveau zu gewährleisten."
-"Zu den Maßnahmen gehören insbesondere die Sicherung der Vertraulichkeit, Integrität und Verfügbarkeit von Daten durch Kontrolle des physischen und elektronischen Zugangs zu den Daten als auch des sie betreffenden Zugriffs, der Eingabe, der Weitergabe, der Sicherung der Verfügbarkeit und ihrer Trennung. Des Weiteren haben wir Verfahren eingerichtet, die eine Wahrnehmung von Betroffenenrechten, die Löschung von Daten und Reaktionen auf die Gefährdung der Daten gewährleisten. Ferner berücksichtigen wir den Schutz personenbezogener Daten bereits bei der Entwicklung bzw. Auswahl von Hardware, Software sowie Verfahren entsprechend dem Prinzip des Datenschutzes, durch Technikgestaltung und durch datenschutzfreundliche Voreinstellungen.\n"
-"<b>Übermittlung von personenbezogenen Daten</b>"
-"Im Rahmen unserer Verarbeitung von personenbezogenen Daten kommt es vor, dass die Daten an andere Stellen, Unternehmen, rechtlich selbstständige Organisationseinheiten oder Personen übermittelt oder sie ihnen gegenüber offengelegt werden. Zu den Empfängern dieser Daten können z.B. mit IT-Aufgaben beauftragte Dienstleister oder Anbieter von Diensten und Inhalten, die in eine Webseite eingebunden werden, gehören. In solchen Fall beachten wir die gesetzlichen Vorgaben und schließen insbesondere entsprechende Verträge bzw. Vereinbarungen, die dem Schutz Ihrer Daten dienen, mit den Empfängern Ihrer Daten ab.\n"
-"<b>Datenverarbeitung in Drittländern</b>"
-"Sofern wir Daten in einem Drittland (d.h., außerhalb der Europäischen Union (EU), des Europäischen Wirtschaftsraums (EWR)) verarbeiten oder die Verarbeitung im Rahmen der Inanspruchnahme von Diensten Dritter oder der Offenlegung bzw. Übermittlung von Daten an andere Personen, Stellen oder Unternehmen stattfindet, erfolgt dies nur im Einklang mit den gesetzlichen Vorgaben.\n"
-"Vorbehaltlich ausdrücklicher Einwilligung oder vertraglich oder gesetzlich erforderlicher Übermittlung verarbeiten oder lassen wir die Daten nur in Drittländern mit einem anerkannten Datenschutzniveau, vertraglichen Verpflichtung durch sogenannte Standardschutzklauseln der EU-Kommission, beim Vorliegen von Zertifizierungen oder verbindlicher internen Datenschutzvorschriften verarbeiten (Art. 44 bis 49 DSGVO, Informationsseite der EU-Kommission: https://ec.europa.eu/info/law/law-topic/data-protection/international-dimension-data-protection_de).\n"
-"<b>Löschung von Daten</b>"
-"Die von uns verarbeiteten Daten werden nach Maßgabe der gesetzlichen Vorgaben gelöscht, sobald deren zur Verarbeitung erlaubten Einwilligungen widerrufen werden oder sonstige Erlaubnisse entfallen (z.B. wenn der Zweck der Verarbeitung dieser Daten entfallen ist oder sie für den Zweck nicht erforderlich sind)."
-"Sofern die Daten nicht gelöscht werden, weil sie für andere und gesetzlich zulässige Zwecke erforderlich sind, wird deren Verarbeitung auf diese Zwecke beschränkt. D.h., die Daten werden gesperrt und nicht für andere Zwecke verarbeitet. Das gilt z.B. für Daten, die aus handels- oder steuerrechtlichen Gründen aufbewahrt werden müssen oder deren Speicherung zur Geltendmachung, Ausübung oder Verteidigung von Rechtsansprüchen oder zum Schutz der Rechte einer anderen natürlichen oder juristischen Person erforderlich ist.\n"
-"Unsere Datenschutzhinweise können ferner weitere Angaben zu der Aufbewahrung und Löschung von Daten beinhalten, die für die jeweiligen Verarbeitungen vorrangig gelten.\n"
-"<b>Änderung und Aktualisierung der Datenschutzerklärung</b>"
-"Wir bitten Sie, sich regelmäßig über den Inhalt unserer Datenschutzerklärung zu informieren. Wir passen die Datenschutzerklärung an, sobald die Änderungen der von uns durchgeführten Datenverarbeitungen dies erforderlich machen. Wir informieren Sie, sobald durch die Änderungen eine Mitwirkungshandlung Ihrerseits (z.B. Einwilligung) oder eine sonstige individuelle Benachrichtigung erforderlich wird."
-"Sofern wir in dieser Datenschutzerklärung Adressen und Kontaktinformationen von Unternehmen und Organisationen angeben, bitten wir zu beachten, dass die Adressen sich über die Zeit ändern können und bitten die Angaben vor Kontaktaufnahme zu prüfen.\n"
-"<b>Rechte der betroffenen Personen</b>"
-"Ihnen stehen als Betroffene nach der DSGVO verschiedene Rechte zu, die sich insbesondere aus Art. 15 bis 21 DSGVO ergeben:\n"
-"<li>Widerspruchsrecht: Sie haben das Recht, aus Gründen, die sich aus Ihrer besonderen Situation ergeben, jederzeit gegen die Verarbeitung der Sie betreffenden personenbezogenen Daten, die aufgrund von Art. 6 Abs. 1 lit. e oder f DSGVO erfolgt, Widerspruch einzulegen; dies gilt auch für ein auf diese Bestimmungen gestütztes Profiling. Werden die Sie betreffenden personenbezogenen Daten verarbeitet, um Direktwerbung zu betreiben, haben Sie das Recht, jederzeit Widerspruch gegen die Verarbeitung der Sie betreffenden personenbezogenen Daten zum Zwecke derartiger Werbung einzulegen; dies gilt auch für das Profiling, soweit es mit solcher Direktwerbung in Verbindung steht.</li>\n"
-"<li>Widerrufsrecht bei Einwilligungen: Sie haben das Recht, erteilte Einwilligungen jederzeit zu widerrufen.</li>\n"
-"<li>Auskunftsrecht: Sie haben das Recht, eine Bestätigung darüber zu verlangen, ob betreffende Daten verarbeitet werden und auf Auskunft über diese Daten sowie auf weitere Informationen und Kopie der Daten entsprechend den gesetzlichen Vorgaben.</li>\n"
-"<li>Recht auf Berichtigung: Sie haben entsprechend den gesetzlichen Vorgaben das Recht, die Vervollständigung der Sie betreffenden Daten oder die Berichtigung der Sie betreffenden unrichtigen Daten zu verlangen.</li>\n"
-"<li>Recht auf Löschung und Einschränkung der Verarbeitung: Sie haben nach Maßgabe der gesetzlichen Vorgaben das Recht, zu verlangen, dass Sie betreffende Daten unverzüglich gelöscht werden, bzw. alternativ nach Maßgabe der gesetzlichen Vorgaben eine Einschränkung der Verarbeitung der Daten zu verlangen.</li>\n"
-"<li>Recht auf Datenübertragbarkeit: Sie haben das Recht, Sie betreffende Daten, die Sie uns bereitgestellt haben, nach Maßgabe der gesetzlichen Vorgaben in einem strukturierten, gängigen und maschinenlesbaren Format zu erhalten oder deren Übermittlung an einen anderen Verantwortlichen zu fordern.</li>\n"
-"<li>Beschwerde bei Aufsichtsbehörde: Sie haben unbeschadet eines anderweitigen verwaltungsrechtlichen oder gerichtlichen Rechtsbehelfs das Recht auf Beschwerde bei einer Aufsichtsbehörde, insbesondere in dem Mitgliedstaat ihres gewöhnlichen Aufenthaltsorts, ihres Arbeitsplatzes oder des Orts des mutmaßlichen Verstoßes, wenn Sie der Ansicht sind, dass die Verarbeitung der Sie betreffenden personenbezogenen Daten gegen die Vorgaben der DSGVO verstößt.</li>\n\n"
-<b>Begriffsdefinitionen</b>
-"In diesem Abschnitt erhalten Sie eine Übersicht über die in dieser Datenschutzerklärung verwendeten Begrifflichkeiten. Viele der Begriffe sind dem Gesetz entnommen und vor allem im Art. 4 DSGVO definiert. Die gesetzlichen Definitionen sind verbindlich. Die nachfolgenden Erläuterungen sollen dagegen vor allem dem Verständnis dienen. Die Begriffe sind alphabetisch sortiert.\n"
-"<li><b>Personenbezogene Daten:</b> Personenbezogene Daten“ sind alle Informationen, die sich auf eine identifizierte oder identifizierbare natürliche Person (im Folgenden "betroffene Person“) beziehen; als identifizierbar wird eine natürliche Person angesehen, die direkt oder indirekt, insbesondere mittels Zuordnung zu einer Kennung wie einem Namen, zu einer Kennnummer, zu Standortdaten, zu einer Online-Kennung (z.B. Cookie) oder zu einem oder mehreren besonderen Merkmalen identifiziert werden kann, die Ausdruck der physischen, physiologischen, genetischen, psychischen, wirtschaftlichen, kulturellen oder sozialen Identität dieser natürlichen Person sind.</li>\n"
-"<li><b>Verantwortlicher:</b> Als "Verantwortlicher“ wird die natürliche oder juristische Person, Behörde, Einrichtung oder andere Stelle, die allein oder gemeinsam mit anderen über die Zwecke und Mittel der Verarbeitung von personenbezogenen Daten entscheidet, bezeichnet.</li>\n"
-"<li><b>Verarbeitung:</b> "Verarbeitung" ist jeder mit oder ohne Hilfe automatisierter Verfahren ausgeführte Vorgang oder jede solche Vorgangsreihe im Zusammenhang mit personenbezogenen Daten. Der Begriff reicht weit und umfasst praktisch jeden Umgang mit Daten, sei es das Erheben, das Auswerten, das Speichern, das Übermitteln oder das Löschen.</li>\n"
-"Erstellt mit kostenlosem Datenschutz-Generator.de von Dr. Thomas Schwenke"
-    </string>
     <string name="txt_keine_messpunkte_angelegt">Es wurden noch keine Messpunkte angelegt</string>
     <string name="keine_messungen_angelegt">Es wurden noch keine Messungen angelegt</string>
-
     <string name="txt_link_speed">Link Speed</string>
     <string name="txt_upload">Upload</string>
     <string name="tv_download">Download</string>
     <string name="txt_eue_messung_erstellen">Neue Messung Erstellen</string>
+
     <string name="txt_verwalte_deine_messungen">Verwalte deine Messungen</string>
     <string name="txt_prefix_stockwerk">Stockwerk:</string>
     <string name="tv_prefix_gebauede">Gebäude:</string>
