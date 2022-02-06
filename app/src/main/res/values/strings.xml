@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Wlan-Detektor</string>
-    <string name="title_home">Home Wifi-detector</string>
+    <string name="title_home">Home</string>
     <string name="title_echtzeitmessung_de">Real time measurement</string>
     <string name="title_messungen_de">Measurements</string>
     <string name="button_netzwerkwahl_de">Network choice</string>
@@ -89,11 +89,9 @@
     <string name="txt_aktueller_name">Aktueller name:</string>
     <string name="txt_neuer_messungsname">neuer Messungsname</string>
     <string name="messungsname_aendern">Messungsname ändern</string>
-
     <string name="disclaimer">Haftungsausschluss</string>
     <string name="txt_datenschutzerklaerung">Datenschutzerklärung</string>
     <string name="txt_beschreibung_bruno">Students of the ABB Technical School Post-graduate studies Software Engineer</string>
-
     <string name="large_text_haftungsausschluss">
 "Last updated: January 29, 2022\n\n"
 "<b>Interpretation and Definitions</b>"
@@ -133,7 +131,6 @@
 "If you have any questions about this Disclaimer, You can contact Us:\n"
 "<li>By email: wlandetektor@it-wissen.ch</li>"
     </string>
-
     <string name="txt_gebaeude_prefix">Gebäude:</string>
     <string name="txt_stockwerk_prefix">Stockwerk:</string>
     <string name="txt_zusatzinfo_prefix">Zusatzinfo:</string>
@@ -141,9 +138,6 @@
     <string name="txt_erstellung_prefix">Erstellung:</string>
     <string name="txt_pegelmessung_titel">Pegelmessung</string>
     <string name="txt_aenderung">Änderung:</string>
-
-
-
     <string name="large_text_datenschutz">
 "<b>Einleitung</b>
 "Mit der folgenden Datenschutzerklärung möchten wir Sie darüber aufklären, welche Arten Ihrer personenbezogenen Daten (nachfolgend auch kurz als "Daten“ bezeichnet) wir zu welchen Zwecken und in welchem Umfang im Rahmen der Bereitstellung unserer Applikation verarbeiten.\n"
@@ -189,6 +183,7 @@
     </string>
     <string name="txt_keine_messpunkte_angelegt">Es wurden noch keine Messpunkte angelegt</string>
     <string name="keine_messungen_angelegt">Es wurden noch keine Messungen angelegt</string>
+
     <string name="txt_link_speed">Link Speed</string>
     <string name="txt_upload">Upload</string>
     <string name="tv_download">Download</string>
@@ -196,6 +191,5 @@
     <string name="txt_verwalte_deine_messungen">Verwalte deine Messungen</string>
     <string name="txt_prefix_stockwerk">Stockwerk:</string>
     <string name="tv_prefix_gebauede">Gebäude:</string>
-
 
 </resources>
