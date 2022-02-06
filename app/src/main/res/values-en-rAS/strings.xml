@@ -13,7 +13,7 @@
     <string name="txt_Sicherheittyp_de">Security type:</string>
     <string name="txt_max_upload_de">Up/Download:</string>
     <string name="txt_pegel_de">Up/Download</string>
-    <string name="txt_decibel_de">- dB</string>
+    <string name="txt_decibel_de">dB</string>
     <string name="txt_signalstaerke_titel_de">signal strength</string>
     <string name="txt_tonhoehe_de">pitch</string>
     <string name="btn_start_de">Start</string>
@@ -226,4 +226,9 @@
     <string name="txt_upload">Upload</string>
     <string name="tv_download">Download</string>
     <string name="txt_eue_messung_erstellen">Neue Messung Erstellen</string>
+
+    <string name="txt_verwalte_deine_messungen">Verwalte deine Messungen</string>
+    <string name="txt_prefix_stockwerk">Stockwerk:</string>
+    <string name="tv_prefix_gebauede">Gebauede:</string>
+
 </resources>

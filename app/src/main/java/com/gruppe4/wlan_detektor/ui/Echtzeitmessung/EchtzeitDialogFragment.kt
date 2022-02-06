@@ -1,4 +1,4 @@
-package com.gruppe4.wlan_detektor
+package com.gruppe4.wlan_detektor.ui.Echtzeitmessung
 
 import android.net.Uri
 import android.os.Bundle
@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.MediaController
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
+import com.gruppe4.wlan_detektor.R
 import com.gruppe4.wlan_detektor.databinding.FragmentEchtzeitDialogBinding
 
 class EchtzeitDialogFragment : BottomSheetDialogFragment() {

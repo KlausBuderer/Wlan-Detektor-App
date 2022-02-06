@@ -35,7 +35,6 @@ class MesspunktBearbeitenAdapter(private val messpunktListe: List<TblMesspunkt>?
                 itemBinding.tvGebaeude.text = messpunkt.gebaeude
                 itemBinding.tvStockwerk.text = application.resources.getStringArray(R.array.stockwerk_array)[messpunkt.stockwerkID]
                 itemBinding.pgProgressBar.progress = messpunkt.pegelmessung
-                itemBinding.pgProgressBar.progressTintList = ColorStateList.valueOf(netzwerkInfo.progressBarFarbeEinstellen(messpunkt.pegelmessung))
                 itemBinding.tvPegel.text = messpunkt.pegelmessung.toString()
             }
             init{

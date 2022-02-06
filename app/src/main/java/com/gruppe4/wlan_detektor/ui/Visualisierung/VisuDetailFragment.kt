@@ -1,6 +1,5 @@
 package com.gruppe4.wlan_detektor.ui.Visualisierung
 
-import android.content.res.ColorStateList
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import androidx.lifecycle.ViewModelProvider
@@ -9,13 +8,14 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.FrameLayout
+import android.widget.ImageView
+import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.view.updateLayoutParams
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.navArgs
-import com.gruppe4.wlan_detektor.R
-import com.gruppe4.wlan_detektor.databinding.FragmentVisualisierungBinding
 import com.gruppe4.wlan_detektor.databinding.VisuDetailFragmentBinding
 import com.gruppe4.wlan_detektor.model.Netzwerk.NetzwerkInfo
-import com.gruppe4.wlan_detektor.ui.MessungVerwalten.MessungHinzufuegenDirections
 import java.io.File
 
 
@@ -52,8 +52,17 @@ class VisuDetailFragment : Fragment() {
             //Aufruf Bild aus Files
              myBitmap = BitmapFactory.decodeFile(bildFile.absolutePath,options)
 
+        } else {
+            //Fall kein Bild vorhanden ist wird das Bildfenster nicht angezeigt
+            binding.bildLayout.visibility = FrameLayout.INVISIBLE
+            binding.musspunktBild.visibility = ImageView.INVISIBLE
+
+            binding.cvInfoLayout.updateLayoutParams<ConstraintLayout.LayoutParams> {
+                topToBottom = binding.tvRaumName.id
+            }
         }
 
+        //
         binding.tvRaumName.text = args.raumname
         binding.tvGebaeude.text = args.gebaeude
         binding.tvStockwerk.text = args.stockwerk
@@ -64,7 +73,7 @@ class VisuDetailFragment : Fragment() {
         binding.tvZeitAendern.text = args.aenderungszeit
         binding.tvPegel.text = args.pegel.toString()
         binding.pgProgressBar.progress = args.pegel
-       // binding.pgProgressBar.progressTintList = ColorStateList.valueOf(netzwerkInfo.progressBarFarbeEinstellen(args.pegel))
+
         if (myBitmap != null) {
             binding.musspunktBild.setImageBitmap(myBitmap)
 
@@ -86,7 +95,6 @@ class VisuDetailFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProvider(this).get(VisuDetailViewModel::class.java)
-        // TODO: Use the ViewModel
     }
 
 }

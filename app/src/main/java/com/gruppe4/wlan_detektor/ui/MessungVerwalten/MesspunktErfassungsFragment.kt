@@ -61,8 +61,8 @@ class MesspunktErfassungsFragment : Fragment() {
     lateinit var editZusatzInfo: EditText
     lateinit var messungStarten: Button
     lateinit var loeschButton: Button
-
-    //lateinit var abbrechen: Button
+    lateinit var bildEingefuegtText: TextView
+    lateinit var bildEingefuegtBild: ImageView
     lateinit var speichern: Button
     lateinit var fotoHinzufuegen: Button
     lateinit var progressBar: ProgressBar
@@ -87,6 +87,13 @@ class MesspunktErfassungsFragment : Fragment() {
         val arrayAdapter = ArrayAdapter(requireActivity(), R.layout.dropdown_item, raeume)
         binding.autoCompleteTextView.setAdapter(arrayAdapter)
 
+        if(fotoPfad.isNotBlank()){
+            bildEingefuegtBild.visibility = ImageView.VISIBLE
+            bildEingefuegtText.visibility = ImageView.VISIBLE
+        }else{
+            bildEingefuegtBild.visibility = ImageView.INVISIBLE
+            bildEingefuegtText.visibility = ImageView.INVISIBLE
+        }
     }
 
     override fun onCreateView(
@@ -107,6 +114,9 @@ class MesspunktErfassungsFragment : Fragment() {
         fotoHinzufuegen = binding.btnBildHinzufuegen
         messungsName.text = args.messungsname
         loeschButton = binding.messpunktLoeschen
+        bildEingefuegtText = binding.tvBildEingefuegt
+        bildEingefuegtBild = binding.ivBildEingefuegtCheck
+
 
         if (args.messpunktId == -1L){
             loeschButton.visibility = Button.INVISIBLE
@@ -165,10 +175,17 @@ class MesspunktErfassungsFragment : Fragment() {
                 )
                 editZusatzInfo.editableText.insert(0, messpunkt.zusatzinformation)
                 progressBar.progress = messpunkt.pegelmessung
-                progressBar.progressTintList =
-                    ColorStateList.valueOf(netzwerkInfo.progressBarFarbeEinstellen(messpunkt.pegelmessung))
                 signalText.text = messpunkt.pegelmessung.toString()
                 stockwerkPosition = messpunkt.stockwerkID
+
+                if(it.bildPfad.isNotBlank()){
+                    bildEingefuegtBild.visibility = ImageView.VISIBLE
+                    bildEingefuegtText.visibility = ImageView.VISIBLE
+                }else{
+                    bildEingefuegtBild.visibility = ImageView.INVISIBLE
+                    bildEingefuegtText.visibility = ImageView.INVISIBLE
+                }
+
             } catch (e: Exception) {
 
                 Log.e("Messpunkterfassung", "Schreiben von Werten in die Editboxen nicht möglich")
@@ -251,11 +268,10 @@ class MesspunktErfassungsFragment : Fragment() {
         fotoHinzufuegen.setOnClickListener {
             //Pruefen ob die Berechtigung vorhanden ist
             if (isPermissionGranted(Manifest.permission.WRITE_EXTERNAL_STORAGE) || android.os.Build.VERSION.SDK_INT >= 18) {
-                //Berechtigung vorhanden
-                //val takePictureIntent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
                 try {
-                    //this.startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE)
                     fotoPfad = dispatchTakePictureIntent()
+                    //Pruefung ob Bild eingefuegt wurde
+
                 } catch (e: ActivityNotFoundException) {
                     // display error state to the user
                     Log.e("Foto aufnehmen:", "dispatchT... nicht erfolgreich")
@@ -266,7 +282,7 @@ class MesspunktErfassungsFragment : Fragment() {
                 //Dialog Titel
                 builder.setTitle("Beachte")
                 //Dialog Text
-                builder.setMessage("Um die Informationen des Wlan Routers auslesen zu können muss die Lokalisierung erlaubt werden.")
+                builder.setMessage("Um ein Bild aufnehmen zu können, ist die Berechtigung die Kamera zu verwenden notwendig.")
                 //Dialog Icon
                 builder.setIcon(android.R.drawable.ic_dialog_alert)
 
@@ -287,7 +303,7 @@ class MesspunktErfassungsFragment : Fragment() {
                 builder.setNegativeButton("Abbrechen") { dialogInterface, which ->
                     Toast.makeText(
                         requireContext(),
-                        "..Schade, leider können wir die SSID nicht ausgeben",
+                        "..Schade, leider kann kein Bild aufgenommen werden",
                         Toast.LENGTH_LONG
                     ).show()
                 }
@@ -297,6 +313,7 @@ class MesspunktErfassungsFragment : Fragment() {
                 // Set other dialog properties
                 alertDialog.setCancelable(false)
                 alertDialog.show()
+
 
             }
         }
@@ -413,15 +430,15 @@ class MesspunktErfassungsFragment : Fragment() {
 
     @Throws(IOException::class)
     private fun createImageFile(): File {
-        // Create an image file name
+        // Erstelle Filename
         val timeStamp: String = SimpleDateFormat("yyyyMMdd_HHmmss").format(Date())
         val storageDir: File = context?.getExternalFilesDir(Environment.DIRECTORY_PICTURES)!!
         return File.createTempFile(
             "JPEG_${timeStamp}_", /* prefix */
             ".jpg", /* suffix */
-            storageDir /* directory */
+            storageDir /* pfad */
         ).apply {
-            // Save a file: path for use with ACTION_VIEW intents
+
             currentPhotoPath = absolutePath
         }
     }
@@ -430,9 +447,8 @@ class MesspunktErfassungsFragment : Fragment() {
 
         var photoFile: File? = null
         Intent(MediaStore.ACTION_IMAGE_CAPTURE).also { takePictureIntent ->
-            // Ensure that there's a camera activity to handle the intent
             takePictureIntent.resolveActivity(requireContext().packageManager)?.also {
-                // Create the File where the photo should go
+                // Erstelle File für das Bild
                 photoFile = try {
                     createImageFile()
                 } catch (ex: IOException) {
@@ -440,7 +456,7 @@ class MesspunktErfassungsFragment : Fragment() {
 
                     null
                 }
-                // Continue only if the File was successfully created
+                // Zeige das Bild falls Erfassung erfolgreich
                 photoFile?.also {
                     val photoURI = FileProvider.getUriForFile(
                         requireContext(),
@@ -454,6 +470,7 @@ class MesspunktErfassungsFragment : Fragment() {
         }
         return photoFile!!.absolutePath
     }
+
 
 
 }

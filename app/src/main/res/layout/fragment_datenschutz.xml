@@ -4,12 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".DatenschutzFragment">
+    tools:context=".DatenschutzFragment"
+    android:background="@drawable/hilfe_dialog_background">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:padding="16dp">
+        android:padding="16dp"
+        android:background="@color/primaryDarkColor">
         <TextView
             android:id="@+id/title"
             android:layout_width="match_parent"

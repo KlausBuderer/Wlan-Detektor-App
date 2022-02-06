@@ -19,12 +19,20 @@
         <entry key="..\:/Android Development/AndroidStudioProjects/Wlan-Detektor-App/app/src/main/res/layout/visu_detail_fragment.xml" value="0.5153985507246377" />
         <entry key="..\:/Android/WlanDetektor/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.5661458333333333" />
         <entry key="..\:/Android/WlanDetektor/app/src/main/res/drawable/about_us_dialog_background.xml" value="0.4354166666666667" />
+        <entry key="..\:/Android/WlanDetektor/app/src/main/res/drawable/add_messung.xml" value="0.6109375" />
         <entry key="..\:/Android/WlanDetektor/app/src/main/res/drawable/background.xml" value="0.42552083333333335" />
         <entry key="..\:/Android/WlanDetektor/app/src/main/res/drawable/body_form_background.xml" value="0.39114583333333336" />
         <entry key="..\:/Android/WlanDetektor/app/src/main/res/drawable/box_detail_info_background.xml" value="0.4354166666666667" />
+        <entry key="..\:/Android/WlanDetektor/app/src/main/res/drawable/card_background_dark_blue.xml" value="0.4015625" />
         <entry key="..\:/Android/WlanDetektor/app/src/main/res/drawable/card_background_lite.xml" value="0.43385416666666665" />
+        <entry key="..\:/Android/WlanDetektor/app/src/main/res/drawable/card_dark_blue.xml" value="0.409375" />
+        <entry key="..\:/Android/WlanDetektor/app/src/main/res/drawable/card_radius_oben_schwarz.xml" value="0.4041666666666667" />
         <entry key="..\:/Android/WlanDetektor/app/src/main/res/drawable/dark_background.xml" value="0.43385416666666665" />
+        <entry key="..\:/Android/WlanDetektor/app/src/main/res/drawable/delete_messung.xml" value="0.6109375" />
         <entry key="..\:/Android/WlanDetektor/app/src/main/res/drawable/echtzeitmessung.xml" value="0.5661458333333333" />
+        <entry key="..\:/Android/WlanDetektor/app/src/main/res/drawable/edit_messung.xml" value="0.6109375" />
+        <entry key="..\:/Android/WlanDetektor/app/src/main/res/drawable/hilfe_dialog_background.xml" value="0.409375" />
+        <entry key="..\:/Android/WlanDetektor/app/src/main/res/drawable/home_background.xml" value="0.3984375" />
         <entry key="..\:/Android/WlanDetektor/app/src/main/res/drawable/ic_add.xml" value="0.428125" />
         <entry key="..\:/Android/WlanDetektor/app/src/main/res/drawable/ic_baseline_add_24.xml" value="0.428125" />
         <entry key="..\:/Android/WlanDetektor/app/src/main/res/drawable/ic_dashboard_black_24dp.xml" value="0.5661458333333333" />
@@ -38,22 +46,25 @@
         <entry key="..\:/Android/WlanDetektor/app/src/main/res/drawable/ic_notifications_black_24dp.xml" value="0.5661458333333333" />
         <entry key="..\:/Android/WlanDetektor/app/src/main/res/drawable/ic_ton_an.xml" value="0.428125" />
         <entry key="..\:/Android/WlanDetektor/app/src/main/res/drawable/ic_ton_aus.xml" value="0.428125" />
+        <entry key="..\:/Android/WlanDetektor/app/src/main/res/drawable/ic_visualisierung.xml" value="0.3907407407407407" />
         <entry key="..\:/Android/WlanDetektor/app/src/main/res/drawable/ic_wlan_schwarz.xml" value="0.561025641025641" />
         <entry key="..\:/Android/WlanDetektor/app/src/main/res/drawable/lite_background.xml" value="0.42552083333333335" />
         <entry key="..\:/Android/WlanDetektor/app/src/main/res/drawable/progressbar_shape.xml" value="0.42552083333333335" />
         <entry key="..\:/Android/WlanDetektor/app/src/main/res/drawable/rv_background.xml" value="0.39114583333333336" />
+        <entry key="..\:/Android/WlanDetektor/app/src/main/res/drawable/transparent_black_overlay.xml" value="0.40208333333333335" />
         <entry key="..\:/Android/WlanDetektor/app/src/main/res/layout/activity_main.xml" value="0.37775202780996525" />
         <entry key="..\:/Android/WlanDetektor/app/src/main/res/layout/dropdown_item.xml" value="0.4276041666666667" />
         <entry key="..\:/Android/WlanDetektor/app/src/main/res/layout/fragment_dashboard.xml" value="0.16847826086956522" />
-        <entry key="..\:/Android/WlanDetektor/app/src/main/res/layout/fragment_datenschutz.xml" value="0.36723446893787576" />
+        <entry key="..\:/Android/WlanDetektor/app/src/main/res/layout/fragment_datenschutz.xml" value="0.23832070707070707" />
         <entry key="..\:/Android/WlanDetektor/app/src/main/res/layout/fragment_echtzeit_dialog.xml" value="0.36317048172189953" />
         <entry key="..\:/Android/WlanDetektor/app/src/main/res/layout/fragment_echtzeitmessung.xml" value="0.4" />
         <entry key="..\:/Android/WlanDetektor/app/src/main/res/layout/fragment_echtzeitmessung_dialog.xml" value="0.3109375" />
         <entry key="..\:/Android/WlanDetektor/app/src/main/res/layout/fragment_echtzeitmessung_dialog_item.xml" value="0.31145833333333334" />
         <entry key="..\:/Android/WlanDetektor/app/src/main/res/layout/fragment_fullscreen_bild.xml" value="0.37395833333333334" />
-        <entry key="..\:/Android/WlanDetektor/app/src/main/res/layout/fragment_home.xml" value="0.2" />
+        <entry key="..\:/Android/WlanDetektor/app/src/main/res/layout/fragment_haftungsausschluss.xml" value="0.3932291666666667" />
+        <entry key="..\:/Android/WlanDetektor/app/src/main/res/layout/fragment_home.xml" value="0.22" />
         <entry key="..\:/Android/WlanDetektor/app/src/main/res/layout/fragment_messung_hinzufuegen.xml" value="0.4276041666666667" />
-        <entry key="..\:/Android/WlanDetektor/app/src/main/res/layout/fragment_messungen.xml" value="0.2979683972911964" />
+        <entry key="..\:/Android/WlanDetektor/app/src/main/res/layout/fragment_messungen.xml" value="0.5444444444444444" />
         <entry key="..\:/Android/WlanDetektor/app/src/main/res/layout/fragment_namen_aendern.xml" value="0.38229166666666664" />
         <entry key="..\:/Android/WlanDetektor/app/src/main/res/layout/fragment_netzwerk.xml" value="0.3307291666666667" />
         <entry key="..\:/Android/WlanDetektor/app/src/main/res/layout/fragment_netzwerk_list.xml" value="0.3307291666666667" />
@@ -62,11 +73,11 @@
         <entry key="..\:/Android/WlanDetektor/app/src/main/res/layout/fragment_terms_conditions.xml" value="0.3796875" />
         <entry key="..\:/Android/WlanDetektor/app/src/main/res/layout/fragment_ueber_uns.xml" value="0.3796875" />
         <entry key="..\:/Android/WlanDetektor/app/src/main/res/layout/fragment_visu_full_screen_bild.xml" value="0.3776041666666667" />
-        <entry key="..\:/Android/WlanDetektor/app/src/main/res/layout/fragment_visualisierung.xml" value="0.1" />
+        <entry key="..\:/Android/WlanDetektor/app/src/main/res/layout/fragment_visualisierung.xml" value="0.33" />
         <entry key="..\:/Android/WlanDetektor/app/src/main/res/layout/gebauede_item.xml" value="0.31741573033707865" />
         <entry key="..\:/Android/WlanDetektor/app/src/main/res/layout/hilfe_button.xml" value="0.37604166666666666" />
-        <entry key="..\:/Android/WlanDetektor/app/src/main/res/layout/messpunkt_erfassungs_fragment.xml" value="0.18" />
-        <entry key="..\:/Android/WlanDetektor/app/src/main/res/layout/messpunkt_item.xml" value="0.33" />
+        <entry key="..\:/Android/WlanDetektor/app/src/main/res/layout/messpunkt_erfassungs_fragment.xml" value="0.5" />
+        <entry key="..\:/Android/WlanDetektor/app/src/main/res/layout/messpunkt_item.xml" value="0.67" />
         <entry key="..\:/Android/WlanDetektor/app/src/main/res/layout/messung_bearbeiten_fragment.xml" value="0.33" />
         <entry key="..\:/Android/WlanDetektor/app/src/main/res/layout/messung_hinzufuegen_fragment.xml" value="0.3328125" />
         <entry key="..\:/Android/WlanDetektor/app/src/main/res/layout/messung_item.xml" value="0.33" />
@@ -74,7 +85,7 @@
         <entry key="..\:/Android/WlanDetektor/app/src/main/res/layout/messungsnamen_aendern_fragment.xml" value="0.5" />
         <entry key="..\:/Android/WlanDetektor/app/src/main/res/layout/netzwerkliste_fragment.xml" value="0.3307291666666667" />
         <entry key="..\:/Android/WlanDetektor/app/src/main/res/layout/netzwerkwahl_item.xml" value="0.33125" />
-        <entry key="..\:/Android/WlanDetektor/app/src/main/res/layout/stockwerk_item.xml" value="0.1" />
+        <entry key="..\:/Android/WlanDetektor/app/src/main/res/layout/stockwerk_item.xml" value="0.33" />
         <entry key="..\:/Android/WlanDetektor/app/src/main/res/layout/visu_detail_fragment.xml" value="0.33" />
         <entry key="..\:/Android/WlanDetektor/app/src/main/res/layout/visu_item.xml" value="0.5" />
         <entry key="..\:/Android/WlanDetektor/app/src/main/res/layout/visualisierung__grid__fragment.xml" value="0.33125" />

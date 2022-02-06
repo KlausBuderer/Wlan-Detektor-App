@@ -11,6 +11,8 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
 import com.gruppe4.wlan_detektor.R
 import com.gruppe4.wlan_detektor.databinding.FragmentHomeBinding
+import com.gruppe4.wlan_detektor.ui.MessungVerwalten.MESSUNGLISTE_KONTEXT
+import com.gruppe4.wlan_detektor.ui.MessungVerwalten.MessungFragmentDirections
 
 class HomeFragment : Fragment(), View.OnClickListener {
 
@@ -39,7 +41,16 @@ class HomeFragment : Fragment(), View.OnClickListener {
         }
         binding.cvMessungVerwaltung.setOnClickListener {
             Navigation.findNavController(it)
-                .navigate(R.id.action_navigation_home_to_navigation_messung)
+                .navigate(R.id.action_navigation_home_to_messungHinzufuegen)
+        }
+
+        binding.cvMessungBearbeiten.setOnClickListener {
+            val action =
+                HomeFragmentDirections.actionNavigationHomeToMessungListeFragment(
+                    MESSUNGLISTE_KONTEXT.Bearbeiten.toString()
+                )
+
+            Navigation.findNavController(binding.root).navigate(action)
         }
 
         binding.cvVisualisierung.setOnClickListener {
@@ -48,6 +59,8 @@ class HomeFragment : Fragment(), View.OnClickListener {
 
             )
         }
+
+
 
         return root
     }

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/dark_background"
+    android:background="@drawable/home_background"
     android:tag="Echtzeitmessung"
     tools:context=".ui.Echtzeitmessung.EchtezeitmessungFragment">
 
@@ -12,205 +12,184 @@
         android:id="@+id/info_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:backgroundTint="?colorPrimary"
+        android:elevation="20dp"
+        android:padding="16dp"
+        app:cardCornerRadius="20dp"
+        app:layout_constrainedWidth="true"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_margin="16dp"
-        android:padding="16dp"
-        android:elevation="20dp"
-        app:cardCornerRadius="20dp">
+        app:layout_constraintWidth_max="700dp">
 
-            <androidx.constraintlayout.widget.ConstraintLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
 
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/card_background_dark_blue"
+            android:padding="16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+
+            <Button
+                android:id="@+id/netzwerkwahl"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:textSize="@dimen/_10sdp"
+                android:text="@string/button_netzwerkwahl_de"
+                android:textColor="@color/primaryTextColor"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.473"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                android:padding="16dp">
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/netzwerkInformationen"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:gravity="start|top"
+                android:text="@string/txt_netzwerknamen_de"
+                android:textSize="@dimen/text_margin"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/netzwerkwahl" />
+
+            <TextView
+                android:id="@+id/netzwerkInformationen2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:gravity="start|top"
+                android:text="@string/txt_macadresse_de"
+                android:textSize="@dimen/text_margin"
+                app:layout_constraintStart_toStartOf="@+id/netzwerkInformationen"
+                app:layout_constraintTop_toBottomOf="@+id/netzwerkInformationen" />
+
+            <TextView
+                android:id="@+id/tv_band"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/txt_Frequenz_de"
+                android:textSize="@dimen/text_margin"
+                app:layout_constraintLeft_toLeftOf="@id/netzwerkInformationen2"
+                app:layout_constraintTop_toBottomOf="@+id/netzwerkInformationen2" />
+
+            <TextView
+                android:id="@+id/netzwerkInformationen3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="start|top"
+                android:text="@string/txt_Hersteller_de"
+                android:textSize="@dimen/text_margin"
+                app:layout_constraintStart_toStartOf="@+id/tv_band"
+                app:layout_constraintTop_toBottomOf="@+id/tv_band" />
+
+            <TextView
+                android:id="@+id/tv_updownload"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/txt_link_speed"
+                android:textSize="@dimen/text_margin"
+                app:layout_constraintStart_toStartOf="@+id/netzwerkInformationen3"
+                app:layout_constraintTop_toBottomOf="@+id/netzwerkInformationen3" />
 
 
-                <Button
-                    android:id="@+id/netzwerkwahl"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginEnd="16dp"
-                    android:text="@string/button_netzwerkwahl_de"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.473"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+            <TextView
+                android:id="@+id/tv_ssid"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="-"
+                android:textSize="@dimen/text_margin"
+                app:layout_constraintBaseline_toBaselineOf="@+id/netzwerkInformationen"
+                app:layout_constraintStart_toStartOf="@+id/tv_mac" />
 
-                <TextView
-                    android:id="@+id/netzwerkInformationen"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="8dp"
-                    android:gravity="start|top"
-                    android:text="@string/txt_netzwerknamen_de"
-                    android:textSize="@dimen/text_margin"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.0"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/netzwerkwahl" />
+            <TextView
+                android:id="@+id/tv_mac"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="-"
+                android:textSize="@dimen/text_margin"
+                app:layout_constraintBaseline_toBaselineOf="@+id/netzwerkInformationen2"
+                app:layout_constraintStart_toEndOf="@+id/netzwerkInformationen2" />
 
-                <TextView
-                    android:id="@+id/netzwerkInformationen2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="2dp"
-                    android:textSize="@dimen/text_margin"
-                    android:gravity="start|top"
-                    android:text="@string/txt_macadresse_de"
-                    app:layout_constraintStart_toStartOf="@+id/netzwerkInformationen"
-                    app:layout_constraintTop_toBottomOf="@+id/netzwerkInformationen" />
+            <TextView
+                android:id="@+id/tv_frequenz"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="-"
+                android:textSize="@dimen/text_margin"
+                app:layout_constraintBaseline_toBaselineOf="@+id/tv_band"
+                app:layout_constraintStart_toStartOf="@+id/tv_mac" />
 
-                <TextView
-                    android:id="@+id/tv_band"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="@dimen/text_margin"
-                    android:text="@string/txt_Frequenz_de"
-                    app:layout_constraintLeft_toLeftOf="@id/netzwerkInformationen2"
-                    app:layout_constraintTop_toBottomOf="@+id/netzwerkInformationen2" />
-
-                <TextView
-                    android:id="@+id/netzwerkInformationen3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="@dimen/text_margin"
-                    android:gravity="start|top"
-                    android:text="@string/txt_Hersteller_de"
-                    app:layout_constraintStart_toStartOf="@+id/tv_band"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_band" />
-
-                <TextView
-                    android:id="@+id/tv_updownload"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="@dimen/text_margin"
-                    android:text="@string/txt_link_speed"
-                    app:layout_constraintStart_toStartOf="@+id/netzwerkInformationen3"
-                    app:layout_constraintTop_toBottomOf="@+id/netzwerkInformationen3" />
-
-                <TextView
-                    android:id="@+id/tv_upLoad"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="@dimen/text_margin"
-                    android:text="@string/txt_upload"
-                    app:layout_constraintStart_toStartOf="@+id/tv_updownload"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_updownload" />
-
-                <TextView
-                    android:id="@+id/tv_downLoad"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="@dimen/text_margin"
-                    android:text="@string/tv_download"
-                    app:layout_constraintStart_toStartOf="@+id/tv_upLoad"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_upLoad" />
-
-                <TextView
-                    android:id="@+id/tv_ssid"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="78dp"
-                    android:text="-"
-                    android:textSize="@dimen/text_margin"
-                    app:layout_constraintBaseline_toBaselineOf="@+id/netzwerkInformationen"
-                    app:layout_constraintStart_toEndOf="@+id/netzwerkInformationen" />
-
-                <TextView
-                    android:id="@+id/tv_mac"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="@dimen/text_margin"
-                    android:text="-"
-                    app:layout_constraintBaseline_toBaselineOf="@+id/netzwerkInformationen2"
-                    app:layout_constraintStart_toStartOf="@+id/tv_ssid" />
-
-                <TextView
-                    android:id="@+id/tv_frequenz"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="@dimen/text_margin"
-                    android:text="-"
-                    app:layout_constraintBaseline_toBaselineOf="@+id/tv_band"
-                    app:layout_constraintStart_toStartOf="@+id/tv_mac" />
-
-                <TextView
-                    android:id="@+id/tv_hersteller"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="@dimen/text_margin"
-                    android:text="-"
-                    app:layout_constraintBaseline_toBaselineOf="@+id/netzwerkInformationen3"
-                    app:layout_constraintStart_toStartOf="@+id/tv_frequenz" />
+            <TextView
+                android:id="@+id/tv_hersteller"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="-"
+                android:textSize="@dimen/text_margin"
+                app:layout_constraintBaseline_toBaselineOf="@+id/netzwerkInformationen3"
+                app:layout_constraintStart_toStartOf="@+id/tv_frequenz" />
 
 
-                <TextView
-                    android:id="@+id/tv_updownspeed"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="-"
-                    android:textSize="@dimen/text_margin"
-                    app:layout_constraintBaseline_toBaselineOf="@+id/tv_updownload"
-                    app:layout_constraintStart_toStartOf="@+id/tv_hersteller" />
-
-                <TextView
-                    android:id="@+id/tv_upload_value"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="-"
-                    android:textSize="@dimen/text_margin"
-                    app:layout_constraintBaseline_toBaselineOf="@+id/tv_upLoad"
-                    app:layout_constraintStart_toStartOf="@+id/tv_updownspeed" />
+            <TextView
+                android:id="@+id/tv_updownspeed"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="-"
+                android:textSize="@dimen/text_margin"
+                app:layout_constraintBaseline_toBaselineOf="@+id/tv_updownload"
+                app:layout_constraintStart_toStartOf="@+id/tv_hersteller" />
 
 
-                <TextView
-                    android:id="@+id/tv_download_value"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="-"
-                    android:textSize="@dimen/text_margin"
-                    app:layout_constraintBaseline_toBaselineOf="@+id/tv_downLoad"
-                    app:layout_constraintStart_toStartOf="@+id/tv_upload_value" />
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:elevation="20dp"
+        android:padding="24dp"
+        app:cardCornerRadius="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/info_layout"
-        android:layout_margin="16dp"
-        android:padding="24dp"
-        android:elevation="20dp"
-        app:cardCornerRadius="20dp">
+        app:layout_constrainedWidth="true"
+        app:layout_constraintWidth_max="700dp">
 
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/messung_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@drawable/card_background_dark_blue"
             android:padding="8dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/info_layout">
+
 
             <TextView
                 android:id="@+id/txt_pegel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
                 android:text="@string/txt_pegel_de"
-                android:textSize="20sp"
+                android:textSize="@dimen/untertitel_margin"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="@+id/pg_progressBar"
                 app:layout_constraintTop_toTopOf="parent" />
-
 
             <ProgressBar
                 android:id="@+id/pg_progressBar"
@@ -235,6 +214,7 @@
                 android:layout_marginTop="20dp"
                 android:text="@string/txt_signalstaerke_titel_de"
                 android:textStyle="bold"
+                android:textSize="@dimen/text_margin"
                 app:layout_constraintStart_toStartOf="@+id/pg_progressBar"
                 app:layout_constraintTop_toBottomOf="@+id/pg_progressBar" />
 
@@ -244,6 +224,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
                 android:text="-50 dB"
+                android:textSize="@dimen/text_margin"
                 app:layout_constraintBaseline_toBaselineOf="@+id/tv_signalstaerke_titel"
                 app:layout_constraintStart_toEndOf="@+id/tv_signalstaerke_titel" />
 
@@ -263,6 +244,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
+                android:textSize="@dimen/text_margin"
                 android:text="@string/txt_tonhoehe_de"
                 app:layout_constraintStart_toStartOf="@+id/tv_signalstaerke_titel"
                 app:layout_constraintTop_toBottomOf="@+id/tv_signalstaerke_titel" />
@@ -293,7 +275,7 @@
                 android:textAppearance="@style/TextAppearance.AppCompat.Small"
                 android:textOff="@string/txt_stoppen"
                 android:textOn="@string/txt_starten"
-                android:textSize="16sp"
+                android:textSize="@dimen/untertitel_margin"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"

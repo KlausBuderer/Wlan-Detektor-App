@@ -26,11 +26,9 @@ class MesspunktVisuAdapter(private val messpunktListe: List<TblMesspunkt>
             View.OnClickListener {
             fun bindItem(messpunkt: TblMesspunkt, application: Application){
                 itemBinding.tvRaumName.text = messpunkt.raumname
-                itemBinding.tvGebaeude.text = messpunkt.gebaeude
-                itemBinding.tvStockwerk.text = application.resources.getStringArray(R.array.stockwerk_array)[messpunkt.stockwerkID]
+                itemBinding.tvZusatzinfo.text = messpunkt.zusatzinformation
                 itemBinding.tvSignal.text = messpunkt.pegelmessung.toString() + " db"
                 itemBinding.pgProgressBar.progress = messpunkt.pegelmessung
-                //itemBinding.pgProgressBar.progressTintList = ColorStateList.valueOf(netzwerkInfo.progressBarFarbeEinstellen(messpunkt.pegelmessung))
 
             }
             init{

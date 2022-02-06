@@ -1,4 +1,4 @@
-package com.gruppe4.wlan_detektor
+package com.gruppe4.wlan_detektor.ui.Visualisierung
 
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
@@ -8,9 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.navArgs
-import com.gruppe4.wlan_detektor.databinding.FragmentEchtzeitmessungBinding
 import com.gruppe4.wlan_detektor.databinding.FragmentVisuFullScreenBildBinding
-import com.gruppe4.wlan_detektor.databinding.VisuDetailFragmentBinding
 import java.io.File
 
 

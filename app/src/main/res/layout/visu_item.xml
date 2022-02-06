@@ -17,13 +17,13 @@
         android:layout_marginBottom="5dp"
         android:maxWidth="55dp"
         app:cardCornerRadius="12dp"
-        app:cardElevation="8dp"
-        app:contentPadding="4dp">
+        app:cardElevation="8dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="10dp">
+            android:padding="10dp"
+            android:background="@drawable/card_background_dark_blue">
 
             <TextView
                 android:id="@+id/tv_raum_name"
@@ -36,22 +36,12 @@
                 app:layout_constraintTop_toTopOf="parent"></TextView>
 
             <TextView
-                android:id="@+id/tv_gebaeude"
+                android:id="@+id/tv_zusatzinfo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Gebaeude"
+                android:text="Zusatzinformation"
                 app:layout_constraintStart_toStartOf="@+id/tv_raum_name"
                 app:layout_constraintTop_toBottomOf="@id/tv_raum_name">
-
-            </TextView>
-
-            <TextView
-                android:id="@+id/tv_stockwerk"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Stockwerk"
-                app:layout_constraintStart_toStartOf="@+id/tv_raum_name"
-                app:layout_constraintTop_toBottomOf="@id/tv_gebaeude">
 
             </TextView>
 
@@ -61,7 +51,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/txt_signalstaerke_titel_de"
                 app:layout_constraintStart_toStartOf="@+id/tv_raum_name"
-                app:layout_constraintTop_toBottomOf="@id/tv_stockwerk">
+                app:layout_constraintTop_toBottomOf="@id/tv_zusatzinfo">
 
             </TextView>
 
@@ -70,11 +60,14 @@
                 style="?android:attr/progressBarStyleHorizontal"
                 android:layout_width="120dp"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="4dp"
                 android:max="-40"
                 android:min="-110"
                 android:progress="-40"
                 android:progressDrawable="@drawable/progressbar_shape"
-                app:layout_constraintStart_toStartOf="@+id/tv_stockwerk"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/tv_zusatzinfo"
                 app:layout_constraintTop_toBottomOf="@+id/tv_signal" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
