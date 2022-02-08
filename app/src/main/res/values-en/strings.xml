@@ -8,7 +8,7 @@
     <string name="title_visualisierung_de">Visualization</string>
     <string name="txt_netzwerknamen_de">SSID</string>
     <string name="txt_macadresse_de">MAC Address</string>
-    <string name="txt_Frequenz_de">Band</string>
+    <string name="txt_Frequenz_de">Range</string>
     <string name="txt_Hersteller_de">Manufacturer</string>
     <string name="txt_Sicherheittyp_de">Security type:</string>
     <string name="txt_max_upload_de">Up/Download:</string>
@@ -78,8 +78,8 @@
     <string name="txt_bitte_auswaehlen">Please choose</string>
     <string name="txt_messung_loeschen">Delete measurement</string>
     <string name="txt_ausgewaehlteMessung">Selected measurement</string>
-    <string name="txt_bild_einfügen">Bild einfügen</string>
-    <string name="wlan_netzwerk">Wlan Netzwerk:</string>
+    <string name="txt_bild_einfügen">Insert image</string>
+    <string name="wlan_netzwerk">Wifi network:</string>
     <string name="txt_messpunkt_hinzufuegen">Messpunkt hinzufügen</string>
     <string name="txt_stockwerk_wählen">select the floor of the measuring point</string>
     <string name="txt_namen_bereits_vergeben">Namen bereits vergeben</string>

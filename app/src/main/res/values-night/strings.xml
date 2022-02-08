@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="wlan_netzwerk">Wlan Netzwerk:</string>
-    <string name="txt_messpunkt_hinzufuegen">Messpunkt hinzufügen</string>
+    <string name="wlan_netzwerk">Wifi network:</string>
+    <string name="txt_messpunkt_hinzufuegen">Add measurement point</string>
     <string name="txt_hint_max_20_Zeichen">maximum 20 characters</string>
     <string name="txt_stockwerk_wählen">select the floor of the measuring point</string>
     <string name="txt_namen_bereits_vergeben">Name already used</string>
