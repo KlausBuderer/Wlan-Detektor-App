@@ -186,4 +186,5 @@
     <string name="txt_verwalte_deine_messungen">Verwalte deine Messungen</string>
     <string name="txt_prefix_stockwerk">Stockwerk:</string>
     <string name="tv_prefix_gebauede">Gebäude:</string>
+    <string name="txt_startseite">Messe die Signalstärke \n deines Wlan Netzwerks"</string>
 </resources>
