@@ -8,7 +8,7 @@
     <string name="title_visualisierung_de">Visualization</string>
     <string name="txt_netzwerknamen_de">SSID</string>
     <string name="txt_macadresse_de">MAC Address</string>
-    <string name="txt_Frequenz_de">Band</string>
+    <string name="txt_Frequenz_de">Range</string>
     <string name="txt_Hersteller_de">Manufacturer</string>
     <string name="txt_Sicherheittyp_de">Security type:</string>
     <string name="txt_max_upload_de">Up/Download:</string>
@@ -75,19 +75,18 @@
     <string name="txt_bitte_auswaehlen">Please choose</string>
     <string name="txt_messung_loeschen">Delete measurement</string>
     <string name="txt_ausgewaehlteMessung">Selected measurement</string>
-    <string name="txt_bild_einfügen">Bild einfügen</string>
-    <string name="wlan_netzwerk">Wlan Netzwerk:</string>
+    <string name="txt_bild_einfügen">Insert image</string>
+    <string name="wlan_netzwerk">Wifi network:</string>
     <string name="txt_messpunkt_hinzufuegen">Messpunkt hinzufügen</string>
-    <string name="txt_hint_max_20_Zeichen">maximal 20 Zeichen</string>
-    <string name="txt_stockwerk_wählen">wähle das Stockwerk des Messpunktes</string>
+    <string name="txt_stockwerk_wählen">select the floor of the measuring point</string>
     <string name="txt_namen_bereits_vergeben">Namen bereits vergeben</string>
-    <string name="title_messungen_verwalten">Messungen verwalten</string>
-    <string name="txt_beschreibung_der_echzeitmessung">Beschreibung der Echzeitmessung</string>
-    <string name="txt_wlan_anmeldung">1. Wlan Anmeldung</string>
+    <string name="title_messungen_verwalten">Manage measurements</string>
+    <string name="txt_beschreibung_der_echzeitmessung">Description of the real time measurement</string>
+    <string name="txt_wlan_anmeldung">1. Wifi login</string>
     <string name="txt_ueber_uns">About us</string>
-    <string name="txt_loeschen">Löschen</string>
-    <string name="txt_aktueller_name">Aktueller name:</string>
-    <string name="txt_neuer_messungsname">neuer Messungsname</string>
+    <string name="txt_loeschen">Delete</string>
+    <string name="txt_aktueller_name">Current name:</string>
+    <string name="txt_neuer_messungsname">new measurement name</string>
     <string name="messungsname_aendern">Messungsname ändern</string>
     <string name="disclaimer">Disclaimer</string>
     <string name="txt_datenschutzerklaerung">Privacy policy</string>
@@ -213,23 +212,28 @@
 "If you have any questions about this Privacy Policy, You can contact us:\n"
 "<li><b>By email:</b> wlandetektor@it-wissen.ch</li>"
     </string>
-    <string name="txt_gebaeude_prefix">Gebäude:</string>
-    <string name="txt_stockwerk_prefix">Stockwerk:</string>
-    <string name="txt_zusatzinfo_prefix">Zusatzinfo:</string>
-    <string name="txt_erstellungszeit_prefix">Erstellungszeit:</string>
-    <string name="txt_erstellung_prefix">Erstellung:</string>
-    <string name="txt_pegelmessung_titel">Pegelmessung</string>
-    <string name="txt_aenderung">Änderung:</string>
-    <string name="txt_keine_messpunkte_angelegt">Es wurden noch keine Messpunkte angelegt</string>
-    <string name="keine_messungen_angelegt">Es wurden noch keine Messungen angelegt</string>
+    <string name="txt_gebaeude_prefix">Building:</string>
+    <string name="txt_stockwerk_prefix">Floor:</string>
+    <string name="txt_zusatzinfo_prefix">Additional info</string>
+    <string name="txt_erstellungszeit_prefix">Creation time</string>
+    <string name="txt_erstellung_prefix">Creation:</string>
+    <string name="txt_aenderung">Change:</string>
+    <string name="txt_keine_messpunkte_angelegt">"No measuring points have been created yet "</string>
+    <string name="keine_messungen_angelegt">No measurements have been created yet</string>
     <string name="txt_link_speed">Link Speed</string>
     <string name="txt_upload">Upload</string>
     <string name="tv_download">Download</string>
-    <string name="txt_eue_messung_erstellen">Neue Messung Erstellen</string>
 
-    <string name="txt_verwalte_deine_messungen">Verwalte deine Messungen</string>
-    <string name="txt_prefix_stockwerk">Stockwerk:</string>
-    <string name="tv_prefix_gebauede">Gebäude:</string>
+
     <string name="txt_untertitel_2_echtzeitmessung">2. Messung beobachten, stoppen und starten</string>
+
+    <string name="txt_eue_messung_erstellen">Create new measurement</string>
+    <string name="txt_verwalte_deine_messungen">Manage your measurements</string>
+    <string name="txt_prefix_stockwerk">Floor:</string>
+    <string name="tv_prefix_gebauede">Building:</string>
+    <string name="txt_pegelmessung_titel">Level measurement</string>
+    <string name="txt_hint_max_20_Zeichen">Maximum 20 characters</string>
+    <string name="txt_startseite">Measure the signal strength \n of your wifi network</string>
+
 
 </resources>
