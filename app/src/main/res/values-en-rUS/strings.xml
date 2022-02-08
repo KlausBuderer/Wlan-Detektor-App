@@ -77,18 +77,17 @@
     <string name="txt_ausgewaehlteMessung">Selected measurement</string>
     <string name="txt_bild_einfügen">Insert image</string>
     <string name="wlan_netzwerk">Wifi network:</string>
-    <string name="txt_messpunkt_hinzufuegen">Add measurement point</string>
-    <string name="txt_hint_max_20_Zeichen">maximum 20 characters</string>
+    <string name="txt_messpunkt_hinzufuegen">Messpunkt hinzufügen</string>
     <string name="txt_stockwerk_wählen">select the floor of the measuring point</string>
-    <string name="txt_namen_bereits_vergeben">Name already used</string>
+    <string name="txt_namen_bereits_vergeben">Namen bereits vergeben</string>
     <string name="title_messungen_verwalten">Manage measurements</string>
-    <string name="txt_beschreibung_der_echzeitmessung">Beschreibung der Echzeitmessung</string>
+    <string name="txt_beschreibung_der_echzeitmessung">Description of the real time measurement</string>
     <string name="txt_wlan_anmeldung">1. Wifi login</string>
     <string name="txt_ueber_uns">About us</string>
     <string name="txt_loeschen">Delete</string>
     <string name="txt_aktueller_name">Current name:</string>
     <string name="txt_neuer_messungsname">new measurement name</string>
-    <string name="messungsname_aendern">Change measurement name</string>
+    <string name="messungsname_aendern">Messungsname ändern</string>
     <string name="disclaimer">Disclaimer</string>
     <string name="txt_datenschutzerklaerung">Privacy policy</string>
     <string name="txt_beschreibung_bruno">Students of the ABB Technical School Post-graduate studies Software Engineer</string>
@@ -215,10 +214,9 @@
     </string>
     <string name="txt_gebaeude_prefix">Building:</string>
     <string name="txt_stockwerk_prefix">Floor:</string>
-    <string name="txt_zusatzinfo_prefix">Additional info:</string>
+    <string name="txt_zusatzinfo_prefix">Additional info</string>
     <string name="txt_erstellungszeit_prefix">Creation time</string>
     <string name="txt_erstellung_prefix">Creation:</string>
-    <string name="txt_pegelmessung_titel">Level measurement</string>
     <string name="txt_aenderung">Change:</string>
     <string name="txt_keine_messpunkte_angelegt">"No measuring points have been created yet "</string>
     <string name="keine_messungen_angelegt">No measurements have been created yet</string>
@@ -226,8 +224,9 @@
     <string name="txt_upload">Upload</string>
     <string name="tv_download">Download</string>
     <string name="txt_eue_messung_erstellen">Create new measurement</string>
-
     <string name="txt_verwalte_deine_messungen">Manage your measurements</string>
     <string name="txt_prefix_stockwerk">Floor:</string>
     <string name="tv_prefix_gebauede">Building:</string>
+    <string name="txt_pegelmessung_titel">Level measurement</string>
+    <string name="txt_hint_max_20_Zeichen">Maximum 20 characters</string>
 </resources>

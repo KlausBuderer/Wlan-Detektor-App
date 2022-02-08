@@ -12,13 +12,10 @@
     <string name="txt_Hersteller_de">Manufacturer</string>
     <string name="txt_Sicherheittyp_de">Security type:</string>
     <string name="txt_max_upload_de">Up/Download:</string>
-
-    <string name="txt_decibel_de">dB</string>
-
-
     <string name="txt_pegel_de">Up/Download</string>
-
-
+    <string name="txt_decibel_de">dB</string>
+    <string name="txt_signalstaerke_titel_de">signal strength</string>
+    <string name="txt_tonhoehe_de">pitch</string>
     <string name="btn_start_de">Start</string>
     <string name="txt_messung_neu_namen_de">Name of measurement</string>
     <string name="btn_netzwerk_anmelden_de">network login</string>
@@ -83,7 +80,7 @@
     <string name="txt_messpunkt_hinzufuegen">Messpunkt hinzufügen</string>
     <string name="txt_stockwerk_wählen">select the floor of the measuring point</string>
     <string name="txt_namen_bereits_vergeben">Namen bereits vergeben</string>
-    <string name="title_messungen_verwalten">Messungen verwalten</string>
+    <string name="title_messungen_verwalten">Manage measurements</string>
     <string name="txt_beschreibung_der_echzeitmessung">Description of the real time measurement</string>
     <string name="txt_wlan_anmeldung">1. Wifi login</string>
     <string name="txt_ueber_uns">About us</string>
@@ -217,14 +214,12 @@
     </string>
     <string name="txt_gebaeude_prefix">Building:</string>
     <string name="txt_stockwerk_prefix">Floor:</string>
-    <string name="txt_zusatzinfo_prefix">Additional info:</string>
+    <string name="txt_zusatzinfo_prefix">Additional info</string>
     <string name="txt_erstellungszeit_prefix">Creation time</string>
     <string name="txt_erstellung_prefix">Creation:</string>
-    <string name="txt_pegelmessung_titel">Pegelmessung</string>
     <string name="txt_aenderung">Change:</string>
-
     <string name="txt_keine_messpunkte_angelegt">"No measuring points have been created yet "</string>
-    <string name="keine_messungen_angelegt">"No measuring points have been created yet "</string>
+    <string name="keine_messungen_angelegt">No measurements have been created yet</string>
     <string name="txt_link_speed">Link Speed</string>
     <string name="txt_upload">Upload</string>
     <string name="tv_download">Download</string>
@@ -232,8 +227,6 @@
     <string name="txt_verwalte_deine_messungen">Manage your measurements</string>
     <string name="txt_prefix_stockwerk">Floor:</string>
     <string name="tv_prefix_gebauede">Building:</string>
-    <string name="txt_tonhoehe_de">pitch</string>
-    <string name="txt_signalstaerke_titel_de">signal strength</string>
-    <string name="txt_hint_max_20_Zeichen">maximum 20 characters</string>
-
+    <string name="txt_pegelmessung_titel">Level measurement</string>
+    <string name="txt_hint_max_20_Zeichen">Maximum 20 characters</string>
 </resources>
