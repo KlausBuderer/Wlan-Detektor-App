@@ -79,7 +79,7 @@
     <string name="txt_messpunkt_hinzufuegen">Messpunkt hinzufügen</string>
     <string name="txt_hint_max_20_Zeichen">maximal 20 Zeichen</string>
     <string name="txt_stockwerk_wählen">wähle das Stockwerk des Messpunktes</string>
-    <string name="txt_namen_bereits_vergeben">Name bereits vergeben</string>
+    <string name="txt_namen_bereits_vergeben">Name bereits verwendet</string>
     <string name="title_messungen_verwalten">Messungen verwalten</string>
     <string name="txt_beschreibung_der_echzeitmessung">Beschreibung der Echzeitmessung</string>
     <string name="txt_wlan_anmeldung">1. Wlan Anmeldung</string>
@@ -127,8 +127,8 @@
 "Wenn Sie Fragen zu diesem Haftungsausschluss haben, können Sie uns kontaktieren\n:"
 "<li>Per E-Mail: wlandetektor@it-wissen.ch</li>"
     </string>
-    <string name="txt_gebaeude_prefix">Gebäude:</string>
-    <string name="txt_stockwerk_prefix">Stockwerk:</string>
+    <string name="txt_gebaeude_prefix">Building:</string>
+    <string name="txt_stockwerk_prefix">Floor:</string>
     <string name="txt_zusatzinfo_prefix">Zusatzinfo:</string>
     <string name="txt_erstellungszeit_prefix">Erstellungszeit:</string>
     <string name="txt_erstellung_prefix">Erstellung:</string>
@@ -186,6 +186,6 @@
 
     <string name="txt_verwalte_deine_messungen">Verwalte deine Messungen</string>
     <string name="txt_prefix_stockwerk">Stockwerk:</string>
-    <string name="tv_prefix_gebauede">Gebauede:</string>
+    <string name="tv_prefix_gebauede">Building:</string>
 
 </resources>
