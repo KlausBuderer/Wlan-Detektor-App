@@ -16,6 +16,11 @@
     <string name="disclaimer">Disclaimer</string>
     <string name="txt_datenschutzerklaerung">Privacy policy</string>
     <string name="txt_beschreibung_bruno">Students of the ABB Technical School Post-graduate studies Software Engineer</string>
+
+
+    <string name="txt_aenderung">Änderung:</string>
+    <string name="txt_untertitel_2_echtzeitmessung">2. Messung beobachten, stoppen und starten</string>
+
     <string name="txt_gebaeude_prefix">Building:</string>
     <string name="txt_stockwerk_prefix">Floor:</string>
     <string name="txt_zusatzinfo_prefix">Additional info:</string>
@@ -25,4 +30,5 @@
     <string name="txt_keine_messpunkte_angelegt">"No measuring points have been created yet "</string>
     <string name="keine_messungen_angelegt">No measurements have been created yet</string>
     <string name="tv_prefix_gebauede">Building:</string>
+
 </resources>

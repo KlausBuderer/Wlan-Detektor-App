@@ -1,34 +1,22 @@
 package com.gruppe4.wlan_detektor.ui.MessungVerwalten
 
 import android.app.Application
-import android.content.res.ColorStateList
-import android.net.wifi.ScanResult
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.gruppe4.wlan_detektor.R
 import com.gruppe4.wlan_detektor.databinding.MesspunktItemBinding
 import com.gruppe4.wlan_detektor.model.Datenbank.Entitaeten.TblMesspunkt
-import com.gruppe4.wlan_detektor.model.Netzwerk.NetzwerkInfo
-import com.gruppe4.wlan_detektor.ui.MesspunktListe
-import com.gruppe4.wlan_detektor.ui.MesspunktListe.messpunktListe
-
 
 class MesspunktBearbeitenAdapter(private val messpunktListe: List<TblMesspunkt>?
                               , private val listener: OnItemClickListener
                               , private val application: Application)
         : RecyclerView.Adapter<MesspunktBearbeitenAdapter.NetzViewHolder>() {
 
-    private val netzwerkInfo = NetzwerkInfo(application)
-
-
         inner class NetzViewHolder(val itemBinding: MesspunktItemBinding):
             RecyclerView.ViewHolder(itemBinding.root),
             View.OnClickListener {
-
-
 
             fun bindItem(messpunkt: TblMesspunkt, application: Application){
                 itemBinding.tvRaumName.text = messpunkt.raumname

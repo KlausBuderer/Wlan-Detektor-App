@@ -9,11 +9,12 @@
 
     <TextView
         android:id="@+id/tv_Messungsname"
-        style="@style/TextAppearance.AppCompat.Display2"
+        style="@style/TextAppearance.AppCompat.Display1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:text="Messungstitel"
+        android:lines="1"
         android:textColor="@color/primaryTextColor"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

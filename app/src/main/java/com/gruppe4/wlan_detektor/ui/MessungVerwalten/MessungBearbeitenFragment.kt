@@ -89,8 +89,8 @@ class MessungBearbeitenFragment : Fragment(), MesspunktBearbeitenAdapter.OnItemC
 
         viewModel.messpunkte.observe(viewLifecycleOwner, Observer {
             messpunktsListe = it
-            val adapter = MesspunktBearbeitenAdapter(messpunktsListe, this, requireActivity().application)
 
+            val adapter = MesspunktBearbeitenAdapter(messpunktsListe, this, requireActivity().application)
             binding?.rvMesspunktliste?.adapter = adapter
 
             var count = it.size
@@ -144,13 +144,9 @@ class MessungBearbeitenFragment : Fragment(), MesspunktBearbeitenAdapter.OnItemC
         if (action != null) {
             Navigation.findNavController(binding.root).navigate(action)
         }
-
     }
 
     override fun onResume() {
         super.onResume()
-
-
-
     }
 }

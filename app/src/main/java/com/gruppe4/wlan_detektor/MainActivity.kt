@@ -26,6 +26,14 @@ import com.gruppe4.wlan_detektor.databinding.ActivityMainBinding
 import com.gruppe4.wlan_detektor.model.Datenbank.RepositoryDb
 import com.gruppe4.wlan_detektor.model.Datenbank.WlanDetektorDb
 import com.gruppe4.wlan_detektor.ui.Echtzeitmessung.EchtezeitmessungFragment
+import com.gruppe4.wlan_detektor.ui.Echtzeitmessung.EchtezeitmessungFragmentDirections
+import com.gruppe4.wlan_detektor.ui.MessungVerwalten.*
+import com.gruppe4.wlan_detektor.ui.Startseite.HomeFragmentDirections
+import com.gruppe4.wlan_detektor.ui.Utility.DIALOG_KONTEXT
+import com.gruppe4.wlan_detektor.ui.Utility.DIALOG_KONTEXT.*
+import com.gruppe4.wlan_detektor.ui.Visualisierung.VisuDetailFragmentDirections
+import com.gruppe4.wlan_detektor.ui.Visualisierung.VisualisierungFragmentDirections
+import com.gruppe4.wlan_detektor.ui.Visualisierung.Visualisierung_Grid_FragmentDirections
 import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.launch
 
@@ -122,9 +130,69 @@ class MainActivity : AppCompatActivity() {
 
     fun callHilfeDialog(fragment: Int){
         when(fragment){
+
             R.id.navigation_echtzeitmessung ->
                 findNavController(R.id.nav_host_fragment_activity_main).navigate(
-                    R.id.action_navigation_echtzeitmessung_to_echtzeitDialogFragment)
+                    EchtezeitmessungFragmentDirections.
+                    actionNavigationEchtzeitmessungToEchtzeitDialogFragment(ECHTZEITMESSUNG)
+                    )
+
+            R.id.navigation_messung ->
+                findNavController(R.id.nav_host_fragment_activity_main).navigate(
+                    MessungFragmentDirections.
+                    actionNavigationMessungToEchtzeitDialogFragment(MESSUNG_VERWALTEN)
+                   )
+
+            R.id.messungListeFragment ->
+                findNavController(R.id.nav_host_fragment_activity_main).navigate(
+                    MessungListeFragmentDirections.
+                    actionMessungListeFragmentToEchtzeitDialogFragment(MESSUGSLISTE)
+                )
+
+            R.id.messungBearbeitenFragment ->
+                findNavController(R.id.nav_host_fragment_activity_main).navigate(
+                    MessungBearbeitenFragmentDirections.actionMessungBearbeitenFragmentToEchtzeitDialogFragment(MESSUNG_BEARBEITEN)
+                )
+
+            R.id.messungHinzufuegen->
+                findNavController(R.id.nav_host_fragment_activity_main).navigate(
+                    MessungHinzufuegenDirections.
+                    actionMessungHinzufuegenToEchtzeitDialogFragment(MESSUNG_HINZUFUEGEN)
+                )
+
+            R.id.messpunktErfassungsFragment->
+                findNavController(R.id.nav_host_fragment_activity_main).navigate(
+                    MesspunktErfassungsFragmentDirections.
+                    actionMesspunktErfassungsFragmentToEchtzeitDialogFragment(MESSPUNKT_ERFASSEN)
+                )
+
+            R.id.navigation_home ->
+            findNavController(R.id.nav_host_fragment_activity_main).navigate(
+                    HomeFragmentDirections.
+                    actionNavigationHomeToEchtzeitDialogFragment(HOME)
+                )
+
+            R.id.navigation_Visualisierung ->
+                findNavController(R.id.nav_host_fragment_activity_main).navigate(
+                    VisualisierungFragmentDirections.
+                    actionNavigationVisualisierungToEchtzeitDialogFragment(VISUALISIERUNG_GRID)
+                )
+
+            R.id.visualisierung_Grid_Fragment->
+                findNavController(R.id.nav_host_fragment_activity_main).navigate(
+                    Visualisierung_Grid_FragmentDirections.
+                    actionVisualisierungGridFragmentToEchtzeitDialogFragment(VISUALISIERUNG_GRID)
+                )
+
+            R.id.visuDetailFragment->
+                findNavController(R.id.nav_host_fragment_activity_main).navigate(
+                    VisuDetailFragmentDirections.
+                    actionVisuDetailFragmentToEchtzeitDialogFragment(VISUALISIERUNG_DETAIL)
+                )
+
+
+
+
         }
     }
 
