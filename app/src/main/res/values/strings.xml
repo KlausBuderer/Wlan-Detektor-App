@@ -229,4 +229,6 @@
     <string name="tv_prefix_gebauede">Building:</string>
     <string name="txt_pegelmessung_titel">Level measurement</string>
     <string name="txt_hint_max_20_Zeichen">Maximum 20 characters</string>
+    <string name="txt_startseite">Measure the signal strength \n of your wifi network</string>
+
 </resources>
