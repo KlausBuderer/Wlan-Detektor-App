@@ -224,12 +224,9 @@
     <string name="txt_upload">Upload</string>
     <string name="tv_download">Download</string>
     <string name="txt_eue_messung_erstellen">Create new measurement</string>
-
     <string name="txt_verwalte_deine_messungen">Manage your measurements</string>
     <string name="txt_prefix_stockwerk">Floor:</string>
     <string name="tv_prefix_gebauede">Building:</string>
     <string name="txt_pegelmessung_titel">Level measurement</string>
-    <string name="txt_aenderung">Change:</string>
     <string name="txt_hint_max_20_Zeichen">Maximum 20 characters</string>
-
 </resources>
