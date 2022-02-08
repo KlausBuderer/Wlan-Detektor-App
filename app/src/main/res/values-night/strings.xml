@@ -26,4 +26,5 @@
     <string name="txt_keine_messpunkte_angelegt">Es wurden noch keine Messpunkte angelegt</string>
     <string name="keine_messungen_angelegt">Es wurden noch keine Messungen angelegt</string>
     <string name="tv_prefix_gebauede">Gebäude:</string>
+    <string name="txt_untertitel_2_echtzeitmessung">2. Messung beobachten, stoppen und starten</string>
 </resources>

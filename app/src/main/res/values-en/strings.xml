@@ -233,5 +233,6 @@
     <string name="txt_verwalte_deine_messungen">Verwalte deine Messungen</string>
     <string name="txt_prefix_stockwerk">Stockwerk:</string>
     <string name="tv_prefix_gebauede">Gebauede:</string>
+    <string name="txt_untertitel_2_echtzeitmessung">2. Messung beobachten, stoppen und starten</string>
 
 </resources>
