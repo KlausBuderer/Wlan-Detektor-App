@@ -224,6 +224,7 @@
     <string name="txt_upload">Upload</string>
     <string name="tv_download">Download</string>
 
+
     <string name="txt_eue_messung_erstellen">Create new measurement</string>
     <string name="txt_verwalte_deine_messungen">Manage your measurements</string>
     <string name="txt_prefix_stockwerk">Floor:</string>
@@ -231,5 +232,12 @@
     <string name="txt_pegelmessung_titel">Level measurement</string>
     <string name="txt_hint_max_20_Zeichen">Maximum 20 characters</string>
     <string name="txt_startseite">Measure the signal strength \n of your wifi network</string>
+    <string name="txt_verwalte_deine_messungen">Verwalte deine Messungen</string>
+    <string name="txt_untertitel_2_echtzeitmessung">2. Messung beobachten, stoppen und starten</string>
+    <string name="txt_messung_loeschen_text">Soll die Messung gelöscht werden?</string>
+    <string name="txt_berechtigung_text">Um die Informationen des Wlan Routers auslesen zu können muss die Lokalisierung erlaubt werden.</string>
+    <string name="txt_berechtigung_titel">Berechtigung</string>
+    <string name="txt_messpunkt_loeschen">Soll der Messpunkt gelöscht werden?</string>
+    <string name="txt_messungsliste">Messungsliste</string>
 
 </resources>

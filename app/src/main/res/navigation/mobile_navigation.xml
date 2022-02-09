@@ -59,7 +59,7 @@
     <fragment
         android:id="@+id/navigation_Visualisierung"
         android:name="com.gruppe4.wlan_detektor.ui.Visualisierung.VisualisierungFragment"
-        android:label="@string/title_messungen_de"
+        android:label="@string/title_visualisierung_de"
         tools:layout="@layout/fragment_visualisierung" >
         <action
             android:id="@+id/action_navigation_Visualisierung_to_visualisierung_Grid_Fragment"

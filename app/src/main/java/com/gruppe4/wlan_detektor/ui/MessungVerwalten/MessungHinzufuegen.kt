@@ -4,6 +4,7 @@ import android.Manifest
 import android.content.ActivityNotFoundException
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.graphics.drawable.ColorDrawable
 import android.net.Uri
 import android.net.wifi.SupplicantState
 import android.net.wifi.WifiInfo
@@ -54,6 +55,7 @@ class MessungHinzufuegen : Fragment() {
         val raeume = resources.getStringArray(R.array.raeumlichkeiten_array)
         val arrayAdapter = ArrayAdapter(requireActivity(), R.layout.dropdown_item, raeume)
         binding.autoCompleteTextView.setAdapter(arrayAdapter)
+        binding.autoCompleteTextView.setDropDownBackgroundDrawable(resources.getDrawable(R.drawable.dropdown_background))
         viewModel.startUpdateCoroutine()
 
         //Pruefen ob die Berechtigung vorhanden ist
@@ -67,6 +69,7 @@ class MessungHinzufuegen : Fragment() {
             builder.setMessage("Um die Informationen des Wlan Routers auslesen zu können muss die Lokalisierung erlaubt werden.")
             //Dialog Icon
             builder.setIcon(android.R.drawable.ic_dialog_alert)
+
 
             //Ja Button
             builder.setPositiveButton("Einstellungen") { dialogInterface, which ->
@@ -93,6 +96,7 @@ class MessungHinzufuegen : Fragment() {
             // Erstellen des Dialogs
             val alertDialog: AlertDialog = builder.create()
             // Set other dialog properties
+            alertDialog.window?.setBackgroundDrawable(ColorDrawable(resources.getColor(R.color.white)))
             alertDialog.setCancelable(false)
             alertDialog.show()
 

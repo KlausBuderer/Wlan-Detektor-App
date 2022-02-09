@@ -1,5 +1,8 @@
 package com.gruppe4.wlan_detektor.ui.MessungVerwalten
 
+import android.app.Dialog
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import android.util.Log
@@ -119,6 +122,7 @@ class MessungBearbeitenFragment : Fragment(), MesspunktBearbeitenAdapter.OnItemC
                 Log.e("Messungsnamen aendern", "Navigition Namenaendern nicht gefunden")
 
             }
+
         }
 
 

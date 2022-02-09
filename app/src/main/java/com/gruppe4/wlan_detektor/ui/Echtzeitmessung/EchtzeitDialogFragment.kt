@@ -62,6 +62,123 @@ class EchtzeitDialogFragment : BottomSheetDialogFragment(), HilfeAdapter.OnItemC
 
             hilfeListe = listOf(hilfe)
         }
+
+        if (args.kontext == DIALOG_KONTEXT.MESSUNG_VERWALTEN){
+
+            val uri1 = Uri.parse("android.resource://" + requireActivity().packageName + "/" + R.raw.netzwahl)
+            val uri2 = Uri.parse("android.resource://" + requireActivity().packageName + "/" + R.raw.messung)
+
+            val hilfe = Hilfe(uri1,resources.getString(R.string.txt_wlan_anmeldung),"So wählen sie ihr Netzwerk")
+
+            binding.title.text = getString(R.string.txt_verwalte_deine_messungen)
+            binding.beschreibung.text = getString(R.string.txt_beschreibung_echzeitmessung)
+
+            hilfeListe = listOf(hilfe)
+        }
+
+        if (args.kontext == DIALOG_KONTEXT.MESSUNG_BEARBEITEN){
+
+            val uri1 = Uri.parse("android.resource://" + requireActivity().packageName + "/" + R.raw.netzwahl)
+            val uri2 = Uri.parse("android.resource://" + requireActivity().packageName + "/" + R.raw.messung)
+
+            val hilfe = Hilfe(uri1,resources.getString(R.string.txt_wlan_anmeldung),"So wählen sie ihr Netzwerk")
+
+            binding.title.text = "Home"
+            binding.beschreibung.text = getString(R.string.txt_beschreibung_echzeitmessung)
+
+            hilfeListe = listOf(hilfe)
+        }
+
+        if (args.kontext == DIALOG_KONTEXT.MESSUNG_HINZUFUEGEN){
+
+            val uri1 = Uri.parse("android.resource://" + requireActivity().packageName + "/" + R.raw.netzwahl)
+            val uri2 = Uri.parse("android.resource://" + requireActivity().packageName + "/" + R.raw.messung)
+
+            val hilfe = Hilfe(uri1,resources.getString(R.string.txt_wlan_anmeldung),"So wählen sie ihr Netzwerk")
+
+            binding.title.text = getString(R.string.txt_messung_hinzufuegen)
+            binding.beschreibung.text = getString(R.string.txt_beschreibung_echzeitmessung)
+
+            hilfeListe = listOf(hilfe)
+        }
+
+        if (args.kontext == DIALOG_KONTEXT.MESSUGSLISTE){
+
+            val uri1 = Uri.parse("android.resource://" + requireActivity().packageName + "/" + R.raw.netzwahl)
+            val uri2 = Uri.parse("android.resource://" + requireActivity().packageName + "/" + R.raw.messung)
+
+            val hilfe = Hilfe(uri1,resources.getString(R.string.txt_wlan_anmeldung),"So wählen sie ihr Netzwerk")
+
+            binding.title.text = getString(R.string.txt_messungsliste)
+            binding.beschreibung.text = getString(R.string.txt_beschreibung_echzeitmessung)
+
+            hilfeListe = listOf(hilfe)
+        }
+
+        if (args.kontext == DIALOG_KONTEXT.MESSPUNKT_ERFASSEN){
+
+            val uri1 = Uri.parse("android.resource://" + requireActivity().packageName + "/" + R.raw.netzwahl)
+            val uri2 = Uri.parse("android.resource://" + requireActivity().packageName + "/" + R.raw.messung)
+
+            val hilfe = Hilfe(uri1,resources.getString(R.string.txt_wlan_anmeldung),"So wählen sie ihr Netzwerk")
+
+            binding.title.text = getString(R.string.txt_messpunkt_hinzufuegen)
+            binding.beschreibung.text = getString(R.string.txt_beschreibung_echzeitmessung)
+
+            hilfeListe = listOf(hilfe)
+        }
+
+        if (args.kontext == DIALOG_KONTEXT.MESSUNG_LOESCHEN){
+
+            val uri1 = Uri.parse("android.resource://" + requireActivity().packageName + "/" + R.raw.netzwahl)
+            val uri2 = Uri.parse("android.resource://" + requireActivity().packageName + "/" + R.raw.messung)
+
+            val hilfe = Hilfe(uri1,resources.getString(R.string.txt_wlan_anmeldung),"So wählen sie ihr Netzwerk")
+
+            binding.title.text = getString(R.string.txt_messung_loeschen)
+            binding.beschreibung.text = getString(R.string.txt_beschreibung_echzeitmessung)
+
+            hilfeListe = listOf(hilfe)
+        }
+
+        if (args.kontext == DIALOG_KONTEXT.VISUALISIERUNG_GRID){
+
+            val uri1 = Uri.parse("android.resource://" + requireActivity().packageName + "/" + R.raw.netzwahl)
+            val uri2 = Uri.parse("android.resource://" + requireActivity().packageName + "/" + R.raw.messung)
+
+            val hilfe = Hilfe(uri1,resources.getString(R.string.txt_wlan_anmeldung),"So wählen sie ihr Netzwerk")
+
+            binding.title.text = getString(R.string.title_visualisierung_de)
+            binding.beschreibung.text = getString(R.string.txt_beschreibung_visualisierung)
+
+            hilfeListe = listOf(hilfe)
+        }
+
+        if (args.kontext == DIALOG_KONTEXT.VISUALISIERUNG_DETAIL){
+
+            val uri1 = Uri.parse("android.resource://" + requireActivity().packageName + "/" + R.raw.netzwahl)
+            val uri2 = Uri.parse("android.resource://" + requireActivity().packageName + "/" + R.raw.messung)
+
+            val hilfe = Hilfe(uri1,resources.getString(R.string.txt_wlan_anmeldung),"So wählen sie ihr Netzwerk")
+
+            binding.title.text = getString(R.string.txt_titel_home_visualisierung)
+            binding.beschreibung.text = getString(R.string.txt_beschreibung_visualisierung)
+
+            hilfeListe = listOf(hilfe)
+        }
+        if (args.kontext == DIALOG_KONTEXT.VISULISIERUNG_FULLSCREEN_BILD){
+
+            val uri1 = Uri.parse("android.resource://" + requireActivity().packageName + "/" + R.raw.netzwahl)
+            val uri2 = Uri.parse("android.resource://" + requireActivity().packageName + "/" + R.raw.messung)
+
+            val hilfe = Hilfe(uri1,resources.getString(R.string.txt_wlan_anmeldung),"So wählen sie ihr Netzwerk")
+
+            binding.title.text = "Home"
+            binding.beschreibung.text = getString(R.string.txt_beschreibung_echzeitmessung)
+
+            hilfeListe = listOf(hilfe)
+        }
+
         return root
     }
 
