@@ -232,4 +232,8 @@
     <string name="tv_prefix_gebauede">Gebauede:</string>
     <string name="txt_untertitel_2_echtzeitmessung">2. Messung beobachten, stoppen und starten</string>
     <string name="txt_messung_loeschen_text">Soll die Messung gelöscht werden?</string>
+    <string name="txt_berechtigung_text">Um die Informationen des Wlan Routers auslesen zu können muss die Lokalisierung erlaubt werden.</string>
+    <string name="txt_berechtigung_titel">Berechtigung</string>
+    <string name="txt_messpunkt_loeschen">Soll der Messpunkt gelöscht werden?</string>
+    <string name="txt_messungsliste">Messungsliste</string>
 </resources>

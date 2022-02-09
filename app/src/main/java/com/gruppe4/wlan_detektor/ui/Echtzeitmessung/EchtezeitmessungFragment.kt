@@ -1,10 +1,13 @@
 package com.gruppe4.wlan_detektor.ui.Echtzeitmessung
 
 import android.Manifest.permission.ACCESS_FINE_LOCATION
+import android.app.Dialog
 import android.content.ActivityNotFoundException
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.content.res.ColorStateList
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.media.ToneGenerator.*
 import android.net.Uri
 import android.net.wifi.WifiManager
@@ -15,10 +18,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ProgressBar
-import android.widget.SeekBar
-import android.widget.TextView
-import android.widget.Toast
+import android.widget.*
 import androidx.appcompat.app.AlertDialog
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
@@ -36,6 +36,7 @@ class EchtezeitmessungFragment : Fragment() {
     private lateinit var echtzeitmessungViewModel: EchtzeitmessungViewModel
     private var _binding: FragmentEchtzeitmessungBinding? = null
     private val binding get() = _binding!!
+    lateinit var dialog: Dialog
 
 
     override fun onCreateView(
@@ -44,11 +45,53 @@ class EchtezeitmessungFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
+        echtzeitmessungViewModel =
+            ViewModelProvider(this)[EchtzeitmessungViewModel::class.java]
+
+        _binding = FragmentEchtzeitmessungBinding.inflate(inflater, container, false)
+        val root: View = binding.root
+
+        dialog = Dialog(requireContext())
+
         //Pruefen ob die Berechtigung vorhanden ist
         if (isPermissionGranted(ACCESS_FINE_LOCATION)) {
             //Berechtigung vorhanden
         } else {
-            val builder = AlertDialog.Builder(requireContext())
+
+
+            // Erstellen eines Dialogs, um die Berechtigung zu erteilen
+            dialog.setContentView(R.layout.berechtigung_dialog)
+            dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+            dialog.show()
+
+            val okButton = dialog.findViewById<Button>(R.id.btn_einstellung)
+            val abbrechenButton = dialog.findViewById<Button>(R.id.btn_abbrechen)
+
+            okButton.setOnClickListener {
+                try {
+                    //context?.startActivity(Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS))
+                    val intent = Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS)
+                    val uri = Uri.fromParts("package", activity?.packageName, null)
+                    intent.data = uri
+                    startActivity(intent)
+                } catch (e: ActivityNotFoundException) {
+                    context?.startActivity(Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS))
+                }
+
+                dialog.dismiss()
+            }
+
+            abbrechenButton.setOnClickListener {
+                Toast.makeText(
+                    requireContext(),
+                    "..Schade, leider können wir die SSID nicht ausgeben",
+                    Toast.LENGTH_LONG
+                ).show()
+
+                dialog.dismiss()
+            }
+
+           /* val builder = AlertDialog.Builder(requireContext())
             //Dialog Titel
             builder.setTitle("Beachte")
             //Dialog Text
@@ -71,11 +114,7 @@ class EchtezeitmessungFragment : Fragment() {
 
             //Nein Button
             builder.setNegativeButton("Abbrechen") { dialogInterface, which ->
-                Toast.makeText(
-                    requireContext(),
-                    "..Schade, leider können wir die SSID nicht ausgeben",
-                    Toast.LENGTH_LONG
-                ).show()
+
             }
 
             // Erstellen des Dialogs
@@ -83,14 +122,10 @@ class EchtezeitmessungFragment : Fragment() {
             // Set other dialog properties
             alertDialog.setCancelable(false)
             alertDialog.show()
-
+*/
         }
 
-        echtzeitmessungViewModel =
-            ViewModelProvider(this)[EchtzeitmessungViewModel::class.java]
 
-        _binding = FragmentEchtzeitmessungBinding.inflate(inflater, container, false)
-        val root: View = binding.root
 
         val ssid: TextView = binding.tvSsid
         echtzeitmessungViewModel.netzwerkInfo.observe(viewLifecycleOwner, Observer {

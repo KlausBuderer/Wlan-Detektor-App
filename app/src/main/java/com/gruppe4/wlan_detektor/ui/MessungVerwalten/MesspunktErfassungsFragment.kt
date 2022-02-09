@@ -2,11 +2,14 @@ package com.gruppe4.wlan_detektor.ui.MessungVerwalten
 
 import android.Manifest
 import android.app.Activity
+import android.app.Dialog
 import android.content.ActivityNotFoundException
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.content.res.ColorStateList
+import android.graphics.Color
 import android.graphics.ColorFilter
+import android.graphics.drawable.ColorDrawable
 import android.net.Uri
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
@@ -22,9 +25,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.*
 import androidx.appcompat.app.AlertDialog
-import androidx.core.app.ActivityCompat
-import androidx.core.app.ActivityCompat.getExternalFilesDirs
-import androidx.core.app.ActivityCompat.startActivityForResult
 import androidx.core.content.ContextCompat
 import androidx.core.content.FileProvider
 import androidx.lifecycle.Observer
@@ -40,7 +40,6 @@ import kotlinx.coroutines.launch
 import java.io.File
 import java.io.IOException
 import java.lang.Exception
-import java.lang.NullPointerException
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -379,7 +378,45 @@ class MesspunktErfassungsFragment : Fragment() {
 
 
         loeschButton.setOnClickListener{
-            //Messpunkt löschen
+
+            val dialog = Dialog(requireContext())
+            dialog.setContentView(R.layout.loesch_dialog)
+            dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+            dialog.findViewById<TextView>(R.id.tv_loeschen_text).text = getString(R.string.txt_messpunkt_loeschen)
+
+            dialog.show()
+
+            val abbrechenButton = dialog.findViewById<Button>(R.id.btn_abbrechen)
+            val loeschenButton = dialog.findViewById<Button>(R.id.btn_loeschen)
+
+            abbrechenButton.setOnClickListener{
+                Toast.makeText(
+                    requireContext(),
+                    "Messung nicht gelöscht",
+                    Toast.LENGTH_LONG
+                ).show()
+                dialog.dismiss()
+            }
+
+            loeschenButton.setOnClickListener {
+                try {
+                    lifecycleScope.launch(Dispatchers.IO) {
+                        viewModel.deleteMesspunkt(messpunkt.idmesspunkt)
+                    }
+                    val action =
+                        MesspunktErfassungsFragmentDirections.actionMesspunktErfassungsFragmentToMessungBearbeitenFragment(
+                            args.messungsname
+                        )
+
+                    Navigation.findNavController(binding.root).navigate(action)
+                } catch (e: IOException) {
+                    Log.e("Löschauftrag:", "Fehlgeschlagen")
+                }
+                dialog.dismiss()
+            }
+
+        }
+         /*   //Messpunkt löschen
             val builder = AlertDialog.Builder(requireContext())
             //Dialog Titel
             builder.setTitle("Messpunkt löschen")
@@ -421,7 +458,7 @@ class MesspunktErfassungsFragment : Fragment() {
             // Set other dialog properties
             alertDialog.setCancelable(false)
             alertDialog.show()
-        }
+        }*/
 
     }
 

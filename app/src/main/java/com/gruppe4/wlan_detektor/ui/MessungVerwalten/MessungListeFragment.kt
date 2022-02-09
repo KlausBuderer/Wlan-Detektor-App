@@ -122,34 +122,6 @@ class MessungListeFragment : Fragment(), MessungListeAdapter.OnItemClickListener
                 }
                 dialog.dismiss()
             }
-           /* //Messung löschen
-            val builder = AlertDialog.Builder(requireContext())
-            //Dialog Titel
-            builder.setTitle("Messung löschen")
-            //Dialog Text
-            builder.setMessage("Soll die Messung entgültig gelöscht werden?")
-            //Dialog Icon
-            builder.setIcon(android.R.drawable.ic_dialog_alert)
-
-            //Ja Button
-            builder.setPositiveButton("Löschen") { dialogInterface, which ->
-
-            }
-
-
-
-            //Nein Button
-
-            }
-
-            // Erstellen des Dialogs
-            val alertDialog: AlertDialog = builder.create()
-            // Set other dialog properties
-            alertDialog.setCancelable(false)
-            alertDialog.show()
-*/
         }
-
-
     }
 }
