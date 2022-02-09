@@ -1,7 +1,10 @@
 package com.gruppe4.wlan_detektor.ui.MessungVerwalten
 
+import android.app.Dialog
 import android.content.ActivityNotFoundException
 import android.content.Intent
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.net.Uri
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
@@ -11,6 +14,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
@@ -32,7 +36,7 @@ class MessungListeFragment : Fragment(), MessungListeAdapter.OnItemClickListener
     private val binding get() = _binding!!
     var messungsListe: List<TblMessung>? = null
     val args: MessungListeFragmentArgs by navArgs()
-
+    lateinit var dialog: Dialog
 
     companion object {
         fun newInstance() = MessungListeFragment()
@@ -48,7 +52,7 @@ class MessungListeFragment : Fragment(), MessungListeAdapter.OnItemClickListener
         _binding = MessungListeFragmentBinding.inflate(layoutInflater)
         val root: View = binding.root
 
-
+         dialog = Dialog(requireContext())
         return root
     }
 
@@ -88,7 +92,37 @@ class MessungListeFragment : Fragment(), MessungListeAdapter.OnItemClickListener
             Navigation.findNavController(binding.root).navigate(action)
 
         } else {
-            //Messung löschen
+
+            dialog.setContentView(R.layout.loesch_dialog)
+            dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+            dialog.show()
+            val abbrechenButton = dialog.findViewById<Button>(R.id.btn_abbrechen)
+            val loeschenButton = dialog.findViewById<Button>(R.id.btn_loeschen)
+
+            abbrechenButton.setOnClickListener {
+                    Toast.makeText(
+                        requireContext(),
+                        "Messung nicht gelöscht",
+                        Toast.LENGTH_LONG
+                    ).show()
+                dialog.dismiss()
+            }
+
+            loeschenButton.setOnClickListener {
+                try {
+                    val job =  lifecycleScope.launch(Dispatchers.IO) {
+                        messungsListe?.get(position)?.let { viewModel.deleteMessung(it.name) }
+                    }
+                    Navigation.findNavController(binding.root).navigate(
+                        R.id.action_messungListeFragment_to_navigation_messung
+
+                    )
+                } catch (e: IOException) {
+                    Log.e("Löschauftrag:", "Fehlgeschlagen")
+                }
+                dialog.dismiss()
+            }
+           /* //Messung löschen
             val builder = AlertDialog.Builder(requireContext())
             //Dialog Titel
             builder.setTitle("Messung löschen")
@@ -99,28 +133,13 @@ class MessungListeFragment : Fragment(), MessungListeAdapter.OnItemClickListener
 
             //Ja Button
             builder.setPositiveButton("Löschen") { dialogInterface, which ->
-                try {
-                  val job =  lifecycleScope.launch(Dispatchers.IO) {
-                        messungsListe?.get(position)?.let { viewModel.deleteMessung(it.name) }
-                    }
-                    Navigation.findNavController(binding.root).navigate(
-                        R.id.action_messungListeFragment_to_navigation_messung
 
-                    )
-                } catch (e: IOException) {
-                    Log.e("Löschauftrag:", "Fehlgeschlagen")
-                }
             }
 
 
 
             //Nein Button
-            builder.setNegativeButton("Abbrechen") { dialogInterface, which ->
-                Toast.makeText(
-                    requireContext(),
-                    "Messung nicht gelöscht",
-                    Toast.LENGTH_LONG
-                ).show()
+
             }
 
             // Erstellen des Dialogs
@@ -128,7 +147,7 @@ class MessungListeFragment : Fragment(), MessungListeAdapter.OnItemClickListener
             // Set other dialog properties
             alertDialog.setCancelable(false)
             alertDialog.show()
-
+*/
         }
 
 

@@ -6,6 +6,7 @@ import android.content.ActivityNotFoundException
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.content.res.ColorStateList
+import android.graphics.ColorFilter
 import android.net.Uri
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
@@ -117,6 +118,8 @@ class MesspunktErfassungsFragment : Fragment() {
         bildEingefuegtText = binding.tvBildEingefuegt
         bildEingefuegtBild = binding.ivBildEingefuegtCheck
 
+        editStockwerk.setTextColor(resources.getColor(R.color.white))
+        editStockwerk.setDropDownBackgroundDrawable(resources.getDrawable(R.drawable.dropdown_background))
 
         if (args.messpunktId == -1L){
             loeschButton.visibility = Button.INVISIBLE

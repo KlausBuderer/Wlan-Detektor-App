@@ -9,4 +9,12 @@
         <item name="android:background">@drawable/dark_background</item>
     </style>
 
+
+    <style name="dialog" parent="@style/ThemeOverlay.AppCompat.Dialog.Alert">
+        <item name="android:drawable">@drawable/card_background_lite</item>
+        <item name="buttonBarStyle">@style/Widget.AppCompat.ButtonBar</item>
+        <item name="buttonBarButtonStyle">?android:attr/buttonBarStyle</item>
+        <item name="buttonBarPositiveButtonStyle">@style/outline.button</item>
+    </style>
+
 </resources>
