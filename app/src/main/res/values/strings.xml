@@ -233,7 +233,7 @@
     <string name="txt_startseite">Measure the signal strength \n of your wifi network</string>
     <string name="txt_messung_loeschen_text">Soll die Messung gelöscht werden?</string>
     <string name="txt_berechtigung_text">Um die Informationen des Wlan Routers auslesen zu können muss die Lokalisierung erlaubt werden.</string>
-    <string name="txt_berechtigung_titel">Berechtigung fehlt</string>
-    <string name="txt_messpunkt_loeschen">Soll der Messpunkt gelöscht werden?</string>
-    <string name="txt_messungsliste">Messungsliste</string>
+    <string name="txt_berechtigung_titel">Authorization missing</string>
+    <string name="txt_messpunkt_loeschen">Should the measuring point be deleted?</string>
+    <string name="txt_messungsliste">Measurement list</string>
 </resources>
