@@ -1,11 +1,9 @@
 package com.gruppe4.wlan_detektor.ui.Echtzeitmessung
 
 import android.app.Application
-import android.content.Context
 import android.graphics.Color
-import android.net.ConnectivityManager
+import android.net.wifi.SupplicantState
 import android.net.wifi.WifiInfo
-import android.net.wifi.WifiManager
 import android.util.Log
 import androidx.lifecycle.*
 import com.gruppe4.wlan_detektor.model.Datenbank.RepositoryDb
@@ -16,7 +14,6 @@ import kotlinx.coroutines.*
 import kotlinx.coroutines.Dispatchers.IO
 import java.io.IOException
 import java.lang.NullPointerException
-import kotlin.math.sin
 
 class EchtzeitmessungViewModel(application: Application) : AndroidViewModel(application) {
 
@@ -49,9 +46,9 @@ class EchtzeitmessungViewModel(application: Application) : AndroidViewModel(appl
         value = bandUmrechnung(wifiInfos.frequency)
     }
 
-    private val _macadresse = MutableLiveData<String>().apply {
+    private val _hersteller = MutableLiveData<String>().apply {
     }
-    var macadresse: LiveData<String> = _macadresse
+    var hersteller: LiveData<String> = _hersteller
 
     private val _progressFarbe = MutableLiveData<Int>().apply {
         value = progressFarbeZyklisch
@@ -72,10 +69,9 @@ class EchtzeitmessungViewModel(application: Application) : AndroidViewModel(appl
     }
 
     suspend fun getFilterMac(macadresse: String): String {
-        var macgefilter = wifiInfos.bssid.replace(':', '-')
+        var macgefilter = macadresse.replace(':', '-')
         macgefilter = macgefilter.dropLast(9)
 
-        Log.i("Macadresse",macgefilter.uppercase())
         return macgefilter.uppercase()
 
     }
@@ -112,12 +108,6 @@ class EchtzeitmessungViewModel(application: Application) : AndroidViewModel(appl
     fun startUpdateCoroutine() {
         updateJobInit()
         val scope = CoroutineScope(IO + updateJob).launch {
-            try {
-                _macadresse.postValue(getHerstellerName(getFilterMac(wifiKlasse.getConnectionInfo().bssid)))
-
-            }catch (e: NullPointerException){
-                Log.e("Updateroutine","Fehlgeschlagen")
-            }
             startUpdates()
         }
     }
@@ -139,9 +129,9 @@ class EchtzeitmessungViewModel(application: Application) : AndroidViewModel(appl
                 _netzwerkInfo.postValue(wifiKlasse.getConnectionInfo())
                 _connectionInfo.postValue(wifiKlasse.getConnectionInfo31())
                 _progressFarbe.postValue(run { wifiKlasse.progressBarFarbeEinstellen(wifiInfos.rssi) })
-                _band.postValue(bandUmrechnung(wifiInfos.frequency))
+                _band.postValue(bandUmrechnung(wifiKlasse.getConnectionInfo().frequency))
                 sinusGenerator.frequenz = frequenz
-
+                _hersteller.postValue(getHerstellerName(getFilterMac(wifiKlasse.getConnectionInfo().bssid)))
             } catch (e: NullPointerException) {
 
                 println("Update nicht erfolgreich")

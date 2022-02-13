@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.Visualisierung.VisuDetailFragment"
-    android:background="@drawable/dark_background">
+    android:background="@drawable/dark_background"
+    android:foregroundGravity="center">
 
 
     <View
@@ -22,10 +23,12 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:fillViewport="true"
+        android:foregroundGravity="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintWidth_max="700dp">
 
 
         <androidx.cardview.widget.CardView
@@ -35,7 +38,8 @@
             android:layout_margin="8dp"
             android:elevation="16dp"
             android:padding="16dp"
-            app:cardCornerRadius="16dp">
+            app:cardCornerRadius="16dp"
+            android:layout_gravity="center">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
@@ -58,11 +62,13 @@
                 <FrameLayout
                     android:id="@+id/bild_layout"
                     android:layout_width="wrap_content"
-                    android:layout_height="200dp"
+                    android:layout_height="180dp"
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="8dp"
                     android:layout_marginEnd="16dp"
                     android:padding="4dp"
+
+
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/tv_raum_name">
@@ -73,7 +79,7 @@
                         android:layout_height="match_parent"
                         android:rotation="90"
                         android:scaleType="center"
-                        android:src="@android:drawable/ic_menu_gallery" />
+                        android:src="@android:drawable/ic_menu_gallery"/>
                 </FrameLayout>
 
                 <androidx.cardview.widget.CardView
@@ -271,7 +277,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_marginLeft="24dp"
                                     android:layout_marginTop="8dp"
-                                    android:text="@string/txt_pegelmessung_titel"
+                                    android:text="@string/txt_signalstaerke_titel_de"
                                     android:textSize="20dp"
                                     android:textStyle="bold"
                                     app:layout_constraintStart_toStartOf="parent"

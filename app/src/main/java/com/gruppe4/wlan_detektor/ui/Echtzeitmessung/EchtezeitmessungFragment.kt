@@ -5,13 +5,10 @@ import android.app.Dialog
 import android.content.ActivityNotFoundException
 import android.content.Intent
 import android.content.pm.PackageManager
-import android.content.res.ColorStateList
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
-import android.media.ToneGenerator.*
 import android.net.Uri
-import android.net.wifi.WifiManager
-import android.os.Build
+import android.net.wifi.SupplicantState
 import android.os.Bundle
 import android.provider.Settings
 import android.util.Log
@@ -19,17 +16,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
-import androidx.appcompat.app.AlertDialog
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.lifecycleScope
 import com.gruppe4.wlan_detektor.R
 import com.gruppe4.wlan_detektor.databinding.FragmentEchtzeitmessungBinding
-import com.gruppe4.wlan_detektor.model.Netzwerk.NetzwerkHelper
-import kotlinx.coroutines.*
-import kotlin.IllegalStateException
 
 class EchtezeitmessungFragment : Fragment() {
 
@@ -57,8 +49,6 @@ class EchtezeitmessungFragment : Fragment() {
         if (isPermissionGranted(ACCESS_FINE_LOCATION)) {
             //Berechtigung vorhanden
         } else {
-
-
             // Erstellen eines Dialogs, um die Berechtigung zu erteilen
             dialog.setContentView(R.layout.berechtigung_dialog)
             dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
@@ -69,7 +59,6 @@ class EchtezeitmessungFragment : Fragment() {
 
             okButton.setOnClickListener {
                 try {
-                    //context?.startActivity(Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS))
                     val intent = Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS)
                     val uri = Uri.fromParts("package", activity?.packageName, null)
                     intent.data = uri
@@ -88,48 +77,21 @@ class EchtezeitmessungFragment : Fragment() {
                     Toast.LENGTH_LONG
                 ).show()
 
+                echtzeitmessungViewModel.stopUpdateCoroutine()
+
                 dialog.dismiss()
             }
-
-           /* val builder = AlertDialog.Builder(requireContext())
-            //Dialog Titel
-            builder.setTitle("Beachte")
-            //Dialog Text
-            builder.setMessage("Um die Informationen des Wlan Routers auslesen zu können muss die Lokalisierung erlaubt werden.")
-            //Dialog Icon
-            builder.setIcon(android.R.drawable.ic_dialog_alert)
-
-            //Ja Button
-            builder.setPositiveButton("Einstellungen") { dialogInterface, which ->
-                try {
-                    //context?.startActivity(Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS))
-                    val intent = Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS)
-                    val uri = Uri.fromParts("package", activity?.packageName, null)
-                    intent.data = uri
-                    startActivity(intent)
-                } catch (e: ActivityNotFoundException) {
-                    context?.startActivity(Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS))
-                }
-            }
-
-            //Nein Button
-            builder.setNegativeButton("Abbrechen") { dialogInterface, which ->
-
-            }
-
-            // Erstellen des Dialogs
-            val alertDialog: AlertDialog = builder.create()
-            // Set other dialog properties
-            alertDialog.setCancelable(false)
-            alertDialog.show()
-*/
         }
 
 
 
         val ssid: TextView = binding.tvSsid
         echtzeitmessungViewModel.netzwerkInfo.observe(viewLifecycleOwner, Observer {
-            ssid.text = it.ssid.trim('"','\"')
+            if (it.supplicantState == SupplicantState.COMPLETED) {
+                ssid.text = it.ssid.trim('"', '\"', '<', '>')
+            } else {
+                ssid.text = "-"
+            }
         })
 
 
@@ -140,29 +102,30 @@ class EchtezeitmessungFragment : Fragment() {
                 if (it.bssid != null) {
                     mac.text = it.bssid.uppercase()
                 } else {
-                    mac.text = "unbekannt"
+                    mac.text = "-"
                 }
             }
         })
 
-        val hersteller: TextView = binding.tvHersteller
-        echtzeitmessungViewModel.macadresse.observe(viewLifecycleOwner, Observer {
-            if (it != null) {
-                hersteller.text = it
-            } else {
-                hersteller.text = "unbekannter Hersteller"
-            }
-        })
+
 
         val band: TextView = binding.tvFrequenz
         echtzeitmessungViewModel.band.observe(viewLifecycleOwner, Observer {
-            band.text = it.toString() + " GHz"
+            if (it > 0.0) {
+                band.text = it.toString() + " GHz"
+            } else {
+                band.text = "-"
+            }
         })
 
 
         val updownspeed: TextView = binding.tvUpdownspeed
         echtzeitmessungViewModel.netzwerkInfo.observe(viewLifecycleOwner, Observer {
-            updownspeed.text = it.linkSpeed.toString() + " Mbps"
+            if(it.linkSpeed > 0 ) {
+                updownspeed.text = it.linkSpeed.toString() + " Mbps"
+            } else {
+                updownspeed.text = "-"
+            }
         })
 
 
@@ -175,9 +138,14 @@ class EchtezeitmessungFragment : Fragment() {
 
 
         val textView: TextView = binding.tvSignalstaerkeWert
-        echtzeitmessungViewModel.connectionInfo.observe(viewLifecycleOwner, Observer {
-            textView.text = it.rssi.toString() + " dB"
-            progressBar.progress = it.rssi
+        echtzeitmessungViewModel.netzwerkInfo.observe(viewLifecycleOwner, Observer {
+            if (it.supplicantState == SupplicantState.COMPLETED) {
+                textView.text = it.rssi.toString() + " dB"
+                progressBar.progress = it.rssi
+            } else {
+                textView.text = "-"
+                progressBar.progress = -127
+            }
         })
 
 
@@ -244,6 +212,21 @@ class EchtezeitmessungFragment : Fragment() {
 
         echtzeitmessungViewModel.startUpdateCoroutine()
         binding.tbtnStartEchtzeitmessung.isChecked = false
+
+        val hersteller: TextView = binding.tvHersteller
+        echtzeitmessungViewModel.hersteller.observe(viewLifecycleOwner, Observer {
+            if (echtzeitmessungViewModel.netzwerkInfo.value!!.supplicantState == SupplicantState.COMPLETED){
+            if (it != null) {
+                hersteller.text = it
+            } else {
+                hersteller.text = getString(R.string.txt_hersteller_unbekannt)
+            }
+            } else{
+                hersteller.text = "-"
+            }
+        })
+
+
     }
 
 

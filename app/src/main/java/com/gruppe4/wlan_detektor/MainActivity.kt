@@ -1,35 +1,22 @@
 package com.gruppe4.wlan_detektor
 
-import android.content.Context
 import android.content.res.Configuration
-import android.database.sqlite.SQLiteOpenHelper
-import android.net.wifi.WifiManager
 import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.view.*
-import android.widget.Toast
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
-import androidx.fragment.app.Fragment
-import androidx.fragment.app.commit
-import androidx.lifecycle.lifecycleScope
-import androidx.navigation.NavController
-import androidx.navigation.Navigation
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
-import com.google.android.material.internal.ContextUtils.getActivity
 import com.gruppe4.wlan_detektor.databinding.ActivityMainBinding
 import com.gruppe4.wlan_detektor.model.Datenbank.RepositoryDb
-import com.gruppe4.wlan_detektor.model.Datenbank.WlanDetektorDb
-import com.gruppe4.wlan_detektor.ui.Echtzeitmessung.EchtezeitmessungFragment
 import com.gruppe4.wlan_detektor.ui.Echtzeitmessung.EchtezeitmessungFragmentDirections
 import com.gruppe4.wlan_detektor.ui.MessungVerwalten.*
 import com.gruppe4.wlan_detektor.ui.Startseite.HomeFragmentDirections
-import com.gruppe4.wlan_detektor.ui.Utility.DIALOG_KONTEXT
 import com.gruppe4.wlan_detektor.ui.Utility.DIALOG_KONTEXT.*
 import com.gruppe4.wlan_detektor.ui.Visualisierung.VisuDetailFragmentDirections
 import com.gruppe4.wlan_detektor.ui.Visualisierung.VisualisierungFragmentDirections
@@ -90,19 +77,20 @@ class MainActivity : AppCompatActivity() {
         val navController = findNavController(R.id.nav_host_fragment_activity_main)
         activFragment = navController.currentDestination?.id!!
 
-            Log.e("activFragment: ","${activFragment}")
-        Log.e("Fragment: ","${R.id.navigation_echtzeitmessung}")
-        Log.e("Activity: ","${R.layout.activity_main}")
+        Log.e("activFragment: ", "${activFragment}")
+        Log.e("Fragment: ", "${R.id.navigation_echtzeitmessung}")
+        Log.e("Activity: ", "${R.layout.activity_main}")
 
         //Aufruf von Hilfedialog abhängig des aktiven Fragments
-        if(item.itemId == R.id.action_help) {
+        if (item.itemId == R.id.action_help) {
             callHilfeDialog(activFragment)
-        }else if (item.itemId == R.id.action_about_us){
+        } else if (item.itemId == R.id.action_about_us) {
             navController.navigate(R.id.ueberUns2)
-        }else if(item.itemId == R.id.action_terms){
-            navController.navigate(R.id.terms_conditions
+        } else if (item.itemId == R.id.action_terms) {
+            navController.navigate(
+                R.id.terms_conditions
             )
-        }else if(item.itemId == R.id.action_datenschutz){
+        } else if (item.itemId == R.id.action_datenschutz) {
             navController.navigate(R.id.datenschutzFragment)
         }
         return super.onOptionsItemSelected(item)
@@ -128,71 +116,76 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    fun callHilfeDialog(fragment: Int){
-        when(fragment){
+    fun callHilfeDialog(fragment: Int) {
+        when (fragment) {
 
             R.id.navigation_echtzeitmessung ->
                 findNavController(R.id.nav_host_fragment_activity_main).navigate(
-                    EchtezeitmessungFragmentDirections.
-                    actionNavigationEchtzeitmessungToEchtzeitDialogFragment(ECHTZEITMESSUNG)
+                    EchtezeitmessungFragmentDirections.actionNavigationEchtzeitmessungToDialogFragment(
+                        ECHTZEITMESSUNG
                     )
+                )
 
             R.id.navigation_messung ->
                 findNavController(R.id.nav_host_fragment_activity_main).navigate(
-                    MessungFragmentDirections.
-                    actionNavigationMessungToEchtzeitDialogFragment(MESSUNG_VERWALTEN)
-                   )
+                    MessungFragmentDirections.actionNavigationMessungToDialogFragment(
+                        MESSUNG_VERWALTEN
+                    )
+                )
 
             R.id.messungListeFragment ->
                 findNavController(R.id.nav_host_fragment_activity_main).navigate(
-                    MessungListeFragmentDirections.
-                    actionMessungListeFragmentToEchtzeitDialogFragment(MESSUGSLISTE)
+                    MessungListeFragmentDirections.actionMessungListeFragmentToDialogFragment(
+                        MESSUGSLISTE
+                    )
                 )
 
             R.id.messungBearbeitenFragment ->
                 findNavController(R.id.nav_host_fragment_activity_main).navigate(
-                    MessungBearbeitenFragmentDirections.actionMessungBearbeitenFragmentToEchtzeitDialogFragment(MESSUNG_BEARBEITEN)
+                    MessungBearbeitenFragmentDirections.actionMessungBearbeitenFragmentToDialogFragment(
+                        MESSUNG_BEARBEITEN
+                    )
                 )
 
-            R.id.messungHinzufuegen->
+            R.id.messungHinzufuegen ->
                 findNavController(R.id.nav_host_fragment_activity_main).navigate(
-                    MessungHinzufuegenDirections.
-                    actionMessungHinzufuegenToEchtzeitDialogFragment(MESSUNG_HINZUFUEGEN)
+                    MessungHinzufuegenDirections.actionMessungHinzufuegenToDialogFragment(
+                        MESSUNG_HINZUFUEGEN
+                    )
                 )
 
-            R.id.messpunktErfassungsFragment->
+            R.id.messpunktErfassungsFragment ->
                 findNavController(R.id.nav_host_fragment_activity_main).navigate(
-                    MesspunktErfassungsFragmentDirections.
-                    actionMesspunktErfassungsFragmentToEchtzeitDialogFragment(MESSPUNKT_ERFASSEN)
+                    MesspunktErfassungsFragmentDirections.actionMesspunktErfassungsFragmentToDialogFragment(
+                        MESSPUNKT_ERFASSEN
+                    )
                 )
 
             R.id.navigation_home ->
-            findNavController(R.id.nav_host_fragment_activity_main).navigate(
-                    HomeFragmentDirections.
-                    actionNavigationHomeToEchtzeitDialogFragment(HOME)
+                findNavController(R.id.nav_host_fragment_activity_main).navigate(
+                    HomeFragmentDirections.actionNavigationHomeToDialogFragment(HOME)
                 )
 
             R.id.navigation_Visualisierung ->
                 findNavController(R.id.nav_host_fragment_activity_main).navigate(
-                    VisualisierungFragmentDirections.
-                    actionNavigationVisualisierungToEchtzeitDialogFragment(VISUALISIERUNG_GRID)
+                    VisualisierungFragmentDirections.actionNavigationVisualisierungToDialogFragment(
+                        VISUALISIERUNG_GRID
+                    )
                 )
 
-            R.id.visualisierung_Grid_Fragment->
+            R.id.visualisierung_Grid_Fragment ->
                 findNavController(R.id.nav_host_fragment_activity_main).navigate(
-                    Visualisierung_Grid_FragmentDirections.
-                    actionVisualisierungGridFragmentToEchtzeitDialogFragment(VISUALISIERUNG_GRID)
+                    Visualisierung_Grid_FragmentDirections.actionVisualisierungGridFragmentToDialogFragment(
+                        VISUALISIERUNG_GRID
+                    )
                 )
 
-            R.id.visuDetailFragment->
+            R.id.visuDetailFragment ->
                 findNavController(R.id.nav_host_fragment_activity_main).navigate(
-                    VisuDetailFragmentDirections.
-                    actionVisuDetailFragmentToEchtzeitDialogFragment(VISUALISIERUNG_DETAIL)
+                    VisuDetailFragmentDirections.actionVisuDetailFragmentToDialogFragment(
+                        VISUALISIERUNG_DETAIL
+                    )
                 )
-
-
-
-
         }
     }
 

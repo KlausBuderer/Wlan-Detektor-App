@@ -82,7 +82,7 @@
     <string name="txt_namen_bereits_vergeben">Name bereits verwendet</string>
     <string name="title_messungen_verwalten">Messungen verwalten</string>
     <string name="txt_beschreibung_der_echzeitmessung">Beschreibung der Echzeitmessung</string>
-    <string name="txt_wlan_anmeldung">1. Wlan Anmeldung</string>
+    <string name="txt_wlan_anmeldung">Wlan Anmeldung</string>
     <string name="txt_ueber_uns">Über uns</string>
     <string name="txt_loeschen">Löschen</string>
     <string name="txt_aktueller_name">Aktueller name:</string>
@@ -194,9 +194,24 @@
 
     <string name="txt_messung_loeschen_text">Soll die Messung gelöscht werden?</string>
     <string name="txt_berechtigung_text">Um die Informationen des Wlan Routers auslesen zu können muss die Lokalisierung erlaubt werden.</string>
-    <string name="txt_berechtigung_titel">Berechtigung</string>
+    <string name="txt_berechtigung_titel">Berechtigung fehlt</string>
     <string name="txt_messpunkt_loeschen">Soll der Messpunkt gelöscht werden?</string>
     <string name="txt_messungsliste">Messungsliste</string>
+    <string name="txt_wlan_netzwerk">Wlan Netzwerk</string>
+    <string name="txt_einstellungen">Settings</string>
+    <string name="txt_hilfe_text_anmeldung">To measure the signal strength of your wifi network, you must be  logged into a wifi network.</string>
+    <string name="em_txt_hilfe_messung">Sobald sie sich in ein Wlan Netzwerk angemeldet haben, können sie die  Signalstärke ihres Netzwerks beobachten und durch ein akustisches Signal  ausgeben lassen.</string>
+    <string name="em_txt_hilfe_berechtigung">"In order to get all necessary information of the Wlan network, the  permission \"Localization\" must be granted in the application  settings. "</string>
+    <string name="em_txt_hilfe_titel_berechtigung">Permissions</string>
+    <string name="txt_hilfe_messung_verwalten">Hier können neue Messungen angelegt, bestehende Messungen bearbeitet oder gelöschte werden.</string>
+    <string name="txt_hilfe_messung_anlegen">Hier können neue Messungen angelegt werden. Gebe der Messsung einen Namen, verbinde dich mit einem Wlan Netzwerk und gebe an was für Typ von Gebäude gemessen wird und los geht’s.</string>
+    <string name="txt_hilfe_messung_hinzufuegen">Erstelle eine neue Messung</string>
+    <string name="txt_hilfe_messpunkt_erstellen">Klicke auf den orangen Button unten rechts im Bild, um ein neuen Messpunkt hinzuzufügen.</string>
+    <string name="txt_hilfe_messpunkt_bearbeiten">Klicke auf den Messpunkt aus der Liste, der bearbeitet werden soll, um den Messpunkt zu bearbeiten.</string>
+    <string name="txt_hilfe_messungsnamen_aendern">Klicke auf den Stift beim Messungsnamen, um den Namen der Messung zu ändern.</string>
+    <string name="txt_messung_bearbeiten_beschreibung">"Hier können Messpunkte hinzugefügt oder geändert werden. "</string>
+    <string name="txt_messpunkt_bearbeiten">Messpunkt bearbeiten</string>
+    <string name="txt_hersteller_unbekannt">Hersteller unbekannt</string>
 
 
 </resources>

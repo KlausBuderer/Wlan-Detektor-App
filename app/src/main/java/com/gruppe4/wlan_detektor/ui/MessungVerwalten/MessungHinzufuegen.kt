@@ -1,14 +1,14 @@
 package com.gruppe4.wlan_detektor.ui.MessungVerwalten
 
 import android.Manifest
+import android.app.Dialog
 import android.content.ActivityNotFoundException
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.net.Uri
 import android.net.wifi.SupplicantState
-import android.net.wifi.WifiInfo
-import android.os.Build
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import android.provider.Settings
@@ -17,19 +17,15 @@ import android.text.TextWatcher
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
-import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
-import androidx.annotation.RequiresApi
-import androidx.appcompat.app.AlertDialog
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.Observer
 import androidx.navigation.Navigation
 import com.gruppe4.wlan_detektor.R
 import com.gruppe4.wlan_detektor.databinding.FragmentMessungHinzufuegenBinding
 import com.gruppe4.wlan_detektor.model.Datenbank.Entitaeten.TblMessung
-import com.gruppe4.wlan_detektor.model.Netzwerk.NetzwerkInfo
 
 
 class MessungHinzufuegen : Fragment() {
@@ -58,23 +54,22 @@ class MessungHinzufuegen : Fragment() {
         binding.autoCompleteTextView.setDropDownBackgroundDrawable(resources.getDrawable(R.drawable.dropdown_background))
         viewModel.startUpdateCoroutine()
 
+        val dialog = Dialog(requireContext())
+
         //Pruefen ob die Berechtigung vorhanden ist
         if (isPermissionGranted(Manifest.permission.ACCESS_FINE_LOCATION)) {
             //Berechtigung vorhanden
         } else {
-            val builder = AlertDialog.Builder(requireContext())
-            //Dialog Titel
-            builder.setTitle("Beachte")
-            //Dialog Text
-            builder.setMessage("Um die Informationen des Wlan Routers auslesen zu können muss die Lokalisierung erlaubt werden.")
-            //Dialog Icon
-            builder.setIcon(android.R.drawable.ic_dialog_alert)
+            // Erstellen eines Dialogs, um die Berechtigung zu erteilen
+            dialog.setContentView(R.layout.berechtigung_dialog)
+            dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+            dialog.show()
 
+            val okButton = dialog.findViewById<Button>(R.id.btn_einstellung)
+            val abbrechenButton = dialog.findViewById<Button>(R.id.btn_abbrechen)
 
-            //Ja Button
-            builder.setPositiveButton("Einstellungen") { dialogInterface, which ->
+            okButton.setOnClickListener {
                 try {
-                    //context?.startActivity(Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS))
                     val intent = Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS)
                     val uri = Uri.fromParts("package", activity?.packageName, null)
                     intent.data = uri
@@ -82,24 +77,19 @@ class MessungHinzufuegen : Fragment() {
                 } catch (e: ActivityNotFoundException) {
                     context?.startActivity(Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS))
                 }
+
+                dialog.dismiss()
             }
 
-            //Nein Button
-            builder.setNegativeButton("Abbrechen") { dialogInterface, which ->
+            abbrechenButton.setOnClickListener {
                 Toast.makeText(
                     requireContext(),
                     "..Schade, leider können wir die SSID nicht ausgeben",
                     Toast.LENGTH_LONG
                 ).show()
+
+                dialog.dismiss()
             }
-
-            // Erstellen des Dialogs
-            val alertDialog: AlertDialog = builder.create()
-            // Set other dialog properties
-            alertDialog.window?.setBackgroundDrawable(ColorDrawable(resources.getColor(R.color.white)))
-            alertDialog.setCancelable(false)
-            alertDialog.show()
-
         }
 
         //Pruefung ob mit Netzwerk verbunden und reinitialisierung der Buttonfreigabe
@@ -182,7 +172,7 @@ class MessungHinzufuegen : Fragment() {
                 binding.netzwerk.editableText.insert(0, it.ssid)
             }else{
                 binding.netzwerk.editableText.clear()
-                binding.netzwerk.editableText.insert(0, "Bitte mit Wlan verbinden")
+                binding.netzwerk.editableText.insert(0, getString(R.string.txt_netzTitel_de))
             }
         })
 

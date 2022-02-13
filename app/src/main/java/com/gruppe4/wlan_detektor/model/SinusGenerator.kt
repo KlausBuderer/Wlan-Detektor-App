@@ -37,11 +37,6 @@ class SinusGenerator(application: Application) {
 
 
     private fun initTrack() {
-        // Very similar to opening a stream in PyAudio
-        // In Android create a AudioTrack instance and initialize it with different parameters
-
-        // AudioTrack is deprecated for some android versions
-        // Please look up for other alternatives if this does not work
              track = AudioTrack.Builder()
            .setAudioAttributes(AudioAttributes.Builder()
                .setUsage(AudioAttributes.USAGE_ALARM)
@@ -54,11 +49,6 @@ class SinusGenerator(application: Application) {
                .build())
            .setBufferSizeInBytes(buffLength)
            .build()
-
-       /* (
-            AudioManager.MODE_NORMAL, Fs, AudioFormat.CHANNEL_OUT_MONO,
-            AudioFormat.ENCODING_PCM_16BIT, buffLength, AudioTrack.MODE_STREAM
-        )*/
     }
 
     private fun playback() {
@@ -73,7 +63,6 @@ class SinusGenerator(application: Application) {
 
         while (isPlaying) {
             frequency = 600 + frequenz
-            // frequency -= (((-60 * -1) + 30) * 20)
                 for (i in 0 until buffLength) {
 
                     //frequency += 10
