@@ -19,6 +19,7 @@ import com.gruppe4.wlan_detektor.ui.MessungVerwalten.*
 import com.gruppe4.wlan_detektor.ui.Startseite.HomeFragmentDirections
 import com.gruppe4.wlan_detektor.ui.Utility.DIALOG_KONTEXT.*
 import com.gruppe4.wlan_detektor.ui.Visualisierung.VisuDetailFragmentDirections
+import com.gruppe4.wlan_detektor.ui.Visualisierung.VisuFullScreenBildDirections
 import com.gruppe4.wlan_detektor.ui.Visualisierung.VisualisierungFragmentDirections
 import com.gruppe4.wlan_detektor.ui.Visualisierung.Visualisierung_Grid_FragmentDirections
 import kotlinx.coroutines.MainScope
@@ -169,7 +170,7 @@ class MainActivity : AppCompatActivity() {
             R.id.navigation_Visualisierung ->
                 findNavController(R.id.nav_host_fragment_activity_main).navigate(
                     VisualisierungFragmentDirections.actionNavigationVisualisierungToDialogFragment(
-                        VISUALISIERUNG_GRID
+                        MESSUGSLISTE
                     )
                 )
 
@@ -184,6 +185,12 @@ class MainActivity : AppCompatActivity() {
                 findNavController(R.id.nav_host_fragment_activity_main).navigate(
                     VisuDetailFragmentDirections.actionVisuDetailFragmentToDialogFragment(
                         VISUALISIERUNG_DETAIL
+                    )
+                )
+            R.id.visuFullScreenBild ->
+                findNavController(R.id.nav_host_fragment_activity_main).navigate(
+                    VisuFullScreenBildDirections.actionVisuFullScreenBildToDialogFragment(
+                        VISULISIERUNG_FULLSCREEN_BILD
                     )
                 )
         }

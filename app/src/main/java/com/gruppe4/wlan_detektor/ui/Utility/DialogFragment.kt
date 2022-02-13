@@ -5,6 +5,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.view.updateLayoutParams
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
@@ -53,14 +55,20 @@ class DialogFragment : BottomSheetDialogFragment(), HilfeAdapter.OnItemClickList
         if (args.kontext == DIALOG_KONTEXT.HOME){
 
             val uri1 = Uri.parse("android.resource://" + requireActivity().packageName + "/" + R.raw.em_messung)
-            val uri2 = Uri.parse("android.resource://" + requireActivity().packageName + "/" + R.raw.em_anmeldung)
+            val uri2 = Uri.parse("android.resource://" + requireActivity().packageName + "/" + R.raw.messung_anlegen)
+            val uri3 = Uri.parse("android.resource://" + requireActivity().packageName + "/" + R.raw.messpunkt_erstellen)
+            val uri4 = Uri.parse("android.resource://" + requireActivity().packageName + "/" + R.raw.visualisierung)
 
-            val hilfe = Hilfe(uri1,resources.getString(R.string.txt_wlan_anmeldung),"So wählen sie ihr Netzwerk")
+            val hilfe1 = Hilfe(uri1,resources.getString(R.string.txt_titel_home_echzeitmessung),getString(R.string.txt_beschreibung_echzeitmessung))
+            val hilfe2 = Hilfe(uri2,resources.getString(R.string.txt_titel_messung_hinzufuegen_de),getString(R.string.txt_hilfe_messung_hinzufuegen))
+            val hilfe3 = Hilfe(uri3,resources.getString(R.string.txt_messung_bearbeiten),getString(R.string.txt_hilfe_messung_verwalten))
+            val hilfe4 = Hilfe(uri4,resources.getString(R.string.txt_titel_home_visualisierung),getString(R.string.txt_beschreibung_visualisierung))
 
-            binding.title.text = "Home"
-            binding.beschreibung.text = getString(R.string.txt_beschreibung_echzeitmessung)
 
-            hilfeListe = listOf(hilfe)
+            binding.title.text = getString(R.string.txt_hilfe_home_titel)
+            binding.beschreibung.text = getString(R.string.txt_home_beschreibung)
+
+            hilfeListe = listOf(hilfe1,hilfe2,hilfe3,hilfe4)
         }
 
 
@@ -68,7 +76,7 @@ class DialogFragment : BottomSheetDialogFragment(), HilfeAdapter.OnItemClickList
 
             val uri1 = Uri.parse("android.resource://" + requireActivity().packageName + "/" + R.raw.messung_verwalten)
 
-            val hilfe = Hilfe(uri1,resources.getString(R.string.txt_wlan_anmeldung),"So wählen sie ihr Netzwerk")
+            val hilfe = Hilfe(uri1,resources.getString(R.string.title_messungen_verwalten),"")
 
             binding.title.text = getString(R.string.txt_verwalte_deine_messungen)
             binding.beschreibung.text = getString(R.string.txt_hilfe_messung_verwalten)
@@ -106,77 +114,75 @@ class DialogFragment : BottomSheetDialogFragment(), HilfeAdapter.OnItemClickList
 
         if (args.kontext == DIALOG_KONTEXT.MESSUGSLISTE){
 
-            val uri1 = Uri.parse("android.resource://" + requireActivity().packageName + "/" + R.raw.em_berechtigung)
-            val uri2 = Uri.parse("android.resource://" + requireActivity().packageName + "/" + R.raw.em_anmeldung)
+            val uri1 = Uri.parse("android.resource://" + requireActivity().packageName + "/" + R.raw.messungsliste)
 
-            val hilfe = Hilfe(uri1,resources.getString(R.string.txt_wlan_anmeldung),"So wählen sie ihr Netzwerk")
+            val hilfe = Hilfe(uri1,resources.getString(R.string.txt_hilfe_messungsliste_titel),getString(R.string.txt_hilfe_messungsliste_text))
 
-            binding.title.text = getString(R.string.txt_messungsliste)
-            binding.beschreibung.text = getString(R.string.txt_beschreibung_echzeitmessung)
+            binding.title.text = resources.getString(R.string.title_messungen_de)
+            binding.beschreibung.text = ""
+
+            binding.rvHilfe.updateLayoutParams<ConstraintLayout.LayoutParams> {
+                topToBottom = binding.title.id
+            }
 
             hilfeListe = listOf(hilfe)
         }
 
         if (args.kontext == DIALOG_KONTEXT.MESSPUNKT_ERFASSEN){
 
-            val uri1 = Uri.parse("android.resource://" + requireActivity().packageName + "/" + R.raw.em_berechtigung)
-            val uri2 = Uri.parse("android.resource://" + requireActivity().packageName + "/" + R.raw.em_anmeldung)
+            val uri1 = Uri.parse("android.resource://" + requireActivity().packageName + "/" + R.raw.messpunkt_erfassen)
+            val uri2 = Uri.parse("android.resource://" + requireActivity().packageName + "/" + R.raw.bild_aufnehmen)
 
-            val hilfe = Hilfe(uri1,resources.getString(R.string.txt_wlan_anmeldung),"So wählen sie ihr Netzwerk")
+            val hilfe1 = Hilfe(uri1,getString(R.string.txt_hilfe_messpunkt_erfassen_titel),resources.getString(R.string.txt_hilfe_messpunkt_erfassen))
+            val hilfe2 = Hilfe(uri2,getString(R.string.txt_hilfe_bild_einfuegen_titel),resources.getString(R.string.txt_hilfe_bild_einfuegen_text))
 
             binding.title.text = getString(R.string.txt_messpunkt_hinzufuegen)
-            binding.beschreibung.text = getString(R.string.txt_beschreibung_echzeitmessung)
+            binding.beschreibung.text = getString(R.string.txt_messpunkterfassen_beschreibung)
 
-            hilfeListe = listOf(hilfe)
-        }
-
-        if (args.kontext == DIALOG_KONTEXT.MESSUNG_LOESCHEN){
-
-            val uri1 = Uri.parse("android.resource://" + requireActivity().packageName + "/" + R.raw.em_messung)
-            val uri2 = Uri.parse("android.resource://" + requireActivity().packageName + "/" + R.raw.em_anmeldung)
-
-            val hilfe = Hilfe(uri1,resources.getString(R.string.txt_wlan_anmeldung),"So wählen sie ihr Netzwerk")
-
-            binding.title.text = getString(R.string.txt_messung_loeschen)
-            binding.beschreibung.text = getString(R.string.txt_beschreibung_echzeitmessung)
-
-            hilfeListe = listOf(hilfe)
+            hilfeListe = listOf(hilfe1, hilfe2)
         }
 
         if (args.kontext == DIALOG_KONTEXT.VISUALISIERUNG_GRID){
+            val uri1 = Uri.parse("android.resource://" + requireActivity().packageName + "/" + R.raw.visualisierung)
 
-            val uri1 = Uri.parse("android.resource://" + requireActivity().packageName + "/" + R.raw.em_messung)
-            val uri2 = Uri.parse("android.resource://" + requireActivity().packageName + "/" + R.raw.em_anmeldung)
+            val hilfe = Hilfe(uri1,getString(R.string.txt_titel_home_visualisierung),getString(R.string.txt_beschreibung_visualisierung))
 
-            val hilfe = Hilfe(uri1,resources.getString(R.string.txt_wlan_anmeldung),"So wählen sie ihr Netzwerk")
+            binding.title.text = ""
+            binding.beschreibung.text = ""
 
-            binding.title.text = getString(R.string.title_visualisierung_de)
-            binding.beschreibung.text = getString(R.string.txt_beschreibung_visualisierung)
+            binding.rvHilfe.updateLayoutParams<ConstraintLayout.LayoutParams> {
+                topToTop = binding.title.id
+            }
 
             hilfeListe = listOf(hilfe)
         }
 
         if (args.kontext == DIALOG_KONTEXT.VISUALISIERUNG_DETAIL){
+            val uri1 = Uri.parse("android.resource://" + requireActivity().packageName + "/" + R.raw.visualisierung)
 
-            val uri1 = Uri.parse("android.resource://" + requireActivity().packageName + "/" + R.raw.em_anmeldung)
-            val uri2 = Uri.parse("android.resource://" + requireActivity().packageName + "/" + R.raw.em_anmeldung)
+            val hilfe = Hilfe(uri1,getString(R.string.txt_titel_home_visualisierung),getString(R.string.txt_beschreibung_visualisierung))
 
-            val hilfe = Hilfe(uri1,resources.getString(R.string.txt_wlan_anmeldung),"So wählen sie ihr Netzwerk")
+            binding.title.text = ""
+            binding.beschreibung.text = ""
 
-            binding.title.text = getString(R.string.txt_titel_home_visualisierung)
-            binding.beschreibung.text = getString(R.string.txt_beschreibung_visualisierung)
+            binding.rvHilfe.updateLayoutParams<ConstraintLayout.LayoutParams> {
+                topToTop = binding.title.id
+            }
 
             hilfeListe = listOf(hilfe)
         }
         if (args.kontext == DIALOG_KONTEXT.VISULISIERUNG_FULLSCREEN_BILD){
 
-            val uri1 = Uri.parse("android.resource://" + requireActivity().packageName + "/" + R.raw.em_berechtigung)
-            val uri2 = Uri.parse("android.resource://" + requireActivity().packageName + "/" + R.raw.em_anmeldung)
+            val uri1 = Uri.parse("android.resource://" + requireActivity().packageName + "/" + R.raw.visualisierung)
 
-            val hilfe = Hilfe(uri1,resources.getString(R.string.txt_wlan_anmeldung),"So wählen sie ihr Netzwerk")
+            val hilfe = Hilfe(uri1,getString(R.string.txt_titel_home_visualisierung),getString(R.string.txt_beschreibung_visualisierung))
 
-            binding.title.text = "Home"
-            binding.beschreibung.text = getString(R.string.txt_beschreibung_echzeitmessung)
+            binding.title.text = ""
+            binding.beschreibung.text = ""
+
+            binding.rvHilfe.updateLayoutParams<ConstraintLayout.LayoutParams> {
+                topToBottom = binding.title.id
+            }
 
             hilfeListe = listOf(hilfe)
         }

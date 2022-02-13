@@ -255,7 +255,19 @@
     <string name="txt_messung_bearbeiten_beschreibung">"Measurement points can be added or changed here. "</string>
     <string name="txt_messpunkt_bearbeiten">Edit measuring point</string>
     <string name="txt_hersteller_unbekannt">Manufacturer unknown</string>
-
+    <string name="txt_berechtigung_erteilen_frage">Do you want to give the permission?</string>
+    <string name="txt_ja">Yes</string>
+    <string name="txt_nein">No</string>
+    <string name="txt_hilfe_messungsliste_text">Select your desired measurement here.</string>
+    <string name="txt_hilfe_messungsliste_titel">Measurement selection</string>
+    <string name="txt_messpunkterfassen_beschreibung">New measuring points can be created or existing measuring points can be edited here.</string>
+    <string name="txt_hilfe_messpunkt_erfassen">Enter the data of the measuring point and start the measurement to be able to save the measuring point.</string>
+    <string name="txt_hilfe_messpunkt_erfassen_titel">Save measurement point</string>
+    <string name="txt_hilfe_bild_einfuegen_titel">Add picture of the room</string>
+    <string name="txt_hilfe_bild_einfuegen_text">Pictures say more than a thousand words. Add a picture to the measuring point.</string>
+    <string name="txt_bild_engefuegt">Picture added</string>
+    <string name="txt_home_beschreibung">Measure your wifi signal strength with a real-time measurement and save the measurement of your entire home or business.</string>
+    <string name="txt_hilfe_home_titel">Welcome to Wlan Detektor Pro</string>
 
 
 </resources>

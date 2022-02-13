@@ -416,50 +416,6 @@ class MesspunktErfassungsFragment : Fragment() {
             }
 
         }
-         /*   //Messpunkt löschen
-            val builder = AlertDialog.Builder(requireContext())
-            //Dialog Titel
-            builder.setTitle("Messpunkt löschen")
-            //Dialog Text
-            builder.setMessage("Soll die Messung entgültig gelöscht werden?")
-            //Dialog Icon
-            builder.setIcon(android.R.drawable.ic_dialog_alert)
-
-            //Ja Button
-            builder.setPositiveButton("Löschen") { dialogInterface, which ->
-                try {
-                    lifecycleScope.launch(Dispatchers.IO) {
-                       viewModel.deleteMesspunkt(messpunkt.idmesspunkt)
-                    }
-                    val action =
-                        MesspunktErfassungsFragmentDirections.actionMesspunktErfassungsFragmentToMessungBearbeitenFragment(
-                            args.messungsname
-                        )
-
-                    Navigation.findNavController(binding.root).navigate(action)
-                } catch (e: IOException) {
-                    Log.e("Löschauftrag:", "Fehlgeschlagen")
-                }
-            }
-
-
-
-            //Nein Button
-            builder.setNegativeButton("Abbrechen") { dialogInterface, which ->
-                Toast.makeText(
-                    requireContext(),
-                    "Messung nicht gelöscht",
-                    Toast.LENGTH_LONG
-                ).show()
-            }
-
-            // Erstellen des Dialogs
-            val alertDialog: AlertDialog = builder.create()
-            // Set other dialog properties
-            alertDialog.setCancelable(false)
-            alertDialog.show()
-        }*/
-
     }
 
     fun isPermissionGranted(permission: String): Boolean =

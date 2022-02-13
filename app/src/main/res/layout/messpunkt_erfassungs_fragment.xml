@@ -264,7 +264,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="2dp"
             android:layout_weight="1"
-            android:text="Bild eingefügt"
+            android:text="@string/txt_bild_engefuegt"
             android:visibility="invisible"
             android:textColor="#69F0AE"
             app:layout_constraintStart_toStartOf="@+id/btn_bild_hinzufuegen"
