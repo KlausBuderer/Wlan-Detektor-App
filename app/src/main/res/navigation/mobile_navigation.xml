@@ -26,8 +26,8 @@
             android:id="@+id/action_navigation_home_to_messungListeFragment"
             app:destination="@id/messungListeFragment" />
         <action
-            android:id="@+id/action_navigation_home_to_echtzeitDialogFragment"
-            app:destination="@id/echtzeitDialogFragment" />
+            android:id="@+id/action_navigation_home_to_dialogFragment"
+            app:destination="@id/dialogFragment" />
     </fragment>
 
     <fragment
@@ -36,8 +36,8 @@
         android:label="@string/title_echtzeitmessung_de"
         tools:layout="@layout/fragment_echtzeitmessung" >
         <action
-            android:id="@+id/action_navigation_echtzeitmessung_to_echtzeitDialogFragment"
-            app:destination="@id/echtzeitDialogFragment" />
+            android:id="@+id/action_navigation_echtzeitmessung_to_dialogFragment"
+            app:destination="@id/dialogFragment" />
     </fragment>
 
     <fragment
@@ -52,8 +52,8 @@
             android:id="@+id/action_navigation_messung_to_messungListeFragment"
             app:destination="@id/messungListeFragment" />
         <action
-            android:id="@+id/action_navigation_messung_to_echtzeitDialogFragment"
-            app:destination="@id/echtzeitDialogFragment" />
+            android:id="@+id/action_navigation_messung_to_dialogFragment"
+            app:destination="@id/dialogFragment" />
     </fragment>
 
     <fragment
@@ -65,8 +65,8 @@
             android:id="@+id/action_navigation_Visualisierung_to_visualisierung_Grid_Fragment"
             app:destination="@id/visualisierung_Grid_Fragment" />
         <action
-            android:id="@+id/action_navigation_Visualisierung_to_echtzeitDialogFragment"
-            app:destination="@id/echtzeitDialogFragment" />
+            android:id="@+id/action_navigation_Visualisierung_to_dialogFragment"
+            app:destination="@id/dialogFragment" />
     </fragment>
     <fragment
         android:id="@+id/messungHinzufuegen"
@@ -78,13 +78,13 @@
             app:destination="@id/messungBearbeitenFragment"
             app:enterAnim="@anim/von_rechts" />
         <action
-            android:id="@+id/action_messungHinzufuegen_to_echtzeitDialogFragment"
-            app:destination="@id/echtzeitDialogFragment" />
+            android:id="@+id/action_messungHinzufuegen_to_dialogFragment"
+            app:destination="@id/dialogFragment" />
     </fragment>
     <fragment
         android:id="@+id/messungBearbeitenFragment"
         android:name="com.gruppe4.wlan_detektor.ui.MessungVerwalten.MessungBearbeitenFragment"
-        android:label="Messungen bearbeiten"
+        android:label="@string/txt_messung_bearbeiten"
         tools:layout="@layout/messung_bearbeiten_fragment" >
         <action
             android:id="@+id/action_messungBearbeitenFragment_to_messpunktErfassungsFragment"
@@ -97,8 +97,8 @@
             android:id="@+id/action_messungBearbeitenFragment_to_messungsnamenAendern"
             app:destination="@id/messungsnamenAendern" />
         <action
-            android:id="@+id/action_messungBearbeitenFragment_to_echtzeitDialogFragment"
-            app:destination="@id/echtzeitDialogFragment" />
+            android:id="@+id/action_messungBearbeitenFragment_to_dialogFragment"
+            app:destination="@id/dialogFragment" />
     </fragment>
     <fragment
         android:id="@+id/messungListeFragment"
@@ -116,13 +116,13 @@
             android:id="@+id/action_messungListeFragment_to_navigation_messung"
             app:destination="@id/navigation_messung" />
         <action
-            android:id="@+id/action_messungListeFragment_to_echtzeitDialogFragment"
-            app:destination="@id/echtzeitDialogFragment" />
+            android:id="@+id/action_messungListeFragment_to_dialogFragment"
+            app:destination="@id/dialogFragment" />
     </fragment>
     <fragment
         android:id="@+id/messpunktErfassungsFragment"
         android:name="com.gruppe4.wlan_detektor.ui.MessungVerwalten.MesspunktErfassungsFragment"
-        android:label="Messpunkt hinzufügen"
+        android:label="@string/txt_messpunkt_hinzufuegen"
         tools:layout="@layout/messpunkt_erfassungs_fragment" >
         <argument
             android:name="messungsname"
@@ -137,8 +137,8 @@
             android:name="messpunktId"
             app:argType="long" />
         <action
-            android:id="@+id/action_messpunktErfassungsFragment_to_echtzeitDialogFragment"
-            app:destination="@id/echtzeitDialogFragment" />
+            android:id="@+id/action_messpunktErfassungsFragment_to_dialogFragment"
+            app:destination="@id/dialogFragment" />
 
     </fragment>
     <fragment
@@ -154,8 +154,8 @@
             android:name="messungsId"
             app:argType="long" />
         <action
-            android:id="@+id/action_visualisierung_Grid_Fragment_to_echtzeitDialogFragment"
-            app:destination="@id/echtzeitDialogFragment" />
+            android:id="@+id/action_visualisierung_Grid_Fragment_to_dialogFragment"
+            app:destination="@id/dialogFragment" />
     </fragment>
     <fragment
         android:id="@+id/visuDetailFragment"
@@ -199,17 +199,17 @@
             app:destination="@id/visuFullScreenBild"
             app:enterAnim="@anim/von_unten" />
         <action
-            android:id="@+id/action_visuDetailFragment_to_echtzeitDialogFragment"
-            app:destination="@id/echtzeitDialogFragment" />
+            android:id="@+id/action_visuDetailFragment_to_dialogFragment"
+            app:destination="@id/dialogFragment" />
     </fragment>
 
     <dialog
-        android:id="@+id/echtzeitDialogFragment"
-        android:name="com.gruppe4.wlan_detektor.ui.Echtzeitmessung.EchtzeitDialogFragment"
+        android:id="@+id/dialogFragment"
+        android:name="com.gruppe4.wlan_detektor.ui.Echtzeitmessung.DialogFragment"
         android:label="fragment_echtzeit_dialog"
-        tools:layout="@layout/fragment_echtzeit_dialog">
+        tools:layout="@layout/fragment_dialog">
         <action
-            android:id="@+id/action_echtzeitDialogFragment_to_navigation_echtzeitmessung"
+            android:id="@+id/action_dialogFragment_to_navigation_echtzeitmessung"
             app:destination="@id/navigation_echtzeitmessung" />
         <argument
             android:name="kontext"

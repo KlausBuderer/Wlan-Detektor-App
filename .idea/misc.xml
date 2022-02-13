@@ -53,13 +53,15 @@
         <entry key="..\:/Android/WlanDetektor/app/src/main/res/drawable/ic_wlan_schwarz.xml" value="0.561025641025641" />
         <entry key="..\:/Android/WlanDetektor/app/src/main/res/drawable/lite_background.xml" value="0.42552083333333335" />
         <entry key="..\:/Android/WlanDetektor/app/src/main/res/drawable/progressbar_shape.xml" value="0.42552083333333335" />
+        <entry key="..\:/Android/WlanDetektor/app/src/main/res/drawable/ripple_card_background.xml" value="0.143" />
         <entry key="..\:/Android/WlanDetektor/app/src/main/res/drawable/rv_background.xml" value="0.39114583333333336" />
         <entry key="..\:/Android/WlanDetektor/app/src/main/res/drawable/transparent_black_overlay.xml" value="0.40208333333333335" />
         <entry key="..\:/Android/WlanDetektor/app/src/main/res/layout/activity_main.xml" value="0.37775202780996525" />
         <entry key="..\:/Android/WlanDetektor/app/src/main/res/layout/berechtigung_dialog.xml" value="0.6890625" />
         <entry key="..\:/Android/WlanDetektor/app/src/main/res/layout/dropdown_item.xml" value="0.4276041666666667" />
         <entry key="..\:/Android/WlanDetektor/app/src/main/res/layout/fragment_dashboard.xml" value="0.16847826086956522" />
-        <entry key="..\:/Android/WlanDetektor/app/src/main/res/layout/fragment_datenschutz.xml" value="0.23832070707070707" />
+        <entry key="..\:/Android/WlanDetektor/app/src/main/res/layout/fragment_datenschutz.xml" value="0.536" />
+        <entry key="..\:/Android/WlanDetektor/app/src/main/res/layout/fragment_dialog.xml" value="0.4" />
         <entry key="..\:/Android/WlanDetektor/app/src/main/res/layout/fragment_echtzeit_dialog.xml" value="0.3584637268847795" />
         <entry key="..\:/Android/WlanDetektor/app/src/main/res/layout/fragment_echtzeitmessung.xml" value="0.4" />
         <entry key="..\:/Android/WlanDetektor/app/src/main/res/layout/fragment_echtzeitmessung_dialog.xml" value="0.3109375" />
@@ -80,7 +82,7 @@
         <entry key="..\:/Android/WlanDetektor/app/src/main/res/layout/fragment_visualisierung.xml" value="0.33" />
         <entry key="..\:/Android/WlanDetektor/app/src/main/res/layout/gebauede_item.xml" value="0.31741573033707865" />
         <entry key="..\:/Android/WlanDetektor/app/src/main/res/layout/hilfe_button.xml" value="0.37604166666666666" />
-        <entry key="..\:/Android/WlanDetektor/app/src/main/res/layout/hilfe_item.xml" value="0.10300429184549356" />
+        <entry key="..\:/Android/WlanDetektor/app/src/main/res/layout/hilfe_item.xml" value="0.536" />
         <entry key="..\:/Android/WlanDetektor/app/src/main/res/layout/loesch_dialog.xml" value="0.5111940298507462" />
         <entry key="..\:/Android/WlanDetektor/app/src/main/res/layout/messpunkt_erfassungs_fragment.xml" value="0.5" />
         <entry key="..\:/Android/WlanDetektor/app/src/main/res/layout/messpunkt_item.xml" value="0.67" />
@@ -101,6 +103,13 @@
         <entry key="..\:/Android/WlanDetektor/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.5661458333333333" />
       </map>
     </option>
+  </component>
+  <component name="JavadocGenerationManager">
+    <option name="OUTPUT_DIRECTORY" value="$PROJECT_DIR$/../../" />
+    <option name="OPTION_SCOPE" value="private" />
+    <option name="OPTION_DOCUMENT_TAG_USE" value="true" />
+    <option name="OPTION_DOCUMENT_TAG_AUTHOR" value="true" />
+    <option name="OPTION_DOCUMENT_TAG_VERSION" value="true" />
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />

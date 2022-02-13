@@ -19,7 +19,7 @@
         app:cardCornerRadius="12dp"
         app:cardElevation="8dp"
         app:contentPadding="8dp"
-        android:background="@drawable/card_background_dark_blue">
+        android:background="@drawable/ripple_card_background">
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/wlan_icon"
