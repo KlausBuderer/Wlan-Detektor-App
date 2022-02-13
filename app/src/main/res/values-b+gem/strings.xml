@@ -185,17 +185,15 @@
     <string name="txt_eue_messung_erstellen">Neue Messung Erstellen</string>
     <string name="txt_verwalte_deine_messungen">Verwalte deine Messungen</string>
     <string name="txt_prefix_stockwerk">Stockwerk:</string>
-
-
     <string name="tv_prefix_gebauede">Gebäude:</string>
     <string name="txt_startseite">Messe die Signalstärke \n deines Wlan Netzwerks"</string>
-
     <string name="txt_untertitel_2_echtzeitmessung">2. Messung beobachten, stoppen und starten</string>
     <string name="txt_messung_loeschen_text">Soll die Messung gelöscht werden?</string>
     <string name="txt_berechtigung_text">Um die Informationen des Wlan Routers auslesen zu können muss die Lokalisierung erlaubt werden.</string>
-    <string name="txt_berechtigung_titel">Berechtigung</string>
+    <string name="txt_berechtigung_titel">Berechtigung fehlt</string>
     <string name="txt_messpunkt_loeschen">Soll der Messpunkt gelöscht werden?</string>
     <string name="txt_messungsliste">Messungsliste</string>
+
     <string name="txt_wlan_netzwerk">Wlan Netzwerk</string>
     <string name="txt_einstellungen">Settings</string>
     <string name="txt_hilfe_text_anmeldung">To measure the signal strength of your wifi network, you must be  logged into a wifi network.</string>

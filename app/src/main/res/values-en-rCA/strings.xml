@@ -235,6 +235,7 @@
 
     <string name="txt_untertitel_2_echtzeitmessung">Messung beobachten, stoppen und starten</string>
     <string name="txt_messung_loeschen_text">Soll die Messung gelöscht werden?</string>
+
     <string name="txt_berechtigung_text">To be able to read out the information of the wi-fi router, the localization permission must be enabled in the settings.</string>
     <string name="txt_berechtigung_titel">Permission missing</string>
     <string name="txt_messpunkt_loeschen">Soll der Messpunkt gelöscht werden?</string>
@@ -254,5 +255,6 @@
     <string name="txt_messung_bearbeiten_beschreibung">"Measurement points can be added or changed here. "</string>
     <string name="txt_messpunkt_bearbeiten">Edit measuring point</string>
     <string name="txt_hersteller_unbekannt">Manufacturer unknown</string>
+
 
 </resources>

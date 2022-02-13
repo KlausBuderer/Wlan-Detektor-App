@@ -34,6 +34,7 @@
   
     <string name="txt_messung_loeschen_text">Soll die Messung gelöscht werden?</string>
     <string name="txt_berechtigung_text">Um die Informationen des Wlan Routers auslesen zu können muss die Lokalisierung erlaubt werden.</string>
+
     <string name="txt_berechtigung_titel">Berechtigung</string>
     <string name="txt_messpunkt_loeschen">Soll der Messpunkt gelöscht werden?</string>
     <string name="txt_messungsliste">Messungsliste</string>
@@ -44,4 +45,5 @@
     <string name="em_txt_hilfe_berechtigung">"In order to get all necessary information of the Wlan network, the  permission \"Localization\" must be granted in the application  settings. "</string>
     <string name="em_txt_hilfe_titel_berechtigung">Permissions</string>
     <string name="txt_hilfe_messung_verwalten">Here, new measurements can be created and existing  measurements edited or deleted.</string>
+
 </resources>
