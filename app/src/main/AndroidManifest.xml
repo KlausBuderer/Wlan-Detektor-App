@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.gruppe4.wlan_detektor">
+    package="com.gruppe4.wlan_detektor_pro">
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
@@ -30,7 +30,7 @@
             android:value="optional" />
 
         <activity
-            android:name=".MainActivity"
+            android:name="com.gruppe4.wlan_detektor_pro.MainActivity"
             android:exported="true"
             android:label="@string/app_name"
             android:screenOrientation="portrait">
@@ -45,7 +45,7 @@
         </activity>
         <provider
             android:name="androidx.core.content.FileProvider"
-            android:authorities="com.gruppe4.wlan_detektor.android.fileprovider"
+            android:authorities="com.gruppe4.wlan_detektor_pro.android.fileprovider"
             android:exported="false"
             android:grantUriPermissions="true">
             <meta-data
