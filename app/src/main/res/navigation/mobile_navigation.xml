@@ -253,6 +253,9 @@
         <argument
             android:name="bildpfad"
             app:argType="string" />
+        <action
+            android:id="@+id/action_visuFullScreenBild_to_dialogFragment"
+            app:destination="@id/dialogFragment" />
     </fragment>
 
 </navigation>

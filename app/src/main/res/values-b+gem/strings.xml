@@ -193,14 +193,13 @@
     <string name="txt_berechtigung_titel">Berechtigung fehlt</string>
     <string name="txt_messpunkt_loeschen">Soll der Messpunkt gelöscht werden?</string>
     <string name="txt_messungsliste">Messungsliste</string>
-
     <string name="txt_wlan_netzwerk">Wlan Netzwerk</string>
-    <string name="txt_einstellungen">Settings</string>
-    <string name="txt_hilfe_text_anmeldung">To measure the signal strength of your wifi network, you must be  logged into a wifi network.</string>
-    <string name="em_txt_hilfe_messung">Once you have logged into a wifi network, you can monitor the  signal strength of your network and have it output by an acoustic signal.</string>
+    <string name="txt_einstellungen">Einstellungen</string>
+    <string name="txt_hilfe_text_anmeldung">Um die Signalstärke Ihres WLAN-Netzwerks zu messen, müssen Sie in einem WLAN-Netzwerk angemeldet sein.</string>
+    <string name="em_txt_hilfe_messung">Sobald Sie sich in ein WiFi-Netzwerk eingeloggt haben, können Sie die Signalstärke Ihres Netzwerks überwachen und durch ein akustisches Signal ausgeben lassen.</string>
 
-    <string name="em_txt_hilfe_berechtigung">"In order to get all necessary information of the Wlan network, the  permission \"Localization\" must be granted in the application  settings. "</string>
-    <string name="em_txt_hilfe_titel_berechtigung">Permissions</string>
+    <string name="em_txt_hilfe_berechtigung">"Um alle notwendigen Informationen des Wlan-Netzes zu erhalten, muss in den Anwendungseinstellungen die Berechtigung \"Lokalisierung\" erteilt werden. "</string>
+    <string name="em_txt_hilfe_titel_berechtigung">Berechtigung</string>
     <string name="txt_hilfe_messung_verwalten">Hier können neue Messungen angelegt, bestehende Messungen bearbeitet oder gelöschte werden.</string>
     <string name="txt_hilfe_messung_anlegen">Hier können neue Messungen angelegt werden. Gebe der Messsung einen Namen, verbinde dich mit einem Wlan Netzwerk und gebe an was für Typ von Gebäude gemessen wird und los geht’s.</string>
     <string name="txt_hilfe_messung_hinzufuegen">Erstelle eine neue Messung</string>
@@ -210,5 +209,19 @@
     <string name="txt_messung_bearbeiten_beschreibung">"Hier können Messpunkte hinzugefügt oder geändert werden. "</string>
     <string name="txt_messpunkt_bearbeiten">Messpunkt bearbeiten</string>
     <string name="txt_hersteller_unbekannt">Hersteller unbekannt</string>
+
+    <string name="txt_berechtigung_erteilen_frage">Möchten sie die Berechtigung erteilen?</string>
+    <string name="txt_ja">Ja</string>
+    <string name="txt_nein">Nein</string>
+    <string name="txt_hilfe_messungsliste_text">Wähle hier deine gewünschte Messung aus.</string>
+    <string name="txt_hilfe_messungsliste_titel">Messung wählen</string>
+    <string name="txt_messpunkterfassen_beschreibung">Hier können neue Messpunkte erstellt oder bestehende Messpunkte bearbeitet werden.</string>
+    <string name="txt_hilfe_messpunkt_erfassen">Geben sie die Angaben des Messpunktes an und starten sie die Messung um den Messpunkte speichern zu können.</string>
+    <string name="txt_hilfe_messpunkt_erfassen_titel">Messpunkt speichern</string>
+    <string name="txt_hilfe_bild_einfuegen_titel">Füge ein Bild des Raumes hinzu</string>
+    <string name="txt_hilfe_bild_einfuegen_text">Bilder sagen mehr als tausend Worte. Füge dem Messpunkte ein Bild hinzu.</string>
+    <string name="txt_bild_engefuegt">Bild eingefügt</string>
+    <string name="txt_home_beschreibung">"Messen sie ihre Wlan Signalstärke mit einer Echtzeitmessung und speichern sie die Messung ihrer gesamten Wohnung oder ihres Unternehmens. "</string>
+    <string name="txt_hilfe_home_titel">Wilkommen bei Wlan Detektor Pro</string>
 
 </resources>
