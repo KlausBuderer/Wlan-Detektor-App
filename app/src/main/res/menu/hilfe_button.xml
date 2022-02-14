@@ -2,7 +2,7 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="com.gruppe4.wlan_detektor.MainActivity"
+    tools:context="com.gruppe4.wlan_detektor_pro.MainActivity"
     >
 
     <item

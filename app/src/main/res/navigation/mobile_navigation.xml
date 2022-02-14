@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/navigation_home"
-        android:name="com.gruppe4.wlan_detektor.ui.Startseite.HomeFragment"
+        android:name="com.gruppe4.wlan_detektor_pro.ui.Startseite.HomeFragment"
         android:label="@string/title_home"
         tools:layout="@layout/fragment_home" >
         <action
@@ -32,7 +32,7 @@
 
     <fragment
         android:id="@+id/navigation_echtzeitmessung"
-        android:name="com.gruppe4.wlan_detektor.ui.Echtzeitmessung.EchtezeitmessungFragment"
+        android:name="com.gruppe4.wlan_detektor_pro.ui.Echtzeitmessung.EchtezeitmessungFragment"
         android:label="@string/title_echtzeitmessung_de"
         tools:layout="@layout/fragment_echtzeitmessung" >
         <action
@@ -42,7 +42,7 @@
 
     <fragment
         android:id="@+id/navigation_messung"
-        android:name="com.gruppe4.wlan_detektor.ui.MessungVerwalten.MessungFragment"
+        android:name="com.gruppe4.wlan_detektor_pro.ui.MessungVerwalten.MessungFragment"
         android:label="@string/title_messungen_de"
         tools:layout="@layout/fragment_messungen" >
         <action
@@ -58,7 +58,7 @@
 
     <fragment
         android:id="@+id/navigation_Visualisierung"
-        android:name="com.gruppe4.wlan_detektor.ui.Visualisierung.VisualisierungFragment"
+        android:name="com.gruppe4.wlan_detektor_pro.ui.Visualisierung.VisualisierungFragment"
         android:label="@string/title_visualisierung_de"
         tools:layout="@layout/fragment_visualisierung" >
         <action
@@ -70,7 +70,7 @@
     </fragment>
     <fragment
         android:id="@+id/messungHinzufuegen"
-        android:name="com.gruppe4.wlan_detektor.ui.MessungVerwalten.MessungHinzufuegen"
+        android:name="com.gruppe4.wlan_detektor_pro.ui.MessungVerwalten.MessungHinzufuegen"
         android:label="@string/txt_messung_hinzufuegen"
         tools:layout="@layout/fragment_messung_hinzufuegen" >
         <action
@@ -83,7 +83,7 @@
     </fragment>
     <fragment
         android:id="@+id/messungBearbeitenFragment"
-        android:name="com.gruppe4.wlan_detektor.ui.MessungVerwalten.MessungBearbeitenFragment"
+        android:name="com.gruppe4.wlan_detektor_pro.ui.MessungVerwalten.MessungBearbeitenFragment"
         android:label="@string/txt_messung_bearbeiten"
         tools:layout="@layout/messung_bearbeiten_fragment" >
         <action
@@ -102,7 +102,7 @@
     </fragment>
     <fragment
         android:id="@+id/messungListeFragment"
-        android:name="com.gruppe4.wlan_detektor.ui.MessungVerwalten.MessungListeFragment"
+        android:name="com.gruppe4.wlan_detektor_pro.ui.MessungVerwalten.MessungListeFragment"
         android:label="@string/title_messungen_de"
         tools:layout="@layout/messung_liste_fragment" >
         <action
@@ -121,7 +121,7 @@
     </fragment>
     <fragment
         android:id="@+id/messpunktErfassungsFragment"
-        android:name="com.gruppe4.wlan_detektor.ui.MessungVerwalten.MesspunktErfassungsFragment"
+        android:name="com.gruppe4.wlan_detektor_pro.ui.MessungVerwalten.MesspunktErfassungsFragment"
         android:label="@string/txt_messpunkt_hinzufuegen"
         tools:layout="@layout/messpunkt_erfassungs_fragment" >
         <argument
@@ -143,7 +143,7 @@
     </fragment>
     <fragment
         android:id="@+id/visualisierung_Grid_Fragment"
-        android:name="com.gruppe4.wlan_detektor.ui.Visualisierung.Visualisierung_Grid_Fragment"
+        android:name="com.gruppe4.wlan_detektor_pro.ui.Visualisierung.Visualisierung_Grid_Fragment"
         android:label="@string/title_visualisierung_de"
         tools:layout="@layout/visualisierung__grid__fragment" >
         <action
@@ -159,7 +159,7 @@
     </fragment>
     <fragment
         android:id="@+id/visuDetailFragment"
-        android:name="com.gruppe4.wlan_detektor.ui.Visualisierung.VisuDetailFragment"
+        android:name="com.gruppe4.wlan_detektor_pro.ui.Visualisierung.VisuDetailFragment"
         android:label="Detailansicht"
         tools:layout="@layout/visu_detail_fragment" >
         <argument
@@ -205,7 +205,7 @@
 
     <dialog
         android:id="@+id/dialogFragment"
-        android:name="com.gruppe4.wlan_detektor.ui.Echtzeitmessung.DialogFragment"
+        android:name="com.gruppe4.wlan_detektor_pro.ui.Echtzeitmessung.DialogFragment"
         android:label="fragment_echtzeit_dialog"
         tools:layout="@layout/fragment_dialog">
         <action
@@ -213,24 +213,24 @@
             app:destination="@id/navigation_echtzeitmessung" />
         <argument
             android:name="kontext"
-            app:argType="com.gruppe4.wlan_detektor.ui.Utility.DIALOG_KONTEXT" />
+            app:argType="com.gruppe4.wlan_detektor_pro.ui.Utility.DIALOG_KONTEXT" />
     </dialog>
 
     <dialog
         android:id="@+id/ueberUns2"
-        android:name="com.gruppe4.wlan_detektor.UeberUns"
+        android:name="com.gruppe4.wlan_detektor_pro.UeberUns"
         android:label="fragment_ueber_uns"
         tools:layout="@layout/fragment_ueber_uns" />
 
     <dialog
         android:id="@+id/terms_conditions"
-        android:name="com.gruppe4.wlan_detektor.Terms_conditions"
+        android:name="com.gruppe4.wlan_detektor_pro.Terms_conditions"
         android:label="fragment_terms_conditions"
         tools:layout="@layout/fragment_haftungsausschluss" />
 
     <dialog
         android:id="@+id/messungsnamenAendern"
-        android:name="com.gruppe4.wlan_detektor.ui.MessungVerwalten.MessungsnamenAendern"
+        android:name="com.gruppe4.wlan_detektor_pro.ui.MessungVerwalten.MessungsnamenAendern"
         android:label="messungsnamen_aendern_fragment"
         tools:layout="@layout/messungsnamen_aendern_fragment" >
         <action
@@ -242,12 +242,12 @@
     </dialog>
     <dialog
         android:id="@+id/datenschutzFragment"
-        android:name="com.gruppe4.wlan_detektor.DatenschutzFragment"
+        android:name="com.gruppe4.wlan_detektor_pro.DatenschutzFragment"
         android:label="fragment_datenschutz"
         tools:layout="@layout/fragment_datenschutz" />
     <fragment
         android:id="@+id/visuFullScreenBild"
-        android:name="com.gruppe4.wlan_detektor.ui.Visualisierung.VisuFullScreenBild"
+        android:name="com.gruppe4.wlan_detektor_pro.ui.Visualisierung.VisuFullScreenBild"
         android:label=""
         tools:layout="@layout/fragment_visu_full_screen_bild" >
         <argument
