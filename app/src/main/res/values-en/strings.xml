@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Wlan-Detektor</string>
+    <string name="app_name">Wlan-Detektor Pro</string>
     <string name="title_home">Home</string>
     <string name="title_echtzeitmessung_de">Realtime measurement</string>
     <string name="title_messungen_de">Measurements</string>

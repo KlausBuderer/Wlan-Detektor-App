@@ -22,7 +22,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.WlanDetektor"
         android:versionCode="1"
-        android:versionName="WLAN Detektor"
+        android:versionName="WLAN Detektor Pro"
         >
 
         <meta-data

@@ -1,6 +1,8 @@
 package com.gruppe4.wlan_detektor_pro.ui.Utility
 
+
 import kotlinx.coroutines.delay
+
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.junit.runners.JUnit4
@@ -14,7 +16,9 @@ class DatumTest {
     fun getDatum() {
         val dat = datum.getDatum()
 
+
         assert(dat.length == 10)
+
     }
 
     @Test

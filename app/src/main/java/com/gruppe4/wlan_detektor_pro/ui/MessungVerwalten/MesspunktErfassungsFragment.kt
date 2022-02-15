@@ -92,6 +92,7 @@ class MesspunktErfassungsFragment : Fragment() {
             bildEingefuegtBild.visibility = ImageView.VISIBLE
             bildEingefuegtText.visibility = ImageView.VISIBLE
         } else {
+
             bildEingefuegtBild.visibility = ImageView.INVISIBLE
             bildEingefuegtText.visibility = ImageView.INVISIBLE
         }
@@ -120,6 +121,7 @@ class MesspunktErfassungsFragment : Fragment() {
 
         editStockwerk.setTextColor(resources.getColor(R.color.white))
         editStockwerk.setDropDownBackgroundDrawable(resources.getDrawable(R.drawable.dropdown_background))
+
 
         if (args.messpunktId == -1L) {
             loeschButton.visibility = Button.INVISIBLE
@@ -150,6 +152,7 @@ class MesspunktErfassungsFragment : Fragment() {
         if (args.messpunktId != -1L) {
             lifecycleScope.launch { viewModel.getMesspunkt(args.messpunktId) }
         } else {
+
             //Vorgeben des zuletzt eingegebenen Gebäude um die Eingabe zu erleichtern
 
             lifecycleScope.launch(Dispatchers.Main) {
@@ -185,6 +188,7 @@ class MesspunktErfassungsFragment : Fragment() {
                     bildEingefuegtBild.visibility = ImageView.VISIBLE
                     bildEingefuegtText.visibility = ImageView.VISIBLE
                 } else {
+
                     bildEingefuegtBild.visibility = ImageView.INVISIBLE
                     bildEingefuegtText.visibility = ImageView.INVISIBLE
                 }
@@ -201,7 +205,9 @@ class MesspunktErfassungsFragment : Fragment() {
         binding.btnStartMesspunktMessung.setOnClickListener {
             viewModel.konditionMessung = true
             speichern.isEnabled = viewModel.buttonFreigeben()
+
             if (args.messpunktId != -1L) {
+
                 wiederholteMessung = true
             }
             lifecycleScope.launch { viewModel.startUpdates() }
@@ -340,6 +346,7 @@ class MesspunktErfassungsFragment : Fragment() {
                 Log.e("Messpunkt erfassen viewmodel: ", "messpunkt id -1")
             } else {
 
+
                 var erneuteMessung: Int
 
                 if (wiederholteMessung) {
@@ -347,6 +354,7 @@ class MesspunktErfassungsFragment : Fragment() {
                 } else {
                     erneuteMessung = messpunkt.pegelmessung
                 }
+
 
 
                 var _messpunkt: TblMesspunkt = TblMesspunkt(
@@ -378,20 +386,26 @@ class MesspunktErfassungsFragment : Fragment() {
         }
 
 
+
         loeschButton.setOnClickListener {
+
 
             val dialog = Dialog(requireContext())
             dialog.setContentView(R.layout.loesch_dialog)
             dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+
             dialog.findViewById<TextView>(R.id.tv_loeschen_text).text =
                 getString(R.string.txt_messpunkt_loeschen)
+
 
             dialog.show()
 
             val abbrechenButton = dialog.findViewById<Button>(R.id.btn_abbrechen)
             val loeschenButton = dialog.findViewById<Button>(R.id.btn_loeschen)
 
+
             abbrechenButton.setOnClickListener {
+
                 Toast.makeText(
                     requireContext(),
                     "Messung nicht gelöscht",
@@ -458,7 +472,9 @@ class MesspunktErfassungsFragment : Fragment() {
                 photoFile?.also {
                     val photoURI = FileProvider.getUriForFile(
                         requireContext(),
+
                         "com.gruppe4.wlan_detektor_pro.android.fileprovider",
+
                         it
                     )
                     takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI)
