@@ -127,8 +127,8 @@
 "Wenn Sie Fragen zu diesem Haftungsausschluss haben, können Sie uns kontaktieren\n:"
 "<li>Per E-Mail: wlandetektor@it-wissen.ch</li>"
     </string>
-    <string name="txt_gebaeude_prefix">Building:</string>
-    <string name="txt_stockwerk_prefix">Floor:</string>
+    <string name="txt_gebaeude_prefix">Gebäude:</string>
+    <string name="txt_stockwerk_prefix">Stockwerk:</string>
     <string name="txt_zusatzinfo_prefix">Zusatzinfo:</string>
     <string name="txt_erstellungszeit_prefix">Erstellungszeit:</string>
     <string name="txt_erstellung_prefix">Erstellung:</string>
