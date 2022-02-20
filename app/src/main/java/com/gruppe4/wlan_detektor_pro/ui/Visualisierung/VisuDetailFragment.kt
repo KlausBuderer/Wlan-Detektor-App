@@ -2,9 +2,7 @@ package com.gruppe4.wlan_detektor_pro.ui.Visualisierung
 
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,12 +10,13 @@ import android.widget.FrameLayout
 import android.widget.ImageView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.updateLayoutParams
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.navArgs
 import com.gruppe4.wlan_detektor_pro.databinding.VisuDetailFragmentBinding
 import com.gruppe4.wlan_detektor_pro.model.Netzwerk.NetzwerkInfo
 import java.io.File
-
 
 class VisuDetailFragment : Fragment() {
 
@@ -29,13 +28,13 @@ class VisuDetailFragment : Fragment() {
     val args: VisuDetailFragmentArgs by navArgs()
     private var _binding: VisuDetailFragmentBinding? = null
 
-
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
 
@@ -46,14 +45,13 @@ class VisuDetailFragment : Fragment() {
         if (args.bildPfad.isNotBlank()) {
             val bildFile = File(args.bildPfad)
 
-            //Reduzierung der Auflösung um Speicherauslastung zu reduzieren
+            // Reduzierung der Auflösung um Speicherauslastung zu reduzieren
             val options = BitmapFactory.Options()
             options.inSampleSize = 2
-            //Aufruf Bild aus Files
-             myBitmap = BitmapFactory.decodeFile(bildFile.absolutePath,options)
-
+            // Aufruf Bild aus Files
+            myBitmap = BitmapFactory.decodeFile(bildFile.absolutePath, options)
         } else {
-            //Fall kein Bild vorhanden ist wird das Bildfenster nicht angezeigt
+            // Fall kein Bild vorhanden ist wird das Bildfenster nicht angezeigt
             binding.bildLayout.visibility = FrameLayout.INVISIBLE
             binding.musspunktBild.visibility = ImageView.INVISIBLE
 
@@ -77,7 +75,7 @@ class VisuDetailFragment : Fragment() {
         if (myBitmap != null) {
             binding.musspunktBild.setImageBitmap(myBitmap)
 
-            binding.musspunktBild.setOnClickListener{
+            binding.musspunktBild.setOnClickListener {
                 val action =
                     VisuDetailFragmentDirections.actionVisuDetailFragmentToVisuFullScreenBild(
                         args.bildPfad
@@ -87,8 +85,6 @@ class VisuDetailFragment : Fragment() {
             }
         }
 
-
-
         return root
     }
 
@@ -96,5 +92,4 @@ class VisuDetailFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProvider(this).get(VisuDetailViewModel::class.java)
     }
-
 }

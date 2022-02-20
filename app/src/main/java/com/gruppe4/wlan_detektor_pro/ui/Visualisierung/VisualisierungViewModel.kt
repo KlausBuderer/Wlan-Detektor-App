@@ -14,18 +14,17 @@ class VisualisierungViewModel(application: Application) : AndroidViewModel(appli
 
     private val repositoryDb: RepositoryDb = RepositoryDb(application)
 
-    private val _messungsliste = MutableLiveData<List<TblMessung>?>().apply{
-
+    private val _messungsliste = MutableLiveData<List<TblMessung>?>().apply {
     }
 
     val messungsliste: LiveData<List<TblMessung>?> = _messungsliste
 
-    suspend fun getAlleMessungen(){
+    suspend fun getAlleMessungen() {
         try {
             val alleMessungen = repositoryDb.queryMessung()
             Log.e(LOG_TAG, "Query erfolgreich")
             _messungsliste.postValue(alleMessungen)
-        }catch (e: IOException){
+        } catch (e: IOException) {
             Log.e(LOG_TAG, "Query nicht erfolgreich")
         }
     }

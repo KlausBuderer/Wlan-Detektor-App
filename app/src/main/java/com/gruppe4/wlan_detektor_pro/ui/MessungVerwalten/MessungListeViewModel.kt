@@ -13,36 +13,32 @@ class MessungListeViewModel(application: Application) : AndroidViewModel(applica
     // TODO: Implement the ViewModel
     private val LOG_TAG: String = "MessungsListe: "
 
-
     private val repositoryDb: RepositoryDb = RepositoryDb(application)
 
-    private val _messungsliste = MutableLiveData<List<TblMessung>?>().apply{
-
+    private val _messungsliste = MutableLiveData<List<TblMessung>?>().apply {
     }
 
     val messungsliste: LiveData<List<TblMessung>?> = _messungsliste
 
-    suspend fun getAlleMessungen(){
+    suspend fun getAlleMessungen() {
         try {
             val alleMessungen = repositoryDb.queryMessung()
             Log.e(LOG_TAG, "Query erfolgreich")
             _messungsliste.postValue(alleMessungen)
-        }catch (e: IOException){
+        } catch (e: IOException) {
             Log.e(LOG_TAG, "Query nicht erfolgreich")
         }
     }
 
-     suspend fun deleteMessung(name:String){
+    suspend fun deleteMessung(name: String) {
         try {
 
             repositoryDb.deleteMessung(repositoryDb.getMessung(name))
 
-
             Log.e(LOG_TAG, "Query erfolgreich")
             getAlleMessungen()
-        }catch (e: IOException){
+        } catch (e: IOException) {
             Log.e(LOG_TAG, "Query nicht erfolgreich")
         }
     }
-
 }

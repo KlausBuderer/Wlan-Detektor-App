@@ -10,7 +10,7 @@ import androidx.navigation.Navigation
 import com.gruppe4.wlan_detektor_pro.R
 import com.gruppe4.wlan_detektor_pro.databinding.FragmentMessungenBinding
 
-enum class MESSUNGLISTE_KONTEXT {Bearbeiten, Loeschen, Visualisierung}
+enum class MESSUNGLISTE_KONTEXT { Bearbeiten, Loeschen, Visualisierung }
 
 class MessungFragment : Fragment() {
 
@@ -32,25 +32,21 @@ class MessungFragment : Fragment() {
         _binding = FragmentMessungenBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        //Absprung in Maske um neue Messung hinzuzufügen
+        // Absprung in Maske um neue Messung hinzuzufügen
         binding.cvMessungHinzu.setOnClickListener {
             Navigation.findNavController(it).navigate(
                 R.id.action_navigation_messung_to_messungHinzufuegen
             )
         }
 
-
-
-            return root
-
+        return root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-
-        //Absprung in eine Liste von Messungen
-        binding.cvMessungBearbeiten.setOnClickListener{
+        // Absprung in eine Liste von Messungen
+        binding.cvMessungBearbeiten.setOnClickListener {
             val action =
                 MessungFragmentDirections.actionNavigationMessungToMessungListeFragment(
                     MESSUNGLISTE_KONTEXT.Bearbeiten.toString()
@@ -59,9 +55,8 @@ class MessungFragment : Fragment() {
             Navigation.findNavController(binding.root).navigate(action)
         }
 
-
-        //Absprung in eine Liste von Messungen
-        binding.cvMessungLoeschen.setOnClickListener{
+        // Absprung in eine Liste von Messungen
+        binding.cvMessungLoeschen.setOnClickListener {
             val action =
                 MessungFragmentDirections.actionNavigationMessungToMessungListeFragment(
                     MESSUNGLISTE_KONTEXT.Loeschen.toString()
@@ -70,9 +65,6 @@ class MessungFragment : Fragment() {
             Navigation.findNavController(binding.root).navigate(action)
         }
     }
-
-
-
 
     override fun onDestroyView() {
         super.onDestroyView()

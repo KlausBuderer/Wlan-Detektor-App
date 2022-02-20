@@ -30,7 +30,6 @@ class EchtezeitmessungFragment : Fragment() {
     private val binding get() = _binding!!
     lateinit var dialog: Dialog
 
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -45,9 +44,9 @@ class EchtezeitmessungFragment : Fragment() {
 
         dialog = Dialog(requireContext())
 
-        //Pruefen ob die Berechtigung vorhanden ist
+        // Pruefen ob die Berechtigung vorhanden ist
         if (isPermissionGranted(ACCESS_FINE_LOCATION)) {
-            //Berechtigung vorhanden
+            // Berechtigung vorhanden
         } else {
             // Erstellen eines Dialogs, um die Berechtigung zu erteilen
             dialog.setContentView(R.layout.berechtigung_dialog)
@@ -83,85 +82,90 @@ class EchtezeitmessungFragment : Fragment() {
             }
         }
 
-
-
         val ssid: TextView = binding.tvSsid
-        echtzeitmessungViewModel.netzwerkInfo.observe(viewLifecycleOwner, Observer {
-            if (it.supplicantState == SupplicantState.COMPLETED) {
-                ssid.text = it.ssid.trim('"', '\"', '<', '>')
-            } else {
-                ssid.text = "-"
-            }
-        })
-
-
-        val mac: TextView = binding.tvMac
-        echtzeitmessungViewModel.netzwerkInfo.observe(viewLifecycleOwner, Observer {
-
-            if(it != null) {
-                if (it.bssid != null) {
-                    mac.text = it.bssid.uppercase()
+        echtzeitmessungViewModel.netzwerkInfo.observe(
+            viewLifecycleOwner,
+            Observer {
+                if (it.supplicantState == SupplicantState.COMPLETED) {
+                    ssid.text = it.ssid.trim('"', '\"', '<', '>')
                 } else {
-                    mac.text = "-"
+                    ssid.text = "-"
                 }
             }
-        })
+        )
 
+        val mac: TextView = binding.tvMac
+        echtzeitmessungViewModel.netzwerkInfo.observe(
+            viewLifecycleOwner,
+            Observer {
 
+                if (it != null) {
+                    if (it.bssid != null) {
+                        mac.text = it.bssid.uppercase()
+                    } else {
+                        mac.text = "-"
+                    }
+                }
+            }
+        )
 
         val band: TextView = binding.tvFrequenz
-        echtzeitmessungViewModel.band.observe(viewLifecycleOwner, Observer {
-            if (it > 0.0) {
-                band.text = it.toString() + " GHz"
-            } else {
-                band.text = "-"
+        echtzeitmessungViewModel.band.observe(
+            viewLifecycleOwner,
+            Observer {
+                if (it > 0.0) {
+                    band.text = it.toString() + " GHz"
+                } else {
+                    band.text = "-"
+                }
             }
-        })
-
+        )
 
         val updownspeed: TextView = binding.tvUpdownspeed
-        echtzeitmessungViewModel.netzwerkInfo.observe(viewLifecycleOwner, Observer {
-            if(it.linkSpeed > 0 ) {
-                updownspeed.text = it.linkSpeed.toString() + " Mbps"
-            } else {
-                updownspeed.text = "-"
+        echtzeitmessungViewModel.netzwerkInfo.observe(
+            viewLifecycleOwner,
+            Observer {
+                if (it.linkSpeed > 0) {
+                    updownspeed.text = it.linkSpeed.toString() + " Mbps"
+                } else {
+                    updownspeed.text = "-"
+                }
             }
-        })
-
+        )
 
         val progressBar: ProgressBar = binding.pgProgressBar
-        echtzeitmessungViewModel.progressFarbe.observe(viewLifecycleOwner, Observer {
-            //progressBar.progressTintList = ColorStateList.valueOf(it)
-
-        })
-
-
+        echtzeitmessungViewModel.progressFarbe.observe(
+            viewLifecycleOwner,
+            Observer {
+                // progressBar.progressTintList = ColorStateList.valueOf(it)
+            }
+        )
 
         val textView: TextView = binding.tvSignalstaerkeWert
-        echtzeitmessungViewModel.netzwerkInfo.observe(viewLifecycleOwner, Observer {
-            if (it.supplicantState == SupplicantState.COMPLETED) {
-                textView.text = it.rssi.toString() + " dB"
-                progressBar.progress = it.rssi
-            } else {
-                textView.text = "-"
-                progressBar.progress = -127
+        echtzeitmessungViewModel.netzwerkInfo.observe(
+            viewLifecycleOwner,
+            Observer {
+                if (it.supplicantState == SupplicantState.COMPLETED) {
+                    textView.text = it.rssi.toString() + " dB"
+                    progressBar.progress = it.rssi
+                } else {
+                    textView.text = "-"
+                    progressBar.progress = -127
+                }
             }
-        })
-
-
+        )
 
         binding.netzwerkwahl.setOnClickListener {
             startActivity(Intent(Settings.ACTION_WIFI_SETTINGS))
         }
 
-
         binding.tbtnStartEchtzeitmessung.setOnClickListener {
 
-            //Starte zyklische Updates der Netzwerkdaten
+            // Starte zyklische Updates der Netzwerkdaten
             if (!binding.tbtnStartEchtzeitmessung.isChecked) {
                 echtzeitmessungViewModel.startUpdateCoroutine()
             }
-            //Stoppe zyklische Updates
+            // Stoppe zyklische Updates
             if (binding.tbtnStartEchtzeitmessung.isChecked) {
                 echtzeitmessungViewModel.stopUpdateCoroutine()
                 echtzeitmessungViewModel.stopSinus()
@@ -180,23 +184,22 @@ class EchtezeitmessungFragment : Fragment() {
                 echtzeitmessungViewModel.stopSinus()
                 binding.btnFloatingActionButton.setImageResource(R.drawable.ic_ton_aus)
             }
-
         }
 
         val seek = binding.seekBar
         seek?.setOnSeekBarChangeListener(object :
-            SeekBar.OnSeekBarChangeListener {
-            override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
-                echtzeitmessungViewModel.frequenz = seek.progress
-                Log.d("Seekbar", "${seek.progress}")
-            }
+                SeekBar.OnSeekBarChangeListener {
+                override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
+                    echtzeitmessungViewModel.frequenz = seek.progress
+                    Log.d("Seekbar", "${seek.progress}")
+                }
 
-            override fun onStartTrackingTouch(seekBar: SeekBar?) {
-            }
+                override fun onStartTrackingTouch(seekBar: SeekBar?) {
+                }
 
-            override fun onStopTrackingTouch(seekBar: SeekBar?) {
-            }
-        })
+                override fun onStopTrackingTouch(seekBar: SeekBar?) {
+                }
+            })
 
         return root
     }
@@ -214,36 +217,35 @@ class EchtezeitmessungFragment : Fragment() {
         binding.tbtnStartEchtzeitmessung.isChecked = false
 
         val hersteller: TextView = binding.tvHersteller
-        echtzeitmessungViewModel.hersteller.observe(viewLifecycleOwner, Observer {
-            if (echtzeitmessungViewModel.netzwerkInfo.value!!.supplicantState == SupplicantState.COMPLETED){
-            if (it != null) {
-                hersteller.text = it
-            } else {
-                hersteller.text = getString(R.string.txt_hersteller_unbekannt)
+        echtzeitmessungViewModel.hersteller.observe(
+            viewLifecycleOwner,
+            Observer {
+                if (echtzeitmessungViewModel.netzwerkInfo.value!!.supplicantState == SupplicantState.COMPLETED) {
+                    if (it != null) {
+                        hersteller.text = it
+                    } else {
+                        hersteller.text = getString(R.string.txt_hersteller_unbekannt)
+                    }
+                } else {
+                    hersteller.text = "-"
+                }
             }
-            } else{
-                hersteller.text = "-"
-            }
-        })
+        )
 
-
+        3
     }
-
 
     override fun onDestroyView() {
         super.onDestroyView()
 
-        //Beendet den Sinusgenerator bei einem Bildwechsel
+        // Beendet den Sinusgenerator bei einem Bildwechsel
         if (echtzeitmessungViewModel.getSinusJobStatus()) {
-                echtzeitmessungViewModel.stopSinus()
+            echtzeitmessungViewModel.stopSinus()
         }
-        //Beendet das Updaten der Netzwerkinformationen bei einem Bildwechsel
+        // Beendet das Updaten der Netzwerkinformationen bei einem Bildwechsel
         if (echtzeitmessungViewModel.getUpdateJobStatus()) {
             echtzeitmessungViewModel.stopUpdateCoroutine()
         }
         _binding = null
-
     }
 }
-
-

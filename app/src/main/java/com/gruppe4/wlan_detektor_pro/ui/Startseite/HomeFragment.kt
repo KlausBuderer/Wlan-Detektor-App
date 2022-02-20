@@ -57,8 +57,6 @@ class HomeFragment : Fragment(), View.OnClickListener {
             )
         }
 
-
-
         return root
     }
 
@@ -68,6 +66,5 @@ class HomeFragment : Fragment(), View.OnClickListener {
     }
 
     override fun onClick(v: View?) {
-
     }
 }

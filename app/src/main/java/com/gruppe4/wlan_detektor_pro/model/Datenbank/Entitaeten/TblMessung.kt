@@ -8,7 +8,7 @@ import org.jetbrains.annotations.NotNull
 @Entity
 class TblMessung {
 
-    constructor(name: String, ssid: String, raeumlichkeit: Int, datum: String, zeit: String){
+    constructor(name: String, ssid: String, raeumlichkeit: Int, datum: String, zeit: String) {
         this.name = name
         this.ssid = ssid
         this.raeumlichkeit = raeumlichkeit
@@ -16,7 +16,7 @@ class TblMessung {
         this.erfassungsZeit = zeit
     }
 
-    constructor(idmessung:Long, name: String, ssid: String, raeumlichkeit: Int, datum: String, zeit: String){
+    constructor(idmessung: Long, name: String, ssid: String, raeumlichkeit: Int, datum: String, zeit: String) {
         this.idmessung = idmessung
         this.name = name
         this.ssid = ssid
@@ -27,24 +27,23 @@ class TblMessung {
 
     constructor()
 
- @PrimaryKey(autoGenerate = true)
- @ColumnInfo(name = "messungid")
-    var idmessung : Long = 0
+    @PrimaryKey(autoGenerate = true)
+    @ColumnInfo(name = "messungid")
+    var idmessung: Long = 0
 
     @NotNull
     @ColumnInfo(name = "name")
-    lateinit var name:String
+    lateinit var name: String
 
     @ColumnInfo(name = "ssid")
-    lateinit var  ssid:String
+    lateinit var ssid: String
 
     @ColumnInfo(name = "raeumlichkeit")
-     var  raeumlichkeit:Int = 0
+    var raeumlichkeit: Int = 0
 
     @ColumnInfo(name = "erfassungsDatum")
-    lateinit var  erfassungsDatum:String
+    lateinit var erfassungsDatum: String
 
     @ColumnInfo(name = "erfassungsZeit")
-    lateinit var erfassungsZeit:String
-
+    lateinit var erfassungsZeit: String
 }

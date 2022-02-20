@@ -26,7 +26,6 @@ class VisualisierungFragment : Fragment(), MessungListeAdapter.OnItemClickListen
     private val binding get() = _binding!!
     private var messungsListe: List<TblMessung>? = null
 
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -40,22 +39,22 @@ class VisualisierungFragment : Fragment(), MessungListeAdapter.OnItemClickListen
 
         lifecycleScope.launch { visualisierungViewModel.getAlleMessungen() }
 
+        visualisierungViewModel.messungsliste.observe(
+            viewLifecycleOwner,
+            Observer {
+                messungsListe = it
 
-        visualisierungViewModel.messungsliste.observe(viewLifecycleOwner, Observer {
-            messungsListe = it
+                val adapter = MessungListeAdapter(it, this, requireActivity().application, MESSUNGLISTE_KONTEXT.Visualisierung.toString())
+                binding?.rvMessungsliste?.adapter = adapter
 
-            val adapter = MessungListeAdapter(it, this, requireActivity().application, MESSUNGLISTE_KONTEXT.Visualisierung.toString())
-            binding?.rvMessungsliste?.adapter = adapter
-
-            if (it.isNullOrEmpty()){
-                binding.tvKeineMessungen.visibility = TextView.VISIBLE
+                if (it.isNullOrEmpty()) {
+                    binding.tvKeineMessungen.visibility = TextView.VISIBLE
+                }
             }
-        })
-
+        )
 
         return root
     }
-
 
     override fun onDestroyView() {
         super.onDestroyView()
@@ -69,6 +68,5 @@ class VisualisierungFragment : Fragment(), MessungListeAdapter.OnItemClickListen
         )
 
         Navigation.findNavController(binding.root).navigate(action)
-
     }
 }

@@ -43,13 +43,11 @@ class MesspunktErfassungsViewModel(application: Application) : AndroidViewModel(
     val progressBar: LiveData<Int> = _progressFarbe
 
     private val _messpunkt = MutableLiveData<TblMesspunkt>().apply {
-
     }
 
     val messpunkt: LiveData<TblMesspunkt> = _messpunkt
 
-
-    fun buttonFreigeben(): Boolean{
+    fun buttonFreigeben(): Boolean {
         return konditionGebaeude && konditionRaumname && konditionStockwerk && konditionMessung
     }
 
@@ -62,57 +60,51 @@ class MesspunktErfassungsViewModel(application: Application) : AndroidViewModel(
         } catch (e: IOException) {
             Log.d(LOG_TAG, "Messpunkt query nicht erfolgreich")
         }
-
     }
 
-    suspend fun getMesspunkte(messungsId: Long){
+    suspend fun getMesspunkte(messungsId: Long) {
         try {
             val aktuelleMesspunkte = repositoryDb.getMesspunkte(messungsId)
             Log.d(LOG_TAG, "messpunkt query erfolgreich")
 
             _messpunkte.postValue(aktuelleMesspunkte)
-        }catch (e: IOException){
+        } catch (e: IOException) {
             Log.d(LOG_TAG, "Messpunkt query nicht erfolgreich")
         }
-
     }
 
-    suspend fun deleteMesspunkt(id: Long){
+    suspend fun deleteMesspunkt(id: Long) {
         try {
             repositoryDb.deleteMesspunkt(id)
             Log.d(LOG_TAG, "Query erfolgreich")
-
-        }catch (e: IOException){
+        } catch (e: IOException) {
             Log.d(LOG_TAG, "Query nicht erfolgreich")
         }
     }
 
-        // Speichern des Messpunkts in der Datenbank
-        fun messpunktSpeichern(messpunkt: TblMesspunkt) {
-            repositoryDb.insertMesspunkt(messpunkt)
-        }
-
-        // Speichern des Messpunkts in der Datenbank
-        fun messpunktUpdate(messpunkt: TblMesspunkt) {
-            repositoryDb.updateMesspunkt(messpunkt)
-        }
-
-        suspend fun startUpdates() {
-            withContext(Dispatchers.IO) {
-                while (true) {
-                    try {
-                        netzwerkInfo.refreshInfo()
-
-                        _signalstaerke.postValue(netzwerkInfo.refreshInfo().rssi)
-                        _progressFarbe.postValue(netzwerkInfo.progressBarFarbeEinstellen())
-                    } catch (e: NullPointerException) {
-
-                    }
-
-                    delay(500)
-                }
-            }
-
-        }
-
+    // Speichern des Messpunkts in der Datenbank
+    fun messpunktSpeichern(messpunkt: TblMesspunkt) {
+        repositoryDb.insertMesspunkt(messpunkt)
     }
+
+    // Speichern des Messpunkts in der Datenbank
+    fun messpunktUpdate(messpunkt: TblMesspunkt) {
+        repositoryDb.updateMesspunkt(messpunkt)
+    }
+
+    suspend fun startUpdates() {
+        withContext(Dispatchers.IO) {
+            while (true) {
+                try {
+                    netzwerkInfo.refreshInfo()
+
+                    _signalstaerke.postValue(netzwerkInfo.refreshInfo().rssi)
+                    _progressFarbe.postValue(netzwerkInfo.progressBarFarbeEinstellen())
+                } catch (e: NullPointerException) {
+                }
+
+                delay(500)
+            }
+        }
+    }
+}

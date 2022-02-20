@@ -1,10 +1,11 @@
-package com.gruppe4.wlan_detektor_pro
+package com.gruppe4.wlan_detektor_pro.ui.Utility
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
+import com.gruppe4.wlan_detektor_pro.R
 
 class Terms_conditions : BottomSheetDialogFragment() {
 

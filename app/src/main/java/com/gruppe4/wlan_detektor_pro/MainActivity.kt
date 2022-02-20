@@ -5,17 +5,18 @@ import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.view.*
-import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.gruppe4.wlan_detektor_pro.databinding.ActivityMainBinding
 import com.gruppe4.wlan_detektor_pro.model.Datenbank.RepositoryDb
 import com.gruppe4.wlan_detektor_pro.ui.Echtzeitmessung.EchtezeitmessungFragmentDirections
 import com.gruppe4.wlan_detektor_pro.ui.MessungVerwalten.*
+import com.gruppe4.wlan_detektor_pro.ui.MessungVerwalten.MesspunktErfassungsFragmentDirections
 import com.gruppe4.wlan_detektor_pro.ui.Startseite.HomeFragmentDirections
 import com.gruppe4.wlan_detektor_pro.ui.Utility.DIALOG_KONTEXT.*
 import com.gruppe4.wlan_detektor_pro.ui.Visualisierung.VisuDetailFragmentDirections
@@ -25,12 +26,18 @@ import com.gruppe4.wlan_detektor_pro.ui.Visualisierung.Visualisierung_Grid_Fragm
 import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.launch
 
-
+/**
+ * Das ist die Main Activity, diese bleibt über den ganzen Lebenszyklus der App auf Running
+ * Die Navigation innerhalb der App wird mit der Navigation Lib. und Fragments bewerkstelligt
+ *
+ * @author Klaus Buderer
+ * @since 1.0.0
+ * @property binding Binding zu den Layout Resource des Activitys
+ */
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
     private var activFragment: Int = 0
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -49,7 +56,6 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         val navView: BottomNavigationView = binding.navView
-
 
         val navController = findNavController(R.id.nav_host_fragment_activity_main)
         activFragment = navController.currentDestination?.id ?: 0
@@ -78,11 +84,11 @@ class MainActivity : AppCompatActivity() {
         val navController = findNavController(R.id.nav_host_fragment_activity_main)
         activFragment = navController.currentDestination?.id!!
 
-        Log.e("activFragment: ", "${activFragment}")
+        Log.e("activFragment: ", "$activFragment")
         Log.e("Fragment: ", "${R.id.navigation_echtzeitmessung}")
         Log.e("Activity: ", "${R.layout.activity_main}")
 
-        //Aufruf von Hilfedialog abhängig des aktiven Fragments
+        // Aufruf von Hilfedialog abhängig des aktiven Fragments
         if (item.itemId == R.id.action_help) {
             callHilfeDialog(activFragment)
         } else if (item.itemId == R.id.action_about_us) {
@@ -96,7 +102,11 @@ class MainActivity : AppCompatActivity() {
         }
         return super.onOptionsItemSelected(item)
     }
-
+    /**
+     * Diese Methode erlaubt die Fragment zurück Funktion
+     * @since 1.0.0
+     * @author Klaus Buderer
+     */
     override fun onSupportNavigateUp(): Boolean {
         val navController = findNavController(R.id.nav_host_fragment_activity_main)
 
@@ -117,7 +127,14 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    fun callHilfeDialog(fragment: Int) {
+    /**
+     * Factory Methode für die Erstellung des Hilfedialogs
+     * @since 1.0.0
+     * @author Klaus Buderer
+     * @param fragment Navigations ID des aktuellen Fragments
+     * @see [DialogFragment]
+     */
+    private fun callHilfeDialog(fragment: Int) {
         when (fragment) {
 
             R.id.navigation_echtzeitmessung ->
@@ -195,10 +212,15 @@ class MainActivity : AppCompatActivity() {
                 )
         }
     }
-
+    /**
+     * Automatische Setzung des Darkmodus bei Einstellungsänderung
+     * @since 1.0.0
+     * @author Klaus Buderer
+     * @param newConfig Wird nicht verwendet
+     *
+     */
     override fun onConfigurationChanged(newConfig: Configuration) {
         super.onConfigurationChanged(newConfig)
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
     }
 }
-

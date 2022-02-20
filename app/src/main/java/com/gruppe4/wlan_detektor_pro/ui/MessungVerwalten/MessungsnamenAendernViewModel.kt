@@ -21,20 +21,20 @@ class MessungsnamenAendernViewModel(application: Application) : AndroidViewModel
     }
     var nameValide: LiveData<Boolean> = _nameValide
 
-    //Speicherung des neuen Messungsnamen
-    fun namenUpdate(aktuellerName: String, neuerName: String){
-        repositoryDb.updateMessungsNamen(aktuellerName,neuerName)
+    // Speicherung des neuen Messungsnamen
+    fun namenUpdate(aktuellerName: String, neuerName: String) {
+        repositoryDb.updateMessungsNamen(aktuellerName, neuerName)
     }
 
-    //Funktion die den eingegebenen Namen in der Datenbank auf Redundanz prüft
-    suspend fun namenValidieren(eingabe: String){
+    // Funktion die den eingegebenen Namen in der Datenbank auf Redundanz prüft
+    suspend fun namenValidieren(eingabe: String) {
         result = repositoryDb.namenPruefen(eingabe)
-        _nameValide.postValue( result == 0)
-        Log.d("Routine","MessungsId: $result")
+        _nameValide.postValue(result == 0)
+        Log.d("Routine", "MessungsId: $result")
     }
 
-    //Coroutine zur Speicherung des neuen Messungsnamen
-    fun namenValidierenRoutine(eingabe: String){
+    // Coroutine zur Speicherung des neuen Messungsnamen
+    fun namenValidierenRoutine(eingabe: String) {
         val scope = CoroutineScope(Dispatchers.IO).launch {
             namenValidieren(eingabe)
         }

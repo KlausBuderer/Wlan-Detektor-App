@@ -1,15 +1,16 @@
-package com.gruppe4.wlan_detektor_pro.model.Datenbank.Entitaeten;
+package com.gruppe4.wlan_detektor_pro.model.Datenbank.Entitaeten
 
 import androidx.annotation.NonNull
 import androidx.room.*
 
-// CREATE INDEX "indexMacAdresse" ON "TblHersteller" (
-// "macadresse"
-//);
-
-//@Entity(indices = [Index(value = ["first_name", "last_name"],
-//    unique = true)])
-
+/**
+ * ## Hersteller Tabelle
+ * Entität der Datenbank von Router Herstellern
+ *
+ * @author Bruno Thurnherr
+ * @since 1.0.0
+ *
+ */
 @Entity(
     primaryKeys = ["macadresse", "hersteller"]
 )
@@ -21,7 +22,7 @@ class TblHersteller {
         macadresse: String,
         hersteller: String,
 
-        )
+    )
 
     @NonNull
     @ColumnInfo(name = "macadresse")

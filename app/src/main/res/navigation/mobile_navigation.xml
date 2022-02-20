@@ -218,13 +218,13 @@
 
     <dialog
         android:id="@+id/ueberUns2"
-        android:name="com.gruppe4.wlan_detektor_pro.UeberUns"
+        android:name="com.gruppe4.wlan_detektor_pro.ui.Utility.UeberUns"
         android:label="fragment_ueber_uns"
         tools:layout="@layout/fragment_ueber_uns" />
 
     <dialog
         android:id="@+id/terms_conditions"
-        android:name="com.gruppe4.wlan_detektor_pro.Terms_conditions"
+        android:name="com.gruppe4.wlan_detektor_pro.ui.Utility.Terms_conditions"
         android:label="fragment_terms_conditions"
         tools:layout="@layout/fragment_haftungsausschluss" />
 
@@ -242,7 +242,7 @@
     </dialog>
     <dialog
         android:id="@+id/datenschutzFragment"
-        android:name="com.gruppe4.wlan_detektor_pro.DatenschutzFragment"
+        android:name="com.gruppe4.wlan_detektor_pro.ui.Utility.DatenschutzFragment"
         android:label="fragment_datenschutz"
         tools:layout="@layout/fragment_datenschutz" />
     <fragment

@@ -1,14 +1,14 @@
 package com.gruppe4.wlan_detektor_pro.ui.Visualisierung
 
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.navArgs
@@ -34,15 +34,15 @@ class Visualisierung_Grid_Fragment : Fragment(), MesspunktVisuAdapter.OnItemClic
     var messungListe = listOf(TblMesspunkt())
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         _binding = VisualisierungGridFragmentBinding.inflate(layoutInflater)
         val root: View = binding.root
 
-
         binding.rvMesspunktVisu.apply {
-            layoutManager = GridLayoutManager(requireContext(),1)
+            layoutManager = GridLayoutManager(requireContext(), 1)
         }
 
         return root
@@ -52,25 +52,31 @@ class Visualisierung_Grid_Fragment : Fragment(), MesspunktVisuAdapter.OnItemClic
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProvider(this).get(VisualisierungGridViewModel::class.java)
 
-        lifecycleScope.launch(Dispatchers.Main){
+        lifecycleScope.launch(Dispatchers.Main) {
             viewModel.getMessung(args.messungsId)
         }
 
-        viewModel.messung.observe(viewLifecycleOwner, Observer {
-            if (it != null) {
-                binding.tvMessungsname.text = it.name
+        viewModel.messung.observe(
+            viewLifecycleOwner,
+            Observer {
+                if (it != null) {
+                    binding.tvMessungsname.text = it.name
+                }
             }
-        })
+        )
 
         lifecycleScope.launch { viewModel.getMesspunkte(args.messungsId) }
-        viewModel.messpunkte.observe(viewLifecycleOwner, Observer {
-            val adapter = GebauedeVisuAdapter(it, this, requireActivity().application)
-            messungListe = it
-            binding?.rvMesspunktVisu?.adapter = adapter
-            if (it.isEmpty()){
-                binding.tvKeineMesspunkte.visibility = TextView.VISIBLE
+        viewModel.messpunkte.observe(
+            viewLifecycleOwner,
+            Observer {
+                val adapter = GebauedeVisuAdapter(it, this, requireActivity().application)
+                messungListe = it
+                binding?.rvMesspunktVisu?.adapter = adapter
+                if (it.isEmpty()) {
+                    binding.tvKeineMesspunkte.visibility = TextView.VISIBLE
+                }
             }
-        })
+        )
     }
 
     override fun onItemClick(messpunktId: Long) {
@@ -78,36 +84,33 @@ class Visualisierung_Grid_Fragment : Fragment(), MesspunktVisuAdapter.OnItemClic
         var messpunkt: TblMesspunkt? = null
 
         messungListe.forEach lit@{
-            if (it.idmesspunkt == messpunktId)  {
+            if (it.idmesspunkt == messpunktId) {
                 messpunkt = it
                 return@lit
             }
         }
-    try {
-        val action = messpunkt?.pegelmessung?.let {
-            Visualisierung_Grid_FragmentDirections.actionVisualisierungGridFragmentToVisuDetailFragment(
-                messpunkt!!.raumname,
-                messpunkt!!.gebaeude,
-                activity?.resources!!.getStringArray(R.array.stockwerk_array)[messpunkt!!.stockwerkID],
-                it,
-                messpunkt!!.zusatzinformation,
-                messpunkt!!.erfassungsDatum,
-                messpunkt!!.erfassungsZeit,
-                messpunkt!!.bildPfad,
-                messpunkt!!.aenderungsDatum,
-                messpunkt!!.aenderungsZeit
+        try {
+            val action = messpunkt?.pegelmessung?.let {
+                Visualisierung_Grid_FragmentDirections.actionVisualisierungGridFragmentToVisuDetailFragment(
+                    messpunkt!!.raumname,
+                    messpunkt!!.gebaeude,
+                    activity?.resources!!.getStringArray(R.array.stockwerk_array)[messpunkt!!.stockwerkID],
+                    it,
+                    messpunkt!!.zusatzinformation,
+                    messpunkt!!.erfassungsDatum,
+                    messpunkt!!.erfassungsZeit,
+                    messpunkt!!.bildPfad,
+                    messpunkt!!.aenderungsDatum,
+                    messpunkt!!.aenderungsZeit
 
-            )
+                )
+            }
+
+            if (action != null) {
+                Navigation.findNavController(binding.root).navigate(action)
+            }
+        } catch (e: NullPointerException) {
+            Log.e("Messpunktinformationen an Detailsicht", "Messpunkt ist Null")
         }
-
-        if (action != null) {
-            Navigation.findNavController(binding.root).navigate(action)
-        }
-
-
-    }catch (e: NullPointerException){
-        Log.e("Messpunktinformationen an Detailsicht", "Messpunkt ist Null")
     }
-
-}
 }

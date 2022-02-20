@@ -24,7 +24,6 @@ class URIPathHelper {
                 if ("primary".equals(type, ignoreCase = true)) {
                     return Environment.getExternalStorageDirectory().toString() + "/" + split[1]
                 }
-
             } else if (isDownloadsDocument(uri)) {
                 val id = DocumentsContract.getDocumentId(uri)
                 val contentUri = ContentUris.withAppendedId(Uri.parse("content://downloads/public_downloads"), java.lang.Long.valueOf(id))
@@ -58,7 +57,7 @@ class URIPathHelper {
         val column = "_data"
         val projection = arrayOf(column)
         try {
-            cursor = uri?.let { context.contentResolver.query(it, projection, selection, selectionArgs,null) }
+            cursor = uri?.let { context.contentResolver.query(it, projection, selection, selectionArgs, null) }
             if (cursor != null && cursor.moveToFirst()) {
                 val column_index: Int = cursor.getColumnIndexOrThrow(column)
                 return cursor.getString(column_index)

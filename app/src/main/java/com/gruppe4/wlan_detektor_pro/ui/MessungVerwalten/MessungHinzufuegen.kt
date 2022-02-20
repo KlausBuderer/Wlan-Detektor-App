@@ -9,24 +9,23 @@ import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.net.Uri
 import android.net.wifi.SupplicantState
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import android.provider.Settings
 import android.text.Editable
 import android.text.TextWatcher
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
 import androidx.core.content.ContextCompat
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
 import com.gruppe4.wlan_detektor_pro.R
 import com.gruppe4.wlan_detektor_pro.databinding.FragmentMessungHinzufuegenBinding
 import com.gruppe4.wlan_detektor_pro.model.Datenbank.Entitaeten.TblMessung
-
 
 class MessungHinzufuegen : Fragment() {
 
@@ -40,7 +39,6 @@ class MessungHinzufuegen : Fragment() {
     lateinit var eingabeNamen: EditText
     lateinit var raeumlichkeit: AutoCompleteTextView
     var raeumlichkeitPosition: Int = -1
-
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -56,9 +54,9 @@ class MessungHinzufuegen : Fragment() {
 
         val dialog = Dialog(requireContext())
 
-        //Pruefen ob die Berechtigung vorhanden ist
+        // Pruefen ob die Berechtigung vorhanden ist
         if (isPermissionGranted(Manifest.permission.ACCESS_FINE_LOCATION)) {
-            //Berechtigung vorhanden
+            // Berechtigung vorhanden
         } else {
             // Erstellen eines Dialogs, um die Berechtigung zu erteilen
             dialog.setContentView(R.layout.berechtigung_dialog)
@@ -92,22 +90,19 @@ class MessungHinzufuegen : Fragment() {
             }
         }
 
-        //Pruefung ob mit Netzwerk verbunden und reinitialisierung der Buttonfreigabe
+        // Pruefung ob mit Netzwerk verbunden und reinitialisierung der Buttonfreigabe
         viewModel.konditionNetzAngemeldet = viewModel.netzwerkInfo.value?.supplicantState == SupplicantState.COMPLETED
         binding.messungSpeichern.isEnabled = viewModel.buttonFreigabe()
-        binding.etNetzwerk.startIconDrawable?.setVisible(viewModel.konditionNetzAngemeldet,true)
+        binding.etNetzwerk.startIconDrawable?.setVisible(viewModel.konditionNetzAngemeldet, true)
     }
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
 
         _binding = FragmentMessungHinzufuegenBinding.inflate(inflater, container, false)
-
-
-
-
 
         return binding.root
     }
@@ -120,36 +115,34 @@ class MessungHinzufuegen : Fragment() {
         eingabeNamen = binding.editTextMessungName
         raeumlichkeit = binding.autoCompleteTextView
 
-
-
-
         eingabeNamen.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
             }
 
-            //Validierung des Namens der Messung
+            // Validierung des Namens der Messung
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                 viewModel.namenValidierenRoutine(eingabeNamen.text.toString())
-                Log.e("OnChange","${eingabeNamen.text.toString()}")
-
-
+                Log.e("OnChange", "${eingabeNamen.text}")
             }
 
-            //Signalisierung das Namen der Messung bereits vergeben ist
+            // Signalisierung das Namen der Messung bereits vergeben ist
             override fun afterTextChanged(s: Editable?) {
                 var validierung: Boolean = true
 
-                viewModel.nameValide.observe(viewLifecycleOwner, Observer {
-                    validierung = it
-                })
+                viewModel.nameValide.observe(
+                    viewLifecycleOwner,
+                    Observer {
+                        validierung = it
+                    }
+                )
 
-                Log.d("validierung","${validierung}")
+                Log.d("validierung", "$validierung")
 
                 if (viewModel.result > 0) {
                     eingabeNamen.error = resources.getString(R.string.txt_namen_bereits_vergeben)
                     viewModel.konditionNamenValide = false
                     speichernButton.isEnabled = viewModel.buttonFreigabe()
-                }else if (s.isNullOrBlank()){
+                } else if (s.isNullOrBlank()) {
                     viewModel.konditionNamenValide = false
                     speichernButton.isEnabled = viewModel.buttonFreigabe()
                 } else {
@@ -160,37 +153,41 @@ class MessungHinzufuegen : Fragment() {
             }
         })
 
-        binding.etNetzwerk.setEndIconOnClickListener{
+        binding.etNetzwerk.setEndIconOnClickListener {
             startActivity(Intent(Settings.ACTION_WIFI_SETTINGS))
         }
 
-        viewModel.netzwerkInfo.observe(viewLifecycleOwner, Observer {
+        viewModel.netzwerkInfo.observe(
+            viewLifecycleOwner,
+            Observer {
 
-            //Pruefung ob mit Wlan verbunden
-            if (it.supplicantState == SupplicantState.COMPLETED){
-                binding.netzwerk.editableText.clear()
-                binding.netzwerk.editableText.insert(0, it.ssid)
-            }else{
-                binding.netzwerk.editableText.clear()
-                binding.netzwerk.editableText.insert(0, getString(R.string.txt_netzTitel_de))
+                // Pruefung ob mit Wlan verbunden
+                if (it.supplicantState == SupplicantState.COMPLETED) {
+                    binding.netzwerk.editableText.clear()
+                    binding.netzwerk.editableText.insert(0, it.ssid)
+                } else {
+                    binding.netzwerk.editableText.clear()
+                    binding.netzwerk.editableText.insert(0, getString(R.string.txt_netzTitel_de))
+                }
             }
-        })
+        )
 
-        //Pruefen ob Art der Raeumlichkeit gewählt wurde
+        // Pruefen ob Art der Raeumlichkeit gewählt wurde
         raeumlichkeit.setOnItemClickListener { parent, view, position, id ->
             viewModel.pruefenRaeumlichkeitWahl(position)
             raeumlichkeitPosition = position
             speichernButton.isEnabled = viewModel.buttonFreigabe()
         }
 
-
-        //Speicherbutton Freigabe
-        viewModel.speicherFreigabe.observe(viewLifecycleOwner, Observer {
-            speichernButton.isEnabled = it
-        })
+        // Speicherbutton Freigabe
+        viewModel.speicherFreigabe.observe(
+            viewLifecycleOwner,
+            Observer {
+                speichernButton.isEnabled = it
+            }
+        )
 
         speichernButton.setOnClickListener {
-
 
             var messung: TblMessung = TblMessung(
                 eingabeNamen.text.toString(),
@@ -208,9 +205,7 @@ class MessungHinzufuegen : Fragment() {
                 )
 
             Navigation.findNavController(binding.root).navigate(action)
-
         }
-
     }
     fun isPermissionGranted(permission: String): Boolean =
         ContextCompat.checkSelfPermission(
@@ -218,10 +213,8 @@ class MessungHinzufuegen : Fragment() {
             permission
         ) == PackageManager.PERMISSION_GRANTED
 
-
     override fun onDestroy() {
         super.onDestroy()
         viewModel.stopUpdateCoroutine()
     }
 }
-

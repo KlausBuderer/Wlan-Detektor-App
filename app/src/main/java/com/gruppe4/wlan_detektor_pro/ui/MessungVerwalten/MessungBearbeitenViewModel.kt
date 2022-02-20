@@ -15,9 +15,7 @@ class MessungBearbeitenViewModel(application: Application) : AndroidViewModel(ap
     private val LOG_TAG: String = "Messung bearbeiten"
     private val repositoryDb: RepositoryDb = RepositoryDb(application)
 
-
     private val _messung = MutableLiveData<TblMessung>().apply {
-
     }
 
     val messung: LiveData<TblMessung> = _messung
@@ -25,40 +23,36 @@ class MessungBearbeitenViewModel(application: Application) : AndroidViewModel(ap
     private val _messpunkte = MutableLiveData<List<TblMesspunkt>>()
     val messpunkte: LiveData<List<TblMesspunkt>> = _messpunkte
 
-
-    suspend fun getMessung(name:String){
+    suspend fun getMessung(name: String) {
         try {
             val aktuelleMessung = repositoryDb.getMessung(name)
             Log.e(LOG_TAG, "Query erfolgreich")
 
             _messung.postValue(aktuelleMessung)
-        }catch (e: IOException){
+        } catch (e: IOException) {
             Log.e(LOG_TAG, "Query nicht erfolgreich")
         }
     }
 
-    suspend fun getMessungById(id: Long){
+    suspend fun getMessungById(id: Long) {
         try {
             val aktuelleMessung = repositoryDb.getMessung(id)
             Log.e(LOG_TAG, "Query erfolgreich")
 
             _messung.postValue(aktuelleMessung)
-        }catch (e: IOException){
+        } catch (e: IOException) {
             Log.e(LOG_TAG, "Query nicht erfolgreich")
         }
     }
 
-    suspend fun getMesspunkte(messungsId: Long){
+    suspend fun getMesspunkte(messungsId: Long) {
         try {
             val aktuelleMesspunkte = repositoryDb.getMesspunkte(messungsId)
             Log.e(LOG_TAG, "messpunkt query erfolgreich")
 
             _messpunkte.postValue(aktuelleMesspunkte)
-        }catch (e: IOException){
+        } catch (e: IOException) {
             Log.e(LOG_TAG, "Messpunkt query nicht erfolgreich")
         }
-
     }
-
 }
-

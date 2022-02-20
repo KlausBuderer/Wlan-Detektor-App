@@ -13,7 +13,6 @@ import java.lang.NullPointerException
 
 class MessungHinzufuegenViewModel(application: Application) : AndroidViewModel(application) {
 
-
     private val wifiKlasse: NetzwerkInfo = NetzwerkInfo(application)
     private var connectionInfo: WifiInfo = wifiKlasse.getConnectionInfo()
     val datum: Datum = Datum()
@@ -23,44 +22,41 @@ class MessungHinzufuegenViewModel(application: Application) : AndroidViewModel(a
     private val repositoryDb: RepositoryDb = RepositoryDb(application)
     var result = 0
 
-
     private val _nameValide = MutableLiveData<Boolean>().apply {
         konditionNamenValide = value == true
     }
     var nameValide: LiveData<Boolean> = _nameValide
 
-    //Funktion die den eingegebenen Namen in der Datenbank auf Redundanz prüft
-    suspend fun namenValidieren(eingabe: String){
-         result = repositoryDb.namenPruefen(eingabe)
-        _nameValide.postValue( result > 0)
-        Log.e("Routine","MessungsId: $result")
+    // Funktion die den eingegebenen Namen in der Datenbank auf Redundanz prüft
+    suspend fun namenValidieren(eingabe: String) {
+        result = repositoryDb.namenPruefen(eingabe)
+        _nameValide.postValue(result > 0)
+        Log.e("Routine", "MessungsId: $result")
     }
 
-    //Pruefung ob der eingegebene Name bereits in der Datenbank vorhanden ist
-    fun namenValidierenRoutine(eingabe: String){
+    // Pruefung ob der eingegebene Name bereits in der Datenbank vorhanden ist
+    fun namenValidierenRoutine(eingabe: String) {
         val scope = CoroutineScope(Dispatchers.IO).launch {
-           namenValidieren(eingabe)
+            namenValidieren(eingabe)
         }
     }
 
-
     private val _netzwerkInfo = MutableLiveData<WifiInfo>().apply {
         value = connectionInfo
-
     }
 
     var netzwerkInfo: LiveData<WifiInfo> = _netzwerkInfo
 
     // Speichern der Messung in der Datenbank
-    fun messungSpeichern(messung: TblMessung){
+    fun messungSpeichern(messung: TblMessung) {
         repositoryDb.insertMessung(messung)
     }
 
-    fun netzwerkInfo(): String{
+    fun netzwerkInfo(): String {
         return connectionInfo.ssid
     }
 
-    fun pruefenNetzAnmeldung(): Boolean{
+    fun pruefenNetzAnmeldung(): Boolean {
         // Pruefung ob bereits im Neztwerk angemeldet
         if (netzwerkInfo() != "<unknown ssid>") {
             konditionNetzAngemeldet = true
@@ -70,15 +66,15 @@ class MessungHinzufuegenViewModel(application: Application) : AndroidViewModel(a
         return false
     }
 
-    fun pruefenRaeumlichkeitWahl(auswahl: Int){
-        if (auswahl in 0..3){
+    fun pruefenRaeumlichkeitWahl(auswahl: Int) {
+        if (auswahl in 0..3) {
             konditionRaum = true
             Log.e("Raum: ", auswahl.toString())
         }
     }
 
     // Freigabe fuer Speicherbutton
-    fun buttonFreigabe(): Boolean{
+    fun buttonFreigabe(): Boolean {
         return konditionNamenValide && konditionNetzAngemeldet && konditionRaum
     }
 
@@ -96,18 +92,18 @@ class MessungHinzufuegenViewModel(application: Application) : AndroidViewModel(a
         return datum.getZeit()
     }
 
-    //Start Coroutine für die Abfrage der Netzwerkinformationen
+    // Start Coroutine für die Abfrage der Netzwerkinformationen
     fun startUpdateCoroutine() {
         updateJobInit()
         val scope = CoroutineScope(Dispatchers.IO + updateJob).launch {
-                startUpdates()
+            startUpdates()
         }
     }
 
     private lateinit var updateJob: Job
     private lateinit var sinusJob: Job
 
-    //Stoppe Coroutine für die Abfrage der Netzwerkinformationen
+    // Stoppe Coroutine für die Abfrage der Netzwerkinformationen
     fun stopUpdateCoroutine() {
         if (::updateJob.isInitialized) {
             if (updateJob.isActive || updateJob.isCompleted) {
@@ -118,14 +114,11 @@ class MessungHinzufuegenViewModel(application: Application) : AndroidViewModel(a
         }
     }
 
-
     suspend fun startUpdates() {
         while (updateJob.isActive) {
             try {
                 _netzwerkInfo.postValue(wifiKlasse.getConnectionInfo())
-                Log.d("Netzwerkinfo","${_netzwerkInfo.value}")
-
-
+                Log.d("Netzwerkinfo", "${_netzwerkInfo.value}")
             } catch (e: NullPointerException) {
 
                 println("Update nicht erfolgreich")

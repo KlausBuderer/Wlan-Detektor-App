@@ -7,6 +7,8 @@ import android.util.Log
 import androidx.lifecycle.*
 import com.gruppe4.wlan_detektor_pro.model.Datenbank.RepositoryDb
 import com.gruppe4.wlan_detektor_pro.model.Netzwerk.ConnectionInfo
+
+
 import com.gruppe4.wlan_detektor_pro.model.Netzwerk.NetzwerkInfo
 import com.gruppe4.wlan_detektor_pro.model.SinusGenerator
 import kotlinx.coroutines.*
@@ -14,8 +16,17 @@ import kotlinx.coroutines.Dispatchers.IO
 import java.io.IOException
 import java.lang.NullPointerException
 
+/**
+ * ## Echzeitmessung Viewmodel
+ * Viewmodel für die Echzeimessung </br>
+ * Zyklisches Auslesen der Netzwerkinformation </br>
+ * Aufrufen des Sinus Generators für ein Akustisches Signal
+ *
+ * @author Klaus Buderer
+ * @since 1.0.0
+ *
+ */
 class EchtzeitmessungViewModel(application: Application) : AndroidViewModel(application) {
-
 
     private var wifiKlasse: NetzwerkInfo
     private var wifiInfos: WifiInfo
@@ -27,7 +38,6 @@ class EchtzeitmessungViewModel(application: Application) : AndroidViewModel(appl
         wifiInfos = wifiKlasse.getConnectionInfo()
         repositoryDb = RepositoryDb(application)
         connectionInfoInit = wifiKlasse.getConnectionInfo31()
-
     }
 
     private var progressFarbeZyklisch: Int = progressBarFarbeEinstellen()
@@ -37,7 +47,7 @@ class EchtzeitmessungViewModel(application: Application) : AndroidViewModel(appl
     val netzwerkInfo: LiveData<WifiInfo> = _netzwerkInfo
 
     private val _connectionInfo = MutableLiveData<ConnectionInfo>().apply {
-       value = wifiKlasse.getConnectionInfo31()
+        value = wifiKlasse.getConnectionInfo31()
     }
     val connectionInfo: LiveData<ConnectionInfo> = _connectionInfo
 
@@ -53,10 +63,9 @@ class EchtzeitmessungViewModel(application: Application) : AndroidViewModel(appl
         value = progressFarbeZyklisch
     }
 
-
-    suspend fun getHerstellerName(macadresse: String):String {
+    suspend fun getHerstellerName(macadresse: String): String {
         try {
-           return (repositoryDb.getHersteller(macadresse))
+            return (repositoryDb.getHersteller(macadresse))
             Log.e("Hersteller", "Hersteller hat funktioniert")
         } catch (
             e: IOException
@@ -72,7 +81,6 @@ class EchtzeitmessungViewModel(application: Application) : AndroidViewModel(appl
         macgefilter = macgefilter.dropLast(9)
 
         return macgefilter.uppercase()
-
     }
 
     private fun progressBarFarbeEinstellen(): Int {
@@ -94,7 +102,6 @@ class EchtzeitmessungViewModel(application: Application) : AndroidViewModel(appl
         return 0.0
     }
 
-
     val progressFarbe: LiveData<Int> = _progressFarbe
     val band: LiveData<Double> = _band
     var tonEin: Boolean = false
@@ -103,7 +110,7 @@ class EchtzeitmessungViewModel(application: Application) : AndroidViewModel(appl
     private lateinit var sinusJob: Job
     var frequenz: Int = 0
 
-    //Start Coroutine für die Abfrage der Netzwerkinformationen
+    // Start Coroutine für die Abfrage der Netzwerkinformationen
     fun startUpdateCoroutine() {
         updateJobInit()
         val scope = CoroutineScope(IO + updateJob).launch {
@@ -111,7 +118,7 @@ class EchtzeitmessungViewModel(application: Application) : AndroidViewModel(appl
         }
     }
 
-    //Stoppe Coroutine für die Abfrage der Netzwerkinformationen
+    // Stoppe Coroutine für die Abfrage der Netzwerkinformationen
     fun stopUpdateCoroutine() {
         if (::updateJob.isInitialized) {
             if (updateJob.isActive || updateJob.isCompleted) {
@@ -173,7 +180,8 @@ class EchtzeitmessungViewModel(application: Application) : AndroidViewModel(appl
         sinusJobInit()
         CoroutineScope(IO + sinusJob).launch {
             netzwerkInfo.value?.let {
-                sinusGenerator.start() }
+                sinusGenerator.start()
+            }
         }
     }
 
@@ -189,16 +197,12 @@ class EchtzeitmessungViewModel(application: Application) : AndroidViewModel(appl
     }
 
     fun getSinusJobStatus(): Boolean {
-        //Wenn der Job initialisiert wurde wird ein true zurückgegeben
+        // Wenn der Job initialisiert wurde wird ein true zurückgegeben
         return ::sinusJob.isInitialized
-
     }
 
     fun getUpdateJobStatus(): Boolean {
-        //Wenn der Job initialisiert wurde wird ein true zurückgegeben
+        // Wenn der Job initialisiert wurde wird ein true zurückgegeben
         return ::updateJob.isInitialized
-
     }
-
 }
-

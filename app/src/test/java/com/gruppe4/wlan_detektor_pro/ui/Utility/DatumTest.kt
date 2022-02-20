@@ -1,10 +1,8 @@
 package com.gruppe4.wlan_detektor_pro.ui.Utility
 
-import kotlinx.coroutines.delay
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.junit.runners.JUnit4
-import org.junit.Assert.*
 
 @RunWith(JUnit4::class)
 class DatumTest {
@@ -23,5 +21,4 @@ class DatumTest {
 
         assert(zeit1.length == 8)
     }
-
 }
