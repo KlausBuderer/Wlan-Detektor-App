@@ -160,7 +160,7 @@ class MesspunktErfassungsFragment : Fragment() {
             }
 
             viewModel.messpunkte.observe(viewLifecycleOwner, Observer {
-                if (it.lastIndex >= 0) {
+                if (it.lastIndex >= 0 && editGebaeude.editableText.isEmpty()) {
                     editGebaeude.editableText.insert(0, it[it.lastIndex].gebaeude)
                 }
             })
@@ -174,16 +174,17 @@ class MesspunktErfassungsFragment : Fragment() {
         viewModel.messpunkt.observe(viewLifecycleOwner, Observer {
             try {
                 messpunkt = it
-                editGebaeude.editableText.insert(0, messpunkt.gebaeude)
-                editRaumname.editableText.insert(0, messpunkt.raumname)
-                editStockwerk.setText(
-                    editStockwerk.adapter.getItem(messpunkt.stockwerkID).toString(), false
-                )
-                editZusatzInfo.editableText.insert(0, messpunkt.zusatzinformation)
-                progressBar.progress = messpunkt.pegelmessung
-                signalText.text = messpunkt.pegelmessung.toString()
-                stockwerkPosition = messpunkt.stockwerkID
-
+                if (editRaumname.editableText.isBlank()) {
+                    editGebaeude.editableText.insert(0, messpunkt.gebaeude)
+                    editRaumname.editableText.insert(0, messpunkt.raumname)
+                    editStockwerk.setText(
+                        editStockwerk.adapter.getItem(messpunkt.stockwerkID).toString(), false
+                    )
+                    editZusatzInfo.editableText.insert(0, messpunkt.zusatzinformation)
+                    progressBar.progress = messpunkt.pegelmessung
+                    signalText.text = messpunkt.pegelmessung.toString()
+                    stockwerkPosition = messpunkt.stockwerkID
+                }
                 if (it.bildPfad.isNotBlank()) {
                     bildEingefuegtBild.visibility = ImageView.VISIBLE
                     bildEingefuegtText.visibility = ImageView.VISIBLE
@@ -433,6 +434,7 @@ class MesspunktErfassungsFragment : Fragment() {
 
         }
     }
+
 
     fun isPermissionGranted(permission: String): Boolean =
         ContextCompat.checkSelfPermission(
