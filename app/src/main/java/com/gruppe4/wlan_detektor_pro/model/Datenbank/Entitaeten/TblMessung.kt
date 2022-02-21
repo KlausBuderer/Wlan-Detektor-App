@@ -5,6 +5,15 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 import org.jetbrains.annotations.NotNull
 
+/**
+ * ## Messung Tabelle
+ * Entität der Datenbank von Messungen </br>
+ *
+ * @author Bruno Thurnherr
+ * @since 1.0.0
+ *
+ */
+
 @Entity
 class TblMessung {
 

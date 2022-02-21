@@ -17,6 +17,13 @@ sealed class NetworkStatus{
 
 }
 
+/**
+ * ## Netwerkinformationen für API grösser 31
+ * ### Klasse in diesem Release noch nicht in Verwendung
+ * Auslesen der Netzwerkinformationen und Rückgabe eines LiveData Objekts des Typs WifiInfo
+ * @author Klaus Buderer
+ * @return Netzwerkinformationen als LiveData Objekt
+ */
 class NetzwerkHelper(private val context: Context) : LiveData<WifiInfo>() {
 
     var connectivityManager: ConnectivityManager =
@@ -25,6 +32,10 @@ class NetzwerkHelper(private val context: Context) : LiveData<WifiInfo>() {
     val valideNetworkConnections : ArrayList<Network> = ArrayList()
     lateinit var wifiInfo: WifiInfo
 
+    /**
+     * Instanzierung der Connectivitiy Callback Klasse
+     * @author Klaus Buderer
+     */
     fun getConnectivityManagerCallback() =
         object : ConnectivityManager.NetworkCallback(){
             @RequiresApi(Build.VERSION_CODES.Q)
