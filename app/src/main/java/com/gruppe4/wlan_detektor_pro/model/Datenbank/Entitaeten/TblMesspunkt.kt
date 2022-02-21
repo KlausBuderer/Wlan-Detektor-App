@@ -6,6 +6,16 @@ import androidx.room.Entity
 import androidx.room.ForeignKey
 import androidx.room.PrimaryKey
 
+/**
+ * ## Messpunkt Tabelle
+ * Entität der Datenbank von Messpunkten </br>
+ * Fremdschlüsselbeziehung: fkmessungid <-> messungid von TblMessung
+ * @see [TblMessung]
+ *
+ * @author Bruno Thurnherr
+ * @since 1.0.0
+ *
+ */
 @Entity(foreignKeys = [ForeignKey(entity = TblMessung::class,
    parentColumns = arrayOf("messungid"),
    childColumns = arrayOf("fkmessungid"),

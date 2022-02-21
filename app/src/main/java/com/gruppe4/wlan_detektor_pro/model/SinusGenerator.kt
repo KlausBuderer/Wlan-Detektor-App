@@ -11,7 +11,16 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
-
+/**
+ * ## Sinus Generator
+ * In dieser Klasse wird ein akustisches Signal mit einem Wave Generator und einem Interval generiert
+ *
+ * @author Klaus Buderer
+ * @author Bruno Thurnherr
+ *
+ * @since 1.0.0
+ *
+ */
 class SinusGenerator(application: Application) {
 
     lateinit var track: AudioTrack
@@ -28,13 +37,22 @@ class SinusGenerator(application: Application) {
         AudioFormat.ENCODING_PCM_16BIT
     )
 
+    /**
+     * Starten des akustischen Signals
+     * @since 1.0.0
+     * @author Klaus Buderer
+     */
     fun start(){
         initTrack()
         startPlaying()
         playback()
     }
 
-
+    /**
+     * Initialisierung des Audiotrack Objekts
+     * @since 1.0.0
+     * @author Klaus Buderer
+     */
     private fun initTrack() {
              track = AudioTrack.Builder()
            .setAudioAttributes(AudioAttributes.Builder()
@@ -50,6 +68,12 @@ class SinusGenerator(application: Application) {
            .build()
     }
 
+    /**
+     * Generierung des akustischen signals
+     * @since 1.0.0
+     * @author Klaus Buderer
+     * @author Bruno Thurnherr
+     */
     private fun playback() {
         // simple sine wave generator
         val frame_out: ShortArray = ShortArray(buffLength)
@@ -82,7 +106,12 @@ class SinusGenerator(application: Application) {
         intervallRoutine()
     }
 
-
+    /**
+     * Impulsgenerator -> Impulslänge in Relation zum Pegel
+     * @since 1.0.0
+     * @author Klaus Buderer
+     * @author Bruno Thurnherr
+     */
     private fun intervallRoutine(){
         CoroutineScope(Dispatchers.IO).launch {
             while (isPlaying == true){
