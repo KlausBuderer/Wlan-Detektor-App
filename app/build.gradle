@@ -36,6 +36,7 @@ android {
 
 //Erstellt neue Spalte für geerbte Funktionen
 tasks.withType(dokkaHtml.getClass()).configureEach {
+
     pluginsMapConfiguration.set(
             ["org.jetbrains.dokka.base.DokkaBase": """{ "separateInheritedMembers": true}"""]
     )
@@ -46,7 +47,6 @@ dokkaHtml.configure {
     dokkaSourceSets {
         named("main") {
             skipDeprecated.set(true)
-            includeNonPublic = true
         }
         configureEach {
             includes.from("MODULE.md")
@@ -70,8 +70,12 @@ dependencies {
     implementation "androidx.cardview:cardview:1.0.0"
     implementation 'com.google.ar:core:1.23.0'
     implementation 'androidx.annotation:annotation:1.3.0'
+    implementation 'androidx.test:core-ktx:1.4.0'
     testImplementation 'junit:junit:4.+'
     testImplementation "com.google.truth:truth:1.1.2"
+    //testImplementation 'org.mockito:mockito-core:4.2.0'
+    testImplementation "org.mockito.kotlin:mockito-kotlin:4.0.0"
+    testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:1.5.0"
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
     androidTestImplementation 'com.google.truth:truth:1.1.2'

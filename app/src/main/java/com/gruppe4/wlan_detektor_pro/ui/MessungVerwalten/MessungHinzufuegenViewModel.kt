@@ -15,7 +15,7 @@ class MessungHinzufuegenViewModel(application: Application) : AndroidViewModel(a
 
 
     private val wifiKlasse: NetzwerkInfo = NetzwerkInfo(application)
-    private var connectionInfo: WifiInfo = wifiKlasse.getConnectionInfo()
+    private var connectionInfo: WifiInfo? = wifiKlasse.getConnectionInfo()
     val datum: Datum = Datum()
     var konditionNamenValide: Boolean = false
     var konditionNetzAngemeldet: Boolean = false
@@ -57,7 +57,7 @@ class MessungHinzufuegenViewModel(application: Application) : AndroidViewModel(a
     }
 
     fun netzwerkInfo(): String{
-        return connectionInfo.ssid
+        return connectionInfo!!.ssid
     }
 
     fun pruefenNetzAnmeldung(): Boolean{

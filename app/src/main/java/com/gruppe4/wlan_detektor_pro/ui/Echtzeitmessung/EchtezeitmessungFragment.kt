@@ -23,12 +23,18 @@ import androidx.lifecycle.ViewModelProvider
 import com.gruppe4.wlan_detektor_pro.R
 import com.gruppe4.wlan_detektor_pro.databinding.FragmentEchtzeitmessungBinding
 
+/**
+ * ## Echtzeitmessung View
+ * @author Klaus Buderer
+ * @since 1.0.0
+ *
+ */
 class EchtezeitmessungFragment : Fragment() {
 
     private lateinit var echtzeitmessungViewModel: EchtzeitmessungViewModel
     private var _binding: FragmentEchtzeitmessungBinding? = null
     private val binding get() = _binding!!
-    lateinit var dialog: Dialog
+    private lateinit var dialog: Dialog
 
 
     override fun onCreateView(
@@ -201,6 +207,11 @@ class EchtezeitmessungFragment : Fragment() {
         return root
     }
 
+    /**
+     * Prüfung ob die Berechtigung <Location> gesetzt wurde
+     * @author Klaus Buderer
+     * @since 1.0.0
+     */
     fun isPermissionGranted(permission: String): Boolean =
         ContextCompat.checkSelfPermission(
             requireContext(),

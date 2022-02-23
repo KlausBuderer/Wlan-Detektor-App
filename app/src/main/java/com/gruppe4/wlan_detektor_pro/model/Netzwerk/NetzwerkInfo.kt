@@ -26,13 +26,13 @@ import android.os.Build
  */
 class NetzwerkInfo(application: Application) {
 
-    var wifiManager = application.getSystemService(Context.WIFI_SERVICE) as WifiManager
-    private var connectionInfo: WifiInfo = wifiManager.connectionInfo
+    var wifiManager = application.getSystemService(Context.WIFI_SERVICE) as WifiManager?
+    private var connectionInfo: WifiInfo? = wifiManager?.connectionInfo
 
     val connectivityManager = application.getSystemService(ConnectivityManager::class.java)
-    val currentNetwork = connectivityManager.activeNetwork
-    val caps = connectivityManager.getNetworkCapabilities(currentNetwork)
-    val linkProperties = connectivityManager.getLinkProperties(currentNetwork)
+    val currentNetwork = connectivityManager?.activeNetwork
+    val caps = connectivityManager?.getNetworkCapabilities(currentNetwork)
+    val linkProperties = connectivityManager?.getLinkProperties(currentNetwork)
 
     /**
      * Aktualisierung der Netzwerkinformationen
@@ -41,7 +41,7 @@ class NetzwerkInfo(application: Application) {
      * @return [WifiManager.connectionInfo]
      */
     public fun refreshInfo(): WifiInfo{
-        return wifiManager.connectionInfo
+        return wifiManager!!.connectionInfo
     }
 
     /**
@@ -50,8 +50,8 @@ class NetzwerkInfo(application: Application) {
      * @author Klaus Buderer
      * @return [WifiManager.connectionInfo]
      */
-    public fun getConnectionInfo(): WifiInfo{
-      return  wifiManager.connectionInfo
+    public fun getConnectionInfo(): WifiInfo?{
+      return  wifiManager?.connectionInfo
     }
 
     /**
@@ -71,9 +71,9 @@ class NetzwerkInfo(application: Application) {
      * @return [Color.RED] oder [Color.GREEN] oder [Color.YELLOW]
      */
     fun progressBarFarbeEinstellen(): Int{
-        if (connectionInfo.rssi > -60){
+        if (connectionInfo?.rssi!! > -60){
             return Color.GREEN
-        }else if (connectionInfo.rssi > -70){
+        }else if (connectionInfo?.rssi!! > -70){
             return Color.YELLOW
         }else{
             return Color.RED
@@ -87,7 +87,7 @@ class NetzwerkInfo(application: Application) {
      * @param Aktueller Pegel als Integerwert
      * @return [Color.RED] oder [Color.GREEN] oder [Color.YELLOW]
      */
-    fun progressBarFarbeEinstellen(pegel: Int): Int{
+     fun progressBarFarbeEinstellen(pegel: Int): Int{
         if (pegel > -60){
             return Color.GREEN
         }else if (pegel > -70){
@@ -127,7 +127,7 @@ class NetzwerkInfo(application: Application) {
         return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
             caps?.signalStrength ?: 0
         } else {
-            wifiManager.connectionInfo.rssi
+            wifiManager!!.connectionInfo.rssi
         }
     }
 

@@ -115,7 +115,7 @@ class SinusGenerator(application: Application) {
     private fun intervallRoutine(){
         CoroutineScope(Dispatchers.IO).launch {
             while (isPlaying == true){
-                val rssi = netzwerkInfo.getConnectionInfo().rssi
+                val rssi = netzwerkInfo.getConnectionInfo()!!.rssi
                 track.setVolume(0.0F)
                 delay(rssi * -1 * rssi * -1 / 8L)
                 track.setVolume(1.0F)
