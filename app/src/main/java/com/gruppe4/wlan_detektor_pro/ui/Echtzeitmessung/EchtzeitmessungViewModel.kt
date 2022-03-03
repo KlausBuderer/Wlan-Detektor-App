@@ -79,17 +79,16 @@ class EchtzeitmessungViewModel(application: Application) : AndroidViewModel(appl
      * Bearbeitung der Macadresse, damit sie für die Suche des Herstellers in der Datenbank
      * verwendet werden kann.
      * @return Die ersten sechs Ziffern der Macadresse
-     * @param macadresse Macadresse des Routers
+     * @param macadresse Macadresse des RoutersDies
      * @author Klaus Buderer
      * @author Bruno Thurnherr
      * @since 1.0.0
      */
-    suspend fun getFilterMac(macadresse: String): String {
-        var macgefilter = macadresse.replace(':', '-')
-        macgefilter = macgefilter.dropLast(9)
+        fun getFilterMac(macadresse: String): String {
+        var macgefilter = macadresse.replace(':', '-') // Ersetzt : durch -
+        macgefilter = macgefilter.dropLast(9)// Schneidet die letzten 9 Ziffern
 
-        return macgefilter.uppercase()
-
+        return macgefilter.uppercase()// Rückgabe in Grossbuchstaben
     }
 
     /**

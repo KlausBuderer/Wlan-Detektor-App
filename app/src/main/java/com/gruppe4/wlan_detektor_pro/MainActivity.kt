@@ -50,12 +50,10 @@ class MainActivity : AppCompatActivity() {
 
         val navView: BottomNavigationView = binding.navView
 
-
         val navController = findNavController(R.id.nav_host_fragment_activity_main)
         activFragment = navController.currentDestination?.id ?: 0
 
-        // Passing each menu ID as a set of Ids because each
-        // menu should be considered as top level destinations.
+        // Uebergabe der Navigation IDs -> Navigationsleiste
         val appBarConfiguration = AppBarConfiguration(
             setOf(
                 R.id.navigation_home,
@@ -78,21 +76,15 @@ class MainActivity : AppCompatActivity() {
         val navController = findNavController(R.id.nav_host_fragment_activity_main)
         activFragment = navController.currentDestination?.id!!
 
-        Log.e("activFragment: ", "${activFragment}")
-        Log.e("Fragment: ", "${R.id.navigation_echtzeitmessung}")
-        Log.e("Activity: ", "${R.layout.activity_main}")
-
-        //Aufruf von Hilfedialog abhängig des aktiven Fragments
         if (item.itemId == R.id.action_help) {
-            callHilfeDialog(activFragment)
+            callHilfeDialog(activFragment) //Aufruf von Hilfedialog abhängig des aktiven Fragments
         } else if (item.itemId == R.id.action_about_us) {
-            navController.navigate(R.id.ueberUns2)
+            navController.navigate(R.id.ueberUns2)//Aufruf Ueberuns Modal
         } else if (item.itemId == R.id.action_terms) {
             navController.navigate(
-                R.id.terms_conditions
-            )
+                R.id.terms_conditions)//Aufruf Terms Conditions
         } else if (item.itemId == R.id.action_datenschutz) {
-            navController.navigate(R.id.datenschutzFragment)
+            navController.navigate(R.id.datenschutzFragment)//Aufruf Disclaimer
         }
         return super.onOptionsItemSelected(item)
     }

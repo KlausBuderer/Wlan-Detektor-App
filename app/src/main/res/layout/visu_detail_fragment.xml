@@ -77,9 +77,8 @@
                         android:id="@+id/musspunkt_bild"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:rotation="90"
                         android:scaleType="center"
-                        android:src="@android:drawable/ic_menu_gallery"/>
+                        android:src="@android:drawable/ic_menu_gallery" />
                 </FrameLayout>
 
                 <androidx.cardview.widget.CardView

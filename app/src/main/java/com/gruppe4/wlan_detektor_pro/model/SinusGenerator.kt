@@ -75,7 +75,6 @@ class SinusGenerator(application: Application) {
      * @author Bruno Thurnherr
      */
     private fun playback() {
-        // simple sine wave generator
         val frame_out: ShortArray = ShortArray(buffLength)
         var amplitude = 20000
         var frequency: Int = 100
@@ -83,12 +82,10 @@ class SinusGenerator(application: Application) {
         var phase: Double = 0.0
         track.playbackRate = 30000
 
-
         while (isPlaying) {
             frequency = 600 + frequenz
                 for (i in 0 until buffLength) {
 
-                    //frequency += 10
                     frame_out[i] = (amplitude * Math.sin(phase)).toInt().toShort()
                     phase += twopi * frequency / Fs
                     if (phase > twopi) {

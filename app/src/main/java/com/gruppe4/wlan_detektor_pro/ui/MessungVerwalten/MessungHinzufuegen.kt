@@ -120,9 +120,6 @@ class MessungHinzufuegen : Fragment() {
         eingabeNamen = binding.editTextMessungName
         raeumlichkeit = binding.autoCompleteTextView
 
-
-
-
         eingabeNamen.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
             }
@@ -130,15 +127,12 @@ class MessungHinzufuegen : Fragment() {
             //Validierung des Namens der Messung
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                 viewModel.namenValidierenRoutine(eingabeNamen.text.toString())
-                Log.e("OnChange","${eingabeNamen.text.toString()}")
-
-
+                Log.d("OnChange","${eingabeNamen.text}")
             }
 
             //Signalisierung das Namen der Messung bereits vergeben ist
             override fun afterTextChanged(s: Editable?) {
                 var validierung: Boolean = true
-
                 viewModel.nameValide.observe(viewLifecycleOwner, Observer {
                     validierung = it
                 })

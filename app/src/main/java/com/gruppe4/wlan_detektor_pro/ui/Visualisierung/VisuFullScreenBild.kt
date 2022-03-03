@@ -32,7 +32,7 @@ class VisuFullScreenBild : Fragment() {
 
             //Reduzierung der Auflösung um Speicherauslastung zu reduzieren
             val options = BitmapFactory.Options()
-            options.inSampleSize = 2
+            options.inSampleSize = 1
             //Aufruf Bild aus Files
             myBitmap = BitmapFactory.decodeFile(bildFile.absolutePath,options)
 

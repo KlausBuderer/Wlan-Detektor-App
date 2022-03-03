@@ -70,9 +70,7 @@ class StockwerkVisuAdapter(private val messpunktListe: List<TblMesspunkt>
 
         messpunkte.forEach {
             stockwerkSet.add(it.stockwerkID)
-
         }
-
         return stockwerkSet.toList().sortedDescending()
     }
 

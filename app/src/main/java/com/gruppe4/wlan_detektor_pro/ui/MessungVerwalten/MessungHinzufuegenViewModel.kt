@@ -33,7 +33,7 @@ class MessungHinzufuegenViewModel(application: Application) : AndroidViewModel(a
     suspend fun namenValidieren(eingabe: String){
          result = repositoryDb.namenPruefen(eingabe)
         _nameValide.postValue( result > 0)
-        Log.e("Routine","MessungsId: $result")
+        Log.d("Routine","MessungsId: $result")
     }
 
     //Pruefung ob der eingegebene Name bereits in der Datenbank vorhanden ist

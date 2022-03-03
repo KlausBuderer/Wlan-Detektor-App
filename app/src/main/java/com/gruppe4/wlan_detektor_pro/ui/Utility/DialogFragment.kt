@@ -64,7 +64,6 @@ class DialogFragment : BottomSheetDialogFragment(), HilfeAdapter.OnItemClickList
             val hilfe3 = Hilfe(uri3,resources.getString(R.string.txt_messung_bearbeiten),getString(R.string.txt_hilfe_messung_verwalten))
             val hilfe4 = Hilfe(uri4,resources.getString(R.string.txt_titel_home_visualisierung),getString(R.string.txt_beschreibung_visualisierung))
 
-
             binding.title.text = getString(R.string.txt_hilfe_home_titel)
             binding.beschreibung.text = getString(R.string.txt_home_beschreibung)
 

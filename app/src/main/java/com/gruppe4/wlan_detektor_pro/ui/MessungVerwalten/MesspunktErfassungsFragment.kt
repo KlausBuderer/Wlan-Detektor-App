@@ -1,13 +1,11 @@
 package com.gruppe4.wlan_detektor_pro.ui.MessungVerwalten
 
 import android.Manifest
-import android.app.Activity
 import android.app.Dialog
 import android.content.ActivityNotFoundException
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.content.res.ColorStateList
-import android.graphics.Bitmap
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.net.Uri
@@ -35,7 +33,6 @@ import com.gruppe4.wlan_detektor_pro.R
 import com.gruppe4.wlan_detektor_pro.databinding.MesspunktErfassungsFragmentBinding
 import com.gruppe4.wlan_detektor_pro.model.Datenbank.Entitaeten.TblMesspunkt
 import com.gruppe4.wlan_detektor_pro.model.Netzwerk.NetzwerkInfo
-import com.gruppe4.wlan_detektor_pro.ui.Utility.URIPathHelper
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import java.io.File
@@ -189,13 +186,10 @@ class MesspunktErfassungsFragment : Fragment() {
                     bildEingefuegtBild.visibility = ImageView.VISIBLE
                     bildEingefuegtText.visibility = ImageView.VISIBLE
                 } else {
-
                     bildEingefuegtBild.visibility = ImageView.INVISIBLE
                     bildEingefuegtText.visibility = ImageView.INVISIBLE
                 }
-
             } catch (e: Exception) {
-
                 Log.e("Messpunkterfassung", "Schreiben von Werten in die Editboxen nicht möglich")
             }
         })
@@ -329,7 +323,6 @@ class MesspunktErfassungsFragment : Fragment() {
         }
 
         speichern.setOnClickListener {
-
             if (args.messpunktId == -1L) {
                 var _messpunkt: TblMesspunkt = TblMesspunkt(
                     args.messungsId,
@@ -344,7 +337,7 @@ class MesspunktErfassungsFragment : Fragment() {
                     fotoPfad
                 )
                 viewModel.messpunktSpeichern(_messpunkt)
-                Log.e("Messpunkt erfassen viewmodel: ", "messpunkt id -1")
+                Log.d("Messpunkt erfassen viewmodel: ", "messpunkt id -1")
             } else {
 
 
@@ -446,19 +439,17 @@ class MesspunktErfassungsFragment : Fragment() {
     private fun createImageFile(): File {
         // Erstelle Filename
         val timeStamp: String = SimpleDateFormat("yyyyMMdd_HHmmss").format(Date())
-        val storageDir: File = context?.getExternalFilesDir(Environment.DIRECTORY_PICTURES)!!
+        val pfad: File = context?.getExternalFilesDir(Environment.DIRECTORY_PICTURES)!!
         return File.createTempFile(
             "JPEG_${timeStamp}_", /* prefix */
             ".jpg", /* suffix */
-            storageDir /* pfad */
+            pfad /* pfad */
         ).apply {
-
             currentPhotoPath = absolutePath
         }
     }
 
     private fun dispatchTakePictureIntent(): String {
-
         var photoFile: File? = null
         Intent(MediaStore.ACTION_IMAGE_CAPTURE).also { takePictureIntent ->
             takePictureIntent.resolveActivity(requireContext().packageManager)?.also {
@@ -466,17 +457,15 @@ class MesspunktErfassungsFragment : Fragment() {
                 photoFile = try {
                     createImageFile()
                 } catch (ex: IOException) {
-                    // Error occurred while creating the File
-
+                    // Fehler bei der Aufnahme
+                        Log.e("Bild Aufnahme", "Fehler bei der Bildaufnahme aufgetreten.")
                     null
                 }
                 // Zeige das Bild falls Erfassung erfolgreich
                 photoFile?.also {
                     val photoURI = FileProvider.getUriForFile(
                         requireContext(),
-
                         "com.gruppe4.wlan_detektor_pro.android.fileprovider",
-
                         it
                     )
                     takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI)

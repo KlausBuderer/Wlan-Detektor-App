@@ -103,6 +103,10 @@
         <entry key="..\:/Android/WlanDetektor/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.525" />
         <entry key="..\:/Android/WlanDetektor/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.5661458333333333" />
         <entry key="..\:/Android/WlanDetektorPro/app/src/main/res/layout/fragment_echtzeitmessung.xml" value="0.264" />
+        <entry key="..\:/Android/WlanDetektorPro/app/src/main/res/layout/messpunkt_erfassungs_fragment.xml" value="0.23370786516853934" />
+        <entry key="..\:/Android/WlanDetektorPro/app/src/main/res/layout/visu_detail_fragment.xml" value="0.48854166666666665" />
+        <entry key="..\:/Android/WlanDetektorPro/app/src/main/res/menu/bottom_nav_menu.xml" value="0.47314814814814815" />
+        <entry key="..\:/Android/WlanDetektorPro/app/src/main/res/menu/hilfe_button.xml" value="0.47314814814814815" />
       </map>
     </option>
   </component>

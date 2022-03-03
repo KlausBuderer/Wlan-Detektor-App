@@ -62,7 +62,6 @@ class VisuDetailFragment : Fragment() {
             }
         }
 
-        //
         binding.tvRaumName.text = args.raumname
         binding.tvGebaeude.text = args.gebaeude
         binding.tvStockwerk.text = args.stockwerk

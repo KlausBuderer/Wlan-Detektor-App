@@ -75,14 +75,14 @@ class MessungBearbeitenFragment : Fragment(), MesspunktBearbeitenAdapter.OnItemC
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProvider(this).get(MessungBearbeitenViewModel::class.java)
 
-        lifecycleScope.launch(Dispatchers.Main){
+        lifecycleScope.launch(Dispatchers.IO){
             viewModel.getMessung(messungsnamen)
         }
 
         viewModel.messung.observe(viewLifecycleOwner, Observer {
             messungsId = it.idmessung
 
-            lifecycleScope.launch(Dispatchers.Main) {
+            lifecycleScope.launch(Dispatchers.IO) {
                 viewModel.getMesspunkte(it.idmessung)
             }
         })

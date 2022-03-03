@@ -92,7 +92,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/title_layout"
-            app:startIconDrawable="@drawable/ic_info">
+            app:startIconDrawable="@drawable/ic_room">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/et_raumname_edit"
