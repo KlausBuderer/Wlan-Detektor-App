@@ -22,6 +22,11 @@ import com.gruppe4.wlan_detektor_pro.ui.MesspunktListe
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
+/**
+ * ##Messungbearbeitungs-View
+ * @author Klaus Buderer
+ * @since 1.0.0
+ */
 class MessungBearbeitenFragment : Fragment(), MesspunktBearbeitenAdapter.OnItemClickListener {
 
     var _binding: MessungBearbeitenFragmentBinding? = null
@@ -49,25 +54,17 @@ class MessungBearbeitenFragment : Fragment(), MesspunktBearbeitenAdapter.OnItemC
 
         addButton = binding.btnMesspunktHinzufuegen
         namenAendernButton = binding.imageView
-
         messungsnamen = args.messungsnamen
 
-        var messpunkte = MesspunktListe.messpunktListe
-
-
-
-        addButton.setOnClickListener{
-
-            val action = MessungBearbeitenFragmentDirections.actionMessungBearbeitenFragmentToMesspunktErfassungsFragment(
-                messungsnamen,
-                messungsId,
-                -1
-            )
-
+        addButton.setOnClickListener {
+            val action =
+                MessungBearbeitenFragmentDirections.actionMessungBearbeitenFragmentToMesspunktErfassungsFragment(
+                    messungsnamen,
+                    messungsId,
+                    -1
+                )
             Navigation.findNavController(binding.root).navigate(action)
-
         }
-
         return root
     }
 
@@ -75,13 +72,15 @@ class MessungBearbeitenFragment : Fragment(), MesspunktBearbeitenAdapter.OnItemC
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProvider(this).get(MessungBearbeitenViewModel::class.java)
 
-        lifecycleScope.launch(Dispatchers.IO){
+        //Hole Messung aus Datenbank
+        lifecycleScope.launch(Dispatchers.IO) {
             viewModel.getMessung(messungsnamen)
         }
 
         viewModel.messung.observe(viewLifecycleOwner, Observer {
             messungsId = it.idmessung
 
+            //Hole Messpunkt aus Datenbank
             lifecycleScope.launch(Dispatchers.IO) {
                 viewModel.getMesspunkte(it.idmessung)
             }
@@ -90,44 +89,39 @@ class MessungBearbeitenFragment : Fragment(), MesspunktBearbeitenAdapter.OnItemC
         viewModel.messpunkte.observe(viewLifecycleOwner, Observer {
             messpunktsListe = it
 
-            val adapter = MesspunktBearbeitenAdapter(messpunktsListe, this, requireActivity().application)
+            //Erstelle Liste von Messpunkten
+            val adapter =
+                MesspunktBearbeitenAdapter(messpunktsListe, this, requireActivity().application)
             binding?.rvMesspunktliste?.adapter = adapter
 
             var count = it.size
 
-                if (count > 3) {
-                    binding.tvMesspunktHinzu.visibility = TextView.INVISIBLE
-                } else {
-                    binding.tvMesspunktHinzu.visibility = TextView.VISIBLE
-                }
+            if (count > 3) {
+                binding.tvMesspunktHinzu.visibility = TextView.INVISIBLE
+            } else {
+                binding.tvMesspunktHinzu.visibility = TextView.VISIBLE
+            }
         })
 
-
-
         namenAendernButton.setOnClickListener {
-
             try {
                 val action =
                     MessungBearbeitenFragmentDirections.actionMessungBearbeitenFragmentToMessungsnamenAendern(
                         messungsnamen
                     )
-
-                if (action != null && findNavController().currentDestination?.id?.equals(R.id.messungBearbeitenFragment) == true){
+                if (action != null && findNavController().currentDestination?.id?.equals(R.id.messungBearbeitenFragment) == true) {
                     Navigation.findNavController(binding.root).navigate(action)
                 }
-            }catch (namenAendernException: IllegalStateException){
+            } catch (namenAendernException: IllegalStateException) {
                 Log.e("Messungsnamen aendern", "Navigition Namenaendern nicht gefunden")
-
             }
-
         }
 
-
         viewModel.messung.observe(viewLifecycleOwner, Observer {
-            if(it != null) {
+            if (it != null) {
                 binding.tvNamenMessung.text = it.name
                 binding.tvSsid.text = it.ssid
-            }else{
+            } else {
                 binding.tvNamenMessung.text = "Etwas schief gelaufen!"
             }
         })

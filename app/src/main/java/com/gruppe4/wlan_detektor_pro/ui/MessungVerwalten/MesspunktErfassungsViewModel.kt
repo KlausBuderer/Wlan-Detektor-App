@@ -15,6 +15,11 @@ import kotlinx.coroutines.withContext
 import java.io.IOException
 import java.lang.NullPointerException
 
+/**
+ * ## MesspunktErfassungs ViewModel
+ * @author Klaus Buderer
+ * @since 1.0.0
+ */
 class MesspunktErfassungsViewModel(application: Application) : AndroidViewModel(application) {
 
     var messungsId: Long = 0
@@ -43,16 +48,25 @@ class MesspunktErfassungsViewModel(application: Application) : AndroidViewModel(
     val progressBar: LiveData<Int> = _progressFarbe
 
     private val _messpunkt = MutableLiveData<TblMesspunkt>().apply {
-
     }
 
     val messpunkt: LiveData<TblMesspunkt> = _messpunkt
 
-
+    /**
+     * Setzt Freigabe für den Speicherbutton
+     * @author Klaus Buderer
+     * @since 1.0.0
+     */
     fun buttonFreigeben(): Boolean{
         return konditionGebaeude && konditionRaumname && konditionStockwerk && konditionMessung
     }
 
+    /**
+     * Liest Messpunkt aus der Datenbank
+     * @author Klaus Buderer
+     * @param messpunktId Id des Messpunkts
+     * @since 1.0.0
+     */
     suspend fun getMesspunkt(messpunktId: Long) {
         try {
             val messpunkt = repositoryDb.getMesspunkt(messpunktId)
@@ -62,9 +76,14 @@ class MesspunktErfassungsViewModel(application: Application) : AndroidViewModel(
         } catch (e: IOException) {
             Log.d(LOG_TAG, "Messpunkt query nicht erfolgreich")
         }
-
     }
 
+    /**
+     * Liest alle Messpunkte einer spezifischen Messung
+     * @author Klaus Buderer
+     * @since 1.0.0
+     * @param messungsId Id der Messung
+     */
     suspend fun getMesspunkte(messungsId: Long){
         try {
             val aktuelleMesspunkte = repositoryDb.getMesspunkte(messungsId)
@@ -74,9 +93,14 @@ class MesspunktErfassungsViewModel(application: Application) : AndroidViewModel(
         }catch (e: IOException){
             Log.d(LOG_TAG, "Messpunkt query nicht erfolgreich")
         }
-
     }
 
+    /**
+     * Löscht Messpunkt aus der Datenbank
+     * @author Klaus Buderer
+     * @since 1.0.0
+     * @param id Id des Messpunkts
+     */
     suspend fun deleteMesspunkt(id: Long){
         try {
             repositoryDb.deleteMesspunkt(id)
@@ -87,16 +111,34 @@ class MesspunktErfassungsViewModel(application: Application) : AndroidViewModel(
         }
     }
 
-        // Speichern des Messpunkts in der Datenbank
+    /**
+     * Speichern des Messpunkts in der Datenbank
+     * @author Klaus Buderer
+     * @since 1.0.0
+     * @param messpunkt Objekt des Typs TblMesspunkt
+     * @see TblMesspunkt
+     */
         fun messpunktSpeichern(messpunkt: TblMesspunkt) {
             repositoryDb.insertMesspunkt(messpunkt)
         }
 
-        // Speichern des Messpunkts in der Datenbank
+    /**
+     * Update des Messpunkts in der Datenbank
+     * @author Klaus Buderer
+     * @since 1.0.0
+     * @param messpunkt Objekt des Typs TblMesspunkt
+     * @see TblMesspunkt
+     */
         fun messpunktUpdate(messpunkt: TblMesspunkt) {
             repositoryDb.updateMesspunkt(messpunkt)
         }
 
+    /**
+     * Startet Messung der Signalstärke des Wlan Netzwerks
+     * @author Klaus Buderer
+     * @since 1.0.0
+     * @see NetzwerkInfo
+     */
         suspend fun startUpdates() {
             withContext(Dispatchers.IO) {
                 while (true) {
@@ -106,13 +148,10 @@ class MesspunktErfassungsViewModel(application: Application) : AndroidViewModel(
                         _signalstaerke.postValue(netzwerkInfo.refreshInfo().rssi)
                         _progressFarbe.postValue(netzwerkInfo.progressBarFarbeEinstellen())
                     } catch (e: NullPointerException) {
-
+                        Log.e("Messpunkt Erfassen:", "Aufruf Netzwerkinfo nicht erfolgreich")
                     }
-
                     delay(500)
                 }
             }
-
         }
-
     }
