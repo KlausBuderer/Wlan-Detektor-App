@@ -9,29 +9,35 @@ import android.view.ViewGroup
 import com.gruppe4.wlan_detektor_pro.R
 import com.gruppe4.wlan_detektor_pro.model.Datenbank.Entitaeten.TblMessung
 
-class MessungListeAdapter(private val messungsListe: List<TblMessung>?
-                        , private val listener: OnItemClickListener
-                        , private val application: Application
-                        , private val kontext: String)
-                        :RecyclerView.Adapter<MessungListeAdapter.MessungViewHolder>() {
+/**
+ * Messungsliste Adapter
+ * @since 1.0.0
+ * @author Klaus Buderer
+ */
+class MessungListeAdapter(
+    private val messungsListe: List<TblMessung>?,
+    private val listener: OnItemClickListener,
+    private val application: Application,
+    private val kontext: String
+) : RecyclerView.Adapter<MessungListeAdapter.MessungViewHolder>() {
 
-    inner class MessungViewHolder(var itemBinding: MessungItemBinding):
-            RecyclerView.ViewHolder(itemBinding.root),
-            View.OnClickListener{
-        fun bindItem(messung: TblMessung, application: Application){
+    inner class MessungViewHolder(var itemBinding: MessungItemBinding) :
+        RecyclerView.ViewHolder(itemBinding.root),
+        View.OnClickListener {
+        fun bindItem(messung: TblMessung, application: Application) {
             itemBinding.tvMessungNamen.text = messung.name
-            itemBinding.tvRaeumlickkeit.text = application.resources.getStringArray(R.array.raeumlichkeiten_array)[messung.raeumlichkeit]
+            itemBinding.tvRaeumlickkeit.text =
+                application.resources.getStringArray(R.array.raeumlichkeiten_array)[messung.raeumlichkeit]
             itemBinding.tvZeitstempel.text = messung.erfassungsDatum + " " + messung.erfassungsZeit
 
             //Verändere Icon gemäss des Aufrufers
-            if (kontext == MESSUNGLISTE_KONTEXT.Loeschen.toString()){
+            if (kontext == MESSUNGLISTE_KONTEXT.Loeschen.toString()) {
                 itemBinding.messungBarbeiten.setImageResource(R.drawable.ic_baseline_delete_forever_24)
-            }else if (kontext == MESSUNGLISTE_KONTEXT.Visualisierung.toString()){
+            } else if (kontext == MESSUNGLISTE_KONTEXT.Visualisierung.toString()) {
                 itemBinding.messungBarbeiten.setImageResource(R.drawable.ic_visualisierung)
-            }else{
+            } else {
                 itemBinding.messungBarbeiten.setImageResource(R.drawable.ic_edit)
             }
-
         }
 
         init {
@@ -44,11 +50,16 @@ class MessungListeAdapter(private val messungsListe: List<TblMessung>?
                 listener.onItemClick(position)
             }
         }
-
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MessungViewHolder {
-        return MessungViewHolder(MessungItemBinding.inflate(LayoutInflater.from(parent.context),parent,false))
+        return MessungViewHolder(
+            MessungItemBinding.inflate(
+                LayoutInflater.from(parent.context),
+                parent,
+                false
+            )
+        )
     }
 
     override fun onBindViewHolder(holder: MessungViewHolder, position: Int) {
@@ -62,9 +73,12 @@ class MessungListeAdapter(private val messungsListe: List<TblMessung>?
         return messungsListe?.size ?: 0
     }
 
-    interface OnItemClickListener{
+    /**
+     * Interface um die Elemente der Liste Klickbar zu machen
+     * @author Klaus Buderer
+     * @since 1.0.0
+     */
+    interface OnItemClickListener {
         fun onItemClick(position: Int)
-
-
     }
 }

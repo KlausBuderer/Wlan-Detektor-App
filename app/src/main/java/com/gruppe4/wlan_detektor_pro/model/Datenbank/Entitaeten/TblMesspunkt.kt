@@ -7,7 +7,7 @@ import androidx.room.ForeignKey
 import androidx.room.PrimaryKey
 
 /**
- * ## Messpunkt Tabelle
+ * Messpunkt Tabelle
  * Entität der Datenbank von Messpunkten </br>
  * Fremdschlüsselbeziehung: fkmessungid <-> messungid von TblMessung
  * @see [TblMessung]

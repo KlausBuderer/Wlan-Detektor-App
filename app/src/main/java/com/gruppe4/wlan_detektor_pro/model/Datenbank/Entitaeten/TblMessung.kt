@@ -6,7 +6,7 @@ import androidx.room.PrimaryKey
 import org.jetbrains.annotations.NotNull
 
 /**
- * ## Messung Tabelle
+ * Messung Tabelle
  * Entität der Datenbank von Messungen </br>
  *
  * @author Bruno Thurnherr

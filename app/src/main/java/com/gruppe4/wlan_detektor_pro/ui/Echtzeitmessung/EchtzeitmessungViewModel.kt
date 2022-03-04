@@ -15,7 +15,7 @@ import java.io.IOException
 import java.lang.NullPointerException
 
 /**
- * ## Echtzeitmessung Viewmodel
+ * Echtzeitmessung Viewmodel
  * @author Klaus Buderer
  * @since 1.0.0
  */
@@ -41,7 +41,7 @@ class EchtzeitmessungViewModel(application: Application) : AndroidViewModel(appl
     val netzwerkInfo: LiveData<WifiInfo> = _netzwerkInfo
 
     private val _connectionInfo = MutableLiveData<ConnectionInfo>().apply {
-       value = wifiKlasse!!.getConnectionInfo31()
+        value = wifiKlasse!!.getConnectionInfo31()
     }
     val connectionInfo: LiveData<ConnectionInfo> = _connectionInfo
 
@@ -65,9 +65,9 @@ class EchtzeitmessungViewModel(application: Application) : AndroidViewModel(appl
      * @author Bruno Thurnherr
      * @since 1.0.0
      */
-    suspend fun getHerstellerName(macadresse: String):String {
+    suspend fun getHerstellerName(macadresse: String): String {
         try {
-           return (repositoryDb!!.getHersteller(macadresse))
+            return (repositoryDb!!.getHersteller(macadresse))
         } catch (
             e: IOException
         ) {
@@ -75,6 +75,7 @@ class EchtzeitmessungViewModel(application: Application) : AndroidViewModel(appl
         }
         return ""
     }
+
     /**
      * Bearbeitung der Macadresse, damit sie für die Suche des Herstellers in der Datenbank
      * verwendet werden kann.
@@ -84,7 +85,7 @@ class EchtzeitmessungViewModel(application: Application) : AndroidViewModel(appl
      * @author Bruno Thurnherr
      * @since 1.0.0
      */
-        fun getFilterMac(macadresse: String): String {
+    fun getFilterMac(macadresse: String): String {
         var macgefilter = macadresse.replace(':', '-') // Ersetzt : durch -
         macgefilter = macgefilter.dropLast(9)// Schneidet die letzten 9 Ziffern
 
@@ -97,7 +98,7 @@ class EchtzeitmessungViewModel(application: Application) : AndroidViewModel(appl
      * @since 1.0.0
      */
     private fun progressBarFarbeEinstellen(): Int {
-      return wifiKlasse!!.progressBarFarbeEinstellen(wifiInfos!!.rssi)
+        return wifiKlasse!!.progressBarFarbeEinstellen(wifiInfos!!.rssi)
     }
 
     /**
@@ -150,6 +151,7 @@ class EchtzeitmessungViewModel(application: Application) : AndroidViewModel(appl
             updateJobInit()
         }
     }
+
     /**
      * Zyklischer Update der Wifi Daten
      * @author Klaus Buderer
@@ -221,7 +223,8 @@ class EchtzeitmessungViewModel(application: Application) : AndroidViewModel(appl
         sinusJobInit()
         CoroutineScope(IO + sinusJob).launch {
             netzwerkInfo.value?.let {
-                sinusGenerator.start() }
+                sinusGenerator.start()
+            }
         }
     }
 
@@ -249,7 +252,6 @@ class EchtzeitmessungViewModel(application: Application) : AndroidViewModel(appl
     fun getSinusJobStatus(): Boolean {
         //Wenn der Job initialisiert wurde wird ein true zurückgegeben
         return ::sinusJob.isInitialized
-
     }
 
     /**
@@ -260,8 +262,6 @@ class EchtzeitmessungViewModel(application: Application) : AndroidViewModel(appl
     fun getUpdateJobStatus(): Boolean {
         //Wenn der Job initialisiert wurde wird ein true zurückgegeben
         return ::updateJob.isInitialized
-
     }
-
 }
 

@@ -10,6 +10,11 @@ import com.gruppe4.wlan_detektor_pro.model.Datenbank.Entitaeten.TblMessung
 import com.gruppe4.wlan_detektor_pro.model.Datenbank.RepositoryDb
 import java.io.IOException
 
+/**
+ * Visualisierungs Grid Viewmodel
+ * @author Klaus Buderer
+ * @since 1.0.0
+ */
 class VisualisierungGridViewModel(application: Application) : AndroidViewModel(application) {
 
     private val LOG_TAG = "Visu Grid View: "
@@ -22,19 +27,28 @@ class VisualisierungGridViewModel(application: Application) : AndroidViewModel(a
     private val _messung = MutableLiveData<TblMessung>()
     val messung: LiveData<TblMessung> = _messung
 
+    /**
+     * Liesst alle Messpunkte aus der Datenbank
+     * @author Klaus Buderer
+     * @since 1.0.0
+     * @param messungsId Id der Messung
+     */
     suspend fun getMesspunkte(messungsId: Long){
         try {
             val aktuelleMesspunkte = repositoryDb.getMesspunkte(messungsId)
             Log.d(LOG_TAG, "Messpunkt query erfolgreich")
-
             _messpunkte.postValue(aktuelleMesspunkte)
-
         }catch (e: IOException){
-            Log.d(LOG_TAG, "Messpunkt query nicht erfolgreich")
+            Log.e(LOG_TAG, "Messpunkt query nicht erfolgreich")
         }
-
     }
 
+    /**
+     * Liesst Messung aus der Datenbank
+     * @author Klaus Buderer
+     * @since 1.0.0
+     * @param id Id der Messung
+     */
     suspend fun getMessung(id: Long){
         try {
             val aktuelleMessung = repositoryDb.getMessung(id)

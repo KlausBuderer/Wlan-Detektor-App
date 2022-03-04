@@ -4,6 +4,11 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
+/**
+ * Startbild Viewmodel
+ * @author Bruno Thurnherr
+ * @since 1.0.0
+ */
 class HomeViewModel : ViewModel() {
 
     private val _text = MutableLiveData<String>().apply {

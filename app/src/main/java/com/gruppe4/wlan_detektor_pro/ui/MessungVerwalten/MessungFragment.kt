@@ -12,13 +12,16 @@ import com.gruppe4.wlan_detektor_pro.databinding.FragmentMessungenBinding
 
 enum class MESSUNGLISTE_KONTEXT {Bearbeiten, Loeschen, Visualisierung}
 
+/**
+ * Messung Verwalten View
+ * @author Klaus Buderer
+ * @since 1.0.0
+ */
 class MessungFragment : Fragment() {
 
     private lateinit var messungViewModel: MessungViewModel
     private var _binding: FragmentMessungenBinding? = null
 
-    // This property is only valid between onCreateView and
-    // onDestroyView.
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -38,16 +41,11 @@ class MessungFragment : Fragment() {
                 R.id.action_navigation_messung_to_messungHinzufuegen
             )
         }
-
-
-
             return root
-
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
 
         //Absprung in eine Liste von Messungen
         binding.cvMessungBearbeiten.setOnClickListener{
@@ -59,7 +57,6 @@ class MessungFragment : Fragment() {
             Navigation.findNavController(binding.root).navigate(action)
         }
 
-
         //Absprung in eine Liste von Messungen
         binding.cvMessungLoeschen.setOnClickListener{
             val action =
@@ -70,9 +67,6 @@ class MessungFragment : Fragment() {
             Navigation.findNavController(binding.root).navigate(action)
         }
     }
-
-
-
 
     override fun onDestroyView() {
         super.onDestroyView()

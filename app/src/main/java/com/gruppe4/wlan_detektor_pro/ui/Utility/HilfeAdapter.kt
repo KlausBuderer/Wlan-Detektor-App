@@ -11,25 +11,30 @@ import androidx.recyclerview.widget.RecyclerView
 import com.gruppe4.wlan_detektor_pro.databinding.HilfeItemBinding
 import com.gruppe4.wlan_detektor_pro.ui.Echtzeitmessung.Hilfe
 
-class HilfeAdapter(private val hilfeListe: List<Hilfe>
-                    , private val context: Context
-                    ,private val listener: OnItemClickListener)
-    :RecyclerView.Adapter<HilfeAdapter.HilfeViewHolder>() {
+/**
+ * Hilfe Dialog Adapter
+ * @author Klaus Buderer
+ * @since 1.0.0
+ */
+class HilfeAdapter(
+    private val hilfeListe: List<Hilfe>,
+    private val context: Context,
+    private val listener: OnItemClickListener
+) : RecyclerView.Adapter<HilfeAdapter.HilfeViewHolder>() {
 
     //Deklarierung des Viewholders der die Verbindung zwischen dem Backend und dem View bewerkstelligt
-    inner class HilfeViewHolder(val itemBinding: HilfeItemBinding):
-            RecyclerView.ViewHolder(itemBinding.root),
-    View.OnClickListener{
-                fun bindItem(hilfe: Hilfe, context: Context){
-                   playVideo(hilfe.videoPfade, context, itemBinding.video)
-                    itemBinding.tvTitel1.text = hilfe.titel
-                    itemBinding.tvBeschreibung1.text = hilfe.beschreibungen
-                }
+    inner class HilfeViewHolder(val itemBinding: HilfeItemBinding) :
+        RecyclerView.ViewHolder(itemBinding.root),
+        View.OnClickListener {
+        fun bindItem(hilfe: Hilfe, context: Context) {
+            playVideo(hilfe.videoPfade, context, itemBinding.video)
+            itemBinding.tvTitel1.text = hilfe.titel
+            itemBinding.tvBeschreibung1.text = hilfe.beschreibungen
+        }
 
         init {
             itemView.setOnClickListener(this)
         }
-
 
         override fun onClick(v: View?) {
             val position: Int = bindingAdapterPosition
@@ -37,18 +42,28 @@ class HilfeAdapter(private val hilfeListe: List<Hilfe>
                 listener.onItemClick(position)
             }
         }
-
     }
 
-    //Funktion zum starten des Videos im dafür vorgesehenen Videoview
-    private fun playVideo(videoPfade: Uri, context: Context, videoView: VideoView){
+    /**
+     * Funktion zum starten des Videos im dafür vorgesehenen Videoview
+     * @author Klaus Buderer
+     * @since 1.0.0
+     */
+    private fun playVideo(videoPfade: Uri, context: Context, videoView: VideoView) {
         val mediaController = MediaController(context)
-
-            mediaControllerAufruf(videoView,mediaController,videoPfade)
+        mediaControllerAufruf(videoView, mediaController, videoPfade)
     }
 
-    //Aufbau des Mediakontrollers für die Wiedergabe des Videos
-    private fun mediaControllerAufruf(videoView: VideoView, mediaController: MediaController, uri: Uri){
+    /**
+     * Aufbau des Mediakontrollers für die Wiedergabe des Videos
+     * @author Klaus Buderer
+     * @since 1.0.0
+     */
+    private fun mediaControllerAufruf(
+        videoView: VideoView,
+        mediaController: MediaController,
+        uri: Uri
+    ) {
         videoView.setMediaController(mediaController)
         videoView.setVideoURI(uri)
         mediaController.setAnchorView(videoView)
@@ -61,25 +76,36 @@ class HilfeAdapter(private val hilfeListe: List<Hilfe>
 
     //Instanzierung des Viewholders
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HilfeViewHolder {
-        return HilfeViewHolder(HilfeItemBinding.inflate(LayoutInflater.from(parent.context), parent, false))
+        return HilfeViewHolder(
+            HilfeItemBinding.inflate(
+                LayoutInflater.from(parent.context),
+                parent,
+                false
+            )
+        )
     }
 
     //Starten des Videos sobald das Item für den User wieder sichtbar ist
     override fun onViewAttachedToWindow(holder: HilfeViewHolder) {
         super.onViewAttachedToWindow(holder)
-        playVideo(hilfeListe[holder.bindingAdapterPosition].videoPfade,context,holder.itemBinding.video)
+        playVideo(
+            hilfeListe[holder.bindingAdapterPosition].videoPfade,
+            context,
+            holder.itemBinding.video
+        )
     }
 
     //Initiale Erstellung des Items und übergabe des Contents
     override fun onBindViewHolder(holder: HilfeViewHolder, position: Int) {
         val hilfe = hilfeListe[position]
-        holder.bindItem(hilfe,context)
+        holder.bindItem(hilfe, context)
     }
 
     override fun getItemCount(): Int {
         return hilfeListe.size
     }
-    interface OnItemClickListener{
+
+    interface OnItemClickListener {
         fun onItemClick(position: Int)
     }
 }

@@ -24,7 +24,7 @@ import com.gruppe4.wlan_detektor_pro.R
 import com.gruppe4.wlan_detektor_pro.databinding.FragmentEchtzeitmessungBinding
 
 /**
- * ## Echtzeitmessung View
+ * Echtzeitmessung View
  * @author Klaus Buderer
  * @since 1.0.0
  *

@@ -24,6 +24,11 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import java.io.IOException
 
+/**
+ * Messungsliste View
+ * @author Klaus Buderer
+ * @since 1.0.0
+ */
 class MessungListeFragment : Fragment(), MessungListeAdapter.OnItemClickListener {
 
     var _binding: MessungListeFragmentBinding? = null
@@ -38,7 +43,6 @@ class MessungListeFragment : Fragment(), MessungListeAdapter.OnItemClickListener
 
     private lateinit var viewModel: MessungListeViewModel
 
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -46,7 +50,7 @@ class MessungListeFragment : Fragment(), MessungListeAdapter.OnItemClickListener
         _binding = MessungListeFragmentBinding.inflate(layoutInflater)
         val root: View = binding.root
 
-         dialog = Dialog(requireContext())
+        dialog = Dialog(requireContext())
         return root
     }
 
@@ -55,8 +59,6 @@ class MessungListeFragment : Fragment(), MessungListeAdapter.OnItemClickListener
         viewModel = ViewModelProvider(this).get(MessungListeViewModel::class.java)
 
         lifecycleScope.launch { viewModel.getAlleMessungen() }
-
-
 
         viewModel.messungsliste.observe(viewLifecycleOwner, Observer {
             messungsListe = it
@@ -71,13 +73,10 @@ class MessungListeFragment : Fragment(), MessungListeAdapter.OnItemClickListener
                 binding.tvKeineMessungen.visibility = TextView.VISIBLE
             }
         })
-
-        
-}
-
+    }
 
     override fun onItemClick(position: Int) {
-            //Messung bearbeiten
+        //Messung bearbeiten
         if (args.context.equals(MESSUNGLISTE_KONTEXT.Bearbeiten.toString())) {
             val action =
                 MessungListeFragmentDirections.actionMessungListeFragmentToMessungBearbeitenFragment(
@@ -94,17 +93,17 @@ class MessungListeFragment : Fragment(), MessungListeAdapter.OnItemClickListener
             val loeschenButton = dialog.findViewById<Button>(R.id.btn_loeschen)
 
             abbrechenButton.setOnClickListener {
-                    Toast.makeText(
-                        requireContext(),
-                        "Messung nicht gelöscht",
-                        Toast.LENGTH_LONG
-                    ).show()
+                Toast.makeText(
+                    requireContext(),
+                    "Messung nicht gelöscht",
+                    Toast.LENGTH_LONG
+                ).show()
                 dialog.dismiss()
             }
 
             loeschenButton.setOnClickListener {
                 try {
-                    val job =  lifecycleScope.launch(Dispatchers.IO) {
+                    val job = lifecycleScope.launch(Dispatchers.IO) {
                         messungsListe?.get(position)?.let { viewModel.deleteMessung(it.name) }
                     }
                     Navigation.findNavController(binding.root).navigate(

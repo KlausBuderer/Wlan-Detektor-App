@@ -9,17 +9,24 @@ import com.gruppe4.wlan_detektor_pro.model.Datenbank.Entitaeten.TblMessung
 import com.gruppe4.wlan_detektor_pro.model.Datenbank.RepositoryDb
 import java.io.IOException
 
+/**
+ * Visualisierungs Viewmodel
+ * @author Klaus Buderer
+ * @since 1.0.0
+ */
 class VisualisierungViewModel(application: Application) : AndroidViewModel(application) {
     private val LOG_TAG = "Visualisierungs Messungsliste: "
-
     private val repositoryDb: RepositoryDb = RepositoryDb(application)
-
     private val _messungsliste = MutableLiveData<List<TblMessung>?>().apply{
-
     }
 
     val messungsliste: LiveData<List<TblMessung>?> = _messungsliste
 
+    /**
+     * Liesst alle Messungen aus der Datenbank
+     * @author Klaus Buderer
+     * @since 1.0.0
+     */
     suspend fun getAlleMessungen(){
         try {
             val alleMessungen = repositoryDb.queryMessung()

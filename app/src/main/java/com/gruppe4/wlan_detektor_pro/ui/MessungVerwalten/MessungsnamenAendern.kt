@@ -13,6 +13,11 @@ import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.gruppe4.wlan_detektor_pro.R
 import com.gruppe4.wlan_detektor_pro.databinding.MessungsnamenAendernFragmentBinding
 
+/**
+ * Messungsnamen ändern View
+ * @author Klaus Buderer
+ * @since 1.0.0
+ */
 class MessungsnamenAendern : BottomSheetDialogFragment() {
 
     companion object {
@@ -32,8 +37,6 @@ class MessungsnamenAendern : BottomSheetDialogFragment() {
         _binding = MessungsnamenAendernFragmentBinding.inflate(layoutInflater)
         val root: View = binding.root
 
-
-
         return root
     }
 
@@ -45,26 +48,24 @@ class MessungsnamenAendern : BottomSheetDialogFragment() {
         var eingabeFeld = binding.etNeuerName
         var speicherButton = binding.speicher
 
-        eingabeFeld.addTextChangedListener(object : TextWatcher{
+        eingabeFeld.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
             }
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                 //Prüfung ob der Name bereits vergeben ist
                 viewModel.namenValidierenRoutine(eingabeFeld.text.toString())
-
             }
 
             override fun afterTextChanged(s: Editable?) {
             }
-
         })
 
         //Prüfung ob der Name bereits vergeben ist oder keine Eingabe vorhanden ist
         viewModel.nameValide.observe(viewLifecycleOwner, androidx.lifecycle.Observer {
             //Disablen des Speicherbuttons bei ungueltiger Eingabe
             speicherButton.isEnabled = it && (eingabeFeld.text.toString().isNotEmpty())
-            if(!it){
+            if (!it) {
                 eingabeFeld.error = resources.getString(R.string.txt_namen_bereits_vergeben)
             }
         })
@@ -83,11 +84,7 @@ class MessungsnamenAendern : BottomSheetDialogFragment() {
             parentFragment?.let { it1 ->
                 Navigation.findNavController(it1.requireView()).navigate(action)
             }
-
         }
-
     }
-
-
 }
 

@@ -12,7 +12,7 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
 /**
- * ## Sinus Generator
+ * Sinus Generator
  * In dieser Klasse wird ein akustisches Signal mit einem Wave Generator und einem Interval generiert
  *
  * @author Klaus Buderer

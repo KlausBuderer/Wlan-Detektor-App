@@ -43,16 +43,17 @@ import java.util.*
 
 lateinit var currentPhotoPath: String
 
-
+/**
+ * MesspunktErfassungs View
+ * @author Klaus Buderer
+ * @since 1.0.0
+ */
 class MesspunktErfassungsFragment : Fragment() {
 
 
     private var _binding: MesspunktErfassungsFragmentBinding? = null
     private val binding get() = _binding!!
     val args: MesspunktErfassungsFragmentArgs by navArgs()
-    private var gebaeudeNamen: String = ""
-    private var stockwerk: Int = -1
-    private var raumname: String = ""
     lateinit var editGebaeude: EditText
     lateinit var editStockwerk: AutoCompleteTextView
     lateinit var editRaumname: EditText
@@ -119,13 +120,9 @@ class MesspunktErfassungsFragment : Fragment() {
         editStockwerk.setTextColor(resources.getColor(R.color.white))
         editStockwerk.setDropDownBackgroundDrawable(resources.getDrawable(R.drawable.dropdown_background))
 
-
         if (args.messpunktId == -1L) {
             loeschButton.visibility = Button.INVISIBLE
         }
-
-
-
         return binding.root
     }
 
@@ -144,14 +141,11 @@ class MesspunktErfassungsFragment : Fragment() {
             speichern.isEnabled = true
         }
 
-
-
         if (args.messpunktId != -1L) {
             lifecycleScope.launch { viewModel.getMesspunkt(args.messpunktId) }
         } else {
 
             //Vorgeben des zuletzt eingegebenen Gebäude um die Eingabe zu erleichtern
-
             lifecycleScope.launch(Dispatchers.Main) {
                 viewModel.getMesspunkte(args.messungsId)
             }
@@ -164,9 +158,6 @@ class MesspunktErfassungsFragment : Fragment() {
 
             viewModel.konditionGebaeude = true
         }
-
-
-        var netzwerkInfo = NetzwerkInfo(requireActivity().application)
 
         viewModel.messpunkt.observe(viewLifecycleOwner, Observer {
             try {
@@ -194,9 +185,6 @@ class MesspunktErfassungsFragment : Fragment() {
             }
         })
 
-
-
-
         binding.btnStartMesspunktMessung.setOnClickListener {
             viewModel.konditionMessung = true
             speichern.isEnabled = viewModel.buttonFreigeben()
@@ -220,22 +208,18 @@ class MesspunktErfassungsFragment : Fragment() {
 
         editGebaeude.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
-
             }
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                 if (editGebaeude.text.isNotEmpty()) {
                     viewModel.konditionGebaeude = true
-
                 }
-
             }
 
             override fun afterTextChanged(s: Editable?) {
                 if (editGebaeude.text.isNotEmpty()) {
                     viewModel.konditionGebaeude = true
                 }
-
                 speichern.isEnabled = viewModel.buttonFreigeben()
             }
 
@@ -243,7 +227,6 @@ class MesspunktErfassungsFragment : Fragment() {
 
         editRaumname.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
-
             }
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
@@ -256,7 +239,6 @@ class MesspunktErfassungsFragment : Fragment() {
                 if (editRaumname.text.isNotEmpty()) {
                     viewModel.konditionRaumname = true
                 }
-
                 speichern.isEnabled = viewModel.buttonFreigeben()
             }
 
@@ -435,6 +417,11 @@ class MesspunktErfassungsFragment : Fragment() {
             permission
         ) == PackageManager.PERMISSION_GRANTED
 
+    /**
+     * Erstellung einer Datei mit einem eindeutigen Dateiname
+     * @author Klaus Buderer
+     * @since 1.0.0
+     */
     @Throws(IOException::class)
     private fun createImageFile(): File {
         // Erstelle Filename
@@ -449,6 +436,12 @@ class MesspunktErfassungsFragment : Fragment() {
         }
     }
 
+    /**
+     * Aufruf der Kamera um ein Bild aufzunehemen
+     * @author Klaus Buderer
+     * @since 1.0.0
+     * @return Pfad in welchem das Bild gespeichert wurde
+     */
     private fun dispatchTakePictureIntent(): String {
         var photoFile: File? = null
         Intent(MediaStore.ACTION_IMAGE_CAPTURE).also { takePictureIntent ->

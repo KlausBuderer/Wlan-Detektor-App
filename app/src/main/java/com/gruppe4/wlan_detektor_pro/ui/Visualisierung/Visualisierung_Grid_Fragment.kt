@@ -20,6 +20,11 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import java.lang.NullPointerException
 
+/**
+ * Visualisierungs Grid View
+ * @since 1.0.0
+ * @author Klaus Buderer
+ */
 class Visualisierung_Grid_Fragment : Fragment(), MesspunktVisuAdapter.OnItemClickListener {
 
     companion object {
@@ -40,11 +45,9 @@ class Visualisierung_Grid_Fragment : Fragment(), MesspunktVisuAdapter.OnItemClic
         _binding = VisualisierungGridFragmentBinding.inflate(layoutInflater)
         val root: View = binding.root
 
-
         binding.rvMesspunktVisu.apply {
-            layoutManager = GridLayoutManager(requireContext(),1)
+            layoutManager = GridLayoutManager(requireContext(), 1)
         }
-
         return root
     }
 
@@ -52,7 +55,7 @@ class Visualisierung_Grid_Fragment : Fragment(), MesspunktVisuAdapter.OnItemClic
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProvider(this).get(VisualisierungGridViewModel::class.java)
 
-        lifecycleScope.launch(Dispatchers.Main){
+        lifecycleScope.launch(Dispatchers.Main) {
             viewModel.getMessung(args.messungsId)
         }
 
@@ -67,7 +70,7 @@ class Visualisierung_Grid_Fragment : Fragment(), MesspunktVisuAdapter.OnItemClic
             val adapter = GebauedeVisuAdapter(it, this, requireActivity().application)
             messungListe = it
             binding?.rvMesspunktVisu?.adapter = adapter
-            if (it.isEmpty()){
+            if (it.isEmpty()) {
                 binding.tvKeineMesspunkte.visibility = TextView.VISIBLE
             }
         })
@@ -78,36 +81,33 @@ class Visualisierung_Grid_Fragment : Fragment(), MesspunktVisuAdapter.OnItemClic
         var messpunkt: TblMesspunkt? = null
 
         messungListe.forEach lit@{
-            if (it.idmesspunkt == messpunktId)  {
+            if (it.idmesspunkt == messpunktId) {
                 messpunkt = it
                 return@lit
             }
         }
-    try {
-        val action = messpunkt?.pegelmessung?.let {
-            Visualisierung_Grid_FragmentDirections.actionVisualisierungGridFragmentToVisuDetailFragment(
-                messpunkt!!.raumname,
-                messpunkt!!.gebaeude,
-                activity?.resources!!.getStringArray(R.array.stockwerk_array)[messpunkt!!.stockwerkID],
-                it,
-                messpunkt!!.zusatzinformation,
-                messpunkt!!.erfassungsDatum,
-                messpunkt!!.erfassungsZeit,
-                messpunkt!!.bildPfad,
-                messpunkt!!.aenderungsDatum,
-                messpunkt!!.aenderungsZeit
+        try {
+            val action = messpunkt?.pegelmessung?.let {
+                Visualisierung_Grid_FragmentDirections.actionVisualisierungGridFragmentToVisuDetailFragment(
+                    messpunkt!!.raumname,
+                    messpunkt!!.gebaeude,
+                    activity?.resources!!.getStringArray(R.array.stockwerk_array)[messpunkt!!.stockwerkID],
+                    it,
+                    messpunkt!!.zusatzinformation,
+                    messpunkt!!.erfassungsDatum,
+                    messpunkt!!.erfassungsZeit,
+                    messpunkt!!.bildPfad,
+                    messpunkt!!.aenderungsDatum,
+                    messpunkt!!.aenderungsZeit
+                )
+            }
 
-            )
+            if (action != null) {
+                Navigation.findNavController(binding.root).navigate(action)
+            }
+
+        } catch (e: NullPointerException) {
+            Log.e("Messpunktinformationen an Detailsicht", "Messpunkt ist Null")
         }
-
-        if (action != null) {
-            Navigation.findNavController(binding.root).navigate(action)
-        }
-
-
-    }catch (e: NullPointerException){
-        Log.e("Messpunktinformationen an Detailsicht", "Messpunkt ist Null")
     }
-
-}
 }

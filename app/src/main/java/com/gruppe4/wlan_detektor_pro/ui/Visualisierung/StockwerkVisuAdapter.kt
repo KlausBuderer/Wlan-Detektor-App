@@ -11,11 +11,17 @@ import com.gruppe4.wlan_detektor_pro.R
 import com.gruppe4.wlan_detektor_pro.databinding.StockwerkItemBinding
 import com.gruppe4.wlan_detektor_pro.model.Datenbank.Entitaeten.TblMesspunkt
 
+/**
+ * Stockwerk Visu Adapter
+ * Erstellt Recyclerview in der Visualisierung
+ * @author Klaus Buderer
+ * @since 1.0.0
+ * @see Visualisierung_Grid_Fragment
+ */
 class StockwerkVisuAdapter(private val messpunktListe: List<TblMesspunkt>
                            , private val listener: MesspunktVisuAdapter.OnItemClickListener
                            , private val application: Application)
     : RecyclerView.Adapter<StockwerkVisuAdapter.StockwerkVisuViewHolder>(){
-
 
     inner class StockwerkVisuViewHolder(val itemBinding: StockwerkItemBinding):
         RecyclerView.ViewHolder(itemBinding.root),
@@ -35,14 +41,10 @@ class StockwerkVisuAdapter(private val messpunktListe: List<TblMesspunkt>
             itemView.setOnClickListener(this)
         }
 
-
-
         override fun onClick(v: View?) {
             //Do nothing
         }
-
     }
-
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
@@ -51,11 +53,9 @@ class StockwerkVisuAdapter(private val messpunktListe: List<TblMesspunkt>
        return StockwerkVisuViewHolder((StockwerkItemBinding.inflate(LayoutInflater.from(parent.context),parent,false)))
     }
 
-
     override fun getItemCount(): Int {
         Log.d("Messpunktelistegrösse",extrahiereStockwerke(messpunktListe).size.toString())
        return extrahiereStockwerke(messpunktListe).size
-
     }
 
     override fun onBindViewHolder(holder: StockwerkVisuViewHolder, position: Int) {
@@ -64,7 +64,14 @@ class StockwerkVisuAdapter(private val messpunktListe: List<TblMesspunkt>
        holder.bindItem(messpunktProStockwerk(stockwerk),stockwerk,application)
     }
 
-    private fun extrahiereStockwerke(messpunkte: List<TblMesspunkt>): List<Int> {
+    /**
+     * Filtert alle Stockwerke aus einer Liste von Messungen und schreibt sie in eine Liste
+     * @author Klaus Buderer
+     * @since 1.0.0
+     * @param messpunkte Liste von Messpunkten
+     * @return Liste mit allen verwendeten Gebäude
+     */
+     fun extrahiereStockwerke(messpunkte: List<TblMesspunkt>): List<Int> {
         val messpunkte = messpunkte
         var stockwerkSet = mutableSetOf<Int>()
 
@@ -74,7 +81,14 @@ class StockwerkVisuAdapter(private val messpunktListe: List<TblMesspunkt>
         return stockwerkSet.toList().sortedDescending()
     }
 
-    private fun messpunktProStockwerk(stockwerk: Int):List<TblMesspunkt>{
+    /**
+     * Gibt alle Messpunkte mit des selben Stockwerkes zurück
+     * @author Klaus Buderer
+     * @since 1.0.0
+     * @param gebauedenamen Gebäudenamen
+     * @return Liste mit allen Messpunkten eines Gebäudes
+     */
+     fun messpunktProStockwerk(stockwerk: Int):List<TblMesspunkt>{
         val messpunktListeProStockwerk = mutableListOf<TblMesspunkt>()
         messpunktListe.forEach{
             if (it.stockwerkID == stockwerk){
@@ -83,7 +97,5 @@ class StockwerkVisuAdapter(private val messpunktListe: List<TblMesspunkt>
         }
         return messpunktListeProStockwerk
     }
-
-
 }
 

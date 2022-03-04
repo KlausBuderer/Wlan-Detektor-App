@@ -10,6 +10,11 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
+/**
+ * Messungsnamen ändern Viewmodel
+ * @author Klaus Buderer
+ * @since 1.0.0
+ */
 class MessungsnamenAendernViewModel(application: Application) : AndroidViewModel(application) {
 
     private val repositoryDb: RepositoryDb = RepositoryDb(application)
@@ -21,19 +26,30 @@ class MessungsnamenAendernViewModel(application: Application) : AndroidViewModel
     }
     var nameValide: LiveData<Boolean> = _nameValide
 
-    //Speicherung des neuen Messungsnamen
+    /**
+     * ##Speicherung des neuen Messungsnamen
+     * @author Klaus Buderer
+     * @since 1.0.0
+     */
     fun namenUpdate(aktuellerName: String, neuerName: String){
         repositoryDb.updateMessungsNamen(aktuellerName,neuerName)
     }
 
-    //Funktion die den eingegebenen Namen in der Datenbank auf Redundanz prüft
+    /**
+     * ##Funktion die den eingegebenen Namen in der Datenbank auf Redundanz prüft
+     * @author Klaus Buderer
+     * @since 1.0.0
+     */
     suspend fun namenValidieren(eingabe: String){
         result = repositoryDb.namenPruefen(eingabe)
         _nameValide.postValue( result == 0)
         Log.d("Routine","MessungsId: $result")
     }
-
-    //Coroutine zur Speicherung des neuen Messungsnamen
+    /**
+     * ##Coroutine zur Speicherung des neuen Messungsnamen
+     * @author Klaus Buderer
+     * @since 1.0.0
+     */
     fun namenValidierenRoutine(eingabe: String){
         val scope = CoroutineScope(Dispatchers.IO).launch {
             namenValidieren(eingabe)
