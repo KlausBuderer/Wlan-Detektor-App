@@ -1,4 +1,3 @@
-
 name: Generierung der Doku beim PUll Request
 
 on: push
