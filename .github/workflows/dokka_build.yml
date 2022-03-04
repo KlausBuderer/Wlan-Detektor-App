@@ -1,9 +1,8 @@
 
 name: Generierung der Doku beim PUll Request
 
-on:
-  pull_request:
-    branches: main
+on: push
+
 jobs:
   publish:
     runs-on: ubuntu-latest
