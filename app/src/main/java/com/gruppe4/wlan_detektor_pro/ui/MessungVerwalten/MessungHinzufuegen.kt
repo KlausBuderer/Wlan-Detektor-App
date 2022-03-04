@@ -27,7 +27,11 @@ import com.gruppe4.wlan_detektor_pro.R
 import com.gruppe4.wlan_detektor_pro.databinding.FragmentMessungHinzufuegenBinding
 import com.gruppe4.wlan_detektor_pro.model.Datenbank.Entitaeten.TblMessung
 
-
+/**
+ * Messung hinzufügen View
+ * @author Klaus Buderer
+ * @since 1.0.0
+ */
 class MessungHinzufuegen : Fragment() {
 
     companion object {
@@ -40,10 +44,6 @@ class MessungHinzufuegen : Fragment() {
     lateinit var eingabeNamen: EditText
     lateinit var raeumlichkeit: AutoCompleteTextView
     var raeumlichkeitPosition: Int = -1
-
-
-    // This property is only valid between onCreateView and
-    // onDestroyView.
     private val binding get() = _binding!!
 
     override fun onResume() {
@@ -93,9 +93,10 @@ class MessungHinzufuegen : Fragment() {
         }
 
         //Pruefung ob mit Netzwerk verbunden und reinitialisierung der Buttonfreigabe
-        viewModel.konditionNetzAngemeldet = viewModel.netzwerkInfo.value?.supplicantState == SupplicantState.COMPLETED
+        viewModel.konditionNetzAngemeldet =
+            viewModel.netzwerkInfo.value?.supplicantState == SupplicantState.COMPLETED
         binding.messungSpeichern.isEnabled = viewModel.buttonFreigabe()
-        binding.etNetzwerk.startIconDrawable?.setVisible(viewModel.konditionNetzAngemeldet,true)
+        binding.etNetzwerk.startIconDrawable?.setVisible(viewModel.konditionNetzAngemeldet, true)
     }
 
     override fun onCreateView(
@@ -104,10 +105,6 @@ class MessungHinzufuegen : Fragment() {
     ): View? {
 
         _binding = FragmentMessungHinzufuegenBinding.inflate(inflater, container, false)
-
-
-
-
 
         return binding.root
     }
@@ -127,7 +124,7 @@ class MessungHinzufuegen : Fragment() {
             //Validierung des Namens der Messung
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                 viewModel.namenValidierenRoutine(eingabeNamen.text.toString())
-                Log.d("OnChange","${eingabeNamen.text}")
+                Log.d("OnChange", "${eingabeNamen.text}")
             }
 
             //Signalisierung das Namen der Messung bereits vergeben ist
@@ -137,13 +134,13 @@ class MessungHinzufuegen : Fragment() {
                     validierung = it
                 })
 
-                Log.d("validierung","${validierung}")
+                Log.d("validierung", "${validierung}")
 
                 if (viewModel.result > 0) {
                     eingabeNamen.error = resources.getString(R.string.txt_namen_bereits_vergeben)
                     viewModel.konditionNamenValide = false
                     speichernButton.isEnabled = viewModel.buttonFreigabe()
-                }else if (s.isNullOrBlank()){
+                } else if (s.isNullOrBlank()) {
                     viewModel.konditionNamenValide = false
                     speichernButton.isEnabled = viewModel.buttonFreigabe()
                 } else {
@@ -154,17 +151,16 @@ class MessungHinzufuegen : Fragment() {
             }
         })
 
-        binding.etNetzwerk.setEndIconOnClickListener{
+        binding.etNetzwerk.setEndIconOnClickListener {
             startActivity(Intent(Settings.ACTION_WIFI_SETTINGS))
         }
 
         viewModel.netzwerkInfo.observe(viewLifecycleOwner, Observer {
-
             //Pruefung ob mit Wlan verbunden
-            if (it.supplicantState == SupplicantState.COMPLETED){
+            if (it.supplicantState == SupplicantState.COMPLETED) {
                 binding.netzwerk.editableText.clear()
                 binding.netzwerk.editableText.insert(0, it.ssid)
-            }else{
+            } else {
                 binding.netzwerk.editableText.clear()
                 binding.netzwerk.editableText.insert(0, getString(R.string.txt_netzTitel_de))
             }
@@ -177,14 +173,12 @@ class MessungHinzufuegen : Fragment() {
             speichernButton.isEnabled = viewModel.buttonFreigabe()
         }
 
-
         //Speicherbutton Freigabe
         viewModel.speicherFreigabe.observe(viewLifecycleOwner, Observer {
             speichernButton.isEnabled = it
         })
 
         speichernButton.setOnClickListener {
-
 
             var messung: TblMessung = TblMessung(
                 eingabeNamen.text.toString(),
@@ -200,18 +194,15 @@ class MessungHinzufuegen : Fragment() {
                 MessungHinzufuegenDirections.actionMessungHinzufuegenToMessungBearbeitenFragment(
                     eingabeNamen.text.toString()
                 )
-
             Navigation.findNavController(binding.root).navigate(action)
-
         }
-
     }
+
     fun isPermissionGranted(permission: String): Boolean =
         ContextCompat.checkSelfPermission(
             requireContext(),
             permission
         ) == PackageManager.PERMISSION_GRANTED
-
 
     override fun onDestroy() {
         super.onDestroy()

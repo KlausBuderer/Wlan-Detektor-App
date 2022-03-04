@@ -18,7 +18,11 @@ import com.gruppe4.wlan_detektor_pro.databinding.VisuDetailFragmentBinding
 import com.gruppe4.wlan_detektor_pro.model.Netzwerk.NetzwerkInfo
 import java.io.File
 
-
+/**
+ * Visualisierungs Detailbild View
+ * @author Klaus Buderer
+ * @since 1.0.0
+ */
 class VisuDetailFragment : Fragment() {
 
     companion object {
@@ -28,10 +32,6 @@ class VisuDetailFragment : Fragment() {
     private lateinit var viewModel: VisuDetailViewModel
     val args: VisuDetailFragmentArgs by navArgs()
     private var _binding: VisuDetailFragmentBinding? = null
-
-
-    // This property is only valid between onCreateView and
-    // onDestroyView.
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -50,7 +50,7 @@ class VisuDetailFragment : Fragment() {
             val options = BitmapFactory.Options()
             options.inSampleSize = 2
             //Aufruf Bild aus Files
-             myBitmap = BitmapFactory.decodeFile(bildFile.absolutePath,options)
+            myBitmap = BitmapFactory.decodeFile(bildFile.absolutePath, options)
 
         } else {
             //Fall kein Bild vorhanden ist wird das Bildfenster nicht angezeigt
@@ -76,18 +76,14 @@ class VisuDetailFragment : Fragment() {
         if (myBitmap != null) {
             binding.musspunktBild.setImageBitmap(myBitmap)
 
-            binding.musspunktBild.setOnClickListener{
+            binding.musspunktBild.setOnClickListener {
                 val action =
                     VisuDetailFragmentDirections.actionVisuDetailFragmentToVisuFullScreenBild(
                         args.bildPfad
                     )
-
                 Navigation.findNavController(binding.root).navigate(action)
             }
         }
-
-
-
         return root
     }
 
@@ -95,5 +91,4 @@ class VisuDetailFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProvider(this).get(VisuDetailViewModel::class.java)
     }
-
 }

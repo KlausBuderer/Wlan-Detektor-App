@@ -11,7 +11,12 @@ import androidx.navigation.fragment.navArgs
 import com.gruppe4.wlan_detektor_pro.databinding.FragmentVisuFullScreenBildBinding
 import java.io.File
 
-
+/**
+ * Vollbild
+ * Darstellung des Foto im Vollbildmodus
+ * @author Klaus Buderer
+ * @since 1.0.0
+ */
 class VisuFullScreenBild : Fragment() {
 
     private var _binding: FragmentVisuFullScreenBildBinding? = null
@@ -25,7 +30,6 @@ class VisuFullScreenBild : Fragment() {
         _binding = FragmentVisuFullScreenBildBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-
         var myBitmap: Bitmap? = null
         if (args.bildpfad.isNotBlank()) {
             val bildFile = File(args.bildpfad)
@@ -34,13 +38,10 @@ class VisuFullScreenBild : Fragment() {
             val options = BitmapFactory.Options()
             options.inSampleSize = 1
             //Aufruf Bild aus Files
-            myBitmap = BitmapFactory.decodeFile(bildFile.absolutePath,options)
+            myBitmap = BitmapFactory.decodeFile(bildFile.absolutePath, options)
 
             binding.ivBild.setImageBitmap(myBitmap)
         }
-
-
-
         return root
     }
 

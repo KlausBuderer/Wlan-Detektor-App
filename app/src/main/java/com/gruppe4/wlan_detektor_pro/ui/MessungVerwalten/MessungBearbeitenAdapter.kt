@@ -10,7 +10,7 @@ import com.gruppe4.wlan_detektor_pro.databinding.MesspunktItemBinding
 import com.gruppe4.wlan_detektor_pro.model.Datenbank.Entitaeten.TblMesspunkt
 
 /**
- * ##Messungbearbeitungsadapter
+ * Messungbearbeitungsadapter
  * Adapter für die Erstellung der Liste von Messpunkten in dem Messungsbearbeitungsbild
  * @author Klaus Buderer
  * @since 1.0.0

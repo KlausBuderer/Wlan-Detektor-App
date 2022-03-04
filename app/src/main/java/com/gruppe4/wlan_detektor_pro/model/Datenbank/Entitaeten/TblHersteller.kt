@@ -4,7 +4,7 @@ import androidx.annotation.NonNull
 import androidx.room.*
 
 /**
- * ## Hersteller Tabelle
+ * Hersteller Tabelle
  * Entität der Datenbank von Router Herstellern
  *
  * @author Bruno Thurnherr

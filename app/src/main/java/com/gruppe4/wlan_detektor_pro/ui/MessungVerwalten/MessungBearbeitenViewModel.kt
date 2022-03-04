@@ -11,7 +11,7 @@ import com.gruppe4.wlan_detektor_pro.model.Datenbank.RepositoryDb
 import java.io.IOException
 
 /**
- * ##Messungsbearbeitungs-Viewmodel
+ * Messungsbearbeitungs-Viewmodel
  * @author Klaus Buderer
  * @since 1.0.0
  */

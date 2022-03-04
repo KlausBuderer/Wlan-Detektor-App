@@ -25,12 +25,18 @@ import com.gruppe4.wlan_detektor_pro.ui.Visualisierung.Visualisierung_Grid_Fragm
 import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.launch
 
-
+/**
+ * Main Activity
+ * Einziges Activity in diesem Projekt.\n
+ * Die Actionbar und die Navigation wird in dieser Klasse
+ * realisiert.
+ * @author Klaus Buderer
+ * @since 1.0.0
+ */
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
     private var activFragment: Int = 0
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -82,7 +88,8 @@ class MainActivity : AppCompatActivity() {
             navController.navigate(R.id.ueberUns2)//Aufruf Ueberuns Modal
         } else if (item.itemId == R.id.action_terms) {
             navController.navigate(
-                R.id.terms_conditions)//Aufruf Terms Conditions
+                R.id.terms_conditions
+            )//Aufruf Terms Conditions
         } else if (item.itemId == R.id.action_datenschutz) {
             navController.navigate(R.id.datenschutzFragment)//Aufruf Disclaimer
         }
@@ -109,6 +116,12 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    /**
+     * Aufruf des Hilfedialogs entsprechend des geöffneten Fragments
+     * @author Klaus Buderer
+     * @since 1.0.0
+     * @param fragment Navigations-ID des aktuellen Fragments
+     */
     fun callHilfeDialog(fragment: Int) {
         when (fragment) {
 

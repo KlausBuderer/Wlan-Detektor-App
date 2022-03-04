@@ -16,13 +16,17 @@ import com.gruppe4.wlan_detektor_pro.ui.MessungVerwalten.MESSUNGLISTE_KONTEXT
 import com.gruppe4.wlan_detektor_pro.ui.MessungVerwalten.MessungListeAdapter
 import kotlinx.coroutines.launch
 
+/**
+ * Visualisierung View
+ * Auflistung aller gespeicherten Messungen
+ * @author Klaus Buderer
+ * @since 1.0.0
+ */
 class VisualisierungFragment : Fragment(), MessungListeAdapter.OnItemClickListener {
 
     private lateinit var visualisierungViewModel: VisualisierungViewModel
     private var _binding: FragmentVisualisierungBinding? = null
 
-    // This property is only valid between onCreateView and
-    // onDestroyView.
     private val binding get() = _binding!!
     private var messungsListe: List<TblMessung>? = null
 
@@ -40,7 +44,6 @@ class VisualisierungFragment : Fragment(), MessungListeAdapter.OnItemClickListen
 
         lifecycleScope.launch { visualisierungViewModel.getAlleMessungen() }
 
-
         visualisierungViewModel.messungsliste.observe(viewLifecycleOwner, Observer {
             messungsListe = it
 
@@ -51,8 +54,6 @@ class VisualisierungFragment : Fragment(), MessungListeAdapter.OnItemClickListen
                 binding.tvKeineMessungen.visibility = TextView.VISIBLE
             }
         })
-
-
         return root
     }
 
@@ -67,8 +68,6 @@ class VisualisierungFragment : Fragment(), MessungListeAdapter.OnItemClickListen
         val action = VisualisierungFragmentDirections.actionNavigationVisualisierungToVisualisierungGridFragment(
             messungsListe?.get(position)?.idmessung ?: -1
         )
-
         Navigation.findNavController(binding.root).navigate(action)
-
     }
 }

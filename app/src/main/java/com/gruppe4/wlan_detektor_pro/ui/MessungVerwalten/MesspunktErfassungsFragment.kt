@@ -44,7 +44,7 @@ import java.util.*
 lateinit var currentPhotoPath: String
 
 /**
- * ## MesspunktErfassungs View
+ * MesspunktErfassungs View
  * @author Klaus Buderer
  * @since 1.0.0
  */

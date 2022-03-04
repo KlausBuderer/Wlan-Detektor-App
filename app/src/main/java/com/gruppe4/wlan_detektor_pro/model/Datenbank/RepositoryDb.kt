@@ -7,7 +7,7 @@ import com.gruppe4.wlan_detektor_pro.model.Datenbank.Entitaeten.TblMessung
 import kotlinx.coroutines.*
 
 /**
- * ## Room Repository Klasse
+ * Room Repository Klasse
  * Datenbankzugriffe werden in dieser Klasse realisiert.
  *
  * @author Bruno Thurnherr

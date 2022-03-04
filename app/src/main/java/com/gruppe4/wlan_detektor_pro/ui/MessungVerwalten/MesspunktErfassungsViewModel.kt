@@ -16,7 +16,7 @@ import java.io.IOException
 import java.lang.NullPointerException
 
 /**
- * ## MesspunktErfassungs ViewModel
+ * MesspunktErfassungs ViewModel
  * @author Klaus Buderer
  * @since 1.0.0
  */

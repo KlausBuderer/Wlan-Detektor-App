@@ -15,7 +15,7 @@ import com.gruppe4.wlan_detektor_pro.model.Datenbank.Entitaeten.*
 )
 
 /**
- * ## Room Datenbank Klasse
+ * Room Datenbank Klasse
  * Datenbankinstanzklasse. </br> Singelton Pattern Instanz
  *
  * @author Bruno Thurnherr

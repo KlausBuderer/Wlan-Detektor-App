@@ -18,12 +18,11 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.gruppe4.wlan_detektor_pro.R
 import com.gruppe4.wlan_detektor_pro.databinding.MessungBearbeitenFragmentBinding
 import com.gruppe4.wlan_detektor_pro.model.Datenbank.Entitaeten.TblMesspunkt
-import com.gruppe4.wlan_detektor_pro.ui.MesspunktListe
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 /**
- * ##Messungbearbeitungs-View
+ * Messungbearbeitungs-View
  * @author Klaus Buderer
  * @since 1.0.0
  */

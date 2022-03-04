@@ -6,6 +6,11 @@ import android.view.View
 import android.view.ViewGroup
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
+/**
+ * Datenschutz View
+ * @author Klaus Buderer
+ * @since 1.0.0
+ */
 class DatenschutzFragment : BottomSheetDialogFragment() {
 
     override fun onCreateView(
