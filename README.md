@@ -15,4 +15,8 @@ Bitte wählen Sie für weitergehende Informationen die von Ihnen gewünschte Spr
   </tr>
 </table>
 
+## Code Dokumentation
+<a href="https://klausbuderer.github.io/Wlan-Detektor-App/dokka/html/app/com.gruppe4.wlan_detektor_pro/index.html">Link zu der Code Dokumentation</a>
+
+## Anzahl Besucher
 ![Visitor Count](https://profile-counter.glitch.me/wlandetektorpro/count.svg)
